@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="RAG Pipeline with Guardrails case study: dual-domain retrieval, safety checks, evaluation traces, and release gates for production AI systems." />
+  <meta property="og:title" content="RAG Pipeline with Guardrails — Nitish Prasad" />
+  <meta property="og:description" content="A production-minded RAG system with guardrails, evaluation evidence, and release logic." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.nitishprasad.com/project-rag-pipeline.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RAG Pipeline with Guardrails — Nitish Prasad" />
+  <meta name="twitter:description" content="Dual-domain RAG with guardrails, evaluations, and release criteria." />
+  <meta name="theme-color" content="#0d1320" />
+  <title>RAG Pipeline with Guardrails — Nitish Prasad</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" href="favicon.png" sizes="256x256" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <link rel="stylesheet" href="portfolio-refresh.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">Nitish<span class="brand-mark">.</span></a>
+      <div class="nav-shell">
+        <nav class="nav-list" aria-label="RAG navigation">
+          <a href="#quick-read">Quick Read</a>
+          <a href="#deep-dive">Deep Dive</a>
+          <a href="index.html">Back to Portfolio</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="nav-secondary" href="https://github.com/prasadnitish/rag-pipeline-guardrails/blob/main/docs/rag-eval-report-latest.md" target="_blank" rel="noopener">Eval Report</a>
+          <a class="nav-resume" href="https://github.com/prasadnitish/rag-pipeline-guardrails" target="_blank" rel="noopener">Repository</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="case-hero">
+      <div class="case-grid">
+        <div class="case-copy">
+          <div class="eyebrow">Portfolio project · repository · production RAG</div>
+          <h1 class="case-title">RAG Pipeline with Guardrails</h1>
+          <div class="accent-line"></div>
+          <p class="case-summary" style="margin-top:1.1rem">
+            Most RAG demos stop at retrieval quality. This project is about the next layer: making grounded answers traceable, adding safety checks around risky behavior, and turning those checks into explicit release decisions instead of after-the-fact commentary.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://github.com/prasadnitish/rag-pipeline-guardrails" target="_blank" rel="noopener">Open Repository</a>
+            <a class="button secondary" href="https://github.com/prasadnitish/rag-pipeline-guardrails/blob/main/docs/rag-eval-report-latest.md" target="_blank" rel="noopener">Read Eval Report</a>
+            <a class="button secondary" href="#quick-read">Start With Quick Read</a>
+          </div>
+          <p class="mobile-note">Best read for groundedness, safety, and release discipline treated as one system.</p>
+        </div>
+
+        <aside class="executive-hero">
+          <span class="pill signal">At a glance</span>
+          <div class="divider"></div>
+          <div class="case-meta-grid">
+            <div class="meta-tile">
+              <span>Domains</span>
+              <strong>2 corpus types</strong>
+            </div>
+            <div class="meta-tile">
+              <span>Eval suite</span>
+              <strong>24 benchmark cases</strong>
+            </div>
+            <div class="meta-tile">
+              <span>Release status</span>
+              <strong>PASS in mock-mode run</strong>
+            </div>
+            <div class="meta-tile">
+              <span>Guardrails</span>
+              <strong>4 classes shipped</strong>
+            </div>
+          </div>
+          <p>Shows how I connect grounded retrieval, guardrails, and release readiness into one production-minded system.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="quick-read">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Quick Read</div>
+          <h2 class="section-title">The missing layer in most RAG work is operational discipline.</h2>
+        </div>
+      </div>
+
+      <div class="dense-grid">
+        <article class="dense-stat">
+          <strong>2</strong>
+          <span>Domains</span>
+          <p>The pipeline is intentionally grounded in both real travel workflows and synthetic seller-intelligence scenarios.</p>
+        </article>
+        <article class="dense-stat">
+          <strong>24</strong>
+          <span>Evaluation cases</span>
+          <p>Enough to prove the pipeline, guardrails, and reporting logic work together end to end.</p>
+        </article>
+        <article class="dense-stat">
+          <strong>PASS</strong>
+          <span>Release gate verdict</span>
+          <p>The point is not the score alone. The point is having a score that can block or allow a release explicitly.</p>
+        </article>
+      </div>
+
+      <div class="ownership-grid" style="margin-top:1rem">
+        <article class="surface-card">
+          <div class="eyebrow" style="color:var(--ink-soft)">The problem</div>
+          <h3>Retrieval quality alone does not make a feature shippable.</h3>
+          <p>
+            A grounded answer can still be risky, misleading, or hard to defend. The useful product question is whether the system can produce grounded answers, flag unsafe behavior, and explain why a release should move forward or stop.
+          </p>
+        </article>
+
+        <article class="panel-card">
+          <div class="eyebrow">What I built</div>
+          <ul class="bullet-list" style="margin-top:1rem">
+            <li>Dual-domain RAG pipeline with corpus-aware retrieval.</li>
+            <li>Pre and post guardrails for prompt injection, PII, toxicity, and groundedness.</li>
+            <li>Traceable outputs with citations, confidence, and verdict reasons.</li>
+            <li>Benchmark reporting and PASS/WARN/BLOCK release logic.</li>
+          </ul>
+        </article>
+
+        <article class="panel-card">
+          <div class="eyebrow">Why this matters</div>
+          <p style="margin-top:1rem">
+            This is the bridge between “we built a promising AI prototype” and “we know enough to launch responsibly.” That transition is where a lot of teams still get vague. I wanted the decision logic to be concrete.
+          </p>
+        </article>
+
+        <article class="surface-card">
+          <div class="eyebrow" style="color:var(--ink-soft)">Scope</div>
+          <ul class="bullet-list" style="margin-top:1rem">
+            <li>Travel corpus for SproutRoute use cases and seller corpus for Amplify-like scenarios.</li>
+            <li>Evaluation export in JSON and Markdown.</li>
+            <li>Release gate tied directly to guardrail outcomes.</li>
+            <li>Designed to fit with the evaluation and safety projects elsewhere in the portfolio.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split-section">
+        <article class="panel-card">
+          <div class="eyebrow">Executive Summary</div>
+          <h2 class="section-title" style="font-size:clamp(1.9rem,3vw,3rem)">A good RAG system needs evidence, not just retrieval.</h2>
+          <p>
+            The answer has to be grounded, the risky behavior has to be caught, and the launch decision has to be legible. Once those three pieces live together, the system starts to look like production infrastructure instead of a retrieval demo.
+          </p>
+        </article>
+
+        <article class="surface-card">
+          <h3>Why it matters</h3>
+          <ul class="bullet-list">
+            <li>I think about RAG as a product system, not just a retrieval pipeline.</li>
+            <li>I know how to combine safety checks and evaluation evidence into launch logic.</li>
+            <li>I can connect technical quality back to product release decisions clearly.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="deep-dive">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Deep Dive</div>
+          <h2 class="section-title">The interesting part is how the pieces fit together.</h2>
+        </div>
+      </div>
+
+      <div class="impact-grid">
+        <article class="panel-card">
+          <span class="pill accent">Capability</span>
+          <h3>Dual-domain retrieval</h3>
+          <p>The corpora cover both travel and seller workflows so the same pipeline can be tested against materially different user contexts.</p>
+        </article>
+        <article class="panel-card">
+          <span class="pill signal">Capability</span>
+          <h3>Pre and post guardrails</h3>
+          <p>Risky input and output behavior gets checked on both sides, which makes the pipeline safer and the evaluation more meaningful.</p>
+        </article>
+        <article class="panel-card">
+          <span class="pill accent">Capability</span>
+          <h3>Evaluation harness</h3>
+          <p>The benchmark suite is not there for decoration. It proves the pipeline and makes regressions comparable over time.</p>
+        </article>
+        <article class="panel-card">
+          <span class="pill signal">Capability</span>
+          <h3>Release gate</h3>
+          <p>Policy thresholds turn raw evaluation output into a decision artifact that can actually be used in launch reviews.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <a href="index.html">Back to portfolio</a>
+    </footer>
+  </main>
+</body>
+</html>

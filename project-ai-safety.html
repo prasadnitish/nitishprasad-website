@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI Safety Audit Tool case study: fairness metrics, red-team checks, release gates, and benchmark evidence for AI launch reviews." />
+  <meta property="og:title" content="AI Safety Audit Tool — Nitish Prasad" />
+  <meta property="og:description" content="A live safety and governance tool for fairness, red-team review, and PASS/WARN/BLOCK launch decisions." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.nitishprasad.com/project-ai-safety.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Safety Audit Tool — Nitish Prasad" />
+  <meta name="twitter:description" content="A fairness and governance toolkit for AI launch decisions." />
+  <meta name="theme-color" content="#0d1320" />
+  <title>AI Safety Audit Tool — Nitish Prasad</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" href="favicon.png" sizes="256x256" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <link rel="stylesheet" href="portfolio-refresh.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">Nitish<span class="brand-mark">.</span></a>
+      <div class="nav-shell">
+        <nav class="nav-list" aria-label="AI Safety navigation">
+          <a href="#quick-read">Quick Read</a>
+          <a href="#benchmarks">Benchmarks</a>
+          <a href="#demo">Live Demo</a>
+          <a href="index.html">Back to Portfolio</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="nav-secondary" href="/ai-safety/" target="_blank" rel="noopener">Launch Tool</a>
+          <a class="nav-resume" href="https://github.com/prasadnitish/ai-safety-audit-tool" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="case-hero">
+      <div class="case-grid">
+        <div class="case-copy">
+          <div class="eyebrow">Portfolio project · live demo · governance tooling</div>
+          <h1 class="case-title">AI Safety Audit Tool</h1>
+          <div class="accent-line"></div>
+          <p class="case-summary" style="margin-top:1.1rem">
+            Most AI launch checklists focus on whether the model works. This project is about a harder question: does it work fairly enough, safely enough, and transparently enough to justify launch? I built the tool to make that review operational instead of theoretical.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="/ai-safety/" target="_blank" rel="noopener">Launch Tool</a>
+            <a class="button secondary" href="#quick-read">Start With Quick Read</a>
+            <a class="button secondary" href="https://github.com/prasadnitish/ai-safety-audit-tool" target="_blank" rel="noopener">Open GitHub</a>
+          </div>
+          <p class="mobile-note">Best read for turning responsible-AI requirements into a working launch review tool.</p>
+        </div>
+
+        <aside class="executive-hero">
+          <span class="pill signal">At a glance</span>
+          <div class="divider"></div>
+          <div class="case-meta-grid">
+            <div class="meta-tile">
+              <span>Benchmark size</span>
+              <strong>540 cases per model</strong>
+            </div>
+            <div class="meta-tile">
+              <span>Scenario set</span>
+              <strong>Hiring, lending, support triage</strong>
+            </div>
+            <div class="meta-tile">
+              <span>Models</span>
+              <strong>Claude 4.6 and DeepSeek-V3</strong>
+            </div>
+            <div class="meta-tile">
+              <span>Decision shape</span>
+              <strong>PASS, WARN, BLOCK</strong>
+            </div>
+          </div>
+          <p>
+            This is the governance counterpart to the eval system: less about overall quality, more about whether the launch should proceed responsibly.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="quick-read">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Quick Read</div>
+          <h2 class="section-title">The goal is to turn safety into a launch artifact, not a slide deck.</h2>
+        </div>
+      </div>
+
+      <div class="dense-grid">
+        <article class="dense-stat">
+          <strong>540</strong>
+          <span>Benchmark cases per model</span>
+          <p>A large enough run to make fairness and red-team outcomes feel like evidence instead of anecdotes.</p>
+        </article>
+        <article class="dense-stat">
+          <strong>3</strong>
+          <span>Decision scenarios</span>
+          <p>Hiring, lending, and support triage give the policy discussion real stakes instead of generic examples.</p>
+        </article>
+        <article class="dense-stat">
+          <strong>P0 + P1</strong>
+          <span>Scope shipped</span>
+          <p>The product includes fairness views, red-team probes, baseline-vs-candidate diffs, and explicit gate verdicts.</p>
+        </article>
+      </div>
+
+      <div class="ownership-grid" style="margin-top:1rem">
+        <article class="surface-card">
+          <div class="eyebrow" style="color:var(--ink-soft)">The problem</div>
+          <h3>Responsible AI often stops at policy language.</h3>
+          <p>
+            Teams can usually say the right things about fairness and risk. The harder part is giving a launch review one place to inspect scenario data, fairness gaps, red-team probes, and a clear go/no-go verdict.
+          </p>
+        </article>
+
+        <article class="panel-card">
+          <div class="eyebrow">What I built</div>
+          <ul class="bullet-list" style="margin-top:1rem">
+            <li>Scenario-based fairness and policy review across three domains.</li>
+            <li>Baseline-versus-candidate diffs to surface regressions clearly.</li>
+            <li>Red-team probe suite tied directly to gate outcomes.</li>
+            <li>PASS/WARN/BLOCK logic with reasons that can survive a launch meeting.</li>
+          </ul>
+        </article>
+
+        <article class="panel-card">
+          <div class="eyebrow">Why this matters</div>
+          <p style="margin-top:1rem">
+            This project shows how I think about governance as part of product execution. It is not separate from shipping. It is the work that makes a launch decision credible.
+          </p>
+        </article>
+
+        <article class="surface-card">
+          <div class="eyebrow" style="color:var(--ink-soft)">Scope</div>
+          <ul class="bullet-list" style="margin-top:1rem">
+            <li>Interactive safety dashboard with scenario filters and threshold tuning.</li>
+            <li>540-case benchmark runs per model.</li>
+            <li>Fairness, red-team, and regression views in one tool.</li>
+            <li>Live demo plus repo-backed product narrative.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="benchmarks">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Benchmark Story</div>
+          <h2 class="section-title">The point is not to win a benchmark. It is to know when to block a launch.</h2>
+        </div>
+      </div>
+
+      <div class="comparison-grid">
+        <article class="comparison-card before">
+          <span class="pill signal">Scenario logic</span>
+          <h3>Fairness by segment</h3>
+          <p>The tool computes protected-group metrics and turns them into something a PM, ML partner, and compliance partner can inspect together.</p>
+          <ul class="bullet-list" style="margin-top:1rem">
+            <li>Group-level metrics across protected attributes.</li>
+            <li>Gap visibility rather than single headline numbers.</li>
+            <li>Thresholds that can be tuned and defended.</li>
+          </ul>
+        </article>
+        <article class="comparison-card after">
+          <span class="pill accent">Launch logic</span>
+          <h3>Gate verdicts with reasons</h3>
+          <p>The output is not “this feels risky.” The output is a specific verdict with the factors that triggered it, which makes the launch conversation much more useful.</p>
+          <ul class="bullet-list" style="margin-top:1rem">
+            <li>PASS, WARN, BLOCK with explicit rationale.</li>
+            <li>Red-team outcomes tied to gate status.</li>
+            <li>Baseline-vs-candidate comparison for regressions.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split-section">
+        <article class="panel-card">
+          <div class="eyebrow">Executive Summary</div>
+          <h2 class="section-title" style="font-size:clamp(1.9rem,3vw,3rem)">A launch gate is only useful if the evidence behind it is inspectable.</h2>
+          <p>
+            This tool brings policy thresholds, fairness metrics, red-team outcomes, and scenario context into one review surface. That is what turns “AI safety” from a posture into a product and launch workflow.
+          </p>
+        </article>
+
+        <article class="surface-card">
+          <h3>Why it matters</h3>
+          <ul class="bullet-list">
+            <li>I know how to turn governance language into working product logic.</li>
+            <li>I can design tools for cross-functional launch reviews, not just engineering use.</li>
+            <li>I treat fairness and safety as operating decisions, not just policy attachments.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="demo">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Live Demo</div>
+          <h2 class="section-title">The working tool is part of the case study.</h2>
+        </div>
+        <div class="section-note">This embeds the same live build available at <code>/ai-safety/</code>.</div>
+      </div>
+
+      <div class="tool-embed">
+        <iframe src="/ai-safety/" title="AI Safety Audit Tool" loading="lazy" allow="fullscreen"></iframe>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <a href="index.html">Back to portfolio</a>
+    </footer>
+  </main>
+</body>
+</html>

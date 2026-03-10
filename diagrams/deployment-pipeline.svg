@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" font-family="'Inter', 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="greenGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ade80" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0.03"/>
+    </linearGradient>
+    <marker id="aG" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4ade80" opacity="0.7"/>
+    </marker>
+    <marker id="aO" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f97316" opacity="0.7"/>
+    </marker>
+    <marker id="aB" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#60a5fa" opacity="0.7"/>
+    </marker>
+    <marker id="aW" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f0f0f5" opacity="0.5"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="680" fill="#0a0a0f" rx="16"/>
+  <rect x="0" y="0" width="1200" height="680" fill="url(#greenGrad3)" rx="16" opacity="0.3"/>
+
+  <!-- Title -->
+  <text x="600" y="42" text-anchor="middle" fill="#f0f0f5" font-size="20" font-weight="800" letter-spacing="0.5">Deployment Pipeline</text>
+  <line x1="470" y1="52" x2="730" y2="52" stroke="#4ade80" stroke-width="2" opacity="0.4"/>
+
+  <!-- ═══ PIPELINE 1: BACKEND + WEB ═══ -->
+  <rect x="40" y="72" width="1120" height="170" rx="12" fill="#111118" stroke="#2a2a38" stroke-width="1"/>
+  <rect x="40" y="72" width="1120" height="4" rx="2" fill="#4ade80" opacity="0.6"/>
+  <text x="66" y="100" fill="#4ade80" font-size="13" font-weight="700" letter-spacing="1">BACKEND + WEB</text>
+
+  <!-- GitHub -->
+  <rect x="70" y="116" width="220" height="108" rx="10" fill="#1a1a24" stroke="#f0f0f5" stroke-width="0.5"/>
+  <text x="92" y="142" fill="#f0f0f5" font-size="14" font-weight="700">GitHub</text>
+  <text x="92" y="162" fill="#8888aa" font-size="10">prasadnitish/SproutRoute</text>
+  <text x="92" y="182" fill="#8888aa" font-size="10">Push to main triggers:</text>
+  <text x="92" y="198" fill="#4ade80" font-size="10">• GitHub Actions CI</text>
+  <text x="92" y="214" fill="#4ade80" font-size="10">• Railway auto-deploy</text>
+
+  <!-- Arrow -->
+  <line x1="290" y1="170" x2="340" y2="170" stroke="#4ade80" stroke-width="2" marker-end="url(#aG)"/>
+
+  <!-- GitHub Actions -->
+  <rect x="350" y="116" width="220" height="108" rx="10" fill="#1a1a24" stroke="#4ade80" stroke-width="0.5"/>
+  <text x="372" y="142" fill="#4ade80" font-size="14" font-weight="700">GitHub Actions</text>
+  <text x="372" y="162" fill="#8888aa" font-size="10">CI Pipeline (test.yml)</text>
+  <rect x="372" y="172" width="170" height="20" rx="4" fill="#4ade80" opacity="0.08"/>
+  <text x="382" y="186" fill="#4ade80" font-size="10">npm test (108 tests)</text>
+  <rect x="372" y="196" width="170" height="20" rx="4" fill="#60a5fa" opacity="0.08"/>
+  <text x="382" y="210" fill="#60a5fa" font-size="10">vite build (frontend)</text>
+
+  <!-- Arrow -->
+  <line x1="570" y1="170" x2="630" y2="170" stroke="#4ade80" stroke-width="2" marker-end="url(#aG)"/>
+  <text x="588" y="162" fill="#4ade80" font-size="9" font-weight="600">pass</text>
+
+  <!-- Railway -->
+  <rect x="640" y="116" width="490" height="108" rx="10" fill="#1a1a24" stroke="#4ade80" stroke-width="1"/>
+  <rect x="640" y="116" width="490" height="4" rx="2" fill="#4ade80" opacity="0.5"/>
+  <text x="662" y="142" fill="#4ade80" font-size="14" font-weight="700">Railway</text>
+  <text x="755" y="142" fill="#8888aa" font-size="10">Auto-deploy on main</text>
+
+  <text x="662" y="164" fill="#f0f0f5" font-size="10" font-weight="600">Build:</text>
+  <text x="708" y="164" fill="#8888aa" font-size="10">npm run build → Vite → dist/</text>
+
+  <text x="662" y="182" fill="#f0f0f5" font-size="10" font-weight="600">Start:</text>
+  <text x="708" y="182" fill="#8888aa" font-size="10">node src/backend/server.js</text>
+
+  <text x="662" y="200" fill="#f0f0f5" font-size="10" font-weight="600">Serves:</text>
+  <text x="708" y="200" fill="#8888aa" font-size="10">/api/* routes + static frontend</text>
+
+  <rect x="930" y="148" width="185" height="26" rx="5" fill="#4ade80" opacity="0.1" stroke="#4ade80" stroke-width="0.5"/>
+  <text x="940" y="166" fill="#4ade80" font-size="10" font-weight="700">sproutroute-production.up.railway.app</text>
+
+  <text x="662" y="218" fill="#8888aa" font-size="9">NODE_ENV=production · PORT=$PORT · ANTHROPIC_API_KEY · OPENWEATHERMAP_API_KEY</text>
+
+  <!-- ═══ PIPELINE 2: MOBILE ═══ -->
+  <rect x="40" y="262" width="1120" height="225" rx="12" fill="#111118" stroke="#2a2a38" stroke-width="1"/>
+  <rect x="40" y="262" width="1120" height="4" rx="2" fill="#f97316" opacity="0.6"/>
+  <text x="66" y="290" fill="#f97316" font-size="13" font-weight="700" letter-spacing="1">MOBILE (iOS + ANDROID)</text>
+
+  <!-- Local dev -->
+  <rect x="70" y="308" width="220" height="82" rx="10" fill="#1a1a24" stroke="#f0f0f5" stroke-width="0.5"/>
+  <text x="92" y="332" fill="#f0f0f5" font-size="14" font-weight="700">Local Dev</text>
+  <text x="92" y="352" fill="#8888aa" font-size="10">sproutroute-mobile/</text>
+  <text x="92" y="368" fill="#8888aa" font-size="10">React Native + Expo + TS</text>
+  <text x="92" y="384" fill="#f97316" font-size="10" font-weight="600">eas build --profile production</text>
+
+  <!-- Arrow -->
+  <line x1="290" y1="349" x2="340" y2="349" stroke="#f97316" stroke-width="2" marker-end="url(#aO)"/>
+
+  <!-- EAS Build -->
+  <rect x="350" y="308" width="220" height="158" rx="10" fill="#1a1a24" stroke="#f97316" stroke-width="0.5"/>
+  <text x="372" y="332" fill="#f97316" font-size="14" font-weight="700">EAS Build</text>
+  <text x="372" y="350" fill="#8888aa" font-size="10">Expo Application Services</text>
+  <text x="372" y="370" fill="#8888aa" font-size="10">Cloud-based build farm</text>
+
+  <rect x="372" y="384" width="175" height="22" rx="4" fill="#f97316" opacity="0.08"/>
+  <text x="382" y="399" fill="#f97316" font-size="10" font-weight="600">iOS → .ipa (Xcode cloud)</text>
+
+  <rect x="372" y="412" width="175" height="22" rx="4" fill="#22c55e" opacity="0.08"/>
+  <text x="382" y="427" fill="#22c55e" font-size="10" font-weight="600">Android → .aab (Gradle)</text>
+
+  <text x="372" y="454" fill="#8888aa" font-size="9">autoIncrement: true</text>
+
+  <!-- iOS Arrow -->
+  <line x1="570" y1="330" x2="640" y2="330" stroke="#f97316" stroke-width="2" marker-end="url(#aO)"/>
+  <text x="590" y="322" fill="#f97316" font-size="9" font-weight="600">.ipa</text>
+
+  <!-- Android Arrow -->
+  <line x1="570" y1="400" x2="640" y2="400" stroke="#22c55e" stroke-width="2" marker-end="url(#aG)"/>
+  <text x="590" y="392" fill="#22c55e" font-size="9" font-weight="600">.aab</text>
+
+  <!-- App Store Connect -->
+  <rect x="650" y="300" width="500" height="80" rx="10" fill="#1a1a24" stroke="#f97316" stroke-width="1"/>
+  <rect x="650" y="300" width="500" height="3" rx="1.5" fill="#f97316" opacity="0.5"/>
+  <text x="672" y="324" fill="#f97316" font-size="14" font-weight="700">App Store Connect</text>
+  <text x="672" y="344" fill="#8888aa" font-size="10">Bundle: com.sproutroute.app</text>
+  <text x="672" y="360" fill="#8888aa" font-size="10">Team: YNCCXQ5TUR (Nitish Prasad)</text>
+  <text x="672" y="376" fill="#8888aa" font-size="10">Distribution Cert + Provisioning Profile via EAS</text>
+
+  <rect x="980" y="310" width="140" height="22" rx="4" fill="#f97316" opacity="0.12"/>
+  <text x="990" y="325" fill="#f97316" font-size="10" font-weight="700">TestFlight → App Store</text>
+
+  <!-- Google Play Console -->
+  <rect x="650" y="392" width="500" height="80" rx="10" fill="#1a1a24" stroke="#22c55e" stroke-width="1"/>
+  <rect x="650" y="392" width="500" height="3" rx="1.5" fill="#22c55e" opacity="0.5"/>
+  <text x="672" y="416" fill="#22c55e" font-size="14" font-weight="700">Google Play Console</text>
+  <text x="672" y="436" fill="#8888aa" font-size="10">Package: com.sproutroute.app</text>
+  <text x="672" y="452" fill="#8888aa" font-size="10">Signed with EAS-managed Keystore</text>
+  <text x="672" y="468" fill="#8888aa" font-size="10">Service account JSON for automated upload</text>
+
+  <rect x="980" y="402" width="140" height="22" rx="4" fill="#22c55e" opacity="0.12"/>
+  <text x="990" y="417" fill="#22c55e" font-size="10" font-weight="700">Internal → Production</text>
+
+  <!-- ═══ PIPELINE 3: PORTFOLIO ═══ -->
+  <rect x="40" y="507" width="1120" height="100" rx="12" fill="#111118" stroke="#2a2a38" stroke-width="1"/>
+  <rect x="40" y="507" width="1120" height="4" rx="2" fill="#60a5fa" opacity="0.6"/>
+  <text x="66" y="535" fill="#60a5fa" font-size="13" font-weight="700" letter-spacing="1">PORTFOLIO WEBSITE</text>
+
+  <!-- Local -->
+  <rect x="70" y="548" width="220" height="44" rx="10" fill="#1a1a24" stroke="#f0f0f5" stroke-width="0.5"/>
+  <text x="92" y="576" fill="#f0f0f5" font-size="12" font-weight="700">nitishprasad-website/</text>
+
+  <!-- Arrow -->
+  <line x1="290" y1="570" x2="400" y2="570" stroke="#60a5fa" stroke-width="2" marker-end="url(#aB)"/>
+  <text x="320" y="562" fill="#60a5fa" font-size="9" font-weight="600">wrangler deploy</text>
+
+  <!-- Cloudflare -->
+  <rect x="410" y="548" width="420" height="44" rx="10" fill="#1a1a24" stroke="#60a5fa" stroke-width="1"/>
+  <rect x="410" y="548" width="420" height="3" rx="1.5" fill="#60a5fa" opacity="0.5"/>
+  <text x="432" y="576" fill="#60a5fa" font-size="14" font-weight="700">Cloudflare Workers</text>
+  <text x="605" y="576" fill="#8888aa" font-size="10">nitishprasad.com</text>
+
+  <rect x="850" y="548" width="280" height="44" rx="10" fill="#1a1a24" stroke="#2a2a38" stroke-width="0.5"/>
+  <text x="870" y="576" fill="#8888aa" font-size="10">Privacy Policy + Terms of Service</text>
+
+  <!-- ═══ COUNTRY SUPPORT ═══ -->
+  <rect x="40" y="625" width="1120" height="42" rx="8" fill="#111118" stroke="#2a2a38" stroke-width="1"/>
+  <text x="66" y="650" fill="#f0f0f5" font-size="11" font-weight="700">SUPPORTED:</text>
+
+  <rect x="160" y="634" width="60" height="24" rx="4" fill="#4ade80" opacity="0.1" stroke="#4ade80" stroke-width="0.5"/>
+  <text x="190" y="650" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="700">US</text>
+
+  <rect x="230" y="634" width="80" height="24" rx="4" fill="#4ade80" opacity="0.1" stroke="#4ade80" stroke-width="0.5"/>
+  <text x="270" y="650" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="700">Canada</text>
+
+  <rect x="320" y="634" width="50" height="24" rx="4" fill="#4ade80" opacity="0.1" stroke="#4ade80" stroke-width="0.5"/>
+  <text x="345" y="650" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="700">UK</text>
+
+  <rect x="380" y="634" width="80" height="24" rx="4" fill="#4ade80" opacity="0.1" stroke="#4ade80" stroke-width="0.5"/>
+  <text x="420" y="650" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="700">Australia</text>
+
+  <text x="490" y="650" fill="#2a2a38" font-size="11">│</text>
+
+  <text x="510" y="650" fill="#8888aa" font-size="10">Weather.gov (US) · OpenWeatherMap (intl) · WeatherKit (iOS native)</text>
+
+  <text x="930" y="650" fill="#2a2a38" font-size="11">│</text>
+
+  <text x="950" y="650" fill="#8888aa" font-size="10">108 backend tests</text>
+
+  <!-- Footer -->
+  <text x="600" y="675" text-anchor="middle" fill="#8888aa" font-size="9" opacity="0.5">SproutRoute Deployment Pipeline  ·  Built by Nitish Prasad</text>
+</svg>

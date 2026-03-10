@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" font-family="'Inter', 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="greenGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ade80" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0.03"/>
+    </linearGradient>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4ade80" opacity="0.7"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f97316" opacity="0.7"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#60a5fa" opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="#0a0a0f" rx="16"/>
+  <rect x="0" y="0" width="1200" height="900" fill="url(#greenGrad2)" rx="16" opacity="0.3"/>
+
+  <!-- Title -->
+  <text x="600" y="42" text-anchor="middle" fill="#f0f0f5" font-size="20" font-weight="800" letter-spacing="0.5">Mobile Data Flow — Primary Path</text>
+  <line x1="430" y1="52" x2="770" y2="52" stroke="#4ade80" stroke-width="2" opacity="0.4"/>
+
+  <!-- ═══ STEP 1: WIZARD ═══ -->
+  <rect x="60" y="72" width="1080" height="120" rx="12" fill="#111118" stroke="#2a2a38" stroke-width="1"/>
+  <rect x="60" y="72" width="4" height="120" rx="2" fill="#4ade80" opacity="0.8"/>
+  <text x="86" y="96" fill="#4ade80" font-size="12" font-weight="700" letter-spacing="1">1</text>
+  <text x="108" y="96" fill="#f0f0f5" font-size="14" font-weight="700">WIZARD</text>
+  <text x="198" y="96" fill="#8888aa" font-size="11">User input (3 screens)</text>
+
+  <!-- Wizard screens -->
+  <rect x="90" y="110" width="200" height="64" rx="8" fill="#1a1a24" stroke="#4ade80" stroke-width="0.5"/>
+  <text x="110" y="132" fill="#4ade80" font-size="11" font-weight="600">destination.tsx</text>
+  <text x="110" y="150" fill="#8888aa" font-size="10">Nominatim geocode</text>
+  <text x="110" y="164" fill="#8888aa" font-size="10">"San Diego" → lat/lon</text>
+
+  <text x="310" y="146" fill="#4ade80" font-size="16" opacity="0.5">→</text>
+
+  <rect x="340" y="110" width="200" height="64" rx="8" fill="#1a1a24" stroke="#4ade80" stroke-width="0.5"/>
+  <text x="360" y="132" fill="#4ade80" font-size="11" font-weight="600">dates.tsx</text>
+  <text x="360" y="150" fill="#8888aa" font-size="10">Date range picker</text>
+  <text x="360" y="164" fill="#8888aa" font-size="10">Max 14 days, 2yr future</text>
+
+  <text x="560" y="146" fill="#4ade80" font-size="16" opacity="0.5">→</text>
+
+  <rect x="590" y="110" width="250" height="64" rx="8" fill="#1a1a24" stroke="#4ade80" stroke-width="0.5"/>
+  <text x="610" y="132" fill="#4ade80" font-size="11" font-weight="600">kids.tsx</text>
+  <text x="610" y="150" fill="#8888aa" font-size="10">Children (0-6) + ages</text>
+  <text x="610" y="164" fill="#8888aa" font-size="10">Activity selection (12 options)</text>
+
+  <!-- wizardStore -->
+  <rect x="870" y="110" width="240" height="64" rx="8" fill="#1a1a24" stroke="#f97316" stroke-width="0.5"/>
+  <text x="890" y="132" fill="#f97316" font-size="11" font-weight="600">wizardStore.ts</text>
+  <text x="890" y="150" fill="#8888aa" font-size="10">Singleton state store</text>
+  <text x="890" y="164" fill="#8888aa" font-size="10">Observer pattern + subscribe()</text>
+
+  <!-- Arrow down -->
+  <line x1="600" y1="192" x2="600" y2="220" stroke="#4ade80" stroke-width="2" marker-end="url(#arrowGreen)" opacity="0.6"/>
+
+  <!-- ═══ STEP 2: BUNDLE API ═══ -->
+  <rect x="60" y="225" width="1080" height="175" rx="12" fill="#111118" stroke="#2a2a38" stroke-width="1"/>
+  <rect x="60" y="225" width="4" height="175" rx="2" fill="#f97316" opacity="0.8"/>
+  <text x="86" y="249" fill="#f97316" font-size="12" font-weight="700" letter-spacing="1">2</text>
+  <text x="108" y="249" fill="#f0f0f5" font-size="14" font-weight="700">BUNDLE API</text>
+  <text x="248" y="249" fill="#8888aa" font-size="11">Single request — parallel AI on server</text>
+
+  <rect x="90" y="264" width="280" height="28" rx="5" fill="#f97316" opacity="0.1" stroke="#f97316" stroke-width="0.5"/>
+  <text x="110" y="283" fill="#f97316" font-size="12" font-weight="700">POST /api/v1/trip/bundle</text>
+
+  <!-- Server-side flow -->
+  <rect x="90" y="304" width="180" height="42" rx="6" fill="#1a1a24" stroke="#4ade80" stroke-width="0.5"/>
+  <text x="108" y="322" fill="#4ade80" font-size="10" font-weight="600">Geocode (Nominatim)</text>
+  <text x="108" y="338" fill="#8888aa" font-size="9">~200ms, 6h cache</text>
+
+  <text x="285" y="328" fill="#4ade80" font-size="14" opacity="0.5">→</text>
+
+  <rect x="300" y="304" width="180" height="42" rx="6" fill="#1a1a24" stroke="#60a5fa" stroke-width="0.5"/>
+  <text x="318" y="322" fill="#60a5fa" font-size="10" font-weight="600">Weather (NWS / OWM)</text>
+  <text x="318" y="338" fill="#8888aa" font-size="9">~300ms, 1h cache</text>
+
+  <text x="495" y="328" fill="#f97316" font-size="14" opacity="0.5">→</text>
+
+  <!-- Parallel AI box -->
+  <rect x="510" y="296" width="600" height="58" rx="8" fill="#f97316" opacity="0.04" stroke="#f97316" stroke-width="0.5" stroke-dasharray="4,3"/>
+  <text x="530" y="313" fill="#f97316" font-size="10" font-weight="700">Promise.all()</text>
+  <text x="650" y="313" fill="#8888aa" font-size="9">— parallel execution</text>
+
+  <rect x="530" y="320" width="260" height="28" rx="5" fill="#1a1a24" stroke="#f97316" stroke-width="0.5"/>
+  <text x="548" y="339" fill="#f97316" font-size="10" font-weight="600">tripPlanAI → Claude Haiku</text>
+
+  <rect x="810" y="320" width="280" height="28" rx="5" fill="#1a1a24" stroke="#f97316" stroke-width="0.5"/>
+  <text x="828" y="339" fill="#f97316" font-size="10" font-weight="600">packingListAI → Claude Haiku</text>
+
+  <!-- Response -->
+  <rect x="90" y="360" width="1020" height="28" rx="5" fill="#4ade80" opacity="0.06" stroke="#4ade80" stroke-width="0.5"/>
+  <text x="110" y="379" fill="#4ade80" font-size="11" font-weight="600">Response: { trip, weather, tripPlan, packingList, timings }</text>
+  <text x="680" y="379" fill="#8888aa" font-size="10">~3.5s total (was 8-12s sequential)</text>
+
+  <!-- Arrow down -->
+  <line x1="600" y1="400" x2="600" y2="428" stroke="#f97316" stroke-width="2" marker-end="url(#arrowOrange)" opacity="0.6"/>
+
+  <!-- ═══ STEP 3: SAFETY CALLS ═══ -->
+  <rect x="60" y="433" width="1080" height="115" rx="12" fill="#111118" stroke="#2a2a38" stroke-width="1"/>
+  <rect x="60" y="433" width="4" height="115" rx="2" fill="#22c55e" opacity="0.8"/>
+  <text x="86" y="457" fill="#22c55e" font-size="12" font-weight="700" letter-spacing="1">3</text>
+  <text x="108" y="457" fill="#f0f0f5" font-size="14" font-weight="700">SAFETY DATA</text>
+  <text x="238" y="457" fill="#8888aa" font-size="11">Parallel, non-blocking (Promise.all)</text>
+
+  <rect x="90" y="472" width="310" height="60" rx="6" fill="#1a1a24" stroke="#22c55e" stroke-width="0.5"/>
+  <text x="108" y="492" fill="#22c55e" font-size="10" font-weight="600">Car Seat Guidance</text>
+  <text x="108" y="508" fill="#8888aa" font-size="9">Static rules + AI fallback</text>
+  <text x="108" y="522" fill="#8888aa" font-size="9">Hidden when numChildren = 0</text>
+
+  <rect x="420" y="472" width="310" height="60" rx="6" fill="#1a1a24" stroke="#22c55e" stroke-width="0.5"/>
+  <text x="438" y="492" fill="#22c55e" font-size="10" font-weight="600">Travel Advisory</text>
+  <text x="438" y="508" fill="#8888aa" font-size="9">US State Dept API (non-US only)</text>
+  <text x="438" y="522" fill="#8888aa" font-size="9">Levels 1-4, 24h cache</text>
+
+  <rect x="750" y="472" width="360" height="60" rx="6" fill="#1a1a24" stroke="#22c55e" stroke-width="0.5"/>
+  <text x="768" y="492" fill="#22c55e" font-size="10" font-weight="600">Neighborhood Safety</text>
+  <text x="768" y="508" fill="#8888aa" font-size="9">Amadeus/GeoSure (OAuth2)</text>
+  <text x="768" y="522" fill="#8888aa" font-size="9">Scores 1-100 across 6 categories</text>
+
+  <!-- Arrow down -->
+  <line x1="600" y1="548" x2="600" y2="578" stroke="#22c55e" stroke-width="2" marker-end="url(#arrowGreen)" opacity="0.6"/>
+
+  <!-- ═══ STEP 4: iOS NATIVE ═══ -->
+  <rect x="60" y="582" width="1080" height="105" rx="12" fill="#111118" stroke="#2a2a38" stroke-width="1"/>
+  <rect x="60" y="582" width="4" height="105" rx="2" fill="#60a5fa" opacity="0.8"/>
+  <text x="86" y="606" fill="#60a5fa" font-size="12" font-weight="700" letter-spacing="1">4</text>
+  <text x="108" y="606" fill="#f0f0f5" font-size="14" font-weight="700">iOS NATIVE ENHANCEMENTS</text>
+  <text x="358" y="606" fill="#8888aa" font-size="11">Parallel, non-blocking — graceful fallback on Android</text>
+
+  <rect x="90" y="622" width="480" height="50" rx="6" fill="#1a1a24" stroke="#60a5fa" stroke-width="0.5"/>
+  <rect x="90" y="622" width="480" height="3" rx="1.5" fill="#60a5fa" opacity="0.4"/>
+  <text x="108" y="645" fill="#60a5fa" font-size="11" font-weight="600">WeatherKit (iOS 16+)</text>
+  <text x="108" y="662" fill="#8888aa" font-size="10">Replaces server weather · ~1-2s vs 5s · Works offline for cached trips</text>
+
+  <rect x="590" y="622" width="520" height="50" rx="6" fill="#1a1a24" stroke="#f97316" stroke-width="0.5"/>
+  <rect x="590" y="622" width="520" height="3" rx="1.5" fill="#f97316" opacity="0.4"/>
+  <text x="608" y="645" fill="#f97316" font-size="11" font-weight="600">Foundation Models (iOS 26+ / Apple Intelligence)</text>
+  <text x="608" y="662" fill="#8888aa" font-size="10">On-device AI Recap button · 2-3 sentence summary · Fully offline</text>
+
+  <!-- Arrow down -->
+  <line x1="600" y1="687" x2="600" y2="717" stroke="#60a5fa" stroke-width="2" marker-end="url(#arrowBlue)" opacity="0.6"/>
+
+  <!-- ═══ STEP 5: RESULTS ═══ -->
+  <rect x="60" y="722" width="1080" height="160" rx="12" fill="#111118" stroke="#2a2a38" stroke-width="1"/>
+  <rect x="60" y="722" width="4" height="160" rx="2" fill="#4ade80" opacity="0.8"/>
+  <text x="86" y="746" fill="#4ade80" font-size="12" font-weight="700" letter-spacing="1">5</text>
+  <text x="108" y="746" fill="#f0f0f5" font-size="14" font-weight="700">RESULTS SCREEN</text>
+  <text x="268" y="746" fill="#8888aa" font-size="11">3-tab layout with haptics + share</text>
+
+  <!-- Itinerary tab -->
+  <rect x="90" y="762" width="330" height="104" rx="8" fill="#1a1a24" stroke="#4ade80" stroke-width="0.5"/>
+  <text x="108" y="783" fill="#4ade80" font-size="12" font-weight="700">Itinerary</text>
+  <text x="108" y="800" fill="#8888aa" font-size="10">AI Recap (iOS 26+)</text>
+  <text x="108" y="816" fill="#8888aa" font-size="10">Overview + Weather forecast</text>
+  <text x="108" y="832" fill="#8888aa" font-size="10">Day-by-Day carousel (swipeable)</text>
+  <text x="108" y="848" fill="#f97316" font-size="10" font-weight="600">Choose Activities + Refresh</text>
+
+  <!-- Packing tab -->
+  <rect x="440" y="762" width="280" height="104" rx="8" fill="#1a1a24" stroke="#f97316" stroke-width="0.5"/>
+  <text x="458" y="783" fill="#f97316" font-size="12" font-weight="700">Packing</text>
+  <text x="458" y="800" fill="#8888aa" font-size="10">Categorized checklist</text>
+  <text x="458" y="816" fill="#8888aa" font-size="10">Custom items (AsyncStorage)</text>
+  <text x="458" y="832" fill="#8888aa" font-size="10">Haptic feedback on check</text>
+  <text x="458" y="848" fill="#8888aa" font-size="10">Pull-to-refresh regenerate</text>
+
+  <!-- Safety tab -->
+  <rect x="740" y="762" width="370" height="104" rx="8" fill="#1a1a24" stroke="#22c55e" stroke-width="0.5"/>
+  <text x="758" y="783" fill="#22c55e" font-size="12" font-weight="700">Safety</text>
+  <text x="758" y="800" fill="#8888aa" font-size="10">Weather Safety alerts</text>
+  <text x="758" y="816" fill="#8888aa" font-size="10">Travel Advisory (non-US)</text>
+  <text x="758" y="832" fill="#8888aa" font-size="10">Neighborhood Safety scores</text>
+  <text x="758" y="848" fill="#8888aa" font-size="10">Travel Tips + Car Seat Laws</text>
+
+  <!-- Replan arrow -->
+  <path d="M 400 850 Q 400 880 500 880 Q 600 880 600 860" stroke="#f97316" stroke-width="1.5" fill="none" stroke-dasharray="5,3" opacity="0.5" marker-end="url(#arrowOrange)"/>
+  <text x="430" y="893" fill="#f97316" font-size="9" font-weight="600">POST /api/v1/trip/replan (cached weather, no re-geocode)</text>
+
+  <!-- Footer -->
+  <text x="600" y="898" text-anchor="middle" fill="#8888aa" font-size="9" opacity="0.0">.</text>
+</svg>

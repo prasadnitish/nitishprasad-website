@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI Eval Control Tower case study: model quality, latency, cost, drift, and release-gate visibility for production AI systems." />
+  <meta property="og:title" content="AI Eval Control Tower — Nitish Prasad" />
+  <meta property="og:description" content="An evaluation system for model quality, A/B comparisons, drift, and release decisions." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.nitishprasad.com/ai-eval-control-tower.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Eval Control Tower — Nitish Prasad" />
+  <meta name="twitter:description" content="Evaluation infrastructure for teams shipping AI in production." />
+  <meta name="theme-color" content="#0d1320" />
+  <title>AI Eval Control Tower — Nitish Prasad</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" href="favicon.png" sizes="256x256" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <link rel="stylesheet" href="portfolio-refresh.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">Nitish<span class="brand-mark">.</span></a>
+      <div class="nav-shell">
+        <nav class="nav-list" aria-label="AI Eval navigation">
+          <a href="#quick-read">Quick Read</a>
+          <a href="#benchmarks">Benchmarks</a>
+          <a href="#demo">Live Demo</a>
+          <a href="index.html">Back to Portfolio</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="nav-secondary" href="/evals/" target="_blank" rel="noopener noreferrer">Launch Tool</a>
+          <a class="nav-resume" href="https://github.com/prasadnitish/AI-Eval-Control-Tower" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="case-hero">
+      <div class="case-grid">
+        <div class="case-copy">
+          <div class="eyebrow">Portfolio project · live demo · evaluation infrastructure</div>
+          <h1 class="case-title">AI Eval Control Tower</h1>
+          <div class="accent-line"></div>
+          <p class="case-summary" style="margin-top:1.1rem">
+            This project exists because shipping the model is only the start. The harder product question is knowing when the model is getting worse, when a cheaper model is good enough, and when a release should be blocked. I built this tool to make those decisions visible.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="/evals/" target="_blank" rel="noopener noreferrer">Launch Tool</a>
+            <a class="button secondary" href="#quick-read">Start With Quick Read</a>
+            <a class="button secondary" href="https://github.com/prasadnitish/AI-Eval-Control-Tower" target="_blank" rel="noreferrer">Open GitHub</a>
+          </div>
+          <p class="mobile-note">Best read for AI quality, model economics, and release decisions treated as one operating system.</p>
+        </div>
+
+        <aside class="executive-hero">
+          <span class="pill signal">At a glance</span>
+          <div class="divider"></div>
+          <div class="case-meta-grid">
+            <div class="meta-tile">
+              <span>Prompts</span>
+              <strong>100 grounded evals</strong>
+            </div>
+            <div class="meta-tile">
+              <span>Coverage</span>
+              <strong>24 categories</strong>
+            </div>
+            <div class="meta-tile">
+              <span>Benchmarked</span>
+              <strong>Claude 4.6 vs DeepSeek-V3</strong>
+            </div>
+            <div class="meta-tile">
+              <span>Use case</span>
+              <strong>Release and operating decisions</strong>
+            </div>
+          </div>
+          <p>Shows how I think about AI products after launch: quality, cost, latency, drift, and release decisions in one operating layer.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="quick-read">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Quick Read</div>
+          <h2 class="section-title">Most AI teams still lack a clear operating layer for model decisions.</h2>
+        </div>
+      </div>
+
+      <div class="dense-grid">
+        <article class="dense-stat">
+          <strong>93.0</strong>
+          <span>Claude average quality</span>
+          <p>Strong enough to clear the quality bar while still needing active monitoring and comparison.</p>
+        </article>
+        <article class="dense-stat">
+          <strong>81.0</strong>
+          <span>DeepSeek average quality</span>
+          <p>Cheaper, but below the bar in places where the release gate should stay honest.</p>
+        </article>
+        <article class="dense-stat">
+          <strong>41×</strong>
+          <span>Cost delta</span>
+          <p>The right answer is not always “pick the best model.” Sometimes it is “know exactly when the cheaper one is still acceptable.”</p>
+        </article>
+      </div>
+
+      <div class="ownership-grid" style="margin-top:1rem">
+        <article class="surface-card">
+          <div class="eyebrow" style="color:var(--ink-soft)">The problem</div>
+          <h3>AI quality is usually managed with fragments.</h3>
+          <p>
+            Teams often have one spreadsheet for prompts, one notebook for model experiments, another chart for latency, and a separate conversation about release criteria. That makes it hard to treat model performance like an operational system.
+          </p>
+        </article>
+
+        <article class="panel-card">
+          <div class="eyebrow">What I built</div>
+          <ul class="bullet-list" style="margin-top:1rem">
+            <li>LLM-as-judge evaluation on domain-grounded prompts.</li>
+            <li>A/B comparison views across quality, latency, cost, and violations.</li>
+            <li>Drift and release-gate visibility in one interface.</li>
+            <li>A live dashboard that makes the decision logic inspectable, not hidden in a notebook.</li>
+          </ul>
+        </article>
+
+        <article class="panel-card">
+          <div class="eyebrow">Why this matters</div>
+          <p style="margin-top:1rem">
+            This is not just evaluation as a data-science exercise. It is evaluation as product operations. It turns AI quality into something a PM can manage, discuss, and decide on with engineers and leadership.
+          </p>
+        </article>
+
+        <article class="surface-card">
+          <div class="eyebrow" style="color:var(--ink-soft)">Scope</div>
+          <ul class="bullet-list" style="margin-top:1rem">
+            <li>24 categories of seller-intelligence prompts.</li>
+            <li>30-day history and live dashboard experience.</li>
+            <li>Model quality, latency, cost, and violation views.</li>
+            <li>Release gating around explicit thresholds rather than vibes.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="benchmarks">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Benchmark Story</div>
+          <h2 class="section-title">The comparison is useful because it forces a real decision.</h2>
+        </div>
+      </div>
+
+      <div class="comparison-grid">
+        <article class="comparison-card before">
+          <span class="pill signal">Model A</span>
+          <h3>Claude Sonnet 4.6</h3>
+          <p>Higher quality and low policy violations. More expensive, but comfortably above the release floor.</p>
+          <ul class="bullet-list" style="margin-top:1rem">
+            <li>Average quality: 93.0</li>
+            <li>Cost per run: $0.30</li>
+            <li>Policy violations: 0</li>
+            <li>Lowest category score: 83.5</li>
+          </ul>
+        </article>
+        <article class="comparison-card after">
+          <span class="pill accent">Model B</span>
+          <h3>DeepSeek-V3</h3>
+          <p>Far cheaper, but not safe to wave through blindly. This is exactly the kind of tradeoff the dashboard is supposed to make visible.</p>
+          <ul class="bullet-list" style="margin-top:1rem">
+            <li>Average quality: 81.0</li>
+            <li>Cost per run: $0.007</li>
+            <li>Policy violations: 2</li>
+            <li>Lowest category score: 43</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split-section">
+        <article class="panel-card">
+          <div class="eyebrow">Executive Summary</div>
+          <h2 class="section-title" style="font-size:clamp(1.9rem,3vw,3rem)">Good eval tooling does not just score models. It helps a team decide what to ship.</h2>
+          <p>
+            The dashboard matters because it keeps quality, cost, latency, drift, and policy gates in the same room. That is the only way the tradeoffs stay honest enough to drive a launch decision.
+          </p>
+        </article>
+
+        <article class="surface-card">
+          <h3>Why it matters</h3>
+          <ul class="bullet-list">
+            <li>I think about AI products after the first launch, not just before it.</li>
+            <li>I know how to turn model evaluation into operating logic a team can actually use.</li>
+            <li>I am comfortable building PM tools that sit between engineering rigor and product decisions.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="demo">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Live Demo</div>
+          <h2 class="section-title">The working tool is part of the case study.</h2>
+        </div>
+        <div class="section-note">This is the same live build available at <code>/evals/</code>.</div>
+      </div>
+
+      <div class="tool-embed">
+        <iframe src="/evals/" title="AI Eval Control Tower" loading="lazy" allow="fullscreen"></iframe>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <a href="index.html">Back to portfolio</a>
+    </footer>
+  </main>
+</body>
+</html>
