@@ -6,7 +6,7 @@ const SITE = {
   intro: [
     "For every project here, I individually conceptualized the product, designed the system, and wrote the production code end to end.",
     "Most of my work sits where product strategy meets system design. I like the stage where the request is still fuzzy, the operating model is still unsettled, and the product needs someone to narrow the real problem.",
-    "That has meant different things in different products: turning Amplify from a dashboard request into an AI seller intelligence platform, shipping SproutRoute end to end in ten weeks, and building MathQuest as a privacy-first offline iPad app for kids."
+    "That has meant different things in different products: turning Amplify from a dashboard request into an AI seller intelligence platform, shipping SproutRoute end to end in ten weeks, and building Sprout Math as a privacy-first offline iOS math app for kids."
   ],
   email: "nitish.prasad@gmail.com",
   linkedin: "https://linkedin.com/in/nitishprasad",
@@ -26,9 +26,9 @@ const heroReads = [
     copy: "Full-stack AI trip planner, shipped solo in ten weeks. React, Node, Claude API, Railway."
   },
   {
-    href: "project-mathquest.html",
-    title: "MathQuest Kids",
-    copy: "Offline-first iPad math app for kids. SwiftUI, no accounts, no analytics, 535 content templates."
+    href: "project-sproutmath.html",
+    title: "Sprout Math",
+    copy: "Offline-first iOS math app for K-5 kids. SwiftUI, no accounts, no analytics, 2,400+ narrated questions."
   }
 ];
 
@@ -59,13 +59,13 @@ const flagshipProjects = [
     metrics: ["10 weeks", "167 tests", "Web + mobile"]
   },
   {
-    href: "project-mathquest.html",
-    title: "MathQuest Kids",
+    href: "project-sproutmath.html",
+    title: "Sprout Math",
     badge: "Product craft",
     badgeClass: "success",
     icon: "□",
-    copy: "An offline-first iPad math app for kids. Privacy-safe by design: no accounts, no analytics, no data collection. 535 content templates in native SwiftUI.",
-    metrics: ["Offline first", "535 templates", "Native SwiftUI"]
+    copy: "An offline-first iOS math app for K-5 kids. Privacy-safe by design: no accounts, no analytics, no data collection. 2,400+ question templates with professional narration across 40 lessons in native SwiftUI.",
+    metrics: ["Offline first", "2,400+ templates", "6 themed worlds"]
   }
 ];
 
