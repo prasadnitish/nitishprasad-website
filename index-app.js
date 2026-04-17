@@ -129,7 +129,7 @@
       icon: "\u2726",
       badge: "Live demo",
       badgeClass: "signal",
-      copy: "Evaluation infrastructure for teams that need model quality, drift, latency, and release criteria in one place, not scattered across ad hoc dashboards."
+      copy: "N-way evaluation across 7 frontier models through a single OpenRouter key. Caught my own production SproutRoute model failing the safety floor — and surfaced a faster, cheaper candidate that passes."
     },
     {
       href: "project-rag-pipeline.html",

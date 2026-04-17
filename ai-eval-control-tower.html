@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AI Eval Control Tower case study: model quality, latency, cost, drift, and release-gate visibility for production AI systems." />
+  <meta name="description" content="AI Eval Control Tower case study: N-way model benchmarking across quality, safety, latency, and cost. Caught a real safety regression in the SproutRoute production model." />
   <meta property="og:title" content="AI Eval Control Tower — Nitish Prasad" />
-  <meta property="og:description" content="An evaluation system for model quality, A/B comparisons, drift, and release decisions." />
+  <meta property="og:description" content="N-way evaluation system that benchmarks 7 models against a safety-weighted rubric — and caught my production model failing the floor." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.nitishprasad.com/ai-eval-control-tower.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="AI Eval Control Tower — Nitish Prasad" />
-  <meta name="twitter:description" content="Evaluation infrastructure for teams shipping AI in production." />
+  <meta name="twitter:description" content="N-way model benchmarking with safety hard floors — caught a live production regression." />
   <meta name="theme-color" content="#0d1320" />
   <title>AI Eval Control Tower — Nitish Prasad</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -45,7 +45,7 @@
           <h1 class="case-title">AI Eval Control Tower</h1>
           <div class="accent-line"></div>
           <p class="case-summary" style="margin-top:1.1rem">
-            This project exists because shipping the model is only the start. The harder product question is knowing when the model is getting worse, when a cheaper model is good enough, and when a release should be blocked. I built this tool to make those decisions visible.
+            This project exists because shipping the model is only the start. The harder question is knowing when the model is getting worse, when a cheaper one is good enough, and when a release should be blocked. In v2 the tool went N-way — I ran seven frontier models through one OpenRouter key — and it caught the model I was actually shipping in production failing the safety floor.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="/evals/" target="_blank" rel="noopener noreferrer">Launch Tool</a>
@@ -60,23 +60,23 @@
           <div class="divider"></div>
           <div class="case-meta-grid">
             <div class="meta-tile">
-              <span>Prompts</span>
-              <strong>100 grounded evals</strong>
+              <span>Models</span>
+              <strong>7 frontier models, 1 OpenRouter key</strong>
             </div>
             <div class="meta-tile">
               <span>Coverage</span>
-              <strong>24 categories</strong>
+              <strong>Seller + SproutRoute lab, 125 prompts</strong>
             </div>
             <div class="meta-tile">
-              <span>Benchmarked</span>
-              <strong>Claude Sonnet 4.6 vs DeepSeek-V3</strong>
+              <span>Headline finding</span>
+              <strong>Caught production model below safety floor</strong>
             </div>
             <div class="meta-tile">
               <span>Use case</span>
               <strong>Release and operating decisions</strong>
             </div>
           </div>
-          <p>Shows how I think about AI products after launch: quality, cost, latency, drift, and release decisions in one operating layer.</p>
+          <p>Shows how I think about AI products after launch: quality, safety, cost, latency, drift, and release decisions in one operating layer — used on my own live product.</p>
         </aside>
       </div>
     </section>
@@ -91,19 +91,19 @@
 
       <div class="dense-grid">
         <article class="dense-stat">
-          <strong>93.0</strong>
-          <span>Claude average quality</span>
-          <p>Strong enough to clear the quality bar while still needing active monitoring and comparison.</p>
+          <strong>7.64</strong>
+          <span>Safety score on current prod model</span>
+          <p>Below the 8.0 hard floor. Haiku 4.5 is the model actually serving SproutRoute traffic. The gate flagged it automatically — the exact job the tool is supposed to do.</p>
         </article>
         <article class="dense-stat">
-          <strong>81.0</strong>
-          <span>DeepSeek average quality</span>
-          <p>Cheaper, but below the bar in places where the release gate should stay honest.</p>
+          <strong>87.8</strong>
+          <span>Top candidate quality (Sonnet 4.6)</span>
+          <p>Leads the 7-model field. GPT-5 Mini trails by under one point. Gemini 2.5 Flash sits lower on quality but wins on speed and cost.</p>
         </article>
         <article class="dense-stat">
-          <strong>41×</strong>
-          <span>Cost delta</span>
-          <p>The right answer is not always “pick the best model.” Sometimes it is “know exactly when the cheaper one is still acceptable.”</p>
+          <strong>19×</strong>
+          <span>Cost spread across models</span>
+          <p>Grok 4 Fast at $0.0009 per inference, Sonnet 4.6 at $0.016. The tool makes the “is the cheaper model good enough?” decision provable instead of vibes-based.</p>
         </article>
       </div>
 
@@ -119,27 +119,28 @@
         <article class="panel-card">
           <div class="eyebrow">What I built</div>
           <ul class="bullet-list" style="margin-top:1rem">
-            <li>LLM-as-judge evaluation on domain-grounded prompts.</li>
-            <li>A/B comparison views across quality, latency, cost, and violations.</li>
-            <li>Drift and release-gate visibility in one interface.</li>
-            <li>A live dashboard that makes the decision logic inspectable, not hidden in a notebook.</li>
+            <li>N-way LLM-as-judge evaluation — any number of models through a single OpenRouter API key.</li>
+            <li>Domain-weighted rubric: SproutRoute prompts scored on <em>safety</em> (hard floor) and <em>logistical feasibility</em>, seller prompts on accuracy and actionability.</li>
+            <li>A live Model Matrix dashboard that ranks every candidate on quality, latency, cost, and safety side-by-side.</li>
+            <li>Release gate with dataset-specific overrides — a 15-second latency ceiling for trip plans, 3 seconds for seller Q&amp;A.</li>
+            <li>CI enforcement: GitHub Actions runs the smoke suite on every PR and blocks merge on NO-GO.</li>
           </ul>
         </article>
 
         <article class="panel-card">
           <div class="eyebrow">Why this matters</div>
           <p style="margin-top:1rem">
-            This is not just evaluation as a data-science exercise. It is evaluation as product operations. It turns AI quality into something a PM can manage, discuss, and decide on with engineers and leadership.
+            This is evaluation as product operations, not a data-science exercise. When my production SproutRoute model came back at 7.64 safety — below the 8.0 floor — the tool flagged it before a user would have encountered a wrong car seat law or a closed venue. That is the whole point: turn AI quality into something a PM can manage, discuss, and decide on with evidence.
           </p>
         </article>
 
         <article class="surface-card">
           <div class="eyebrow" style="color:var(--ink-soft)">Scope</div>
           <ul class="bullet-list" style="margin-top:1rem">
-            <li>24 categories of seller-intelligence prompts.</li>
-            <li>30-day history and live dashboard experience.</li>
-            <li>Model quality, latency, cost, and violation views.</li>
-            <li>Release gating around explicit thresholds rather than vibes.</li>
+            <li>7 models benchmarked: Claude Sonnet 4.6 &amp; Haiku 4.5, GPT-5 Mini &amp; Nano, Grok 4 Fast, Gemini 2.5 Flash, DeepSeek-V3.2.</li>
+            <li>Three datasets: 50 seller intelligence, 50 seller support, 25 SproutRoute family-trip prompts with reusable personas.</li>
+            <li>Seven dashboard views including the new N-way Model Matrix.</li>
+            <li>13 unit tests on judge and gate logic; mobile-responsive UI.</li>
           </ul>
         </article>
       </div>
@@ -149,43 +150,54 @@
       <div class="section-header">
         <div>
           <div class="eyebrow">Benchmark Story</div>
-          <h2 class="section-title">The comparison is useful because it forces a real decision.</h2>
+          <h2 class="section-title">Seven models, one rubric, one decision.</h2>
         </div>
+        <div class="section-note">Full SproutRoute suite: 25 trip-planning prompts × 7 models, judged by Claude Sonnet 4.6 on seven dimensions including <em>safety</em> and <em>logistical feasibility</em>.</div>
       </div>
 
       <div class="comparison-grid">
         <article class="comparison-card before">
-          <span class="pill signal">Model A</span>
+          <span class="pill signal">Quality leader</span>
           <h3>Claude Sonnet 4.6</h3>
-          <p>Higher quality and low policy violations. More expensive, but comfortably above the release floor.</p>
+          <p>Top of the field on accuracy, actionability, and nuanced safety reasoning. The price you pay is a 26-second p95 latency and roughly 6× the cost of the cheapest option.</p>
           <ul class="bullet-list" style="margin-top:1rem">
-            <li>Average quality: 93.0</li>
-            <li>Cost per run: $0.30</li>
-            <li>Policy violations: 0</li>
-            <li>Lowest category score: 83.5</li>
+            <li>Quality: 87.8</li>
+            <li>Safety: 9.04 ✓</li>
+            <li>Cost per inference: $0.016</li>
+            <li>P95 latency: 26.1s</li>
           </ul>
         </article>
         <article class="comparison-card after">
-          <span class="pill accent">Model B</span>
-          <h3>DeepSeek-V3</h3>
-          <p>Far cheaper, but not safe to wave through blindly. This is exactly the kind of tradeoff the dashboard is supposed to make visible.</p>
+          <span class="pill accent">Best overall tradeoff</span>
+          <h3>Gemini 2.5 Flash</h3>
+          <p>Cleared the safety floor, 2.3× faster than the current production model, and half the cost — the model I would actually promote after this run. The matrix makes that trade explicit rather than narrative.</p>
           <ul class="bullet-list" style="margin-top:1rem">
-            <li>Average quality: 81.0</li>
-            <li>Cost per run: $0.007</li>
-            <li>Policy violations: 2</li>
-            <li>Lowest category score: 43</li>
+            <li>Quality: 78.6</li>
+            <li>Safety: 8.16 ✓</li>
+            <li>Cost per inference: $0.003</li>
+            <li>P95 latency: 9.8s</li>
           </ul>
         </article>
       </div>
+
+      <article class="panel-card" style="margin-top:1.25rem">
+        <div class="eyebrow">What the gate flagged</div>
+        <p style="margin-top:0.75rem">
+          <strong>Claude Haiku 4.5</strong> — the model currently serving SproutRoute production traffic — scored <strong>7.64 on safety</strong>, below the 8.0 hard floor. <strong>Grok 4 Fast</strong> failed the same check at 7.8. The rest (Sonnet 4.6, GPT-5 Mini, GPT-5 Nano, Gemini 2.5 Flash, DeepSeek-V3.2) all cleared it. The gate exits NO-GO, the CI blocks the release, and a PM has a concrete path: switch to one of the four models that passed and document the tradeoff.
+        </p>
+        <p style="margin-top:0.75rem">
+          The judge cited real errors in the failing responses: a California car seat law misstatement, Splash Mountain recommended after its 2023 closure, an impossible overnight Paris→Barcelona train routing. These are the kind of low-frequency safety bugs that slip past eyeball QA — which is why the gate is rubric-weighted, not vibes-weighted.
+        </p>
+      </article>
     </section>
 
     <section class="section">
       <div class="split-section">
         <article class="panel-card">
           <div class="eyebrow">Executive Summary</div>
-          <h2 class="section-title" style="font-size:clamp(1.9rem,3vw,3rem)">Good eval tooling does not just score models. It helps a team decide what to ship.</h2>
+          <h2 class="section-title" style="font-size:clamp(1.9rem,3vw,3rem)">Good eval tooling doesn’t just score models. It tells a team which one to ship — and why.</h2>
           <p>
-            The dashboard matters because it keeps quality, cost, latency, drift, and policy gates in the same room. That is the only way the tradeoffs stay honest enough to drive a launch decision.
+            The dashboard matters because it keeps quality, safety, cost, latency, and policy gates in the same room. That’s the only way the tradeoffs stay honest enough to drive a launch decision. v2’s biggest move is the safety dimension with a hard floor, which is what turned SproutRoute into a real production signal instead of a demo.
           </p>
         </article>
 
@@ -193,8 +205,8 @@
           <h3>Why it matters</h3>
           <ul class="bullet-list">
             <li>I think about AI products after the first launch, not just before it.</li>
-            <li>I know how to turn model evaluation into operating logic a team can actually use.</li>
-            <li>I am comfortable building PM tools that sit between engineering rigor and product decisions.</li>
+            <li>I know how to turn evaluation into operating logic a team can act on — including my own.</li>
+            <li>I ran the tool against my own shipped product and it found a real regression. That is the acceptance test for any governance system.</li>
           </ul>
         </article>
       </div>
