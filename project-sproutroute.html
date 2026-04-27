@@ -3,20 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="SproutRoute case study: a family trip planner shipped across web, iOS, and Android in 10 weeks with itineraries, weather, safety, and packing workflows." />
+  <meta name="description" content="SproutRoute systems case study: hybrid AI travel planner with deterministic packing, attraction memory, latency optimization, and trust architecture." />
   <meta property="og:title" content="SproutRoute — Nitish Prasad" />
-  <meta property="og:description" content="A 0→1 product build across web and mobile, shipped in 10 weeks with production APIs and strong delivery discipline." />
+  <meta property="og:description" content="A hybrid AI travel planner with verified places, deterministic packing, attraction memory, and production operations on Railway." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.nitishprasad.com/project-sproutroute.html" />
+  <link rel="canonical" href="https://www.nitishprasad.com/project-sproutroute.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="SproutRoute — Nitish Prasad" />
-  <meta name="twitter:description" content="A full-stack family trip planner shipped across web and mobile." />
+  <meta name="twitter:description" content="Hybrid AI travel planner: systems case study." />
+  <meta property="og:image" content="https://www.nitishprasad.com/og-sproutroute.svg" />
+  <meta name="twitter:image" content="https://www.nitishprasad.com/og-sproutroute.svg" />
   <meta name="theme-color" content="#0d1320" />
   <title>SproutRoute — Nitish Prasad</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="icon" type="image/png" href="favicon.png" sizes="256x256" />
   <link rel="apple-touch-icon" href="favicon.png" />
   <link rel="stylesheet" href="portfolio-refresh.css" />
+  <style>
+    /* Diagram lightbox */
+    .diagram-thumb{cursor:zoom-in;transition:opacity .18s ease}
+    .diagram-thumb:hover{opacity:.85}
+    .lightbox-overlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.88);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s ease}
+    .lightbox-overlay.open{opacity:1;pointer-events:auto}
+    .lightbox-overlay img{max-width:92vw;max-height:90vh;border-radius:16px;box-shadow:0 32px 80px rgba(0,0,0,.5)}
+    .lightbox-close{position:absolute;top:1.2rem;right:1.4rem;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;font-size:1.4rem;cursor:pointer;display:grid;place-items:center;transition:background .18s ease,border-color .18s ease}
+    .lightbox-close:hover,.lightbox-close:focus-visible{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.32)}
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -24,35 +37,49 @@
       <a class="brand" href="index.html">Nitish<span class="brand-mark">.</span></a>
       <div class="nav-shell">
         <nav class="nav-list" aria-label="SproutRoute navigation">
-          <a href="#quick-read">Quick Read</a>
-          <a href="#screens">Screens</a>
-          <a href="#deep-dive">Deep Dive</a>
+          <a href="#hard">Why It Was Hard</a>
+          <a href="#evolution">System Evolution</a>
+          <a href="#latency">Latency</a>
+          <a href="#decisions">Decisions</a>
           <a href="index.html">Back to Portfolio</a>
         </nav>
         <div class="nav-actions">
-          <a class="nav-secondary" href="https://sproutroute-production.up.railway.app" target="_blank" rel="noopener noreferrer">Live Demo</a>
+          <a class="nav-secondary" href="https://www.sproutroute.app" target="_blank" rel="noopener noreferrer">Live Demo</a>
           <a class="nav-resume" href="https://github.com/prasadnitish/SproutRoute" target="_blank" rel="noreferrer">GitHub</a>
         </div>
+      </div>
+      <button type="button" class="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <div class="mobile-menu">
+        <a href="#hard">Why It Was Hard</a>
+        <a href="#evolution">System Evolution</a>
+        <a href="#latency">Latency</a>
+        <a href="#decisions">Decisions</a>
+        <a href="https://www.sproutroute.app" target="_blank" rel="noopener noreferrer">Live Demo</a>
+        <a href="https://github.com/prasadnitish/SproutRoute" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="index.html">Portfolio Home</a>
       </div>
     </div>
   </header>
 
   <main class="page-shell">
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 1. HERO                                     -->
+    <!-- ═══════════════════════════════════════════ -->
     <section class="case-hero">
       <div class="case-grid">
         <div class="case-copy">
-          <div class="eyebrow">0→1 product build · web and mobile · live demo</div>
+          <div class="eyebrow">Systems case study &middot; hybrid AI &middot; live production</div>
           <h1 class="case-title">SproutRoute</h1>
           <div class="accent-line"></div>
           <p class="case-summary" style="margin-top:1.1rem">
-            SproutRoute is the clearest example of my 0→1 execution range. I defined the wedge, sequenced the release, shipped the product across web, iOS, and Android in ten weeks, and kept the scope disciplined enough to finish with quality.
+            A hybrid AI travel planner that separates what AI should generate from what must be verified, deterministic, or cached. I defined the product, designed the system architecture, built the full stack, and operate the web app in production on Railway. The web stack uses attraction memory and verified data layers, while the native iOS app uses WeatherKit for forecast display.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="https://sproutroute-production.up.railway.app" target="_blank" rel="noopener noreferrer">Open Live App</a>
-            <a class="button secondary" href="#quick-read">Start With Quick Read</a>
+            <a class="button primary" href="https://www.sproutroute.app" target="_blank" rel="noopener noreferrer">Open Live App</a>
+            <a class="button secondary" href="#hard">Why This Was Hard</a>
             <a class="button secondary" href="https://github.com/prasadnitish/SproutRoute" target="_blank" rel="noreferrer">Open GitHub</a>
           </div>
-          <p class="mobile-note">Best read for 0→1 execution range, delivery discipline, and end-to-end product ownership.</p>
         </div>
 
         <aside class="executive-hero">
@@ -60,95 +87,79 @@
           <div class="divider"></div>
           <div class="case-meta-grid">
             <div class="meta-tile">
-              <span>Type</span>
-              <strong>Side project, solo build</strong>
+              <span>Architecture</span>
+              <strong>Hybrid AI + deterministic</strong>
             </div>
             <div class="meta-tile">
-              <span>Timeline</span>
-              <strong>10 weeks</strong>
-            </div>
-            <div class="meta-tile">
-              <span>Coverage</span>
-              <strong>Web, iOS, Android</strong>
+              <span>AI backbone</span>
+              <strong>Gemini 2.5 Pro + Google Places</strong>
             </div>
             <div class="meta-tile">
               <span>Quality bar</span>
-              <strong>167 tests, 9 phases shipped</strong>
+              <strong>350+ tests, CI/CD, Playwright E2E</strong>
+            </div>
+            <div class="meta-tile">
+              <span>Infrastructure</span>
+              <strong>Railway + Supabase + GitHub Actions</strong>
             </div>
           </div>
-          <p>Shows how I turn a rough product idea into a shipped product with clear scope, usable flows, and production quality.</p>
+          <p>Shows how I design hybrid systems, diagnose latency bottlenecks, make trust/verification tradeoffs, and operate a production service.</p>
         </aside>
       </div>
     </section>
 
-    <section class="section" id="quick-read">
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 2. WHY THIS WAS TECHNICALLY HARD            -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section" id="hard">
       <div class="section-header">
         <div>
-          <div class="eyebrow">Quick Read</div>
-          <h2 class="section-title">What matters most about this build.</h2>
+          <div class="eyebrow">The Real Complexity</div>
+          <h2 class="section-title">Why this was technically hard.</h2>
         </div>
       </div>
 
-      <div class="dense-grid">
-        <article class="dense-stat">
-          <strong>10 weeks</strong>
-          <span>From blank repo to shipped product</span>
-          <p>I kept the product narrow enough to finish, but broad enough to feel real and useful.</p>
+      <div class="impact-grid">
+        <article class="detail-card">
+          <span class="pill accent">Input</span>
+          <h3>Fuzzy natural-language input</h3>
+          <p>Users type free text like "beach trip with two toddlers next week." The system must extract destination, dates, children, pets, and travel mode from ambiguous input before any planning begins.</p>
         </article>
-        <article class="dense-stat">
-          <strong>167</strong>
-          <span>Tests passing</span>
-          <p>The build stayed stable because I treated delivery quality as part of the product, not cleanup work.</p>
+        <article class="detail-card">
+          <span class="pill signal">APIs</span>
+          <h3>Multiple external APIs with different failure modes</h3>
+          <p>Seven external services with different auth models, rate limits, response shapes, and outage patterns. Orchestrating them into one coherent response requires careful fallback and timeout design.</p>
         </article>
-        <article class="dense-stat">
-          <strong>4 countries</strong>
-          <span>Travel and safety coverage</span>
-          <p>Supporting four countries forced the right product and data-shape decisions early.</p>
+        <article class="detail-card">
+          <span class="pill accent">Trust</span>
+          <h3>Factual vs generative data separation</h3>
+          <p>Weather, places, and safety data must be factual. Itinerary text can be generative. Mixing these creates hallucination risk. The architecture must enforce the boundary.</p>
         </article>
-      </div>
-
-      <div class="ownership-grid" style="margin-top:1rem">
-        <article class="surface-card">
-          <div class="eyebrow" style="color:var(--ink-soft)">The product</div>
-          <h3>A family trip planner that feels complete before the trip even starts.</h3>
-          <p>
-            SproutRoute combines itinerary planning, weather, packing, travel advisories, neighborhood safety, and car seat guidance into one product flow. The goal was not to make a generic AI travel toy. The goal was to cover the decisions a parent actually has to make.
-          </p>
+        <article class="detail-card">
+          <span class="pill signal">Latency</span>
+          <h3>Latency management across serial dependencies</h3>
+          <p>A trip plan touches geocoding, weather, AI generation, and enrichment. Serial execution meant 8-12 seconds. Cutting that required rethinking what could be parallelized, cached, or removed from the hot path.</p>
         </article>
-
-        <article class="panel-card">
-          <div class="eyebrow">What I owned</div>
-          <ul class="bullet-list" style="margin-top:1rem">
-            <li>Product definition, scope cuts, release sequencing, and delivery plan.</li>
-            <li>Full-stack implementation across backend, web flow, and mobile app surfaces.</li>
-            <li>API and data model decisions for weather, safety, geocoding, and itinerary generation.</li>
-            <li>Testing strategy and deployment discipline across all shipped phases.</li>
-          </ul>
+        <article class="detail-card">
+          <span class="pill accent">Safety</span>
+          <h3>Trust and safety for family travel</h3>
+          <p>Car seat laws, airline pet policies, and travel advisories are legal/safety data. They cannot be AI-generated. They must come from verified, deterministic sources with clear sourcing.</p>
         </article>
-
-        <article class="panel-card">
-          <div class="eyebrow">Why this matters</div>
-          <p style="margin-top:1rem">
-            The hard part was not generating features. It was deciding what belonged in the first version, what could wait, and how to ship a product that felt complete instead of half-finished.
-          </p>
-        </article>
-
-        <article class="surface-card">
-          <div class="eyebrow" style="color:var(--ink-soft)">Scope</div>
-          <ul class="bullet-list" style="margin-top:1rem">
-            <li>Live web app with iOS and Android builds.</li>
-            <li>Weather, safety, itinerary, and packing system in one product flow.</li>
-            <li>International support across four countries.</li>
-            <li>Deployment, tests, and product case-study site shipped in the same cycle.</li>
-          </ul>
+        <article class="detail-card">
+          <span class="pill signal">Memory</span>
+          <h3>Personalization and memory across trips</h3>
+          <p>Attraction memory, saved preferences, and profile-aware planning require persistent storage, freshness scoring, and a strategy for what to precompute vs generate on demand.</p>
         </article>
       </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 3. PRODUCT FLOW SCREENSHOTS                 -->
+    <!-- ═══════════════════════════════════════════ -->
     <section class="section" id="screens">
       <div class="section-header">
         <div>
-          <div class="eyebrow">Product Proof</div>
+          <div class="eyebrow">Product Flow</div>
           <h2 class="section-title">The product flow is concrete, not conceptual.</h2>
         </div>
         <div class="section-note">These screens are from the actual shipped flow.</div>
@@ -158,177 +169,447 @@
         <article class="gallery-card">
           <img src="assets/screenshots/location-picker.jpg" alt="SproutRoute destination search screen" loading="lazy" />
           <div class="gallery-copy">
-            <strong>Destination setup</strong>
-            <p>Simple, low-friction entry. The product starts with the actual trip decision, not a long onboarding ritual.</p>
+            <strong>Natural language input</strong>
+            <p>Users describe their trip in free text. The system extracts destination, dates, family composition, and travel preferences.</p>
           </div>
         </article>
         <article class="gallery-card">
           <img src="assets/screenshots/date-picker.jpg" alt="SproutRoute date picker screen" loading="lazy" />
           <div class="gallery-copy">
             <strong>Date range</strong>
-            <p>Date selection drives weather relevance, itinerary timing, and packing recommendations downstream.</p>
+            <p>Dates drive weather relevance, itinerary timing, and packing recommendations downstream.</p>
           </div>
         </article>
         <article class="gallery-card">
           <img src="assets/screenshots/whos-coming.jpg" alt="SproutRoute traveler setup screen" loading="lazy" />
           <div class="gallery-copy">
-            <strong>Who is coming</strong>
-            <p>Kids’ ages and preferences change the product output meaningfully, so this input had to stay first-class.</p>
+            <strong>Family composition</strong>
+            <p>Children's ages change itinerary constraints, car seat rules, and packing lists. Pets trigger airline and entry requirement checks.</p>
           </div>
         </article>
         <article class="gallery-card">
           <img src="assets/screenshots/itinerary.jpg" alt="SproutRoute itinerary screen" loading="lazy" />
           <div class="gallery-copy">
-            <strong>Itinerary</strong>
-            <p>The itinerary had to read like something a parent could use, not a generic block of AI text.</p>
+            <strong>Verified itinerary</strong>
+            <p>Day-by-day plan with real places from Google Places, real weather from Weather.gov, and AI-generated narrative connecting them.</p>
           </div>
         </article>
         <article class="gallery-card">
           <img src="assets/screenshots/packing-list.jpg" alt="SproutRoute packing list screen" loading="lazy" />
           <div class="gallery-copy">
-            <strong>Packing list</strong>
-            <p>Packing becomes a better product surface when weather, dates, and kid ages are already in the system.</p>
+            <strong>Deterministic packing</strong>
+            <p>Packing lists are generated by rules, not AI. Weather, children's ages, pet presence, and trip duration drive the output deterministically.</p>
           </div>
         </article>
         <article class="gallery-card">
           <img src="assets/screenshots/safety.jpg" alt="SproutRoute safety screen" loading="lazy" />
           <div class="gallery-copy">
-            <strong>Safety guidance</strong>
-            <p>This is where the product starts feeling differentiated. Parents want safety answers before they travel, not after.</p>
+            <strong>Safety from verified sources</strong>
+            <p>Car seat laws from state data, travel advisories from State Dept, airline pet policies from carrier records. No AI hallucination.</p>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="section">
-      <div class="split-section">
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 4. SYSTEM EVOLUTION                         -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section" id="evolution">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">System Evolution</div>
+          <h2 class="section-title">Three architectural stages, each driven by a real production problem.</h2>
+        </div>
+      </div>
+
+      <div class="dense-grid">
+        <article class="dense-stat">
+          <strong>V1</strong>
+          <span>AI-heavy generation</span>
+          <p>Everything generated by a single AI call: itinerary, packing, safety narrative. Fast to ship, but slow, expensive, and unreliable. Packing lists hallucinated items. Safety text had no sourcing. Latency was 8-12 seconds.</p>
+        </article>
+        <article class="dense-stat">
+          <strong>V2</strong>
+          <span>Deterministic packing + model routing</span>
+          <p>Packing moved to a deterministic rules engine. Model routing assigned tasks to the right-sized model. Google Places verification replaced open-ended AI place suggestions. Latency dropped. Reliability improved.</p>
+        </article>
+        <article class="dense-stat">
+          <strong>V3</strong>
+          <span>Attraction memory + verification cache</span>
+          <p>Supabase stores verified attractions per city. Freshness scoring ranks them. The AI planner receives a shortlist, not open-ended search. Each trip enriches the data for the next trip. Profile-aware planning in progress.</p>
+        </article>
+      </div>
+
+      <div class="split-section" style="margin-top:1rem">
         <article class="panel-card">
-          <div class="eyebrow">Executive Summary</div>
-          <h2 class="section-title" style="font-size:clamp(1.9rem,3vw,3rem)">The hardest part was not writing code. It was keeping the product honest.</h2>
-          <p>
-            Every week created pressure to add more. The useful decision was to keep cutting back to the core before-trip workflow: where to go, what to do, what to pack, and what to watch out for. That is what let the product ship instead of getting stuck in expansion.
+          <div class="eyebrow">Why this matters</div>
+          <p style="margin-top:1rem">
+            The system did not arrive at V3 by planning ahead. Each stage solved a real problem discovered in production. V1 shipped fast but hallucinated. V2 fixed reliability but still had latency. V3 added memory to make each trip improve the next. This is the kind of architectural evolution that separates a demo from a real product.
           </p>
         </article>
-
         <article class="surface-card">
-          <h3>Why it matters</h3>
-          <ul class="bullet-list">
-            <li>I can define a product wedge clearly enough to build against.</li>
-            <li>I can sequence delivery without losing the thread of the product.</li>
-            <li>I can ship something real across multiple clients and data sources on a short clock.</li>
+          <div class="eyebrow" style="color:var(--ink-soft)">Runtime architecture</div>
+          <img src="diagrams/runtime-architecture.svg" alt="SproutRoute end-to-end runtime architecture" loading="lazy" class="diagram-thumb" style="margin-top:0.8rem;border-radius:12px" />
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 5. LATENCY CASE STUDY                       -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section" id="latency">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Latency Case Study</div>
+          <h2 class="section-title">How I diagnosed and fixed a multi-second latency problem.</h2>
+        </div>
+      </div>
+
+      <div class="comparison-grid">
+        <article class="comparison-card before">
+          <span class="pill accent">Before</span>
+          <h3 style="margin-top:1rem">The problem</h3>
+          <ul class="bullet-list" style="margin-top:0.8rem">
+            <li>AI-generated packing lists in the hot path added ~2 seconds per request.</li>
+            <li>Open-ended place discovery meant the AI model searched for places from scratch every time.</li>
+            <li>One large model call handled itinerary + packing + safety together, with no parallelization.</li>
+            <li>Full response waited for all tasks to complete before rendering anything.</li>
+          </ul>
+          <p style="margin-top:1rem;color:var(--text-muted)">Total response time: <strong style="color:var(--text)">8-12 seconds</strong></p>
+        </article>
+
+        <article class="comparison-card after">
+          <span class="pill success">After</span>
+          <h3 style="margin-top:1rem">The fix</h3>
+          <ul class="bullet-list" style="margin-top:0.8rem">
+            <li><strong>Deterministic packing</strong> replaced AI packing. Rules engine runs in milliseconds, not seconds.</li>
+            <li><strong>Cached attraction shortlist</strong> gives the AI planner verified places instead of open-ended search.</li>
+            <li><strong>Per-task model routing</strong> assigns the right model to each task. Input parsing uses a fast model; itinerary uses a capable one.</li>
+            <li><strong>Progressive rendering</strong> shows itinerary immediately while packing and safety load in background.</li>
+          </ul>
+          <p style="margin-top:1rem"><strong>Response time improved significantly.</strong> The remaining bottleneck is AI itinerary generation, which is inherently serial.</p>
+        </article>
+      </div>
+
+      <div class="split-section" style="margin-top:1rem">
+        <article class="surface-card">
+          <div class="eyebrow" style="color:var(--ink-soft)">Request lifecycle</div>
+          <img src="diagrams/request-lifecycle.svg" alt="SproutRoute request lifecycle showing blocking vs non-blocking steps" loading="lazy" class="diagram-thumb" style="margin-top:0.8rem;border-radius:12px" />
+        </article>
+        <article class="surface-card">
+          <div class="eyebrow" style="color:var(--ink-soft)">Latency before vs after</div>
+          <img src="diagrams/latency-comparison.svg" alt="SproutRoute latency comparison before and after optimization" loading="lazy" class="diagram-thumb" style="margin-top:0.8rem;border-radius:12px" />
+        </article>
+      </div>
+
+      <article class="panel-card" style="margin-top:1rem">
+        <div class="eyebrow">Key insight</div>
+        <p style="margin-top:0.8rem">
+          Changing the model alone was not enough. The latency problem was architectural: too many tasks in the serial path, AI doing work that deterministic logic could do faster and more reliably. The fix was restructuring what the AI is responsible for, not just making it faster.
+        </p>
+      </article>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 6. TRUST ARCHITECTURE                       -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section" id="trust">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Trust Architecture</div>
+          <h2 class="section-title">The product is not just AI text generation.</h2>
+        </div>
+      </div>
+
+      <div class="impact-grid">
+        <article class="detail-card">
+          <span class="pill accent">Weather</span>
+          <h3>From weather APIs, not AI</h3>
+          <p>Weather.gov for US forecasts and Visual Crossing for international forecasts in the web app. The native iOS app uses WeatherKit for forecast display. Real data with timestamps, not AI-generated predictions.</p>
+        </article>
+        <article class="detail-card">
+          <span class="pill signal">Places</span>
+          <h3>From Google Places, not AI</h3>
+          <p>Every restaurant and attraction is a real place with ratings, photos, and opening hours from the Google Places API. No hallucinated venues.</p>
+        </article>
+        <article class="detail-card">
+          <span class="pill accent">Safety</span>
+          <h3>From deterministic rules and static data</h3>
+          <p>Car seat laws from state-level legal data. Airline pet policies from carrier records. Travel advisories from the US State Department. No AI generation for safety-critical information.</p>
+        </article>
+        <article class="detail-card">
+          <span class="pill signal">Packing</span>
+          <h3>From a deterministic generator</h3>
+          <p>Packing lists are built by rules that consider weather, trip duration, children's ages, and pet presence. Consistent, fast, and never hallucinates items.</p>
+        </article>
+      </div>
+
+      <div class="split-section" style="margin-top:1rem">
+        <article class="panel-card">
+          <div class="eyebrow">What AI actually generates</div>
+          <p style="margin-top:0.8rem">
+            The AI generates the itinerary narrative: connecting verified places into a coherent day-by-day plan with timing, transitions, and family-appropriate recommendations. It receives a shortlist of verified attractions, real weather data, and family constraints. The AI writes the story. The facts come from verified sources.
+          </p>
+        </article>
+        <article class="surface-card">
+          <div class="eyebrow" style="color:var(--ink-soft)">Trust and verification</div>
+          <img src="diagrams/trust-architecture.svg" alt="Trust and verification architecture showing AI vs deterministic vs verified data sources" loading="lazy" class="diagram-thumb" style="margin-top:0.8rem;border-radius:12px" />
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 7. KEY DESIGN DECISIONS                     -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section" id="decisions">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Key Design Decisions</div>
+          <h2 class="section-title">The tradeoffs that shaped the system.</h2>
+        </div>
+      </div>
+
+      <div class="impact-grid">
+        <article class="detail-card">
+          <span class="pill accent">Decision 1</span>
+          <h3>Deterministic packing over AI packing</h3>
+          <p>AI packing was creative but unreliable. A rules engine is faster, consistent, and never hallucinates "inflatable pool" for a city trip. Reliability beats novelty for a family product.</p>
+        </article>
+        <article class="detail-card">
+          <span class="pill signal">Decision 2</span>
+          <h3>Per-task model routing over one global model</h3>
+          <p>Input parsing needs speed, not depth. Itinerary needs quality, not speed. Routing each task to the right model cut cost and improved both latency and output quality.</p>
+        </article>
+        <article class="detail-card">
+          <span class="pill accent">Decision 3</span>
+          <h3>Cached attraction shortlist over open-ended discovery</h3>
+          <p>Letting the AI search for places from scratch was slow and produced inconsistent results. A verified shortlist from Supabase constrains the AI to real, ranked places.</p>
+        </article>
+        <article class="detail-card">
+          <span class="pill signal">Decision 4</span>
+          <h3>Factual APIs separated from generative output</h3>
+          <p>Weather, places, and safety are factual. Itinerary is generative. Mixing them in one AI call made everything feel untrustworthy. Separating them made the product feel reliable.</p>
+        </article>
+        <article class="detail-card">
+          <span class="pill accent">Decision 5</span>
+          <h3>Optional accounts + DB-backed memory</h3>
+          <p>The product works without accounts. But Supabase-backed memory lets returning users benefit from their history. No forced signup, no data wall. Memory is additive.</p>
+        </article>
+        <article class="detail-card">
+          <span class="pill signal">Decision 6</span>
+          <h3>Demand-driven storage before broad precompute</h3>
+          <p>Instead of precomputing attractions for every city, the system stores attractions as users request trips. High-demand cities accumulate data naturally. Precompute comes later for top destinations.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 8. PERSONALIZATION + ATTRACTION MEMORY      -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section" id="personalization">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Personalization Roadmap</div>
+          <h2 class="section-title">Memory and personalization, built incrementally.</h2>
+        </div>
+      </div>
+
+      <div class="dense-grid">
+        <article class="dense-stat">
+          <strong>Live</strong>
+          <span>Attraction memory</span>
+          <p>Verified attractions stored per city in Supabase. Freshness scoring ranks them. Each trip enriches the data for the next user.</p>
+        </article>
+        <article class="dense-stat">
+          <strong>Live</strong>
+          <span>Demand-driven storage</span>
+          <p>Attractions are stored as users request trips. No broad precompute yet. High-demand cities accumulate verified data naturally.</p>
+        </article>
+        <article class="dense-stat">
+          <strong>Next</strong>
+          <span>Profile-aware planning</span>
+          <p>AI-imported profile, saved traveler preferences, trip intent overlay. The planner adapts to returning users without requiring manual setup.</p>
+        </article>
+      </div>
+
+      <div class="split-section" style="margin-top:1rem">
+        <article class="surface-card">
+          <div class="eyebrow" style="color:var(--ink-soft)">Attraction memory layer</div>
+          <img src="diagrams/attraction-memory.svg" alt="Attraction memory flywheel showing how trips enrich data for future trips" loading="lazy" class="diagram-thumb" style="margin-top:0.8rem;border-radius:12px" />
+        </article>
+        <article class="panel-card">
+          <div class="eyebrow">The flywheel</div>
+          <ul class="bullet-list" style="margin-top:1rem">
+            <li><strong>Trip generates attractions</strong> &mdash; AI discovers places, Google Places verifies them.</li>
+            <li><strong>Attractions stored in Supabase</strong> &mdash; city_attractions table with place identity and freshness metadata.</li>
+            <li><strong>Rank endpoint scores by freshness</strong> &mdash; recently verified attractions rank higher.</li>
+            <li><strong>Next trip consumes shortlist</strong> &mdash; AI planner gets verified, ranked places instead of searching from scratch.</li>
+            <li><strong>Backfill upgrades legacy data</strong> &mdash; older rows get enriched with Google Places identity over time.</li>
           </ul>
         </article>
       </div>
     </section>
 
-    <section class="section" id="deep-dive">
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 9. DELIVERY / OPS / TESTING                 -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section" id="ops">
       <div class="section-header">
         <div>
-          <div class="eyebrow">Deep Dive</div>
-          <h2 class="section-title">The delivery and system decisions matter as much as the feature list.</h2>
+          <div class="eyebrow">Production Operations</div>
+          <h2 class="section-title">Shipped, tested, and operated as a real system.</h2>
         </div>
       </div>
 
-      <div class="tab-shell">
-        <div class="tab-nav">
-          <button class="tab-button active" type="button" data-target="product">Product shape</button>
-          <button class="tab-button" type="button" data-target="system">System design</button>
-          <button class="tab-button" type="button" data-target="delivery">Delivery discipline</button>
-        </div>
+      <div class="impact-grid">
+        <article class="detail-card">
+          <span class="pill accent">Testing</span>
+          <h3>350+ tests across unit, integration, and E2E</h3>
+          <p>Node.js test runner for backend unit and integration tests. Playwright for end-to-end flows. Dependency injection for external services keeps the regression checks fast and reliable.</p>
+        </article>
+        <article class="detail-card">
+          <span class="pill signal">CI/CD</span>
+          <h3>GitHub Actions + Railway auto-deploy</h3>
+          <p>Every push triggers test suite and Vite build. Merge to main auto-deploys to Railway. No manual deployment steps.</p>
+        </article>
+        <article class="detail-card">
+          <span class="pill accent">Persistence</span>
+          <h3>Supabase for attraction memory and profiles</h3>
+          <p>PostgreSQL-backed storage for verified attractions, place identity, and user profiles. Row-level security. Freshness metadata for ranking.</p>
+        </article>
+        <article class="detail-card">
+          <span class="pill signal">Infrastructure</span>
+          <h3>Railway deployment with in-memory caching</h3>
+          <p>Single Railway instance with LRU caches for geocoding (6h), weather (1h), and advisory data (24h). Health endpoint for monitoring. Rate limiting at 30 requests per 15 minutes.</p>
+        </article>
+      </div>
 
-        <div class="tab-panel active" id="tab-product">
-          <div class="impact-grid">
-            <article class="detail-card">
-              <span class="pill accent">Choice 1</span>
-              <h3>One workflow, not six disconnected tools</h3>
-              <p>Itinerary, weather, packing, advisories, and safety all had to feel like one product journey, not a set of separate tabs glued together.</p>
-            </article>
-            <article class="detail-card">
-              <span class="pill signal">Choice 2</span>
-              <h3>Parents first</h3>
-              <p>The product keeps asking, “What does a parent still need before the trip?” That is why car seat guidance and safety earned real space.</p>
-            </article>
-            <article class="detail-card">
-              <span class="pill accent">Choice 3</span>
-              <h3>Scope cuts with teeth</h3>
-              <p>The build shipped because I kept making clear calls on what was phase-two material rather than pretending everything belonged in v1.</p>
-            </article>
-            <article class="detail-card">
-              <span class="pill signal">Choice 4</span>
-              <h3>Visual polish where it mattered</h3>
-              <p>The product needed enough polish to feel trustworthy without turning into a design detour that slowed shipping.</p>
-            </article>
+      <div class="ownership-grid" style="margin-top:1rem">
+        <article class="surface-card">
+          <div class="eyebrow" style="color:var(--ink-soft)">What I own end to end</div>
+          <ul class="bullet-list" style="margin-top:1rem">
+            <li>Product definition: what to build, what to cut, what to defer.</li>
+            <li>System design: service boundaries, API contracts, data flow.</li>
+            <li>Full-stack implementation: React frontend, Express backend, AI integration.</li>
+            <li>Test infrastructure: DI patterns, mock fixtures, E2E harness.</li>
+            <li>Deployment and operations: Railway config, Supabase setup, CI/CD pipeline.</li>
+            <li>Latency diagnosis and architectural optimization.</li>
+          </ul>
+        </article>
+        <article class="panel-card">
+          <div class="eyebrow">Quality signals</div>
+          <div class="case-meta-grid" style="margin-top:1rem">
+            <div class="meta-tile">
+              <span>Tests</span>
+              <strong>350+</strong>
+            </div>
+            <div class="meta-tile">
+              <span>External APIs</span>
+              <strong>7 orchestrated</strong>
+            </div>
+            <div class="meta-tile">
+              <span>Packing</span>
+              <strong>Deterministic</strong>
+            </div>
+            <div class="meta-tile">
+              <span>Attraction memory</span>
+              <strong>Live in production</strong>
+            </div>
           </div>
-        </div>
+        </article>
+      </div>
+    </section>
 
-        <div class="tab-panel" id="tab-system">
-          <div class="gallery-grid">
-            <article class="gallery-card">
-              <img src="diagrams/architecture.svg" alt="SproutRoute architecture diagram" loading="lazy" />
-              <div class="gallery-copy">
-                <strong>Architecture</strong>
-                <p>Client surfaces, backend services, and external APIs were designed to support fast feature addition without becoming brittle.</p>
-              </div>
-            </article>
-            <article class="gallery-card">
-              <img src="diagrams/mobile-data-flow.svg" alt="SproutRoute mobile data flow diagram" loading="lazy" />
-              <div class="gallery-copy">
-                <strong>Mobile data flow</strong>
-                <p>The wizard, planner, and result views stay coordinated because the data flow is simple enough to reason about.</p>
-              </div>
-            </article>
-            <article class="gallery-card">
-              <img src="diagrams/deployment-pipeline.svg" alt="SproutRoute deployment pipeline diagram" loading="lazy" />
-              <div class="gallery-copy">
-                <strong>Deployment path</strong>
-                <p>Backend, mobile, and portfolio updates were treated as one release system rather than unrelated chores.</p>
-              </div>
-            </article>
-          </div>
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 10. WHAT I'D BUILD NEXT                     -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section" id="next">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">What I'd Build Next</div>
+          <h2 class="section-title">The current state is intentional. Here is what comes next.</h2>
         </div>
+      </div>
 
-        <div class="tab-panel" id="tab-delivery">
-          <div class="ownership-grid">
-            <article class="surface-card">
-              <h3>9 phases shipped</h3>
-              <p>The phased plan helped keep momentum high while making the product visibly better every cycle rather than waiting for one big finish line.</p>
-            </article>
-            <article class="panel-card">
-              <h3>167 tests</h3>
-              <p>I used the test suite as a release tool, not a badge. It let me move quickly without breaking the core flow every time a new data source landed.</p>
-            </article>
-            <article class="panel-card">
-              <h3>Cross-platform restraint</h3>
-              <p>Web, iOS, and Android support only worked because I stayed disciplined about what needed to be shared and what needed to be platform-specific.</p>
-            </article>
-            <article class="surface-card">
-              <h3>Live demo matters</h3>
-              <p>This is not just a polished story page. There is a product behind it that someone can actually open and try.</p>
-            </article>
-          </div>
-        </div>
+      <div class="ownership-grid">
+        <article class="detail-card">
+          <span class="pill accent">Data quality</span>
+          <h3>Stale shortlist refresh</h3>
+          <p>Attractions older than 90 days get re-verified against Google Places. Closed venues drop from the shortlist. Freshness scoring already supports this; the refresh pipeline is the next step.</p>
+        </article>
+        <article class="detail-card">
+          <span class="pill signal">Generation</span>
+          <h3>Stricter shortlist-driven itinerary generation</h3>
+          <p>Constrain the AI planner to only use attractions from the verified shortlist. Currently the planner can suggest places outside the list. Tighter constraints improve trust and consistency.</p>
+        </article>
+        <article class="detail-card">
+          <span class="pill accent">Personalization</span>
+          <h3>Profile memory</h3>
+          <p>Returning users get plans shaped by their history: preferred activity types, dietary needs, accessibility requirements, past destinations. Supabase schema already supports this.</p>
+        </article>
+        <article class="detail-card">
+          <span class="pill signal">Scale</span>
+          <h3>Attraction intelligence precompute</h3>
+          <p>For high-demand destinations, precompute and refresh attraction shortlists on a schedule. Demand-driven storage works now; precompute makes the system faster for popular cities.</p>
+        </article>
       </div>
     </section>
 
     <footer class="footer">
-      <a href="privacy-policy.html">Privacy</a> ·
-      <a href="terms.html">Terms</a> ·
+      <a href="privacy-policy.html">Privacy</a> &middot;
+      <a href="terms.html">Terms</a> &middot;
       <a href="index.html">Back to portfolio</a>
     </footer>
   </main>
+  <!-- Lightbox overlay -->
+  <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Diagram zoom view">
+    <button class="lightbox-close" aria-label="Close diagram">&times;</button>
+    <img src="" alt="" />
+  </div>
 
   <script>
-    const buttons = document.querySelectorAll(".tab-button");
-    const panels = document.querySelectorAll(".tab-panel");
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const target = button.dataset.target;
-        buttons.forEach((node) => node.classList.remove("active"));
-        panels.forEach((node) => node.classList.remove("active"));
-        button.classList.add("active");
-        document.getElementById("tab-" + target).classList.add("active");
+    (() => {
+      const overlay = document.getElementById('lightbox');
+      const lbImg = overlay.querySelector('img');
+      const closeBtn = overlay.querySelector('.lightbox-close');
+
+      function open(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt;
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+      }
+
+      function close() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+      }
+
+      document.querySelectorAll('.diagram-thumb').forEach(img => {
+        img.addEventListener('click', () => open(img.src, img.alt));
       });
-    });
+
+      closeBtn.addEventListener('click', close);
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) close();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('open')) close();
+      });
+    })();
   </script>
+<script>
+(function(){
+  var btn=document.querySelector('.nav-menu-btn');
+  var menu=document.querySelector('.mobile-menu');
+  if(btn&&menu){btn.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+    btn.textContent=open?'\u2715':'\u2630';
+  });}
+})();
+</script>
 </body>
 </html>

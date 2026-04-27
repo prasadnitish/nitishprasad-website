@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0d1320" />
+  <meta property="og:title" content="Terms of Service — SproutRoute" />
+  <meta property="og:description" content="SproutRoute terms of service." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.nitishprasad.com/terms.html" />
+  <link rel="canonical" href="https://www.nitishprasad.com/terms.html" />
+  <meta property="og:image" content="https://www.nitishprasad.com/og-default.svg" />
   <title>Terms of Service — SproutRoute</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="icon" type="image/png" href="favicon.png" sizes="256x256" />
@@ -11,7 +17,7 @@
   <link rel="stylesheet" href="portfolio-refresh.css" />
 </head>
 <body>
-  <header class="topbar">
+<header class="topbar">
     <div class="topbar-inner">
       <a class="brand" href="index.html">Nitish<span class="brand-mark">.</span></a>
       <div class="nav-shell">
@@ -20,6 +26,12 @@
           <a href="privacy-policy.html">Privacy</a>
           <a href="index.html">Portfolio</a>
         </nav>
+      </div>
+      <button type="button" class="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <div class="mobile-menu">
+        <a href="project-sproutroute.html">Back to SproutRoute</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="index.html">Portfolio</a>
       </div>
     </div>
   </header>
@@ -102,5 +114,16 @@
       <a href="index.html">Portfolio</a>
     </footer>
   </main>
+<script>
+(function(){
+  var btn=document.querySelector('.nav-menu-btn');
+  var menu=document.querySelector('.mobile-menu');
+  if(btn&&menu){btn.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+    btn.textContent=open?'\u2715':'\u2630';
+  });}
+})();
+</script>
 </body>
 </html>

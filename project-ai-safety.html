@@ -8,9 +8,12 @@
   <meta property="og:description" content="A live safety and governance tool for fairness, red-team review, and PASS/WARN/BLOCK launch decisions." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.nitishprasad.com/project-ai-safety.html" />
+  <link rel="canonical" href="https://www.nitishprasad.com/project-ai-safety.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="AI Safety Audit Tool — Nitish Prasad" />
   <meta name="twitter:description" content="A fairness and governance toolkit for AI launch decisions." />
+  <meta property="og:image" content="https://www.nitishprasad.com/og-ai-safety.svg" />
+  <meta name="twitter:image" content="https://www.nitishprasad.com/og-ai-safety.svg" />
   <meta name="theme-color" content="#0d1320" />
   <title>AI Safety Audit Tool — Nitish Prasad</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -33,6 +36,15 @@
           <a class="nav-secondary" href="/ai-safety/" target="_blank" rel="noopener">Launch Tool</a>
           <a class="nav-resume" href="https://github.com/prasadnitish/ai-safety-audit-tool" target="_blank" rel="noopener">GitHub</a>
         </div>
+      </div>
+      <button type="button" class="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <div class="mobile-menu">
+        <a href="#quick-read">Quick Read</a>
+        <a href="#benchmarks">Benchmarks</a>
+        <a href="#demo">Live Demo</a>
+        <a href="/ai-safety/" target="_blank" rel="noopener">Launch Tool</a>
+        <a href="https://github.com/prasadnitish/ai-safety-audit-tool" target="_blank" rel="noopener">GitHub</a>
+        <a href="index.html">Portfolio Home</a>
       </div>
     </div>
   </header>
@@ -218,5 +230,16 @@
       <a href="index.html">Back to portfolio</a>
     </footer>
   </main>
+<script>
+(function(){
+  var btn=document.querySelector('.nav-menu-btn');
+  var menu=document.querySelector('.mobile-menu');
+  if(btn&&menu){btn.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+    btn.textContent=open?'\u2715':'\u2630';
+  });}
+})();
+</script>
 </body>
 </html>

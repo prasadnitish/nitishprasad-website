@@ -8,9 +8,12 @@
   <meta property="og:description" content="A production-minded RAG system with guardrails, evaluation evidence, and release logic." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.nitishprasad.com/project-rag-pipeline.html" />
+  <link rel="canonical" href="https://www.nitishprasad.com/project-rag-pipeline.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="RAG Pipeline with Guardrails — Nitish Prasad" />
   <meta name="twitter:description" content="Dual-domain RAG with guardrails, evaluations, and release criteria." />
+  <meta property="og:image" content="https://www.nitishprasad.com/og-rag-pipeline.svg" />
+  <meta name="twitter:image" content="https://www.nitishprasad.com/og-rag-pipeline.svg" />
   <meta name="theme-color" content="#0d1320" />
   <title>RAG Pipeline with Guardrails — Nitish Prasad</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -32,6 +35,14 @@
           <a class="nav-secondary" href="https://github.com/prasadnitish/rag-pipeline-guardrails/blob/main/docs/rag-eval-report-latest.md" target="_blank" rel="noopener">Eval Report</a>
           <a class="nav-resume" href="https://github.com/prasadnitish/rag-pipeline-guardrails" target="_blank" rel="noopener">Repository</a>
         </div>
+      </div>
+      <button type="button" class="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <div class="mobile-menu">
+        <a href="#quick-read">Quick Read</a>
+        <a href="#deep-dive">Deep Dive</a>
+        <a href="https://github.com/prasadnitish/rag-pipeline-guardrails/blob/main/docs/rag-eval-report-latest.md" target="_blank" rel="noopener">Eval Report</a>
+        <a href="https://github.com/prasadnitish/rag-pipeline-guardrails" target="_blank" rel="noopener">Repository</a>
+        <a href="index.html">Portfolio Home</a>
       </div>
     </div>
   </header>
@@ -201,5 +212,16 @@
       <a href="index.html">Back to portfolio</a>
     </footer>
   </main>
+<script>
+(function(){
+  var btn=document.querySelector('.nav-menu-btn');
+  var menu=document.querySelector('.mobile-menu');
+  if(btn&&menu){btn.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+    btn.textContent=open?'\u2715':'\u2630';
+  });}
+})();
+</script>
 </body>
 </html>

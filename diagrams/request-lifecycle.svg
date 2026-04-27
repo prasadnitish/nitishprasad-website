@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" font-family="'Inter', 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#60a5fa" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ade80" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#4ade80" stop-opacity="0.05"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrowWhite" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#555568" stroke-width="1.2"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#4ade80" stroke-width="1.2"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="900" fill="#0a0a0f" rx="16"/>
+
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" fill="#f0f0f5" font-size="20" font-weight="800" letter-spacing="0.5">SproutRoute — Request Lifecycle</text>
+  <line x1="260" y1="50" x2="540" y2="50" stroke="#4ade80" stroke-width="2" opacity="0.4"/>
+
+  <!-- Legend -->
+  <rect x="180" y="62" width="14" height="14" rx="3" fill="url(#orangeGrad)" stroke="#f97316" stroke-width="1"/>
+  <text x="200" y="74" fill="#f97316" font-size="10" font-weight="600">AI Step</text>
+  <rect x="290" y="62" width="14" height="14" rx="3" fill="url(#blueGrad)" stroke="#60a5fa" stroke-width="1"/>
+  <text x="310" y="74" fill="#60a5fa" font-size="10" font-weight="600">External API</text>
+  <rect x="420" y="62" width="14" height="14" rx="3" fill="url(#greenGrad)" stroke="#4ade80" stroke-width="1"/>
+  <text x="440" y="74" fill="#4ade80" font-size="10" font-weight="600">Deterministic / Cached</text>
+
+  <!-- ════════ BLOCKING SECTION LABEL ════════ -->
+  <text x="52" y="112" fill="#555568" font-size="9" font-weight="700" letter-spacing="1.5">BLOCKING</text>
+  <line x1="50" y1="118" x2="50" y2="555" stroke="#555568" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+
+  <!-- ════════ NODE 1: Input Parse (AI) ════════ -->
+  <rect x="250" y="100" width="300" height="56" rx="10" fill="url(#orangeGrad)" stroke="#f97316" stroke-width="1"/>
+  <text x="270" y="127" fill="#f0f0f5" font-size="14" font-weight="700">1. Input Parse</text>
+  <text x="270" y="145" fill="#8888aa" font-size="10">AI extracts destination, dates, kids, pets from text</text>
+  <text x="510" y="127" fill="#f97316" font-size="10" font-weight="600" text-anchor="end">~800ms</text>
+  <!-- BLOCKING badge -->
+  <rect x="515" y="111" width="28" height="14" rx="3" fill="#f97316" opacity="0.15"/>
+  <text x="529" y="121" text-anchor="middle" fill="#f97316" font-size="8" font-weight="700">AI</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="400" y1="156" x2="400" y2="178" stroke="#555568" stroke-width="1.5" marker-end="url(#arrowWhite)"/>
+
+  <!-- ════════ NODE 2: Geocode (External API) ════════ -->
+  <rect x="250" y="182" width="300" height="56" rx="10" fill="url(#blueGrad)" stroke="#60a5fa" stroke-width="1"/>
+  <text x="270" y="209" fill="#f0f0f5" font-size="14" font-weight="700">2. Geocode</text>
+  <text x="270" y="227" fill="#8888aa" font-size="10">Nominatim: destination to lat/lon + state</text>
+  <text x="510" y="209" fill="#60a5fa" font-size="10" font-weight="600" text-anchor="end">~200ms cached</text>
+  <rect x="515" y="193" width="28" height="14" rx="3" fill="#60a5fa" opacity="0.15"/>
+  <text x="529" y="203" text-anchor="middle" fill="#60a5fa" font-size="8" font-weight="700">API</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="400" y1="238" x2="400" y2="260" stroke="#555568" stroke-width="1.5" marker-end="url(#arrowWhite)"/>
+
+  <!-- ════════ NODE 3: Weather Fetch (External API) ════════ -->
+  <rect x="250" y="264" width="300" height="56" rx="10" fill="url(#blueGrad)" stroke="#60a5fa" stroke-width="1"/>
+  <text x="270" y="291" fill="#f0f0f5" font-size="14" font-weight="700">3. Weather Fetch</text>
+  <text x="270" y="309" fill="#8888aa" font-size="10">Weather.gov: forecast for trip dates</text>
+  <text x="510" y="291" fill="#60a5fa" font-size="10" font-weight="600" text-anchor="end">~400ms</text>
+  <rect x="515" y="275" width="28" height="14" rx="3" fill="#60a5fa" opacity="0.15"/>
+  <text x="529" y="285" text-anchor="middle" fill="#60a5fa" font-size="8" font-weight="700">API</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="400" y1="320" x2="400" y2="342" stroke="#555568" stroke-width="1.5" marker-end="url(#arrowWhite)"/>
+
+  <!-- ════════ NODE 4: Attraction Memory Lookup (Green) ════════ -->
+  <rect x="250" y="346" width="300" height="56" rx="10" fill="url(#greenGrad)" stroke="#4ade80" stroke-width="1"/>
+  <text x="270" y="373" fill="#f0f0f5" font-size="14" font-weight="700">4. Attraction Memory</text>
+  <text x="270" y="391" fill="#8888aa" font-size="10">Precomputed attraction data (ratings, hours, tips)</text>
+  <text x="510" y="373" fill="#4ade80" font-size="10" font-weight="600" text-anchor="end">~5ms cached</text>
+  <rect x="515" y="357" width="44" height="14" rx="3" fill="#4ade80" opacity="0.15"/>
+  <text x="537" y="367" text-anchor="middle" fill="#4ade80" font-size="8" font-weight="700">CACHED</text>
+
+  <!-- Arrow 4→5 -->
+  <line x1="400" y1="402" x2="400" y2="424" stroke="#555568" stroke-width="1.5" marker-end="url(#arrowWhite)"/>
+
+  <!-- ════════ NODE 5: Itinerary Generation (AI — heavy) ════════ -->
+  <rect x="250" y="428" width="300" height="56" rx="10" fill="url(#orangeGrad)" stroke="#f97316" stroke-width="1.5"/>
+  <text x="270" y="455" fill="#f0f0f5" font-size="14" font-weight="700">5. Itinerary Generation</text>
+  <text x="270" y="473" fill="#8888aa" font-size="10">Claude Haiku: day-by-day plan from all context</text>
+  <text x="510" y="455" fill="#f97316" font-size="10" font-weight="600" text-anchor="end">~2s</text>
+  <rect x="515" y="439" width="28" height="14" rx="3" fill="#f97316" opacity="0.15"/>
+  <text x="529" y="449" text-anchor="middle" fill="#f97316" font-size="8" font-weight="700">AI</text>
+  <!-- Critical path indicator -->
+  <rect x="206" y="440" width="36" height="32" rx="4" fill="#f97316" opacity="0.08" stroke="#f97316" stroke-width="0.5" stroke-dasharray="3,2"/>
+  <text x="224" y="453" text-anchor="middle" fill="#f97316" font-size="7" font-weight="700">SLOW</text>
+  <text x="224" y="463" text-anchor="middle" fill="#f97316" font-size="7" font-weight="700">PATH</text>
+
+  <!-- ════════ RESPONSE SENT — user sees itinerary ════════ -->
+  <line x1="100" y1="502" x2="700" y2="502" stroke="#4ade80" stroke-width="1" stroke-dasharray="6,3" opacity="0.5"/>
+  <rect x="264" y="492" width="272" height="20" rx="4" fill="#0a0a0f"/>
+  <text x="400" y="506" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="700" letter-spacing="1">ITINERARY RETURNED TO CLIENT</text>
+
+  <!-- ════════ NON-BLOCKING SECTION LABEL ════════ -->
+  <text x="52" y="540" fill="#4ade80" font-size="9" font-weight="700" letter-spacing="1.5">NON-BLOCKING</text>
+  <text x="52" y="552" fill="#555568" font-size="8">(parallel after itinerary)</text>
+  <line x1="50" y1="558" x2="50" y2="740" stroke="#4ade80" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+
+  <!-- Fork arrows from itinerary to 3 parallel nodes -->
+  <!-- Left branch -->
+  <path d="M340,484 L340,502 L340,518 L220,518 L220,562" fill="none" stroke="#4ade80" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+  <!-- Center branch -->
+  <line x1="400" y1="484" x2="400" y2="566" stroke="#4ade80" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+  <!-- Right branch -->
+  <path d="M460,484 L460,502 L460,518 L580,518 L580,562" fill="none" stroke="#4ade80" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+
+  <!-- ════════ NODE 6a: Packing Generation (Green — deterministic) ════════ -->
+  <rect x="90" y="570" width="260" height="56" rx="10" fill="url(#greenGrad)" stroke="#4ade80" stroke-width="1"/>
+  <text x="110" y="597" fill="#f0f0f5" font-size="13" font-weight="700">6a. Packing List</text>
+  <text x="110" y="615" fill="#8888aa" font-size="10">Deterministic rules from trip context</text>
+  <text x="310" y="597" fill="#4ade80" font-size="10" font-weight="600" text-anchor="end">~50ms</text>
+  <rect x="315" y="581" width="28" height="14" rx="3" fill="#4ade80" opacity="0.15"/>
+  <text x="329" y="591" text-anchor="middle" fill="#4ade80" font-size="8" font-weight="700">FAST</text>
+
+  <!-- ════════ NODE 6b: Safety Checks (Green — deterministic) ════════ -->
+  <rect x="270" y="570" width="260" height="56" rx="10" fill="url(#greenGrad)" stroke="#4ade80" stroke-width="1"/>
+  <text x="290" y="597" fill="#f0f0f5" font-size="13" font-weight="700">6b. Safety Checks</text>
+  <text x="290" y="615" fill="#8888aa" font-size="10">Car seat laws + pet rules (static data)</text>
+  <text x="490" y="597" fill="#4ade80" font-size="10" font-weight="600" text-anchor="end">~10ms</text>
+  <rect x="495" y="581" width="28" height="14" rx="3" fill="#4ade80" opacity="0.15"/>
+  <text x="509" y="591" text-anchor="middle" fill="#4ade80" font-size="8" font-weight="700">FAST</text>
+
+  <!-- ════════ NODE 6c: Travel Tips (Blue — AI but non-blocking) ════════ -->
+  <rect x="450" y="570" width="260" height="56" rx="10" fill="url(#blueGrad)" stroke="#60a5fa" stroke-width="1"/>
+  <text x="470" y="597" fill="#f0f0f5" font-size="13" font-weight="700">6c. Travel Tips</text>
+  <text x="470" y="615" fill="#8888aa" font-size="10">AI safety tips + advisories (background)</text>
+  <text x="670" y="597" fill="#60a5fa" font-size="10" font-weight="600" text-anchor="end">~1s</text>
+  <rect x="675" y="581" width="28" height="14" rx="3" fill="#60a5fa" opacity="0.15"/>
+  <text x="689" y="591" text-anchor="middle" fill="#60a5fa" font-size="8" font-weight="700">BG</text>
+
+  <!-- Merge arrows into final node -->
+  <line x1="220" y1="626" x2="220" y2="660" stroke="#555568" stroke-width="1" opacity="0.4"/>
+  <line x1="400" y1="626" x2="400" y2="660" stroke="#555568" stroke-width="1" opacity="0.4"/>
+  <line x1="580" y1="626" x2="580" y2="660" stroke="#555568" stroke-width="1" opacity="0.4"/>
+  <path d="M220,660 L400,680" fill="none" stroke="#555568" stroke-width="1" opacity="0.4"/>
+  <path d="M580,660 L400,680" fill="none" stroke="#555568" stroke-width="1" opacity="0.4"/>
+  <line x1="400" y1="660" x2="400" y2="688" stroke="#555568" stroke-width="1.5" marker-end="url(#arrowWhite)"/>
+
+  <!-- ════════ NODE 7: Response Render ════════ -->
+  <rect x="250" y="692" width="300" height="56" rx="10" fill="#1a1a24" stroke="#2a2a38" stroke-width="1"/>
+  <rect x="250" y="692" width="300" height="4" rx="2" fill="#4ade80" opacity="0.6"/>
+  <text x="270" y="722" fill="#f0f0f5" font-size="14" font-weight="700">7. Response Render</text>
+  <text x="270" y="740" fill="#8888aa" font-size="10">Mosaic tiles hydrate as data arrives</text>
+  <text x="510" y="722" fill="#4ade80" font-size="10" font-weight="600" text-anchor="end">progressive</text>
+
+  <!-- ════════ TIMING SUMMARY ════════ -->
+  <rect x="120" y="776" width="560" height="52" rx="10" fill="#111118" stroke="#2a2a38" stroke-width="1"/>
+  <text x="400" y="797" text-anchor="middle" fill="#f0f0f5" font-size="11" font-weight="700">Total blocking path: ~3.4s  (parse 800ms + geocode 200ms + weather 400ms + memory 5ms + itinerary 2s)</text>
+  <text x="400" y="815" text-anchor="middle" fill="#8888aa" font-size="10">Packing + safety fire in parallel after itinerary and render progressively</text>
+
+  <!-- ════════ TAKEAWAY ════════ -->
+  <rect x="100" y="845" width="600" height="34" rx="8" fill="#4ade80" opacity="0.08" stroke="#4ade80" stroke-width="0.5"/>
+  <text x="400" y="867" text-anchor="middle" fill="#4ade80" font-size="11" font-weight="700">Blocking AI is only in the itinerary path. Packing and safety are deterministic and fast.</text>
+
+</svg>

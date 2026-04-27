@@ -1,0 +1,26 @@
+# Nitish Prasad Portfolio
+
+This site is intended to be readable by search crawlers, recruiter tools, hiring-manager AI assistants, and retrieval systems used to summarize a candidate portfolio.
+
+## Primary Pages
+
+- Homepage: https://www.nitishprasad.com/
+- Resume: https://www.nitishprasad.com/resume.html
+- Amplify case study: https://www.nitishprasad.com/project-amplify.html
+- SproutRoute case study: https://www.nitishprasad.com/project-sproutroute.html
+- Sprout Math case study: https://www.nitishprasad.com/project-sproutmath.html
+- AI Eval Control Tower case study: https://www.nitishprasad.com/ai-eval-control-tower.html
+- RAG Pipeline with Guardrails case study: https://www.nitishprasad.com/project-rag-pipeline.html
+- AI Safety Audit Tool case study: https://www.nitishprasad.com/project-ai-safety.html
+
+## Candidate Summary
+
+Nitish Prasad is a product leader with 10+ years at Amazon. His portfolio focuses on 0->1 product strategy, scaled AI systems, marketplace economics, RAG, AI evaluation, trust and safety, and product operations.
+
+Flagship work includes Amplify, an AI seller intelligence platform for 1,600+ account managers across North America and Europe; SproutRoute, a hybrid AI travel planner with deterministic and verified data layers; and Sprout Math, a privacy-first offline iOS math learning app for K-5 learners.
+
+## Contact
+
+- Email: hello@nitishprasad.com
+- LinkedIn: https://linkedin.com/in/nitishprasad
+- GitHub: https://github.com/prasadnitish

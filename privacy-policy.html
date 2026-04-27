@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0d1320" />
+  <meta property="og:title" content="Privacy Policy — SproutRoute" />
+  <meta property="og:description" content="SproutRoute privacy policy and data handling practices." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.nitishprasad.com/privacy-policy.html" />
+  <link rel="canonical" href="https://www.nitishprasad.com/privacy-policy.html" />
+  <meta property="og:image" content="https://www.nitishprasad.com/og-default.svg" />
   <title>Privacy Policy — SproutRoute</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="icon" type="image/png" href="favicon.png" sizes="256x256" />
@@ -11,7 +17,7 @@
   <link rel="stylesheet" href="portfolio-refresh.css" />
 </head>
 <body>
-  <header class="topbar">
+<header class="topbar">
     <div class="topbar-inner">
       <a class="brand" href="index.html">Nitish<span class="brand-mark">.</span></a>
       <div class="nav-shell">
@@ -20,6 +26,12 @@
           <a href="terms.html">Terms</a>
           <a href="index.html">Portfolio</a>
         </nav>
+      </div>
+      <button type="button" class="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <div class="mobile-menu">
+        <a href="project-sproutroute.html">Back to SproutRoute</a>
+        <a href="terms.html">Terms</a>
+        <a href="index.html">Portfolio</a>
       </div>
     </div>
   </header>
@@ -60,7 +72,7 @@
       </ul>
 
       <h2>2. How Your Data Is Used</h2>
-      <p>The inputs above are sent to <strong>sproutroute-production.up.railway.app</strong> only to generate the trip plan. They are used to geocode the destination, retrieve weather and safety data, generate itinerary suggestions, build a packing list, and provide car seat guidance.</p>
+      <p>The inputs above are sent to <strong>www.sproutroute.app</strong> only to generate the trip plan. They are used to geocode the destination, retrieve weather and safety data, generate itinerary suggestions, build a packing list, and provide car seat guidance.</p>
       <p>Trip inputs are processed transiently and are not stored in a persistent database after the response is returned.</p>
 
       <h2>3. Data Stored on Your Device</h2>
@@ -93,7 +105,7 @@
             <td>US weather forecast</td>
           </tr>
           <tr>
-            <td>OpenWeatherMap</td>
+            <td>Visual Crossing</td>
             <td>Coordinates for international trips</td>
             <td>International weather forecast</td>
           </tr>
@@ -155,5 +167,16 @@
       <a href="index.html">Portfolio</a>
     </footer>
   </main>
+<script>
+(function(){
+  var btn=document.querySelector('.nav-menu-btn');
+  var menu=document.querySelector('.mobile-menu');
+  if(btn&&menu){btn.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+    btn.textContent=open?'\u2715':'\u2630';
+  });}
+})();
+</script>
 </body>
 </html>

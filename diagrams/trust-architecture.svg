@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" font-family="'Inter', 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ade80" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#4ade80" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#60a5fa" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="grayGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8888aa" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#8888aa" stop-opacity="0.03"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="650" fill="#0a0a0f" rx="16"/>
+
+  <!-- Title -->
+  <text x="600" y="38" text-anchor="middle" fill="#f0f0f5" font-size="20" font-weight="800" letter-spacing="0.5">Trust and Verification Architecture</text>
+  <line x1="410" y1="48" x2="790" y2="48" stroke="#4ade80" stroke-width="2" opacity="0.4"/>
+
+  <!-- "User sees this" banner -->
+  <rect x="400" y="60" width="400" height="32" rx="8" fill="#1a1a24" stroke="#f0f0f5" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="600" y="81" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="700" letter-spacing="0.5">USER SEES THIS</text>
+
+  <!-- Down arrows from banner to each column -->
+  <line x1="168" y1="92" x2="168" y2="118" stroke="#f97316" stroke-width="1.5" opacity="0.6" marker-end="url(#arrowOrange)"/>
+  <line x1="450" y1="92" x2="450" y2="118" stroke="#4ade80" stroke-width="1.5" opacity="0.6"/>
+  <line x1="738" y1="92" x2="738" y2="118" stroke="#60a5fa" stroke-width="1.5" opacity="0.6"/>
+  <line x1="1032" y1="92" x2="1032" y2="118" stroke="#8888aa" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowOrange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#f97316" opacity="0.6"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#4ade80" opacity="0.6"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#60a5fa" opacity="0.6"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#8888aa" opacity="0.6"/>
+    </marker>
+  </defs>
+
+  <!-- Vertical connector lines with arrows -->
+  <line x1="168" y1="76" x2="168" y2="120" stroke="#f97316" stroke-width="1.5" opacity="0.5" marker-end="url(#arrowOrange)"/>
+  <line x1="450" y1="76" x2="450" y2="120" stroke="#4ade80" stroke-width="1.5" opacity="0.5" marker-end="url(#arrowGreen)"/>
+  <line x1="738" y1="76" x2="738" y2="120" stroke="#60a5fa" stroke-width="1.5" opacity="0.5" marker-end="url(#arrowBlue)"/>
+  <line x1="1032" y1="76" x2="1032" y2="120" stroke="#8888aa" stroke-width="1.5" opacity="0.5" marker-end="url(#arrowGray)"/>
+
+  <!-- ═══ COLUMN 1: AI-Generated (Orange) ═══ -->
+  <rect x="30" y="125" width="276" height="410" rx="12" fill="url(#orangeGrad)" stroke="#f97316" stroke-width="1" stroke-opacity="0.3"/>
+  <rect x="30" y="125" width="276" height="4" rx="2" fill="#f97316" opacity="0.6"/>
+  <text x="168" y="153" text-anchor="middle" fill="#f97316" font-size="13" font-weight="700" letter-spacing="1">AI-GENERATED</text>
+  <text x="168" y="168" text-anchor="middle" fill="#f97316" font-size="10" opacity="0.7">Claude Haiku 3.5</text>
+
+  <!-- AI nodes -->
+  <rect x="46" y="182" width="244" height="40" rx="8" fill="#1a1a24" stroke="#f97316" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="168" y="200" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Itinerary narrative</text>
+  <text x="168" y="214" text-anchor="middle" fill="#8888aa" font-size="9">tripPlanAI.js</text>
+
+  <rect x="46" y="232" width="244" height="40" rx="8" fill="#1a1a24" stroke="#f97316" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="168" y="250" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Activity descriptions</text>
+  <text x="168" y="264" text-anchor="middle" fill="#8888aa" font-size="9">tripPlanAI.js</text>
+
+  <rect x="46" y="282" width="244" height="40" rx="8" fill="#1a1a24" stroke="#f97316" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="168" y="300" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Safety narrative tips</text>
+  <text x="168" y="314" text-anchor="middle" fill="#8888aa" font-size="9">travelSafety.js</text>
+
+  <rect x="46" y="332" width="244" height="40" rx="8" fill="#1a1a24" stroke="#f97316" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="168" y="350" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Trip input parsing</text>
+  <text x="168" y="364" text-anchor="middle" fill="#8888aa" font-size="9">parseInput.js</text>
+
+  <rect x="46" y="382" width="244" height="40" rx="8" fill="#1a1a24" stroke="#f97316" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="168" y="400" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Packing list generation</text>
+  <text x="168" y="414" text-anchor="middle" fill="#8888aa" font-size="9">packingListAI.js</text>
+
+  <rect x="46" y="432" width="244" height="40" rx="8" fill="#1a1a24" stroke="#f97316" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="168" y="450" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Time slot scheduling</text>
+  <text x="168" y="464" text-anchor="middle" fill="#8888aa" font-size="9">itineraryScheduler.js</text>
+
+  <!-- ═══ COLUMN 2: Deterministic (Green) ═══ -->
+  <rect x="318" y="125" width="264" height="410" rx="12" fill="url(#greenGrad)" stroke="#4ade80" stroke-width="1" stroke-opacity="0.3"/>
+  <rect x="318" y="125" width="264" height="4" rx="2" fill="#4ade80" opacity="0.6"/>
+  <text x="450" y="153" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700" letter-spacing="1">DETERMINISTIC</text>
+  <text x="450" y="168" text-anchor="middle" fill="#4ade80" font-size="10" opacity="0.7">Static rules, no AI</text>
+
+  <!-- Deterministic nodes -->
+  <rect x="334" y="182" width="232" height="40" rx="8" fill="#1a1a24" stroke="#4ade80" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="450" y="200" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Car seat rules (50 states)</text>
+  <text x="450" y="214" text-anchor="middle" fill="#8888aa" font-size="9">carSeatRules.js</text>
+
+  <rect x="334" y="232" width="232" height="40" rx="8" fill="#1a1a24" stroke="#4ade80" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="450" y="250" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Pet airline policies</text>
+  <text x="450" y="264" text-anchor="middle" fill="#8888aa" font-size="9">petAirlineRules.js (6 carriers)</text>
+
+  <rect x="334" y="282" width="232" height="40" rx="8" fill="#1a1a24" stroke="#4ade80" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="450" y="300" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Pet entry requirements</text>
+  <text x="450" y="314" text-anchor="middle" fill="#8888aa" font-size="9">petEntryRules.js</text>
+
+  <rect x="334" y="332" width="232" height="40" rx="8" fill="#1a1a24" stroke="#4ade80" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="450" y="350" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Input sanitization</text>
+  <text x="450" y="364" text-anchor="middle" fill="#8888aa" font-size="9">sanitize.js + inputSafety.js</text>
+
+  <rect x="334" y="382" width="232" height="40" rx="8" fill="#1a1a24" stroke="#4ade80" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="450" y="400" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Checklist ID generation</text>
+  <text x="450" y="414" text-anchor="middle" fill="#8888aa" font-size="9">checklist.js (content hash)</text>
+
+  <rect x="334" y="432" width="232" height="40" rx="8" fill="#1a1a24" stroke="#4ade80" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="450" y="450" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Affiliate link mapping</text>
+  <text x="450" y="464" text-anchor="middle" fill="#8888aa" font-size="9">affiliateLinks.js</text>
+
+  <!-- ═══ COLUMN 3: Externally Verified (Blue) ═══ -->
+  <rect x="594" y="125" width="288" height="410" rx="12" fill="url(#blueGrad)" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.3"/>
+  <rect x="594" y="125" width="288" height="4" rx="2" fill="#60a5fa" opacity="0.6"/>
+  <text x="738" y="153" text-anchor="middle" fill="#60a5fa" font-size="13" font-weight="700" letter-spacing="1">EXTERNALLY VERIFIED</text>
+  <text x="738" y="168" text-anchor="middle" fill="#60a5fa" font-size="10" opacity="0.7">Third-party APIs</text>
+
+  <!-- External nodes -->
+  <rect x="610" y="182" width="256" height="40" rx="8" fill="#1a1a24" stroke="#60a5fa" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="738" y="200" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Weather forecasts</text>
+  <text x="738" y="214" text-anchor="middle" fill="#8888aa" font-size="9">Weather.gov / OpenWeatherMap</text>
+
+  <rect x="610" y="232" width="256" height="40" rx="8" fill="#1a1a24" stroke="#60a5fa" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="738" y="250" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Place details + photos</text>
+  <text x="738" y="264" text-anchor="middle" fill="#8888aa" font-size="9">Google Places API</text>
+
+  <rect x="610" y="282" width="256" height="40" rx="8" fill="#1a1a24" stroke="#60a5fa" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="738" y="300" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Travel advisories</text>
+  <text x="738" y="314" text-anchor="middle" fill="#8888aa" font-size="9">US State Dept API</text>
+
+  <rect x="610" y="332" width="256" height="40" rx="8" fill="#1a1a24" stroke="#60a5fa" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="738" y="350" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Geocoding coordinates</text>
+  <text x="738" y="364" text-anchor="middle" fill="#8888aa" font-size="9">Nominatim / OpenStreetMap</text>
+
+  <rect x="610" y="382" width="256" height="40" rx="8" fill="#1a1a24" stroke="#60a5fa" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="738" y="400" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Neighborhood safety</text>
+  <text x="738" y="414" text-anchor="middle" fill="#8888aa" font-size="9">neighborhoodSafety.js</text>
+
+  <rect x="610" y="432" width="256" height="40" rx="8" fill="#1a1a24" stroke="#60a5fa" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="738" y="450" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Map tiles + routing</text>
+  <text x="738" y="464" text-anchor="middle" fill="#8888aa" font-size="9">OpenStreetMap embed</text>
+
+  <!-- ═══ COLUMN 4: Cached (Gray) ═══ -->
+  <rect x="894" y="125" width="276" height="410" rx="12" fill="url(#grayGrad)" stroke="#8888aa" stroke-width="1" stroke-opacity="0.3"/>
+  <rect x="894" y="125" width="276" height="4" rx="2" fill="#8888aa" opacity="0.6"/>
+  <text x="1032" y="153" text-anchor="middle" fill="#8888aa" font-size="13" font-weight="700" letter-spacing="1">CACHED</text>
+  <text x="1032" y="168" text-anchor="middle" fill="#8888aa" font-size="10" opacity="0.7">Precomputed + stored</text>
+
+  <!-- Cached nodes -->
+  <rect x="910" y="182" width="244" height="40" rx="8" fill="#1a1a24" stroke="#8888aa" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="1032" y="200" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Attraction memory</text>
+  <text x="1032" y="214" text-anchor="middle" fill="#8888aa" font-size="9">Supabase (precomputed scores)</text>
+
+  <rect x="910" y="232" width="244" height="40" rx="8" fill="#1a1a24" stroke="#8888aa" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="1032" y="250" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Geocode cache</text>
+  <text x="1032" y="264" text-anchor="middle" fill="#8888aa" font-size="9">In-memory LRU (geocoding.js)</text>
+
+  <rect x="910" y="282" width="244" height="40" rx="8" fill="#1a1a24" stroke="#8888aa" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="1032" y="300" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Weather cache</text>
+  <text x="1032" y="314" text-anchor="middle" fill="#8888aa" font-size="9">TTL-based (weather.js)</text>
+
+  <rect x="910" y="332" width="244" height="40" rx="8" fill="#1a1a24" stroke="#8888aa" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="1032" y="350" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Places enrichment cache</text>
+  <text x="1032" y="364" text-anchor="middle" fill="#8888aa" font-size="9">placesCache.js (localStorage)</text>
+
+  <rect x="910" y="382" width="244" height="40" rx="8" fill="#1a1a24" stroke="#8888aa" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="1032" y="400" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">Freshness rankings</text>
+  <text x="1032" y="414" text-anchor="middle" fill="#8888aa" font-size="9">Attraction staleness scores</text>
+
+  <rect x="910" y="432" width="244" height="40" rx="8" fill="#1a1a24" stroke="#8888aa" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="1032" y="450" text-anchor="middle" fill="#f0f0f5" font-size="12" font-weight="600">RAG templates</text>
+  <text x="1032" y="464" text-anchor="middle" fill="#8888aa" font-size="9">ragTemplates.js (prebuilt prompts)</text>
+
+  <!-- ═══ CROSS-COLUMN ARROWS: showing AI text is backed by other columns ═══ -->
+  <!-- Arrow from Deterministic to AI (car seat rules feed safety narrative) -->
+  <path d="M334,302 C310,302 310,302 290,302" stroke="#4ade80" stroke-width="1" fill="none" opacity="0.4" stroke-dasharray="4,3" marker-end="url(#arrowGreen)"/>
+  <!-- Arrow from External to AI (weather feeds itinerary) -->
+  <path d="M610,192 C580,192 340,192 290,192" stroke="#60a5fa" stroke-width="1" fill="none" opacity="0.4" stroke-dasharray="4,3" marker-end="url(#arrowBlue)"/>
+  <!-- Arrow from Cached to AI (attraction memory feeds itinerary) -->
+  <path d="M910,192 C880,192 320,205 290,240" stroke="#8888aa" stroke-width="1" fill="none" opacity="0.3" stroke-dasharray="4,3" marker-end="url(#arrowGray)"/>
+
+  <!-- ═══ CALLOUT BOX ═══ -->
+  <rect x="30" y="548" width="740" height="42" rx="10" fill="#1a1a24" stroke="#f97316" stroke-width="1" stroke-opacity="0.5"/>
+  <circle cx="56" cy="569" r="10" fill="#f97316" opacity="0.15" stroke="#f97316" stroke-width="1"/>
+  <text x="56" y="574" text-anchor="middle" fill="#f97316" font-size="13" font-weight="700">!</text>
+  <text x="76" y="574" fill="#f0f0f5" font-size="12" font-weight="600">Only itinerary narrative is purely AI-generated. Every fact is sourced.</text>
+
+  <!-- ═══ TAKEAWAY ═══ -->
+  <rect x="30" y="600" width="1140" height="36" rx="10" fill="#111118" stroke="#4ade80" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="600" y="623" text-anchor="middle" fill="#8888aa" font-size="12" font-weight="500">Users see AI text, but it is backed by verified places, deterministic rules, and real weather data.</text>
+
+  <!-- Legend dots in top right -->
+  <circle cx="990" cy="68" r="5" fill="#f97316"/>
+  <text x="1000" y="72" fill="#8888aa" font-size="9">AI</text>
+  <circle cx="1030" cy="68" r="5" fill="#4ade80"/>
+  <text x="1040" y="72" fill="#8888aa" font-size="9">Rules</text>
+  <circle cx="1080" cy="68" r="5" fill="#60a5fa"/>
+  <text x="1090" y="72" fill="#8888aa" font-size="9">External</text>
+  <circle cx="1140" cy="68" r="5" fill="#8888aa"/>
+  <text x="1150" y="72" fill="#8888aa" font-size="9">Cache</text>
+</svg>

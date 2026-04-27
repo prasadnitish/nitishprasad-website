@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#0d1320" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect x="80" y="280" width="60" height="4" rx="2" fill="#b76a3c" />
+  <g transform="translate(80, 120) scale(2.2)">
+    <path d="M18 46V18M18 18L40 46M40 46V18" fill="none" stroke="#ede5d8" stroke-linecap="round" stroke-linejoin="round" stroke-width="7" />
+    <circle cx="49" cy="49" r="5" fill="#b76a3c" />
+  </g>
+  <text x="80" y="340" fill="#ede5d8" font-family="'Iowan Old Style', Palatino, Georgia, serif" font-size="52" font-weight="600">RAG Pipeline</text>
+  <text x="80" y="390" fill="#b3ab9f" font-family="'Avenir Next', -apple-system, 'Segoe UI', sans-serif" font-size="26">Retrieval-Augmented Generation with Guardrails</text>
+  <text x="80" y="450" fill="#9fd6c2" font-family="'Avenir Next', -apple-system, 'Segoe UI', sans-serif" font-size="20" opacity="0.85">PII detection  &#xB7;  Toxicity filtering  &#xB7;  Release gates</text>
+  <text x="80" y="560" fill="#b3ab9f" font-family="'Avenir Next', -apple-system, 'Segoe UI', sans-serif" font-size="18" opacity="0.5">Nitish Prasad  &#xB7;  nitishprasad.com</text>
+</svg>

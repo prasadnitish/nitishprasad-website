@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="An independent evaluation of nitishprasad.com — what lands for a 20-second recruiter scan, what blocks the hire signal for a deep-read hiring manager, and the minimal set of fixes to close the gap." />
+<meta name="robots" content="noindex,follow" />
+<meta property="og:title" content="Portfolio Evaluation — nitishprasad.com" />
+<meta property="og:description" content="Structured review from two reader personas (technical recruiter + PM hiring manager) with ordered findings, a signal heatmap, and a weekend-scoped priority list." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.nitishprasad.com/portfolio-evaluation.html" />
+<meta property="og:image" content="https://www.nitishprasad.com/og-default.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Portfolio Evaluation — nitishprasad.com" />
+<meta name="twitter:description" content="Independent review of the portfolio — what works, what blocks the hire signal, and the fixes that matter." />
+<meta name="twitter:image" content="https://www.nitishprasad.com/og-default.svg" />
+<meta name="theme-color" content="#0d1320" />
+<title>Portfolio Evaluation — nitishprasad.com</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="icon" type="image/png" href="favicon.png" sizes="256x256" />
+<link rel="apple-touch-icon" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1320;
+  --bg-2:#151d2d;
+  --surface:#ede5d8;
+  --text:#f6f0e7;
+  --text-muted:#b3ab9f;
+  --ink:#182130;
+  --ink-soft:#445064;
+  --accent:#b76a3c;
+  --signal:#9fd6c2;
+  --danger:#e58a7a;
+  --warn:#e6c27a;
+  --ok:#9fd6c2;
+  --line:rgba(255,255,255,.09);
+  --line-strong:rgba(255,255,255,.18);
+  --max:1160px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 85% -5%, rgba(159,214,194,.12), transparent 35%),
+    radial-gradient(circle at 12% 2%, rgba(183,106,60,.14), transparent 32%),
+    var(--bg);
+  color:var(--text);
+  font-family:"Inter","Segoe UI","Helvetica Neue",sans-serif;
+  line-height:1.6;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+.shell{width:min(var(--max), calc(100% - 3rem));margin:0 auto}
+h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:600;letter-spacing:-.01em;line-height:1.12;margin:0}
+h1{font-size:clamp(2.4rem,5vw,4.2rem);letter-spacing:-.02em}
+h2{font-size:clamp(1.7rem,2.6vw,2.4rem);margin-bottom:.6rem}
+h3{font-size:1.25rem}
+p{margin:.5rem 0}
+a{color:var(--signal)}
+.eyebrow{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-muted)}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+.divider{height:1px;background:var(--line);margin:2rem 0}
+
+/* ---- Topbar ---- */
+.top{position:sticky;top:0;z-index:20;backdrop-filter:blur(18px);background:color-mix(in srgb, var(--bg) 86%, transparent);border-bottom:1px solid var(--line)}
+.top-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:"Fraunces",serif;font-weight:700;font-size:1.15rem;text-decoration:none;color:var(--text)}
+.brand em{font-style:normal;color:var(--accent)}
+.top nav{display:flex;gap:1.4rem}
+.top nav a{color:var(--text-muted);text-decoration:none;font-size:.9rem}
+.top nav a:hover{color:var(--text)}
+@media (max-width:760px){.top nav{display:none}}
+
+/* ---- Hero ---- */
+.hero{padding:5rem 0 3rem}
+.hero .eyebrow{margin-bottom:1.2rem}
+.hero p.lede{font-size:1.15rem;color:var(--text-muted);max-width:58ch;margin-top:1.2rem}
+.hero .meta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.8rem}
+.chip{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .7rem;border-radius:999px;border:1px solid var(--line-strong);font-size:.78rem;color:var(--text-muted);background:rgba(255,255,255,.02)}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--signal)}
+
+/* ---- Verdict ---- */
+.verdict{
+  margin-top:2.5rem;
+  display:grid;grid-template-columns:1.3fr 1fr;gap:1rem;
+  border:1px solid var(--line-strong);border-radius:18px;padding:1.6rem;
+  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
+}
+@media (max-width:820px){.verdict{grid-template-columns:1fr}}
+.verdict .score{
+  border-left:1px solid var(--line);
+  padding-left:1.4rem;
+  display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem 1.2rem;align-content:start
+}
+.verdict .score .row{display:flex;flex-direction:column;gap:.2rem}
+.verdict .score strong{font-family:"Fraunces",serif;font-size:1.6rem;font-weight:600}
+.verdict .score span{color:var(--text-muted);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+.verdict h2{font-size:1.4rem}
+.verdict p{color:var(--text-muted)}
+
+/* ---- TLDR ---- */
+.tldr{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-top:1.5rem}
+@media (max-width:820px){.tldr{grid-template-columns:1fr}}
+.tldr .card{border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.2rem;background:rgba(255,255,255,.02)}
+.tldr .card .eyebrow{font-size:.66rem;margin-bottom:.4rem;display:block}
+.tldr .card.good .eyebrow{color:var(--ok)}
+.tldr .card.watch .eyebrow{color:var(--warn)}
+.tldr .card.fix .eyebrow{color:var(--danger)}
+.tldr .card h4{font-family:"Fraunces",serif;font-weight:600;margin:.1rem 0 .3rem;font-size:1.05rem}
+.tldr .card p{color:var(--text-muted);font-size:.92rem;margin:0}
+
+/* ---- Section ---- */
+section.s{padding:3.5rem 0;border-top:1px solid var(--line)}
+section.s .intro{max-width:68ch;color:var(--text-muted);margin-top:.4rem}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:2rem}
+.sec-head .eyebrow{display:block}
+
+/* ---- Finding ---- */
+.finding{
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:1.4rem 1.5rem;
+  background:rgba(255,255,255,.025);
+  margin-bottom:1rem;
+  display:grid;
+  grid-template-columns:78px 1fr;
+  gap:1.2rem;
+  align-items:start;
+}
+@media (max-width:720px){.finding{grid-template-columns:1fr;gap:.6rem}}
+.finding .num{
+  font-family:"Fraunces",serif;font-size:2.4rem;color:var(--ink-soft);
+  line-height:1;padding-top:.1rem
+}
+.finding .head{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.finding h3{font-size:1.2rem}
+.sev{
+  font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.14em;
+  padding:.22rem .55rem;border-radius:6px;text-transform:uppercase;
+}
+.sev.high{background:rgba(229,138,122,.14);color:#f1a697;border:1px solid rgba(229,138,122,.3)}
+.sev.med{background:rgba(230,194,122,.13);color:#e6c27a;border:1px solid rgba(230,194,122,.3)}
+.sev.low{background:rgba(159,214,194,.12);color:#9fd6c2;border:1px solid rgba(159,214,194,.28)}
+.sev.pos{background:rgba(159,214,194,.12);color:#9fd6c2;border:1px solid rgba(159,214,194,.28)}
+.tag{font-family:"JetBrains Mono",monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
+.finding .body{color:var(--text-muted)}
+.finding .body p{margin:.6rem 0}
+.finding .body strong{color:var(--text)}
+.finding .quote{
+  border-left:2px solid var(--accent);
+  padding:.1rem 0 .1rem .9rem;
+  margin:.8rem 0;color:var(--text);font-family:"Fraunces",serif;font-style:italic;font-size:1rem
+}
+.finding .fix{
+  margin-top:.9rem;border-top:1px dashed var(--line);padding-top:.8rem;
+  display:grid;grid-template-columns:auto 1fr;gap:.6rem 1rem;font-size:.92rem
+}
+.finding .fix .k{color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;align-self:start;padding-top:.15rem}
+.finding .fix .v{color:var(--text)}
+
+/* ---- Persona block ---- */
+.persona{
+  display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.2rem
+}
+@media (max-width:820px){.persona{grid-template-columns:1fr}}
+.persona .p{
+  border:1px solid var(--line);border-radius:16px;padding:1.4rem;background:rgba(255,255,255,.025)
+}
+.persona h3{font-size:1.1rem;margin-bottom:.2rem}
+.persona .time{font-family:"JetBrains Mono",monospace;font-size:.74rem;color:var(--accent);letter-spacing:.08em}
+.persona ol{margin:.6rem 0 0;padding-left:1.1rem;color:var(--text-muted)}
+.persona ol li{margin:.3rem 0}
+.persona .bad{color:#f1a697}
+.persona .good{color:#9fd6c2}
+
+/* ---- Heatmap ---- */
+.heat{margin-top:1.2rem;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.heat table{width:100%;border-collapse:collapse;font-size:.9rem}
+.heat th,.heat td{padding:.75rem 1rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.heat th{background:rgba(255,255,255,.03);font-weight:500;color:var(--text-muted);font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
+.heat td:last-child{color:var(--text-muted)}
+.heat tr:last-child td{border-bottom:0}
+.bar{display:inline-block;height:8px;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--signal));vertical-align:middle}
+
+/* ---- Priority list ---- */
+.prio{display:grid;grid-template-columns:1fr;gap:.6rem;margin-top:1rem}
+.prio .row{
+  display:grid;grid-template-columns:40px 1fr auto;gap:1rem;align-items:center;
+  padding:.8rem 1rem;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.02)
+}
+.prio .n{font-family:"Fraunces",serif;font-size:1.4rem;color:var(--accent)}
+.prio .lbl{color:var(--text)}
+.prio .lbl small{display:block;color:var(--text-muted);font-size:.85rem;margin-top:.15rem}
+.prio .effort{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--text-muted);letter-spacing:.1em}
+
+/* ---- Footer ---- */
+footer{padding:2.5rem 0 4rem;color:var(--text-muted);font-size:.85rem;border-top:1px solid var(--line);margin-top:2rem}
+.kbd{font-family:"JetBrains Mono",monospace;font-size:.75rem;background:rgba(255,255,255,.06);padding:.1rem .4rem;border-radius:4px;border:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="shell top-inner">
+    <a class="brand" href="index.html">Portfolio Review<em>.</em></a>
+    <nav>
+      <a href="#verdict">Verdict</a>
+      <a href="#personas">Personas</a>
+      <a href="#findings">Findings</a>
+      <a href="#heatmap">Heatmap</a>
+      <a href="#priorities">Priorities</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero shell">
+  <div class="eyebrow">Independent evaluation · nitishprasad.com · April 17, 2026</div>
+  <h1>Strong substance.<br/>Under-tuned for a 20-second scan.</h1>
+  <p class="lede">
+    The portfolio has real product IP — Amplify's hybrid-inference call, SproutRoute's architecture, the eval control tower. But hiring managers and recruiters rarely read. They scan. Your site is organized to be <em>read</em>, not <em>triaged</em>. Below: what lands, what blocks the hire signal, and the minimal set of fixes to close the gap.
+  </p>
+  <div class="meta">
+    <span class="chip"><span class="dot"></span>Evaluator lens: PM recruiter + hiring manager at Principal/Staff bar</span>
+    <span class="chip">Scope: homepage + case studies + resume</span>
+    <span class="chip">Pages reviewed: 8</span>
+  </div>
+
+  <!-- VERDICT -->
+  <div class="verdict" id="verdict">
+    <div>
+      <div class="eyebrow" style="color:var(--accent);margin-bottom:.6rem">The call</div>
+      <h2>You get a callback. You don't get a "wow, send to the hiring bar-raiser" email.</h2>
+      <p>
+        The résumé signal (10y Amazon, Amplify numbers, live demos, shipped iOS app) is strong enough on its own. The site adds surprisingly little <em>proof</em> on top — it mostly paraphrases the résumé in a darker skin. The biggest gap is the absence of product artifacts a hiring manager actually wants to see: the problem framing doc, the system diagram, the tradeoff that was hard, the before/after screenshot. Text about systems ≠ evidence of systems.
+      </p>
+    </div>
+    <div class="score">
+      <div class="row"><strong>B+</strong><span>Recruiter scan (≤ 20s)</span></div>
+      <div class="row"><strong>B−</strong><span>Hiring mgr deep-read</span></div>
+      <div class="row"><strong>A−</strong><span>Writing & narrative</span></div>
+      <div class="row"><strong>C+</strong><span>Product evidence</span></div>
+      <div class="row"><strong>B</strong><span>Visual craft</span></div>
+      <div class="row"><strong>B</strong><span>Information architecture</span></div>
+    </div>
+  </div>
+
+  <!-- TL;DR -->
+  <div class="tldr">
+    <div class="card good">
+      <span class="eyebrow">What works</span>
+      <h4>Clear voice, real numbers</h4>
+      <p>"Dashboard request → AI platform", 99% cost cut, 45→5 min, $60K→$500. The story is specific and non-generic.</p>
+    </div>
+    <div class="card watch">
+      <span class="eyebrow">What's risky</span>
+      <h4>All tell, no show</h4>
+      <p>The flagship — Amplify — has zero screenshots, diagrams, or UI. A reviewer has to take your word for everything.</p>
+    </div>
+    <div class="card fix">
+      <span class="eyebrow">Biggest fix</span>
+      <h4>Above-the-fold = one proof</h4>
+      <p>Replace the 3-paragraph intro with a single line, a system diagram or product shot, and one metric strip.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PERSONAS ============ -->
+<section class="s" id="personas">
+  <div class="shell">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">The two readers you have</span>
+        <h2>Walk-throughs from your actual audience.</h2>
+        <p class="intro">These are simulated scan paths based on how tech recruiters and PM hiring managers triage portfolios in 2026. The ~20s recruiter pass and the ~3-minute hiring manager pass are the only two that matter. Everything else is a bonus.</p>
+      </div>
+    </div>
+
+    <div class="persona">
+      <div class="p">
+        <span class="time">00:00 – 00:22 · RECRUITER</span>
+        <h3>Maya, agency recruiter, 40 portfolios today</h3>
+        <ol>
+          <li>Lands on hero. Reads the eyebrow: <em>Principal-level · 0→1 and scale · Amazon</em>. ✓ Signal captured in 2s.</li>
+          <li>Scans giant serif headline. Good — but <span class="bad">no photo, no role target, no location, no years</span>. Has to hunt for "Seattle or remote" down at the contact block.</li>
+          <li>Looks for resume / LinkedIn. ✓ Finds them in top-right. Opens resume in new tab.</li>
+          <li>Never returns to the site. Decision is made from the resume alone.</li>
+          <li class="bad">Net: the homepage worked as a <em>routing layer</em>, not as a differentiator. The portfolio work you built did nothing for this reader.</li>
+        </ol>
+      </div>
+
+      <div class="p">
+        <span class="time">00:00 – 03:00 · HIRING MANAGER</span>
+        <h3>Raj, Director of Product, AI platform team</h3>
+        <ol>
+          <li>Hero reads well. Opens <em>Amplify</em> in new tab as the obvious flagship.</li>
+          <li>Amplify page: Quick Read is strong. 45→5 min, $60K→$500, &lt;500ms P95 — these are the right metrics.</li>
+          <li class="bad">Scrolls for the product. Finds none. <strong>No UI, no system diagram, no before/after, no architecture sketch.</strong> Starts to wonder if Amplify is real.</li>
+          <li>Looks for: "what was the hard tradeoff?" Finds it described, but as prose — no sketched decision tree, no rejected options.</li>
+          <li>Clicks back. Opens SproutRoute. ✓ Live demo + GitHub in the nav — <span class="good">much better</span>. Diagrams exist. This page pulls weight.</li>
+          <li>Closes tab. Might interview. <span class="bad">Will ask "show me the actual Amplify UI" in round one.</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINDINGS ============ -->
+<section class="s" id="findings">
+  <div class="shell">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">Findings · ordered by hire impact</span>
+        <h2>What's actually blocking you.</h2>
+        <p class="intro">Each item is tagged with severity and who feels it. Fixes are specific.</p>
+      </div>
+    </div>
+
+    <!-- 1 -->
+    <article class="finding">
+      <div class="num">01</div>
+      <div>
+        <div class="head">
+          <h3>Amplify has no product evidence</h3>
+          <span class="sev high">High</span>
+          <span class="tag">Hiring manager · flagship</span>
+        </div>
+        <div class="body">
+          <p>
+            Your own framing positions Amplify as the strongest case study. It's the first project in the hero, has its own proof row, and is the only one with a dedicated "outcomes" panel. And yet the case-study page contains zero pixels of the actual product — no dashboard screenshot, no recommendation card, no system diagram, no mocked-out workflow.
+          </p>
+          <p>
+            Compare to SproutRoute, which has an <span class="mono">assets/screenshots/</span> folder, a lightbox gallery, and eight SVG diagrams in <span class="mono">diagrams/</span>. That page feels like a real product. Amplify reads like a very well-written memo <em>about</em> a product.
+          </p>
+          <div class="quote">"Turned model output into a workflow change that mattered." — but show me the workflow.</div>
+          <div class="fix">
+            <span class="k">Fix</span><span class="v">Add 2–3 assets to the Amplify page: (a) one UI capture, even redacted/abstracted for NDA; (b) one system diagram showing the hybrid inference + RAG + cache path; (c) one "before vs after" account-manager workflow. If the UI is confidential, draw a Figma-style wireframe of it — reviewers understand that constraint and respect it more than prose.</span>
+            <span class="k">Effort</span><span class="v">~4 hours. You already built the diagrams for SproutRoute; use the same visual vocabulary.</span>
+            <span class="k">Why it matters</span><span class="v">This is the single biggest delta between "credible" and "impressive" in your portfolio today.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2 -->
+    <article class="finding">
+      <div class="num">02</div>
+      <div>
+        <div class="head">
+          <h3>Above-the-fold is 90% text, 0% proof</h3>
+          <span class="sev high">High</span>
+          <span class="tag">Recruiter · scan</span>
+        </div>
+        <div class="body">
+          <p>
+            The first screen is: a nav, a small eyebrow, a giant serif headline, and three paragraphs. A scanning reader has to read ~160 words before they see anything concrete. The "Selected case studies" sidebar helps, but it's another block of text.
+          </p>
+          <p>
+            Principal-level PM portfolios that land well tend to put one of three things in the hero: <strong>a product screenshot, a numbered outcome strip, or a labeled system diagram</strong>. You have material for all three. You're using none.
+          </p>
+          <div class="fix">
+            <span class="k">Fix</span><span class="v">Cut the intro from 3 paragraphs → 1. Move the metric strip (<span class="mono">1,600+ / 99% / &lt;500ms / 45→5 min</span>) directly under the headline. Push one proof artifact into the right column instead of the case-study list.</span>
+            <span class="k">Effort</span><span class="v">~1 hour in <span class="mono">index-app.js</span>.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3 -->
+    <article class="finding">
+      <div class="num">03</div>
+      <div>
+        <div class="head">
+          <h3>No role targeting in the hero</h3>
+          <span class="sev high">High</span>
+          <span class="tag">Recruiter · match</span>
+        </div>
+        <div class="body">
+          <p>
+            Recruiters filter by role, level, and location before anything else. Your site tells them this — <em>Principal/Staff PM and AI Product Lead, Seattle or remote, marketplace economics + AI platforms + 0→1</em> — but buries it at the bottom of the Contact card. By the time it's reached, two-thirds of recruiters have bounced.
+          </p>
+          <div class="fix">
+            <span class="k">Fix</span><span class="v">Surface a short "what I'm looking for" chip row in the hero (next to the eyebrow): <span class="mono">Principal / Staff PM</span> · <span class="mono">AI platforms · marketplaces</span> · <span class="mono">Seattle or remote</span> · <span class="mono">Open to new roles</span>.</span>
+            <span class="k">Why</span><span class="v">This is the single piece of text recruiters copy-paste into their ATS notes.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 4 -->
+    <article class="finding">
+      <div class="num">04</div>
+      <div>
+        <div class="head">
+          <h3>"Principal-level" is a self-declared title</h3>
+          <span class="sev med">Medium</span>
+          <span class="tag">Hiring manager · credibility</span>
+        </div>
+        <div class="body">
+          <p>
+            The hero eyebrow says <em>Principal-level product leader</em>. Your current Amazon title is <em>Senior Product Manager</em>. That gap isn't disqualifying — plenty of PMs are operating above their title — but claiming it on the first line without backing it up is the first thing a skeptical reviewer flags.
+          </p>
+          <p>
+            You have the evidence to earn the claim (platform scope, VP-facing program ownership, nine-figure budget). Use the evidence, don't lead with the label.
+          </p>
+          <div class="fix">
+            <span class="k">Fix A (conservative)</span><span class="v">Change eyebrow to <em>Senior PM at Amazon · 0→1 and scale · seeking Principal/Staff</em>. Honest, and the "seeking Principal" is itself a recruiter signal.</span>
+            <span class="k">Fix B (confident)</span><span class="v">Keep "Principal-level" but add a line of backing: <em>"Principal-level scope — platform ownership, VP program accountability, nine-figure budget."</em></span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 5 -->
+    <article class="finding">
+      <div class="num">05</div>
+      <div>
+        <div class="head">
+          <h3>Homepage uses React for a static page</h3>
+          <span class="sev med">Medium</span>
+          <span class="tag">Hiring manager · tech judgment</span>
+        </div>
+        <div class="body">
+          <p>
+            The homepage mounts React from a CDN and renders entirely static content. Two concerns from a PM-with-technical-depth frame:
+          </p>
+          <p>
+            <strong>(1) SEO &amp; previews.</strong> All of the hero text lives in JS. Google renders it eventually, but LinkedIn preview cards, recruiter automation tools, and some ATS crawlers don't. You already invested in per-page <span class="mono">og:</span> tags — don't undercut them with a client-rendered homepage.
+          </p>
+          <p>
+            <strong>(2) The signal.</strong> A senior PM portfolio that uses React to render static content invites the question "why?" Every case study page is already hand-written HTML. The homepage could be too.
+          </p>
+          <div class="fix">
+            <span class="k">Fix</span><span class="v">Pre-render the homepage to static HTML (same output, just build-time). Keep React only for the mobile menu toggle, or replace it with ~10 lines of vanilla JS. Your <span class="mono">project-*.html</span> pages already do this.</span>
+            <span class="k">Secondary</span><span class="v">Once static, add a <span class="mono">&lt;noscript&gt;</span> path that still shows the hero.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 6 -->
+    <article class="finding">
+      <div class="num">06</div>
+      <div>
+        <div class="head">
+          <h3>Case-study pages have no consistent template</h3>
+          <span class="sev med">Medium</span>
+          <span class="tag">Hiring manager · comparability</span>
+        </div>
+        <div class="body">
+          <p>
+            Amplify has: Quick Read, What I owned, Scope, Deep Dive. SproutRoute has: Why It Was Hard, System Evolution, Latency, Decisions. Sprout Math has: Quick Read, Visuals, Deep Dive. Every case study invents its own structure.
+          </p>
+          <p>
+            For a reader comparing three projects back-to-back, the cognitive tax is real — they have to re-learn the IA each click. A shared 5-section template (<em>Problem · Tradeoff · What I did · Outcome · What I'd do differently</em>) would let reviewers skim laterally across projects and compare like-for-like.
+          </p>
+          <div class="fix">
+            <span class="k">Fix</span><span class="v">Pick one canonical spine (the 5 above is a safe default). Keep project-specific sections as optional extras after the spine, not in place of it.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 7 -->
+    <article class="finding">
+      <div class="num">07</div>
+      <div>
+        <div class="head">
+          <h3>"What I'd do differently" is missing everywhere</h3>
+          <span class="sev med">Medium</span>
+          <span class="tag">Hiring manager · senior signal</span>
+        </div>
+        <div class="body">
+          <p>
+            At Principal/Staff level, the thing that separates "ran a project" from "has product judgment" is self-critique. None of your case studies have a retrospective section. Adding one — honest, not humble-brag — is the highest-leverage single addition for the deep-read audience.
+          </p>
+          <div class="quote">"If I ran Amplify again, I'd spend the first two weeks on the account-manager ride-alongs instead of the data model. The data was never the bottleneck; the workflow framing was."</div>
+          <p>That kind of line does more for your candidacy than another outcome metric.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- 8 -->
+    <article class="finding">
+      <div class="num">08</div>
+      <div>
+        <div class="head">
+          <h3>Outcome metrics need source / denominator context</h3>
+          <span class="sev med">Medium</span>
+          <span class="tag">Hiring manager · credibility</span>
+        </div>
+        <div class="body">
+          <p>
+            "99% infrastructure cost reduction ($60K → $500)" is a great headline — and also the kind of number an experienced reviewer sanity-checks. Against what baseline? Annualized? Per-user? The Amplify deep dive hints at the architecture change, but the metric needs one line of attribution next to it.
+          </p>
+          <p>
+            Same with "45 → 5 min per AM call." Measured how — self-report, instrumented, sampled?
+          </p>
+          <div class="fix">
+            <span class="k">Fix</span><span class="v">Add a small footnote or tooltip under each metric: <em>baseline, measurement method, time window</em>. Three words each is fine. This also protects you in interviews; the question is coming anyway.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 9 -->
+    <article class="finding">
+      <div class="num">09</div>
+      <div>
+        <div class="head">
+          <h3>"Senior Product Manager" doesn't include Principal-level context</h3>
+          <span class="sev low">Low</span>
+          <span class="tag">Recruiter · level calibration</span>
+        </div>
+        <div class="body">
+          <p>
+            Amazon L7 = Principal PM; Sr PM is typically L6. A recruiter who doesn't know Amazon levels can't tell which bracket you're in from the résumé alone. If you're targeting external Principal/Staff roles, the résumé summary should name the <em>scope</em> in level-neutral terms (ICs influenced, surface owned, budget, VP-line visibility) rather than relying on the title.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- 10 -->
+    <article class="finding">
+      <div class="num">10</div>
+      <div>
+        <div class="head">
+          <h3>Mobile: hero font-size is too large, metrics wrap poorly</h3>
+          <span class="sev low">Low</span>
+          <span class="tag">Both · mobile</span>
+        </div>
+        <div class="body">
+          <p>
+            On a 375px viewport the serif headline takes up a full screen by itself and pushes everything below the fold. The <span class="mono">45→5 min</span> proof tile breaks awkwardly because of the arrow glyph. ~40% of portfolio traffic is mobile (phone-sent LinkedIn links); this matters more than it feels like.
+          </p>
+          <div class="fix">
+            <span class="k">Fix</span><span class="v">Clamp the headline tighter: <span class="mono">clamp(1.9rem, 8vw, 3.6rem)</span>. Use non-breaking arrow (<span class="mono">&amp;nbsp;→&amp;nbsp;</span>) or swap "→" for "to" on small screens.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 11 -->
+    <article class="finding">
+      <div class="num">11</div>
+      <div>
+        <div class="head">
+          <h3>Icons add noise, not meaning</h3>
+          <span class="sev low">Low</span>
+          <span class="tag">UX · visual</span>
+        </div>
+        <div class="body">
+          <p>
+            Each project card has a unicode glyph: ◉, △, □, ✦, ◇, ▣. They don't map to the products (△ for SproutRoute is arguably a route, but ◉ for Amplify = ?) and they're inconsistent in weight. Either drop them entirely, replace with real icons that map to the product category, or commit and make them a visual system (same weight, same spacing, same color).
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- 12 -->
+    <article class="finding">
+      <div class="num">12</div>
+      <div>
+        <div class="head">
+          <h3>"Supporting Systems" is a weak section title</h3>
+          <span class="sev low">Low</span>
+          <span class="tag">Copy · framing</span>
+        </div>
+        <div class="body">
+          <p>
+            The Eval Control Tower, RAG pipeline, and AI Safety Audit are the projects that most directly demonstrate AI PM technical depth — which is exactly what the roles you're targeting screen for. "Supporting Systems" makes them sound like B-side work.
+          </p>
+          <div class="fix">
+            <span class="k">Fix</span><span class="v">Rename to <em>"AI systems I built to answer my own product questions"</em> or <em>"Tools I built, not papers I read"</em>. Move this section higher — directly under Amplify — if targeting AI platform roles.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 13 -->
+    <article class="finding">
+      <div class="num">13</div>
+      <div>
+        <div class="head">
+          <h3>What works — keep these</h3>
+          <span class="sev pos">Strengths</span>
+          <span class="tag">Preserve</span>
+        </div>
+        <div class="body">
+          <ul style="margin:.4rem 0;padding-left:1.1rem">
+            <li><strong>Voice.</strong> "I like the stage where the request is still fuzzy." Reads as a senior operator, not an MBA deck.</li>
+            <li><strong>Specific numbers.</strong> $60K→$500, 1,600+ AMs, 45→5 min. Non-generic, memorable, defensible (once you add the baseline note in #08).</li>
+            <li><strong>Cross-linking.</strong> Every case study has a live demo or GitHub link in the nav. That single pattern is worth more than most of the prose.</li>
+            <li><strong>SproutRoute diagrams.</strong> The eight SVG architecture diagrams are the best single asset on the site. Treat them as the quality bar for the other projects.</li>
+            <li><strong>Honest scope.</strong> "Senior PM" + "Principal-level" + "Open to Principal/Staff" is an internally consistent story once #04 is fixed.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ HEATMAP ============ -->
+<section class="s" id="heatmap">
+  <div class="shell">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">Signal heatmap</span>
+        <h2>What a hiring manager picks up, per screen.</h2>
+        <p class="intro">Rough read of how much hire-signal lands per page, weighted by how early in the scan path the page sits.</p>
+      </div>
+    </div>
+
+    <div class="heat">
+      <table>
+        <thead>
+          <tr><th>Screen</th><th>Signal density</th><th>Blocker</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Homepage hero</strong></td>
+            <td><span class="bar" style="width:35%"></span> &nbsp;35%</td>
+            <td>3 paragraphs of prose before any proof. No role/location chip. No screenshot.</td>
+          </tr>
+          <tr>
+            <td><strong>Homepage flagship grid</strong></td>
+            <td><span class="bar" style="width:65%"></span> &nbsp;65%</td>
+            <td>Strong copy + metric chips. Project cards need one product image each.</td>
+          </tr>
+          <tr>
+            <td><strong>Homepage experience timeline</strong></td>
+            <td><span class="bar" style="width:55%"></span> &nbsp;55%</td>
+            <td>Fine as a résumé echo; doesn't add over the résumé itself.</td>
+          </tr>
+          <tr>
+            <td><strong>Homepage "Supporting Systems"</strong></td>
+            <td><span class="bar" style="width:50%"></span> &nbsp;50%</td>
+            <td>Under-sold label. These are your AI-PM depth proofs; lift them.</td>
+          </tr>
+          <tr>
+            <td><strong>Amplify case study</strong></td>
+            <td><span class="bar" style="width:55%"></span> &nbsp;55%</td>
+            <td>Writing is strong. Zero pixels of product or system diagram. Biggest single gap on the site.</td>
+          </tr>
+          <tr>
+            <td><strong>SproutRoute case study</strong></td>
+            <td><span class="bar" style="width:85%"></span> &nbsp;85%</td>
+            <td>The model page. Demos, GitHub, screenshots, SVG diagrams. Keep as the quality bar.</td>
+          </tr>
+          <tr>
+            <td><strong>Sprout Math case study</strong></td>
+            <td><span class="bar" style="width:70%"></span> &nbsp;70%</td>
+            <td>Has visuals section. Could use a short App Store link or install CTA.</td>
+          </tr>
+          <tr>
+            <td><strong>Resume page</strong></td>
+            <td><span class="bar" style="width:60%"></span> &nbsp;60%</td>
+            <td>Print/PDF button is good. Missing one-line positioning at top; summary is too modest.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRIORITIES ============ -->
+<section class="s" id="priorities">
+  <div class="shell">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">Do this in order</span>
+        <h2>If you only have a weekend.</h2>
+        <p class="intro">Ordered by signal-per-hour. The first three are together worth more than the rest combined.</p>
+      </div>
+    </div>
+
+    <div class="prio">
+      <div class="row">
+        <div class="n">1</div>
+        <div class="lbl">Add a system diagram + one UI artifact to the Amplify page.<small>Redact freely — a wireframe sketch of the AM workflow is fine. This closes the biggest credibility gap on the site.</small></div>
+        <div class="effort">~4 hrs</div>
+      </div>
+      <div class="row">
+        <div class="n">2</div>
+        <div class="lbl">Rebuild the hero above-the-fold around proof, not prose.<small>Cut intro from 3 paragraphs to 1. Move the metric strip into the hero. Add a role-target chip row (<span class="mono">Principal / Staff PM · AI platforms · Seattle or remote · Open</span>).</small></div>
+        <div class="effort">~1 hr</div>
+      </div>
+      <div class="row">
+        <div class="n">3</div>
+        <div class="lbl">Add a "What I'd do differently" block to each case study.<small>3–5 honest sentences per project. Highest-leverage edit for the Principal/Staff-bar reader.</small></div>
+        <div class="effort">~2 hrs</div>
+      </div>
+      <div class="row">
+        <div class="n">4</div>
+        <div class="lbl">Annotate every outcome metric with baseline + method.<small>One line under each of: 99% cost cut · 45→5 min · &lt;500ms · 1,600+ AMs.</small></div>
+        <div class="effort">~1 hr</div>
+      </div>
+      <div class="row">
+        <div class="n">5</div>
+        <div class="lbl">Standardize the case-study template.<small>Five-section spine: Problem · Tradeoff · What I did · Outcome · What I'd do differently. Project-specific extras after the spine, not instead of it.</small></div>
+        <div class="effort">~3 hrs</div>
+      </div>
+      <div class="row">
+        <div class="n">6</div>
+        <div class="lbl">Rename "Supporting Systems" and consider lifting it above the experience timeline.<small>If targeting AI-platform roles, these projects are the closest thing you have to a portfolio of the job.</small></div>
+        <div class="effort">~15 min</div>
+      </div>
+      <div class="row">
+        <div class="n">7</div>
+        <div class="lbl">Convert the homepage to static HTML (or pre-render).<small>Matches the tech used by every other page on the site, and removes an SEO/preview footgun.</small></div>
+        <div class="effort">~2 hrs</div>
+      </div>
+      <div class="row">
+        <div class="n">8</div>
+        <div class="lbl">Mobile polish: clamp headline, fix arrow glyph wrap, reduce hero vertical padding.<small>You lose ~40% of traffic otherwise.</small></div>
+        <div class="effort">~45 min</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="s">
+  <div class="shell">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">One more thing</span>
+        <h2>The site is a sampling problem, not a rewriting problem.</h2>
+        <p class="intro" style="max-width:72ch">
+          The prose is already above the bar. The material underneath it — Amplify's real architecture, the actual Salesforce path tradeoff, a redacted workflow screenshot, a retrospective paragraph — is what most PM candidates at this level never produce. Publishing even 30% of it, with the same writing discipline you've already applied, lifts the site from "competent" to "the strongest PM portfolio in the stack."
+        </p>
+        <p class="intro" style="max-width:72ch;margin-top:.8rem">
+          The ratio to aim for: <strong>less telling, more showing.</strong> Every sentence that describes a system should be next to a picture of that system. Every claim should be next to a baseline. Every outcome should be next to the workflow it changed.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="shell">
+    <p>Independent evaluation · conducted as a structured pass from two reader personas (technical recruiter, PM hiring manager) + UX heuristics. Not affiliated with Nitish or Amazon. Use or discard as useful.</p>
+    <p style="margin-top:.5rem">Press <span class="kbd">⌘P</span> to save as PDF.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" font-family="'Inter', 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="grayGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8888aa" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#8888aa" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#60a5fa" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ade80" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#4ade80" stop-opacity="0.05"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrowOrange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#f97316" opacity="0.7"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#8888aa" opacity="0.7"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#60a5fa" opacity="0.7"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#4ade80" opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="700" fill="#0a0a0f" rx="16"/>
+
+  <!-- Title -->
+  <text x="500" y="38" text-anchor="middle" fill="#f0f0f5" font-size="20" font-weight="800" letter-spacing="0.5">Attraction Memory Layer</text>
+  <line x1="370" y1="48" x2="630" y2="48" stroke="#f97316" stroke-width="2" opacity="0.4"/>
+  <text x="500" y="66" text-anchor="middle" fill="#888899" font-size="12" font-weight="400">Flywheel: each trip makes the next trip better</text>
+
+  <!-- ════════ FLYWHEEL NODES (clockwise from top) ════════ -->
+
+  <!-- Node 1: Trip Generation (top center) — Orange -->
+  <rect x="370" y="95" width="260" height="64" rx="12" fill="url(#orangeGrad)" stroke="#f97316" stroke-width="1.5" opacity="0.95"/>
+  <circle cx="390" cy="127" r="12" fill="#f97316" opacity="0.2"/>
+  <text x="390" y="131" text-anchor="middle" fill="#f97316" font-size="12" font-weight="700">1</text>
+  <text x="410" y="120" fill="#f0f0f5" font-size="13" font-weight="600">Trip Generation</text>
+  <text x="410" y="138" fill="#999" font-size="11">AI creates attractions for itinerary</text>
+  <text x="618" y="131" text-anchor="end" fill="#f97316" font-size="10" font-weight="600" opacity="0.7">AI STEP</text>
+
+  <!-- Node 2: city_attractions table (right) — Gray -->
+  <rect x="700" y="195" width="260" height="64" rx="12" fill="url(#grayGrad)" stroke="#8888aa" stroke-width="1.5" opacity="0.95"/>
+  <circle cx="720" cy="227" r="12" fill="#8888aa" opacity="0.2"/>
+  <text x="720" y="231" text-anchor="middle" fill="#8888aa" font-size="12" font-weight="700">2</text>
+  <text x="740" y="220" fill="#f0f0f5" font-size="13" font-weight="600">city_attractions Table</text>
+  <text x="740" y="238" fill="#999" font-size="11">Stored in Supabase with metadata</text>
+  <text x="948" y="231" text-anchor="end" fill="#8888aa" font-size="10" font-weight="600" opacity="0.7">SUPABASE</text>
+
+  <!-- Node 3: Verification Cache (right-lower) — Blue -->
+  <rect x="700" y="325" width="260" height="64" rx="12" fill="url(#blueGrad)" stroke="#60a5fa" stroke-width="1.5" opacity="0.95"/>
+  <circle cx="720" cy="357" r="12" fill="#60a5fa" opacity="0.2"/>
+  <text x="720" y="361" text-anchor="middle" fill="#60a5fa" font-size="12" font-weight="700">3</text>
+  <text x="740" y="350" fill="#f0f0f5" font-size="13" font-weight="600">Verification Cache</text>
+  <text x="740" y="368" fill="#999" font-size="11">Place identity written + confirmed</text>
+  <text x="948" y="361" text-anchor="end" fill="#60a5fa" font-size="10" font-weight="600" opacity="0.7">IDENTITY</text>
+
+  <!-- Node 4: Rank & Score (bottom) — Green -->
+  <rect x="370" y="445" width="260" height="64" rx="12" fill="url(#greenGrad)" stroke="#4ade80" stroke-width="1.5" opacity="0.95"/>
+  <circle cx="390" cy="477" r="12" fill="#4ade80" opacity="0.2"/>
+  <text x="390" y="481" text-anchor="middle" fill="#4ade80" font-size="12" font-weight="700">4</text>
+  <text x="410" y="470" fill="#f0f0f5" font-size="13" font-weight="600">Rank Endpoint</text>
+  <text x="410" y="488" fill="#999" font-size="11">Retrieves and scores by freshness</text>
+  <text x="618" y="481" text-anchor="end" fill="#4ade80" font-size="10" font-weight="600" opacity="0.7">SCORING</text>
+
+  <!-- Node 5: Planner Consumes Shortlist (left-lower) — Orange -->
+  <rect x="40" y="325" width="260" height="64" rx="12" fill="url(#orangeGrad)" stroke="#f97316" stroke-width="1.5" opacity="0.95"/>
+  <circle cx="60" cy="357" r="12" fill="#f97316" opacity="0.2"/>
+  <text x="60" y="361" text-anchor="middle" fill="#f97316" font-size="12" font-weight="700">5</text>
+  <text x="80" y="350" fill="#f0f0f5" font-size="13" font-weight="600">Planner Consumes Shortlist</text>
+  <text x="80" y="368" fill="#999" font-size="11">AI uses top-ranked for next trip</text>
+  <text x="288" y="361" text-anchor="end" fill="#f97316" font-size="10" font-weight="600" opacity="0.7">AI STEP</text>
+
+  <!-- Node 6: Manual Backfill (left) — Gray -->
+  <rect x="40" y="195" width="260" height="64" rx="12" fill="url(#grayGrad)" stroke="#8888aa" stroke-width="1.5" opacity="0.95"/>
+  <circle cx="60" cy="227" r="12" fill="#8888aa" opacity="0.2"/>
+  <text x="60" y="231" text-anchor="middle" fill="#8888aa" font-size="12" font-weight="700">6</text>
+  <text x="80" y="220" fill="#f0f0f5" font-size="13" font-weight="600">Manual Backfill</text>
+  <text x="80" y="238" fill="#999" font-size="11">Upgrades legacy rows with metadata</text>
+  <text x="288" y="231" text-anchor="end" fill="#8888aa" font-size="10" font-weight="600" opacity="0.7">SUPABASE</text>
+
+  <!-- ════════ ARROWS (clockwise) ════════ -->
+
+  <!-- 1 → 2: Top center to right -->
+  <path d="M630,135 Q680,135 700,195" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.6" marker-end="url(#arrowOrange)"/>
+
+  <!-- 2 → 3: Right upper to right lower -->
+  <path d="M830,259 L830,325" fill="none" stroke="#8888aa" stroke-width="1.5" opacity="0.6" marker-end="url(#arrowGray)"/>
+
+  <!-- 3 → 4: Right lower to bottom center -->
+  <path d="M700,375 Q660,420 630,455" fill="none" stroke="#60a5fa" stroke-width="1.5" opacity="0.6" marker-end="url(#arrowBlue)"/>
+
+  <!-- 4 → 5: Bottom center to left lower -->
+  <path d="M370,475 Q330,420 300,375" fill="none" stroke="#4ade80" stroke-width="1.5" opacity="0.6" marker-end="url(#arrowGreen)"/>
+
+  <!-- 5 → 1: Left lower back to top (the flywheel close) -->
+  <path d="M170,325 Q170,200 370,127" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.6" marker-end="url(#arrowOrange)" stroke-dasharray="6,3"/>
+
+  <!-- 6 → 2: Backfill feeds into city_attractions -->
+  <path d="M300,227 L700,227" fill="none" stroke="#8888aa" stroke-width="1.2" opacity="0.4" marker-end="url(#arrowGray)" stroke-dasharray="4,3"/>
+  <text x="500" y="220" text-anchor="middle" fill="#8888aa" font-size="10" opacity="0.6">enriches</text>
+
+  <!-- ════════ FLYWHEEL CENTER ICON ════════ -->
+  <circle cx="500" cy="300" r="45" fill="none" stroke="#f97316" stroke-width="1" opacity="0.15"/>
+  <circle cx="500" cy="300" r="30" fill="none" stroke="#4ade80" stroke-width="1" opacity="0.12"/>
+  <text x="500" y="296" text-anchor="middle" fill="#f0f0f5" font-size="14" font-weight="700" opacity="0.5">FLYWHEEL</text>
+  <text x="500" y="312" text-anchor="middle" fill="#888899" font-size="10" opacity="0.5">memory cycle</text>
+
+  <!-- ════════ CALLOUT BADGES ════════ -->
+
+  <!-- Callout 1: Demand-driven storage (near node 1→2) -->
+  <rect x="690" y="130" width="170" height="28" rx="14" fill="#0a0a0f" stroke="#f97316" stroke-width="1" opacity="0.8"/>
+  <text x="775" y="149" text-anchor="middle" fill="#f97316" font-size="11" font-weight="600">Demand-driven storage</text>
+
+  <!-- Callout 2: Freshness scoring (near node 4) -->
+  <rect x="640" y="460" width="155" height="28" rx="14" fill="#0a0a0f" stroke="#4ade80" stroke-width="1" opacity="0.8"/>
+  <text x="717" y="479" text-anchor="middle" fill="#4ade80" font-size="11" font-weight="600">Freshness scoring</text>
+
+  <!-- Callout 3: Shortlist-constrained generation (near node 5) -->
+  <rect x="20" y="405" width="235" height="28" rx="14" fill="#0a0a0f" stroke="#f97316" stroke-width="1" opacity="0.8"/>
+  <text x="137" y="424" text-anchor="middle" fill="#f97316" font-size="11" font-weight="600">Shortlist-constrained generation</text>
+
+  <!-- ════════ TAKEAWAY BAR ════════ -->
+  <rect x="40" y="545" width="920" height="56" rx="12" fill="#111118" stroke="#2a2a38" stroke-width="1"/>
+  <rect x="40" y="545" width="920" height="56" rx="12" fill="url(#orangeGrad)" opacity="0.3"/>
+  <rect x="56" y="563" width="4" height="20" rx="2" fill="#f97316" opacity="0.8"/>
+  <text x="76" y="579" fill="#f0f0f5" font-size="14" font-weight="600">Each trip makes the next trip better.</text>
+  <text x="76" y="595" fill="#888899" font-size="12">Attractions accumulate and improve over time -- a compounding data advantage.</text>
+
+  <!-- ════════ LEGEND ════════ -->
+  <rect x="40" y="620" width="920" height="44" rx="10" fill="#111118" stroke="#1a1a25" stroke-width="1"/>
+  <circle cx="80" cy="642" r="6" fill="#f97316" opacity="0.6"/>
+  <text x="92" y="646" fill="#999" font-size="11">AI Step</text>
+  <circle cx="180" cy="642" r="6" fill="#8888aa" opacity="0.6"/>
+  <text x="192" y="646" fill="#999" font-size="11">Supabase</text>
+  <circle cx="290" cy="642" r="6" fill="#60a5fa" opacity="0.6"/>
+  <text x="302" y="646" fill="#999" font-size="11">Identity</text>
+  <circle cx="390" cy="642" r="6" fill="#4ade80" opacity="0.6"/>
+  <text x="402" y="646" fill="#999" font-size="11">Scoring</text>
+  <line x1="500" y1="636" x2="530" y2="636" stroke="#f97316" stroke-width="1.5" opacity="0.6" stroke-dasharray="6,3"/>
+  <text x="540" y="640" fill="#999" font-size="11">Flywheel loop</text>
+  <line x1="640" y1="636" x2="670" y2="636" stroke="#8888aa" stroke-width="1.2" opacity="0.4" stroke-dasharray="4,3"/>
+  <text x="680" y="640" fill="#999" font-size="11">Enrichment</text>
+</svg>

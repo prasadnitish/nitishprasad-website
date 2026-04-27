@@ -8,9 +8,12 @@
   <meta property="og:description" content="A native SwiftUI learning product designed around offline use, privacy, and constrained product scope." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.nitishprasad.com/project-sproutmath.html" />
+  <link rel="canonical" href="https://www.nitishprasad.com/project-sproutmath.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Sprout Math — Nitish Prasad" />
   <meta name="twitter:description" content="Offline-first iOS math adventures with local-only progress and parent controls." />
+  <meta property="og:image" content="https://www.nitishprasad.com/og-sproutmath.svg" />
+  <meta name="twitter:image" content="https://www.nitishprasad.com/og-sproutmath.svg" />
   <meta name="theme-color" content="#0d1320" />
   <title>Sprout Math — Nitish Prasad</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -29,6 +32,13 @@
           <a href="#deep-dive">Deep Dive</a>
           <a href="index.html">Back to Portfolio</a>
         </nav>
+      </div>
+      <button type="button" class="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <div class="mobile-menu">
+        <a href="#quick-read">Quick Read</a>
+        <a href="#visuals">Visuals</a>
+        <a href="#deep-dive">Deep Dive</a>
+        <a href="index.html">Portfolio Home</a>
       </div>
     </div>
   </header>
@@ -342,5 +352,16 @@
       });
     });
   </script>
+<script>
+(function(){
+  var btn=document.querySelector('.nav-menu-btn');
+  var menu=document.querySelector('.mobile-menu');
+  if(btn&&menu){btn.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+    btn.textContent=open?'\u2715':'\u2630';
+  });}
+})();
+</script>
 </body>
 </html>

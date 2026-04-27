@@ -8,9 +8,12 @@
   <meta property="og:description" content="N-way evaluation system that benchmarks 7 models against a safety-weighted rubric — and caught my production model failing the floor." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.nitishprasad.com/ai-eval-control-tower.html" />
+  <link rel="canonical" href="https://www.nitishprasad.com/ai-eval-control-tower.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="AI Eval Control Tower — Nitish Prasad" />
   <meta name="twitter:description" content="N-way model benchmarking with safety hard floors — caught a live production regression." />
+  <meta property="og:image" content="https://www.nitishprasad.com/og-ai-eval.svg" />
+  <meta name="twitter:image" content="https://www.nitishprasad.com/og-ai-eval.svg" />
   <meta name="theme-color" content="#0d1320" />
   <title>AI Eval Control Tower — Nitish Prasad</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -19,7 +22,7 @@
   <link rel="stylesheet" href="portfolio-refresh.css" />
 </head>
 <body>
-  <header class="topbar">
+<header class="topbar">
     <div class="topbar-inner">
       <a class="brand" href="index.html">Nitish<span class="brand-mark">.</span></a>
       <div class="nav-shell">
@@ -33,6 +36,15 @@
           <a class="nav-secondary" href="/evals/" target="_blank" rel="noopener noreferrer">Launch Tool</a>
           <a class="nav-resume" href="https://github.com/prasadnitish/AI-Eval-Control-Tower" target="_blank" rel="noreferrer">GitHub</a>
         </div>
+      </div>
+      <button type="button" class="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <div class="mobile-menu">
+        <a href="#quick-read">Quick Read</a>
+        <a href="#benchmarks">Benchmarks</a>
+        <a href="#demo">Live Demo</a>
+        <a href="/evals/" target="_blank" rel="noopener noreferrer">Launch Tool</a>
+        <a href="https://github.com/prasadnitish/AI-Eval-Control-Tower" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="index.html">Portfolio Home</a>
       </div>
     </div>
   </header>
@@ -230,5 +242,16 @@
       <a href="index.html">Back to portfolio</a>
     </footer>
   </main>
+<script>
+(function(){
+  var btn=document.querySelector('.nav-menu-btn');
+  var menu=document.querySelector('.mobile-menu');
+  if(btn&&menu){btn.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+    btn.textContent=open?'\u2715':'\u2630';
+  });}
+})();
+</script>
 </body>
 </html>

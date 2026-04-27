@@ -8,9 +8,12 @@
   <meta property="og:description" content="A platform-shaped AI product that moved from dashboard request to scaled seller intelligence system." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.nitishprasad.com/project-amplify.html" />
+  <link rel="canonical" href="https://www.nitishprasad.com/project-amplify.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Amplify — Nitish Prasad" />
   <meta name="twitter:description" content="AI seller intelligence platform with 99% cost reduction and clear business impact." />
+  <meta property="og:image" content="https://www.nitishprasad.com/og-amplify.svg" />
+  <meta name="twitter:image" content="https://www.nitishprasad.com/og-amplify.svg" />
   <meta name="theme-color" content="#0d1320" />
   <title>Amplify — Nitish Prasad</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -32,6 +35,13 @@
           <a class="nav-secondary" href="resume.html" target="_blank" rel="noreferrer">Resume</a>
           <a class="nav-resume" href="index.html">Portfolio Home</a>
         </div>
+      </div>
+      <button type="button" class="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <div class="mobile-menu">
+        <a href="#quick-read">Quick Read</a>
+        <a href="#deep-dive">Deep Dive</a>
+        <a href="resume.html">Resume</a>
+        <a href="index.html">Portfolio Home</a>
       </div>
     </div>
   </header>
@@ -286,5 +296,16 @@
       });
     });
   </script>
+<script>
+(function(){
+  var btn=document.querySelector('.nav-menu-btn');
+  var menu=document.querySelector('.mobile-menu');
+  if(btn&&menu){btn.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+    btn.textContent=open?'\u2715':'\u2630';
+  });}
+})();
+</script>
 </body>
 </html>

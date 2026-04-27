@@ -1,3 +1,7 @@
+.git/
 .claude/
+.DS_Store
+.gitignore
+.assetsignore
 changes.md
 docs/
