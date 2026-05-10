@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AI Eval Control Tower case study: N-way model benchmarking across quality, safety, latency, and cost. Caught a real safety regression in the SproutRoute production model." />
+  <meta name="description" content="AI Eval Control Tower case study: cloneable AI eval system with datasets, LLM-as-judge rubrics, release gates, and a PM launch-review dashboard." />
   <meta property="og:title" content="AI Eval Control Tower — Nitish Prasad" />
-  <meta property="og:description" content="N-way evaluation system that benchmarks 7 models against a safety-weighted rubric — and caught my production model failing the floor." />
+  <meta property="og:description" content="Cloneable model-evaluation system showing what data is checked, who judges it, why scores are usable, and how teams can rerun it with their own API keys." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.nitishprasad.com/ai-eval-control-tower.html" />
   <link rel="canonical" href="https://www.nitishprasad.com/ai-eval-control-tower.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="AI Eval Control Tower — Nitish Prasad" />
-  <meta name="twitter:description" content="N-way model benchmarking with safety hard floors — caught a live production regression." />
+  <meta name="twitter:description" content="N-way model benchmarking with evidence chain, local runbook, and safety hard floors." />
   <meta property="og:image" content="https://www.nitishprasad.com/og-ai-eval.svg" />
   <meta name="twitter:image" content="https://www.nitishprasad.com/og-ai-eval.svg" />
   <meta name="theme-color" content="#0d1320" />
@@ -34,7 +34,7 @@
         </nav>
         <div class="nav-actions">
           <a class="nav-secondary" href="/evals/" target="_blank" rel="noopener noreferrer">Launch Tool</a>
-          <a class="nav-resume" href="https://github.com/prasadnitish/AI-Eval-Control-Tower" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="nav-resume" href="https://github.com/prasadnitish/AI-Eval-Control-Tower/tree/codex/principal-pm-dashboard-redesign" target="_blank" rel="noreferrer">GitHub</a>
         </div>
       </div>
       <button type="button" class="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
@@ -43,7 +43,7 @@
         <a href="#benchmarks">Benchmarks</a>
         <a href="#demo">Live Demo</a>
         <a href="/evals/" target="_blank" rel="noopener noreferrer">Launch Tool</a>
-        <a href="https://github.com/prasadnitish/AI-Eval-Control-Tower" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://github.com/prasadnitish/AI-Eval-Control-Tower/tree/codex/principal-pm-dashboard-redesign" target="_blank" rel="noreferrer">GitHub</a>
         <a href="index.html">Portfolio Home</a>
       </div>
     </div>
@@ -57,12 +57,12 @@
           <h1 class="case-title">AI Eval Control Tower</h1>
           <div class="accent-line"></div>
           <p class="case-summary" style="margin-top:1.1rem">
-            This project exists because shipping the model is only the start. The harder question is knowing when the model is getting worse, when a cheaper one is good enough, and when a release should be blocked. In v2 the tool went N-way — I ran seven frontier models through one OpenRouter key — and it caught the model I was actually shipping in production failing the safety floor.
+            This project exists because shipping the model is only the start. The harder question is knowing when the model is getting worse, when a cheaper one is good enough, and when a release should be blocked. The live tool now starts with SproutRoute because it caught a real safety-floor failure, then extends the same operating model to seller-growth recommendations and SproutMath content authoring.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="/evals/" target="_blank" rel="noopener noreferrer">Launch Tool</a>
             <a class="button secondary" href="#quick-read">Start With Quick Read</a>
-            <a class="button secondary" href="https://github.com/prasadnitish/AI-Eval-Control-Tower" target="_blank" rel="noreferrer">Open GitHub</a>
+            <a class="button secondary" href="https://github.com/prasadnitish/AI-Eval-Control-Tower/tree/codex/principal-pm-dashboard-redesign" target="_blank" rel="noreferrer">Open GitHub</a>
           </div>
           <p class="mobile-note">Best read for AI quality, model economics, and release decisions treated as one operating system.</p>
         </div>
@@ -73,11 +73,11 @@
           <div class="case-meta-grid">
             <div class="meta-tile">
               <span>Models</span>
-              <strong>7 frontier models, 1 OpenRouter key</strong>
+              <strong>7 registered models, 1 local API key</strong>
             </div>
             <div class="meta-tile">
               <span>Coverage</span>
-              <strong>Seller + SproutRoute lab, 125 prompts</strong>
+              <strong>SproutRoute, seller growth, SproutMath</strong>
             </div>
             <div class="meta-tile">
               <span>Headline finding</span>
@@ -88,7 +88,7 @@
               <strong>Release and operating decisions</strong>
             </div>
           </div>
-          <p>Shows how I think about AI products after launch: quality, safety, cost, latency, drift, and release decisions in one operating layer — used on my own live product.</p>
+          <p>Shows how I think about AI products after launch: quality, safety, cost, latency, content gates, score provenance, and release decisions in one operating layer — grounded in real portfolio workflows.</p>
         </aside>
       </div>
     </section>
@@ -119,7 +119,7 @@
         </article>
       </div>
 
-      <div class="ownership-grid" style="margin-top:1rem">
+      <div class="ownership-grid case-quick-grid" style="margin-top:1rem">
         <article class="surface-card">
           <div class="eyebrow" style="color:var(--ink-soft)">The problem</div>
           <h3>AI quality is usually managed with fragments.</h3>
@@ -129,20 +129,21 @@
         </article>
 
         <article class="panel-card">
-          <div class="eyebrow">What I built</div>
+          <div class="eyebrow">System scope</div>
           <ul class="bullet-list" style="margin-top:1rem">
             <li>N-way LLM-as-judge evaluation — any number of models through a single OpenRouter API key.</li>
-            <li>Domain-weighted rubric: SproutRoute prompts scored on <em>safety</em> (hard floor) and <em>logistical feasibility</em>, seller prompts on accuracy and actionability.</li>
-            <li>A live Model Matrix dashboard that ranks every candidate on quality, latency, cost, and safety side-by-side.</li>
+            <li>Domain-weighted rubric: SproutRoute prompts scored on <em>safety</em> and <em>logistical feasibility</em>, seller prompts on accuracy and actionability, and SproutMath authoring on answer validity, grade fit, accessibility, and child safety.</li>
+            <li>A live launch-review dashboard that connects the decision memo, evidence chain, candidate board, failure modes, operating envelope, rollout plan, and local runbook.</li>
+            <li>Cloneable GitHub workflow: copy <code>.env.example</code>, add <code>OPENROUTER_API_KEY</code>, run a dataset-specific eval, then apply the release gate.</li>
             <li>Release gate with dataset-specific overrides — a 15-second latency ceiling for trip plans, 3 seconds for seller Q&amp;A.</li>
-            <li>CI enforcement: GitHub Actions runs the smoke suite on every PR and blocks merge on NO-GO.</li>
+            <li>Secret-free PR checks run install, tests, and build; live OpenRouter evals run only from a manual GitHub Actions workflow.</li>
           </ul>
         </article>
 
         <article class="panel-card">
           <div class="eyebrow">Why this matters</div>
           <p style="margin-top:1rem">
-            This is evaluation as product operations, not a data-science exercise. When my production SproutRoute model came back at 7.64 safety — below the 8.0 floor — the tool flagged it before a user would have encountered a wrong car seat law or a closed venue. That is the whole point: turn AI quality into something a PM can manage, discuss, and decide on with evidence.
+            This is evaluation as product operations, not a data-science exercise. When my production SproutRoute model came back at 7.64 safety — below the 8.0 floor — the tool flagged it before a user would have encountered a wrong car seat law or a closed venue. The dashboard now makes the trust chain visible too: dataset, judge, score method, limitations, and local rerun path.
           </p>
         </article>
 
@@ -150,9 +151,9 @@
           <div class="eyebrow" style="color:var(--ink-soft)">Scope</div>
           <ul class="bullet-list" style="margin-top:1rem">
             <li>7 models benchmarked: Claude Sonnet 4.6 &amp; Haiku 4.5, GPT-5 Mini &amp; Nano, Grok 4 Fast, Gemini 2.5 Flash, DeepSeek-V3.2.</li>
-            <li>Three datasets: 50 seller intelligence, 50 seller support, 25 SproutRoute family-trip prompts with reusable personas.</li>
-            <li>Seven dashboard views including the new N-way Model Matrix.</li>
-            <li>13 unit tests on judge and gate logic; mobile-responsive UI.</li>
+            <li>Three product scenarios in the dashboard order: SproutRoute itinerary generation with safety tips, seller-growth AM recommendations, and SproutMath content authoring.</li>
+            <li>Seven dashboard views: decision memo, evidence chain, candidate board, rubric and failure modes, operating envelope, rollout plan, and run locally.</li>
+            <li>15 unit tests on judge and gate logic; mobile-responsive UI.</li>
           </ul>
         </article>
       </div>
@@ -186,7 +187,7 @@
           <ul class="bullet-list" style="margin-top:1rem">
             <li>Quality: 78.6</li>
             <li>Safety: 8.16 ✓</li>
-            <li>Cost per inference: $0.003</li>
+            <li>Cost per inference: $0.0025</li>
             <li>P95 latency: 9.8s</li>
           </ul>
         </article>
@@ -195,7 +196,7 @@
       <article class="panel-card" style="margin-top:1.25rem">
         <div class="eyebrow">What the gate flagged</div>
         <p style="margin-top:0.75rem">
-          <strong>Claude Haiku 4.5</strong> — the model currently serving SproutRoute production traffic — scored <strong>7.64 on safety</strong>, below the 8.0 hard floor. <strong>Grok 4 Fast</strong> failed the same check at 7.8. The rest (Sonnet 4.6, GPT-5 Mini, GPT-5 Nano, Gemini 2.5 Flash, DeepSeek-V3.2) all cleared it. The gate exits NO-GO, the CI blocks the release, and a PM has a concrete path: switch to one of the four models that passed and document the tradeoff.
+          <strong>Claude Haiku 4.5</strong> — the model currently serving SproutRoute production traffic — scored <strong>7.64 on safety</strong>, below the 8.0 hard floor. <strong>Grok 4 Fast</strong> failed the same check at 7.8. The rest (Sonnet 4.6, GPT-5 Mini, GPT-5 Nano, Gemini 2.5 Flash, DeepSeek-V3.2) cleared the safety floor, but only Gemini paired that pass with sub-15-second p95 latency and lower cost than the current model. The release gate exits NO-GO for the current production path; the manual live-eval workflow preserves the evidence without exposing API keys to PRs; and a PM has a concrete path: promote Gemini or explicitly document why another safety-passing model is worth its latency or cost tradeoff.
         </p>
         <p style="margin-top:0.75rem">
           The judge cited real errors in the failing responses: a California car seat law misstatement, Splash Mountain recommended after its 2023 closure, an impossible overnight Paris→Barcelona train routing. These are the kind of low-frequency safety bugs that slip past eyeball QA — which is why the gate is rubric-weighted, not vibes-weighted.
@@ -209,7 +210,7 @@
           <div class="eyebrow">Executive Summary</div>
           <h2 class="section-title" style="font-size:clamp(1.9rem,3vw,3rem)">Good eval tooling doesn’t just score models. It tells a team which one to ship — and why.</h2>
           <p>
-            The dashboard matters because it keeps quality, safety, cost, latency, and policy gates in the same room. That’s the only way the tradeoffs stay honest enough to drive a launch decision. v2’s biggest move is the safety dimension with a hard floor, which is what turned SproutRoute into a real production signal instead of a demo.
+            The dashboard matters because it keeps quality, safety, cost, latency, content gates, score provenance, and rollout ownership in the same room. That’s the only way the tradeoffs stay honest enough to drive a launch decision. The biggest move is turning each eval into a PM-readable decision memo with an inspectable evidence chain and a GitHub runbook, not another chart collection.
           </p>
         </article>
 

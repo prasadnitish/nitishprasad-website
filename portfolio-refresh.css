@@ -292,6 +292,14 @@ img {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.case-quick-grid {
+  align-items: start;
+}
+
+.case-quick-grid > article {
+  height: auto;
+}
+
 .dense-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
