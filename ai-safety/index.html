@@ -897,6 +897,19 @@
       return Number(n).toFixed(3);
     }
 
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function escapeAttr(value) {
+      return escapeHtml(value).replace(/`/g, "&#96;");
+    }
+
     function renderOverview() {
       const a = state.audit;
       const s = scenarios[state.scenarioId];
@@ -931,17 +944,17 @@
         const bW = Math.round((b / scale) * 100);
         const cW = Math.round((c / scale) * 100);
         return "<div class='bar-row'>" +
-          "<div class='bar-label'>" + m.label + "<br><span class='muted'>base " + formatNum(b) + " / cand " + formatNum(c) + "</span></div>" +
-          "<div class='bar-wrap'><div class='bar base' style='width:" + bW + "%'></div><div class='bar cand' style='width:" + cW + "%'></div></div>" +
-          "</div>";
+            "<div class='bar-label'>" + escapeHtml(m.label) + "<br><span class='muted'>base " + escapeHtml(formatNum(b)) + " / cand " + escapeHtml(formatNum(c)) + "</span></div>" +
+            "<div class='bar-wrap'><div class='bar base' style='width:" + escapeAttr(bW) + "%'></div><div class='bar cand' style='width:" + escapeAttr(cW) + "%'></div></div>" +
+            "</div>";
       }).join("");
 
       const findings = [];
       if (a.gate.failures.length === 0 && a.gate.warnings.length === 0) {
         findings.push("<div class='li'>Candidate passes all configured fairness and red-team gates.</div>");
       }
-      a.gate.failures.forEach((f) => findings.push("<div class='li'><span class='chip fail'>BLOCK</span> " + f + "</div>"));
-      a.gate.warnings.forEach((w) => findings.push("<div class='li'><span class='chip warn'>WARN</span> " + w + "</div>"));
+      a.gate.failures.forEach((f) => findings.push("<div class='li'><span class='chip fail'>BLOCK</span> " + escapeHtml(f) + "</div>"));
+      a.gate.warnings.forEach((w) => findings.push("<div class='li'><span class='chip warn'>WARN</span> " + escapeHtml(w) + "</div>"));
       document.getElementById("overviewFindings").innerHTML = findings.join("");
     }
 
@@ -951,13 +964,13 @@
         .sort((a, b) => b.n - a.n)
         .map((g) => {
           return "<tr>" +
-            "<td>" + g.group + "</td>" +
-            "<td>" + g.n + "</td>" +
-            "<td>" + formatNum(g.ppr) + "</td>" +
-            "<td>" + formatNum(g.tpr) + "</td>" +
-            "<td>" + formatNum(g.fpr) + "</td>" +
-            "<td>" + formatNum(g.fnr) + "</td>" +
-            "<td>" + formatNum(g.calibrationError) + "</td>" +
+            "<td>" + escapeHtml(g.group) + "</td>" +
+            "<td>" + escapeHtml(g.n) + "</td>" +
+            "<td>" + escapeHtml(formatNum(g.ppr)) + "</td>" +
+            "<td>" + escapeHtml(formatNum(g.tpr)) + "</td>" +
+            "<td>" + escapeHtml(formatNum(g.fpr)) + "</td>" +
+            "<td>" + escapeHtml(formatNum(g.fnr)) + "</td>" +
+            "<td>" + escapeHtml(formatNum(g.calibrationError)) + "</td>" +
             "</tr>";
         })
         .join("");
@@ -983,13 +996,13 @@
         const d = deltas[k];
         const cls = d <= 0 ? "up" : "down";
         const icon = d <= 0 ? "improved" : "regressed";
-        return "<tr><td>" + label + "</td><td>" + formatNum(a.baseline.global[k]) + "</td><td>" + formatNum(a.candidate.global[k]) + "</td><td class='delta " + cls + "'>" + formatNum(d) + " (" + icon + ")</td></tr>";
+        return "<tr><td>" + escapeHtml(label) + "</td><td>" + escapeHtml(formatNum(a.baseline.global[k])) + "</td><td>" + escapeHtml(formatNum(a.candidate.global[k])) + "</td><td class='delta " + escapeAttr(cls) + "'>" + escapeHtml(formatNum(d) + " (" + icon + ")") + "</td></tr>";
       }).join("");
 
       document.getElementById("diffSummary").innerHTML =
         "<div class='li'>Verdict transition: <strong>Baseline assumed PASS</strong> -> <strong>Candidate " + a.gate.verdict + "</strong></div>" +
         "<div class='li'>Largest regression metric: <strong>" +
-        keys.sort((x, y) => deltas[y[0]] - deltas[x[0]])[0][1] +
+        escapeHtml(keys.sort((x, y) => deltas[y[0]] - deltas[x[0]])[0][1]) +
         "</strong></div>";
 
       document.getElementById("diffTableWrap").innerHTML =
@@ -1011,7 +1024,7 @@
 
       const html = controls.map((c) => {
         const key = c[0];
-        return "<div class='rule'><label>" + c[1] + "</label><input type='number' data-policy='" + key + "' min='" + c[2] + "' max='" + c[3] + "' step='" + c[4] + "' value='" + p[key] + "'></div>";
+        return "<div class='rule'><label>" + escapeHtml(c[1]) + "</label><input type='number' data-policy='" + escapeAttr(key) + "' min='" + escapeAttr(c[2]) + "' max='" + escapeAttr(c[3]) + "' step='" + escapeAttr(c[4]) + "' value='" + escapeAttr(p[key]) + "'></div>";
       }).join("");
 
       const grid = document.getElementById("ruleGrid");
@@ -1030,8 +1043,8 @@
       if (state.audit.gate.failures.length === 0 && state.audit.gate.warnings.length === 0) {
         list.push("<div class='li'><span class='chip pass'>PASS</span> All hard and soft gates are clear.</div>");
       }
-      state.audit.gate.failures.forEach((f) => list.push("<div class='li'><span class='chip fail'>BLOCK</span> " + f + "</div>"));
-      state.audit.gate.warnings.forEach((w) => list.push("<div class='li'><span class='chip warn'>WARN</span> " + w + "</div>"));
+      state.audit.gate.failures.forEach((f) => list.push("<div class='li'><span class='chip fail'>BLOCK</span> " + escapeHtml(f) + "</div>"));
+      state.audit.gate.warnings.forEach((w) => list.push("<div class='li'><span class='chip warn'>WARN</span> " + escapeHtml(w) + "</div>"));
       document.getElementById("gateReasons").innerHTML = list.join("");
     }
 
@@ -1040,11 +1053,11 @@
         const outcome = r.candidate;
         const cls = outcome === "pass" ? "pass" : outcome === "warn" ? "warn" : "fail";
         return "<tr>" +
-          "<td>" + r.id + "</td>" +
-          "<td>" + r.title + "</td>" +
-          "<td>" + r.severity + "</td>" +
-          "<td><span class='chip " + cls + "'>" + outcome.toUpperCase() + "</span></td>" +
-          "<td>" + r.detail + "</td>" +
+          "<td>" + escapeHtml(r.id) + "</td>" +
+          "<td>" + escapeHtml(r.title) + "</td>" +
+          "<td>" + escapeHtml(r.severity) + "</td>" +
+          "<td><span class='chip " + escapeAttr(cls) + "'>" + escapeHtml(outcome.toUpperCase()) + "</span></td>" +
+          "<td>" + escapeHtml(r.detail) + "</td>" +
           "</tr>";
       }).join("");
 
