@@ -4,18 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="RAG Pipeline with Guardrails case study: dual-domain retrieval, safety checks, evaluation traces, and release gates for production AI systems." />
-  <meta property="og:title" content="RAG Pipeline with Guardrails — Nitish Prasad" />
+  <meta property="og:title" content="RAG Pipeline with Guardrails - Nitish Prasad" />
   <meta property="og:description" content="A production-minded RAG system with guardrails, evaluation evidence, and release logic." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.nitishprasad.com/project-rag-pipeline.html" />
   <link rel="canonical" href="https://www.nitishprasad.com/project-rag-pipeline.html" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="RAG Pipeline with Guardrails — Nitish Prasad" />
+  <meta name="twitter:title" content="RAG Pipeline with Guardrails - Nitish Prasad" />
   <meta name="twitter:description" content="Dual-domain RAG with guardrails, evaluations, and release criteria." />
   <meta property="og:image" content="https://www.nitishprasad.com/og-rag-pipeline.svg" />
   <meta name="twitter:image" content="https://www.nitishprasad.com/og-rag-pipeline.svg" />
   <meta name="theme-color" content="#0d1320" />
-  <title>RAG Pipeline with Guardrails — Nitish Prasad</title>
+  <title>RAG Pipeline with Guardrails - Nitish Prasad</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="icon" type="image/png" href="favicon.png" sizes="256x256" />
   <link rel="apple-touch-icon" href="favicon.png" />
@@ -28,7 +28,7 @@
       <div class="nav-shell">
         <nav class="nav-list" aria-label="RAG navigation">
           <a href="#quick-read">Quick Read</a>
-          <a href="#deep-dive">Deep Dive</a>
+          <a href="#deep-dive">Details</a>
           <a href="index.html">Back to Portfolio</a>
         </nav>
         <div class="nav-actions">
@@ -39,7 +39,7 @@
       <button type="button" class="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
       <div class="mobile-menu">
         <a href="#quick-read">Quick Read</a>
-        <a href="#deep-dive">Deep Dive</a>
+        <a href="#deep-dive">Details</a>
         <a href="https://github.com/prasadnitish/rag-pipeline-guardrails/blob/main/docs/rag-eval-report-latest.md" target="_blank" rel="noopener">Eval Report</a>
         <a href="https://github.com/prasadnitish/rag-pipeline-guardrails" target="_blank" rel="noopener">Repository</a>
         <a href="index.html">Portfolio Home</a>
@@ -55,7 +55,7 @@
           <h1 class="case-title">RAG Pipeline with Guardrails</h1>
           <div class="accent-line"></div>
           <p class="case-summary" style="margin-top:1.1rem">
-            Most RAG demos stop at retrieval quality. This project is about the next layer: making grounded answers traceable, adding safety checks around risky behavior, and turning those checks into explicit release decisions instead of after-the-fact commentary.
+            Most RAG demos stop at retrieval quality. I built the next layer: traceable grounded answers, safety checks around risky behavior, and release decisions that happen before launch.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="https://github.com/prasadnitish/rag-pipeline-guardrails" target="_blank" rel="noopener">Open Repository</a>
@@ -95,7 +95,7 @@
       <div class="section-header">
         <div>
           <div class="eyebrow">Quick Read</div>
-          <h2 class="section-title">The missing layer in most RAG work is operational discipline.</h2>
+          <h2 class="section-title">RAG work needs release discipline.</h2>
         </div>
       </div>
 
@@ -103,7 +103,7 @@
         <article class="dense-stat">
           <strong>2</strong>
           <span>Domains</span>
-          <p>The pipeline is intentionally grounded in both real travel workflows and synthetic seller-intelligence scenarios.</p>
+          <p>The pipeline uses real travel workflows and synthetic seller-intelligence scenarios.</p>
         </article>
         <article class="dense-stat">
           <strong>24</strong>
@@ -113,7 +113,7 @@
         <article class="dense-stat">
           <strong>PASS</strong>
           <span>Release gate verdict</span>
-          <p>The point is not the score alone. The point is having a score that can block or allow a release explicitly.</p>
+          <p>The score matters because it can block or allow a release with a stated reason.</p>
         </article>
       </div>
 
@@ -137,9 +137,9 @@
         </article>
 
         <article class="panel-card">
-          <div class="eyebrow">Why this matters</div>
+          <div class="eyebrow">Product judgment</div>
           <p style="margin-top:1rem">
-            This is the bridge between “the AI prototype looks promising” and “the team knows enough to launch responsibly.” That transition is where a lot of teams still get vague. I wanted the decision logic to be concrete.
+            Teams often know a prototype looks promising before they know whether it should ship. I built the decision logic so the release call could rest on evidence instead of a loose readout.
           </p>
         </article>
 
@@ -148,7 +148,7 @@
           <ul class="bullet-list" style="margin-top:1rem">
             <li>Travel corpus for SproutRoute use cases and a generalized seller workflow corpus for enterprise recommendation scenarios.</li>
             <li>Evaluation export in JSON and Markdown.</li>
-            <li>Release gate tied directly to guardrail outcomes.</li>
+            <li>Release gate tied to guardrail outcomes.</li>
             <li>Designed to fit with the evaluation and safety projects elsewhere in the portfolio.</li>
           </ul>
         </article>
@@ -159,18 +159,18 @@
       <div class="split-section">
         <article class="panel-card">
           <div class="eyebrow">Executive Summary</div>
-          <h2 class="section-title" style="font-size:clamp(1.9rem,3vw,3rem)">A good RAG system needs evidence, not just retrieval.</h2>
+          <h2 class="section-title" style="font-size:clamp(1.9rem,3vw,3rem)">A useful RAG system needs evidence.</h2>
           <p>
-            The answer has to be grounded, the risky behavior has to be caught, and the launch decision has to be legible. Once those three pieces live together, the system starts to look like production infrastructure instead of a retrieval demo.
+            The answer has to be grounded, risky behavior has to be caught, and the launch decision has to be legible. Once those pieces live together, the system starts to look like production infrastructure.
           </p>
         </article>
 
         <article class="surface-card">
           <h3>Why it matters</h3>
           <ul class="bullet-list">
-            <li>I think about RAG as a product system, not just a retrieval pipeline.</li>
+            <li>I think about RAG as a product system with release consequences.</li>
             <li>I know how to combine safety checks and evaluation evidence into launch logic.</li>
-            <li>I can connect technical quality back to product release decisions clearly.</li>
+            <li>I can connect technical quality back to product release decisions.</li>
           </ul>
         </article>
       </div>
@@ -179,8 +179,8 @@
     <section class="section" id="deep-dive">
       <div class="section-header">
         <div>
-          <div class="eyebrow">Deep Dive</div>
-          <h2 class="section-title">The interesting part is how the pieces fit together.</h2>
+          <div class="eyebrow">Details</div>
+          <h2 class="section-title">The important part is how the pieces fit together.</h2>
         </div>
       </div>
 
@@ -188,7 +188,7 @@
         <article class="panel-card">
           <span class="pill accent">Capability</span>
           <h3>Dual-domain retrieval</h3>
-          <p>The corpora cover both travel and seller workflows so the same pipeline can be tested against materially different user contexts.</p>
+          <p>The corpora cover both travel and seller workflows so the same pipeline can be tested against different user contexts.</p>
         </article>
         <article class="panel-card">
           <span class="pill signal">Capability</span>
@@ -203,7 +203,7 @@
         <article class="panel-card">
           <span class="pill signal">Capability</span>
           <h3>Release gate</h3>
-          <p>Policy thresholds turn raw evaluation output into a decision artifact that can actually be used in launch reviews.</p>
+          <p>Policy thresholds turn raw evaluation output into a launch-review decision.</p>
         </article>
       </div>
     </section>
