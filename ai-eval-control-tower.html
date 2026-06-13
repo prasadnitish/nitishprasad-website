@@ -3,256 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AI Eval Control Tower case study: cloneable AI eval system with datasets, LLM-as-judge rubrics, release gates, and a PM launch-review dashboard." />
-  <meta property="og:title" content="AI Eval Control Tower - Nitish Prasad" />
-  <meta property="og:description" content="Cloneable model-evaluation system showing what data is checked, who judges it, why scores are usable, and how teams can rerun it with their own API keys." />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://www.nitishprasad.com/ai-eval-control-tower.html" />
-  <link rel="canonical" href="https://www.nitishprasad.com/ai-eval-control-tower.html" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AI Eval Control Tower - Nitish Prasad" />
-  <meta name="twitter:description" content="N-way model benchmarking with evidence chain, local runbook, and safety hard floors." />
-  <meta property="og:image" content="https://www.nitishprasad.com/og-ai-eval.svg" />
-  <meta name="twitter:image" content="https://www.nitishprasad.com/og-ai-eval.svg" />
-  <meta name="theme-color" content="#0d1320" />
   <title>AI Eval Control Tower - Nitish Prasad</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="icon" type="image/png" href="favicon.png" sizes="256x256" />
-  <link rel="apple-touch-icon" href="favicon.png" />
-  <link rel="stylesheet" href="portfolio-refresh.css" />
+  <meta name="description" content="AI Eval Control Tower case study: model evaluation system for quality, safety, latency, cost, release gates, and PM launch decisions." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="vertical-system.css" />
 </head>
-<body>
-<header class="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="index.html">Nitish<span class="brand-mark">.</span></a>
-      <div class="nav-shell">
-        <nav class="nav-list" aria-label="AI Eval navigation">
-          <a href="#quick-read">Quick Read</a>
-          <a href="#benchmarks">Benchmarks</a>
-          <a href="#demo">Live Demo</a>
-          <a href="index.html">Back to Portfolio</a>
-        </nav>
-        <div class="nav-actions">
-          <a class="nav-secondary" href="/evals/" target="_blank" rel="noopener noreferrer">Launch Tool</a>
-          <a class="nav-resume" href="https://github.com/prasadnitish/AI-Eval-Control-Tower/tree/codex/principal-pm-dashboard-redesign" target="_blank" rel="noreferrer">GitHub</a>
-        </div>
-      </div>
-      <button type="button" class="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
-      <div class="mobile-menu">
-        <a href="#quick-read">Quick Read</a>
-        <a href="#benchmarks">Benchmarks</a>
-        <a href="#demo">Live Demo</a>
-        <a href="/evals/" target="_blank" rel="noopener noreferrer">Launch Tool</a>
-        <a href="https://github.com/prasadnitish/AI-Eval-Control-Tower/tree/codex/principal-pm-dashboard-redesign" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="index.html">Portfolio Home</a>
-      </div>
-    </div>
+<body class="detail-page">
+  <div class="mobile-progress" aria-hidden="true"><span data-mobile-progress></span></div>
+  <header class="site-nav">
+    <a class="brand-lockup" href="index.html"><span>Nitish Prasad</span><span>Product systems</span></a>
+    <nav class="nav-links" aria-label="Case navigation">
+      <a href="index.html">Signal</a>
+      <a aria-current="page" href="ai-eval-control-tower.html">AI Eval</a>
+      <a href="project-rag-pipeline.html">RAG</a>
+      <a href="project-ai-safety.html">Safety</a>
+    </nav>
   </header>
 
-  <main class="page-shell">
-    <section class="case-hero">
-      <div class="case-grid">
-        <div class="case-copy">
-          <div class="eyebrow">Portfolio project · live demo · evaluation infrastructure</div>
-          <h1 class="case-title">AI Eval Control Tower</h1>
-          <div class="accent-line"></div>
-          <p class="case-summary" style="margin-top:1.1rem">
-            Shipping the model starts the work. The harder question is knowing when the model is getting worse, when a cheaper one is good enough, and when a release should be blocked. The live tool starts with SproutRoute because it caught a real safety-floor failure, then extends the same operating model to seller-growth recommendations and SproutMath content authoring.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="/evals/" target="_blank" rel="noopener noreferrer">Launch Tool</a>
-            <a class="button secondary" href="#quick-read">Start With Quick Read</a>
-            <a class="button secondary" href="https://github.com/prasadnitish/AI-Eval-Control-Tower/tree/codex/principal-pm-dashboard-redesign" target="_blank" rel="noreferrer">Open GitHub</a>
-          </div>
-          <p class="mobile-note">Best read for AI quality, model economics, and release decisions treated as one operating system.</p>
-        </div>
+  <aside class="vine-shell" aria-hidden="true">
+    <svg viewBox="0 0 100 900" preserveAspectRatio="none"><path class="vine-track" d="M52 0 C28 105 82 170 50 270 C18 372 72 458 50 565 C30 672 66 770 48 900" /><path class="vine-progress" data-vine-progress d="M52 0 C28 105 82 170 50 270 C18 372 72 458 50 565 C30 672 66 770 48 900" /></svg>
+    <span class="vine-node" data-vine-node></span><span class="vine-node" data-vine-node></span><span class="vine-node" data-vine-node></span><span class="vine-node" data-vine-node></span><span class="vine-node" data-vine-node></span>
+  </aside>
 
-        <aside class="executive-hero">
-          <span class="pill signal">At a glance</span>
-          <div class="divider"></div>
-          <div class="case-meta-grid">
-            <div class="meta-tile">
-              <span>Models</span>
-              <strong>7 registered models, 1 local API key</strong>
-            </div>
-            <div class="meta-tile">
-              <span>Coverage</span>
-              <strong>SproutRoute, seller growth, SproutMath</strong>
-            </div>
-            <div class="meta-tile">
-              <span>Headline finding</span>
-              <strong>Caught production model below safety floor</strong>
-            </div>
-            <div class="meta-tile">
-              <span>Use case</span>
-              <strong>Release and operating decisions</strong>
-            </div>
-          </div>
-          <p>Shows how I think about AI products after launch: quality, safety, cost, latency, content gates, score provenance, and release decisions in one operating layer, grounded in real portfolio workflows.</p>
-        </aside>
+  <main class="case-shell">
+    <section class="case-hero" data-frame>
+      <p class="context">Evaluation infrastructure / release operations</p>
+      <h1 class="case-title">AI Eval Control Tower</h1>
+      <p class="case-summary">A cloneable model-evaluation system that turns quality, safety, cost, latency, and score provenance into a PM-readable launch decision.</p>
+      <dl class="metric-line">
+        <div><dt>Models</dt><dd>7 registered</dd></div>
+        <div><dt>Domains</dt><dd>3 workflows</dd></div>
+        <div><dt>Finding</dt><dd>Safety floor fail</dd></div>
+        <div><dt>Use</dt><dd>Release gate</dd></div>
+      </dl>
+      <div class="case-actions">
+        <a class="button" href="evals/">Launch local tool</a>
+        <a class="button secondary" href="#benchmarks">Benchmarks</a>
       </div>
     </section>
 
-    <section class="section" id="quick-read">
-      <div class="section-header">
-        <div>
-          <div class="eyebrow">Quick Read</div>
-          <h2 class="section-title">Most AI teams still lack a clear operating layer for model decisions.</h2>
+    <section class="case-section" data-frame id="quick-read">
+      <div class="section-kicker">Quick read<span>01 / operating layer</span></div>
+      <div class="case-section-body">
+        <h2>Most AI teams still lack a clear operating layer for model decisions.</h2>
+        <p>One spreadsheet for prompts, one notebook for model experiments, another chart for latency, and a separate launch debate creates fragmented evidence. This tool makes the decision chain inspectable.</p>
+        <div class="evidence-grid">
+          <article class="evidence-panel"><strong>7.64 safety score</strong><p>The current SproutRoute production model fell below the 8.0 safety floor.</p></article>
+          <article class="evidence-panel"><strong>87.8 top quality</strong><p>Sonnet 4.6 led the field, but with latency and cost tradeoffs.</p></article>
+          <article class="evidence-panel"><strong>19x cost spread</strong><p>The matrix makes "good enough and cheaper" a provable product decision.</p></article>
+          <article class="evidence-panel"><strong>Manual live evals</strong><p>Secret-free PR checks stay safe; live OpenRouter runs happen only by manual workflow.</p></article>
         </div>
       </div>
-
-      <div class="dense-grid">
-        <article class="dense-stat">
-          <strong>7.64</strong>
-          <span>Safety score on current prod model</span>
-          <p>Below the 8.0 hard floor. Haiku 4.5 serves SproutRoute traffic today. The gate caught the failure, which is the job I built it to do.</p>
-        </article>
-        <article class="dense-stat">
-          <strong>87.8</strong>
-          <span>Top candidate quality (Sonnet 4.6)</span>
-          <p>Leads the 7-model field. GPT-5 Mini trails by under one point. Gemini 2.5 Flash sits lower on quality but wins on speed and cost.</p>
-        </article>
-        <article class="dense-stat">
-          <strong>19×</strong>
-          <span>Cost spread across models</span>
-          <p>Grok 4 Fast at $0.0009 per inference, Sonnet 4.6 at $0.016. The tool makes the “is the cheaper model good enough?” decision provable instead of vibes-based.</p>
-        </article>
-      </div>
-
-      <div class="ownership-grid case-quick-grid" style="margin-top:1rem">
-        <article class="surface-card">
-          <div class="eyebrow" style="color:var(--ink-soft)">The problem</div>
-          <h3>AI quality often lives in fragments.</h3>
-          <p>
-            Teams often have one spreadsheet for prompts, one notebook for model experiments, another chart for latency, and a separate conversation about release criteria. That makes it hard to treat model performance like an operational system.
-          </p>
-        </article>
-
-        <article class="panel-card">
-          <div class="eyebrow">System scope</div>
-          <ul class="bullet-list" style="margin-top:1rem">
-            <li>N-way LLM-as-judge evaluation through a single OpenRouter API key.</li>
-            <li>Domain-weighted rubric: SproutRoute prompts scored on <em>safety</em> and <em>logistical feasibility</em>, seller prompts on accuracy and actionability, and SproutMath authoring on answer validity, grade fit, accessibility, and child safety.</li>
-            <li>A live launch-review dashboard that connects the decision memo, evidence chain, candidate board, failure modes, operating envelope, rollout plan, and local runbook.</li>
-            <li>Cloneable GitHub workflow: copy <code>.env.example</code>, add <code>OPENROUTER_API_KEY</code>, run a dataset-specific eval, then apply the release gate.</li>
-            <li>Release gate with dataset-specific overrides: a 15-second latency ceiling for trip plans, 3 seconds for seller Q&amp;A.</li>
-            <li>Secret-free PR checks run install, tests, and build; live OpenRouter evals run only from a manual GitHub Actions workflow.</li>
-          </ul>
-        </article>
-
-        <article class="panel-card">
-          <div class="eyebrow">Product judgment</div>
-          <p style="margin-top:1rem">
-            I built this as product operations, not a data-science exercise. When my production SproutRoute model came back at 7.64 safety, below the 8.0 floor, the tool flagged it before a user could hit a wrong car seat law or a closed venue. The dashboard also makes the trust chain visible: dataset, judge, score method, limitations, and local rerun path.
-          </p>
-        </article>
-
-        <article class="surface-card">
-          <div class="eyebrow" style="color:var(--ink-soft)">Scope</div>
-          <ul class="bullet-list" style="margin-top:1rem">
-            <li>7 models benchmarked: Claude Sonnet 4.6 &amp; Haiku 4.5, GPT-5 Mini &amp; Nano, Grok 4 Fast, Gemini 2.5 Flash, DeepSeek-V3.2.</li>
-            <li>Three product scenarios in the dashboard order: SproutRoute itinerary generation with safety tips, seller-growth AM recommendations, and SproutMath content authoring.</li>
-            <li>Seven dashboard views: decision memo, evidence chain, candidate board, rubric and failure modes, operating envelope, rollout plan, and run locally.</li>
-            <li>15 unit tests on judge and gate logic; mobile-responsive UI.</li>
-          </ul>
-        </article>
-      </div>
     </section>
 
-    <section class="section" id="benchmarks">
-      <div class="section-header">
-        <div>
-          <div class="eyebrow">Benchmark Story</div>
-          <h2 class="section-title">Seven models, one rubric, one decision.</h2>
+    <section class="case-section" data-frame id="benchmarks">
+      <div class="section-kicker">Benchmarks<span>02 / decision</span></div>
+      <div class="case-section-body">
+        <h2>Seven models, one rubric, one decision.</h2>
+        <div class="system-map">
+          <div><span>Quality leader</span><h3>Sonnet 4.6</h3><p>Quality 87.8, safety 9.04, high latency and cost.</p></div>
+          <div><span>Best tradeoff</span><h3>Gemini 2.5 Flash</h3><p>Cleared safety, faster than production, lower cost.</p></div>
+          <div><span>Blocked path</span><h3>Haiku 4.5</h3><p>Production model scored below the safety floor.</p></div>
+          <div><span>Evidence</span><h3>Judge citations</h3><p>Car seat law, venue closure, and infeasible routing errors were surfaced.</p></div>
         </div>
-        <div class="section-note">Full SproutRoute suite: 25 trip-planning prompts × 7 models, judged by Claude Sonnet 4.6 on seven dimensions including <em>safety</em> and <em>logistical feasibility</em>.</div>
-      </div>
-
-      <div class="comparison-grid">
-        <article class="comparison-card before">
-          <span class="pill signal">Quality leader</span>
-          <h3>Claude Sonnet 4.6</h3>
-          <p>Top of the field on accuracy, actionability, and nuanced safety reasoning. The price you pay is a 26-second p95 latency and about 6x the cost of the cheapest option.</p>
-          <ul class="bullet-list" style="margin-top:1rem">
-            <li>Quality: 87.8</li>
-            <li>Safety: 9.04 ✓</li>
-            <li>Cost per inference: $0.016</li>
-            <li>P95 latency: 26.1s</li>
-          </ul>
-        </article>
-        <article class="comparison-card after">
-          <span class="pill accent">Best overall tradeoff</span>
-          <h3>Gemini 2.5 Flash</h3>
-          <p>Cleared the safety floor, ran 2.3x faster than the current production model, and cost half as much. I would promote this model after the run. The matrix makes the tradeoff explicit.</p>
-          <ul class="bullet-list" style="margin-top:1rem">
-            <li>Quality: 78.6</li>
-            <li>Safety: 8.16 ✓</li>
-            <li>Cost per inference: $0.0025</li>
-            <li>P95 latency: 9.8s</li>
-          </ul>
-        </article>
-      </div>
-
-      <article class="panel-card" style="margin-top:1.25rem">
-        <div class="eyebrow">What the gate flagged</div>
-        <p style="margin-top:0.75rem">
-          <strong>Claude Haiku 4.5</strong>, the model serving SproutRoute production traffic now, scored <strong>7.64 on safety</strong>, below the 8.0 hard floor. <strong>Grok 4 Fast</strong> failed the same check at 7.8. The rest (Sonnet 4.6, GPT-5 Mini, GPT-5 Nano, Gemini 2.5 Flash, DeepSeek-V3.2) cleared the safety floor, but only Gemini paired that pass with sub-15-second p95 latency and lower cost than the current model. The release gate exits NO-GO for the current production path. The manual live-eval workflow preserves the evidence without exposing API keys to PRs. A PM has a concrete path: promote Gemini or document why another safety-passing model is worth its latency or cost tradeoff.
-        </p>
-        <p style="margin-top:0.75rem">
-          The judge cited real errors in the failing responses: a California car seat law misstatement, Splash Mountain recommended after its 2023 closure, an impossible overnight Paris→Barcelona train routing. These low-frequency safety bugs slip past eyeball QA, so the gate uses rubric weights instead of a gut check.
-        </p>
-      </article>
-    </section>
-
-    <section class="section">
-      <div class="split-section">
-        <article class="panel-card">
-          <div class="eyebrow">Executive Summary</div>
-          <h2 class="section-title" style="font-size:clamp(1.9rem,3vw,3rem)">Good eval tooling tells a team which model to ship and why.</h2>
-          <p>
-            The dashboard keeps quality, safety, cost, latency, content gates, score provenance, and rollout ownership in one review flow. That makes the tradeoffs concrete enough to drive a launch decision. The biggest move is turning each eval into a PM-readable decision memo with an inspectable evidence chain and a GitHub runbook.
-          </p>
-        </article>
-
-        <article class="surface-card">
-          <h3>Why it matters</h3>
-          <ul class="bullet-list">
-            <li>I think about AI products after the first launch.</li>
-            <li>I know how to turn evaluation into operating logic a team can act on, including my own.</li>
-            <li>I ran the tool against my own shipped product and it found a real regression. That is the acceptance test for any governance system.</li>
-          </ul>
-        </article>
       </div>
     </section>
 
-    <section class="section" id="demo">
-      <div class="section-header">
-        <div>
-          <div class="eyebrow">Live Demo</div>
-          <h2 class="section-title">The working tool is part of the case study.</h2>
-        </div>
-        <div class="section-note">Embedded live build from <code>/evals/</code>.</div>
-      </div>
-
-      <div class="tool-embed">
-        <iframe src="/evals/" title="AI Eval Control Tower" loading="lazy" allow="fullscreen"></iframe>
+    <section class="case-section" data-frame id="demo">
+      <div class="section-kicker">Artifact<span>03 / live build</span></div>
+      <div class="case-section-body">
+        <h2>The working tool is part of the case study.</h2>
+        <p>In production, this page should link to the live `/evals/` build, the GitHub runbook, the evidence chain, and the current release verdict. The portfolio claim becomes inspectable.</p>
+        <a class="text-link" href="evals/">Open eval tool</a>
       </div>
     </section>
-
-    <footer class="footer">
-      <a href="index.html">Back to portfolio</a>
-    </footer>
   </main>
-<script>
-(function(){
-  var btn=document.querySelector('.nav-menu-btn');
-  var menu=document.querySelector('.mobile-menu');
-  if(btn&&menu){btn.addEventListener('click',function(){
-    var open=menu.classList.toggle('open');
-    btn.setAttribute('aria-expanded',open);
-    btn.textContent=open?'\u2715':'\u2630';
-  });}
-})();
-</script>
+  <script src="vertical-system.js"></script>
 </body>
 </html>

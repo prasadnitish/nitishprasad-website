@@ -3,243 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AI Safety Audit Tool case study: fairness metrics, red-team checks, release gates, and benchmark evidence for AI launch reviews." />
-  <meta property="og:title" content="AI Safety Audit Tool - Nitish Prasad" />
-  <meta property="og:description" content="A live safety and governance tool for fairness, red-team review, and PASS/WARN/BLOCK launch decisions." />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://www.nitishprasad.com/project-ai-safety.html" />
-  <link rel="canonical" href="https://www.nitishprasad.com/project-ai-safety.html" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AI Safety Audit Tool - Nitish Prasad" />
-  <meta name="twitter:description" content="A fairness and governance toolkit for AI launch decisions." />
-  <meta property="og:image" content="https://www.nitishprasad.com/og-ai-safety.svg" />
-  <meta name="twitter:image" content="https://www.nitishprasad.com/og-ai-safety.svg" />
-  <meta name="theme-color" content="#0d1320" />
   <title>AI Safety Audit Tool - Nitish Prasad</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="icon" type="image/png" href="favicon.png" sizes="256x256" />
-  <link rel="apple-touch-icon" href="favicon.png" />
-  <link rel="stylesheet" href="portfolio-refresh.css" />
+  <meta name="description" content="AI Safety Audit Tool case study: fairness metrics, red-team checks, release gates, and benchmark evidence for AI launch reviews." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="vertical-system.css" />
 </head>
-<body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="index.html">Nitish<span class="brand-mark">.</span></a>
-      <div class="nav-shell">
-        <nav class="nav-list" aria-label="AI Safety navigation">
-          <a href="#quick-read">Quick Read</a>
-          <a href="#benchmarks">Benchmarks</a>
-          <a href="#demo">Live Demo</a>
-          <a href="index.html">Back to Portfolio</a>
-        </nav>
-        <div class="nav-actions">
-          <a class="nav-secondary" href="/ai-safety/" target="_blank" rel="noopener">Launch Tool</a>
-          <a class="nav-resume" href="https://github.com/prasadnitish/ai-safety-audit-tool" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </div>
-      <button type="button" class="nav-menu-btn" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
-      <div class="mobile-menu">
-        <a href="#quick-read">Quick Read</a>
-        <a href="#benchmarks">Benchmarks</a>
-        <a href="#demo">Live Demo</a>
-        <a href="/ai-safety/" target="_blank" rel="noopener">Launch Tool</a>
-        <a href="https://github.com/prasadnitish/ai-safety-audit-tool" target="_blank" rel="noopener">GitHub</a>
-        <a href="index.html">Portfolio Home</a>
-      </div>
-    </div>
+<body class="detail-page">
+  <div class="mobile-progress" aria-hidden="true"><span data-mobile-progress></span></div>
+  <header class="site-nav">
+    <a class="brand-lockup" href="index.html"><span>Nitish Prasad</span><span>Product systems</span></a>
+    <nav class="nav-links" aria-label="Case navigation">
+      <a href="index.html">Signal</a>
+      <a href="ai-eval-control-tower.html">AI Eval</a>
+      <a href="project-rag-pipeline.html">RAG</a>
+      <a aria-current="page" href="project-ai-safety.html">Safety</a>
+    </nav>
   </header>
+  <aside class="vine-shell" aria-hidden="true">
+    <svg viewBox="0 0 100 900" preserveAspectRatio="none"><path class="vine-track" d="M52 0 C28 105 82 170 50 270 C18 372 72 458 50 565 C30 672 66 770 48 900" /><path class="vine-progress" data-vine-progress d="M52 0 C28 105 82 170 50 270 C18 372 72 458 50 565 C30 672 66 770 48 900" /></svg>
+    <span class="vine-node" data-vine-node></span><span class="vine-node" data-vine-node></span><span class="vine-node" data-vine-node></span><span class="vine-node" data-vine-node></span><span class="vine-node" data-vine-node></span>
+  </aside>
 
-  <main class="page-shell">
-    <section class="case-hero">
-      <div class="case-grid">
-        <div class="case-copy">
-          <div class="eyebrow">Portfolio project · live demo · governance tooling</div>
-          <h1 class="case-title">AI Safety Audit Tool</h1>
-          <div class="accent-line"></div>
-          <p class="case-summary" style="margin-top:1.1rem">
-            Most AI launch checklists ask whether the model works. I built this tool around the harder launch question: do the fairness gaps, safety results, and transparency evidence support shipping? The tool turns that review into an inspectable workflow.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="/ai-safety/" target="_blank" rel="noopener">Launch Tool</a>
-            <a class="button secondary" href="#quick-read">Start With Quick Read</a>
-            <a class="button secondary" href="https://github.com/prasadnitish/ai-safety-audit-tool" target="_blank" rel="noopener">Open GitHub</a>
-          </div>
-          <p class="mobile-note">Best read for turning responsible-AI requirements into a working launch review tool.</p>
-        </div>
-
-        <aside class="executive-hero">
-          <span class="pill signal">At a glance</span>
-          <div class="divider"></div>
-          <div class="case-meta-grid">
-            <div class="meta-tile">
-              <span>Benchmark size</span>
-              <strong>540 cases per model</strong>
-            </div>
-            <div class="meta-tile">
-              <span>Scenario set</span>
-              <strong>Hiring, lending, support triage</strong>
-            </div>
-            <div class="meta-tile">
-              <span>Models</span>
-              <strong>Claude 4.6 and DeepSeek-V3</strong>
-            </div>
-            <div class="meta-tile">
-              <span>Decision shape</span>
-              <strong>PASS, WARN, BLOCK</strong>
-            </div>
-          </div>
-          <p>
-            The governance counterpart to the eval system focuses less on overall quality and more on whether the launch should proceed.
-          </p>
-        </aside>
+  <main class="case-shell">
+    <section class="case-hero" data-frame>
+      <p class="context">Fairness / red-team probes / launch gates</p>
+      <h1 class="case-title">AI Safety Audit Tool</h1>
+      <p class="case-summary">A governance tool that turns fairness metrics, red-team results, scenario context, and baseline-vs-candidate comparisons into an inspectable PASS, WARN, or BLOCK launch review.</p>
+      <dl class="metric-line">
+        <div><dt>Cases</dt><dd>540/model</dd></div>
+        <div><dt>Scenarios</dt><dd>3 domains</dd></div>
+        <div><dt>Models</dt><dd>2 compared</dd></div>
+        <div><dt>Decision</dt><dd>Launch gate</dd></div>
+      </dl>
+      <div class="case-actions">
+        <a class="button" href="ai-safety/">Launch local tool</a>
+        <a class="button secondary" href="#benchmarks">Benchmarks</a>
       </div>
     </section>
 
-    <section class="section" id="quick-read">
-      <div class="section-header">
-        <div>
-          <div class="eyebrow">Quick Read</div>
-          <h2 class="section-title">Safety needs to show up as a launch artifact.</h2>
+    <section class="case-section" data-frame id="quick-read">
+      <div class="section-kicker">Quick read<span>01 / governance</span></div>
+      <div class="case-section-body">
+        <h2>Safety needs to show up as a launch artifact.</h2>
+        <p>Responsible AI often stops at policy language. The harder part is giving a launch review one place to inspect scenario data, fairness gaps, red-team probes, and a clear go/no-go verdict.</p>
+        <div class="evidence-grid">
+          <article class="evidence-panel"><strong>Scenario-based review</strong><p>Hiring, lending, and support triage make the policy discussion concrete.</p></article>
+          <article class="evidence-panel"><strong>Fairness by segment</strong><p>Protected-group metrics appear as gaps the launch team can debate and defend.</p></article>
+          <article class="evidence-panel"><strong>Red-team suite</strong><p>Safety probes are tied directly to launch outcomes.</p></article>
+          <article class="evidence-panel"><strong>Explicit verdicts</strong><p>PASS, WARN, and BLOCK include reasons that can survive a launch meeting.</p></article>
         </div>
       </div>
-
-      <div class="dense-grid">
-        <article class="dense-stat">
-          <strong>540</strong>
-          <span>Benchmark cases per model</span>
-          <p>A large enough run to make fairness and red-team outcomes feel like evidence instead of anecdotes.</p>
-        </article>
-        <article class="dense-stat">
-          <strong>3</strong>
-          <span>Decision scenarios</span>
-          <p>Hiring, lending, and support triage give the policy discussion real stakes instead of generic examples.</p>
-        </article>
-        <article class="dense-stat">
-          <strong>P0 + P1</strong>
-          <span>Scope shipped</span>
-          <p>The product includes fairness views, red-team probes, baseline-vs-candidate diffs, and explicit gate verdicts.</p>
-        </article>
-      </div>
-
-      <div class="ownership-grid" style="margin-top:1rem">
-        <article class="surface-card">
-          <div class="eyebrow" style="color:var(--ink-soft)">The problem</div>
-          <h3>Responsible AI often stops at policy language.</h3>
-          <p>
-            Teams can say the right things about fairness and risk. The harder part is giving a launch review one place to inspect scenario data, fairness gaps, red-team probes, and a clear go/no-go verdict.
-          </p>
-        </article>
-
-        <article class="panel-card">
-          <div class="eyebrow">System scope</div>
-          <ul class="bullet-list" style="margin-top:1rem">
-            <li>Scenario-based fairness and policy review across three domains.</li>
-            <li>Baseline-versus-candidate diffs to surface regressions.</li>
-            <li>Red-team probe suite tied to gate outcomes.</li>
-            <li>PASS/WARN/BLOCK logic with reasons that can survive a launch meeting.</li>
-          </ul>
-        </article>
-
-        <article class="panel-card">
-          <div class="eyebrow">Product judgment</div>
-          <p style="margin-top:1rem">
-            I treat governance as part of product execution. A launch decision earns trust when the team can inspect the scenarios, thresholds, regressions, and reasons behind it.
-          </p>
-        </article>
-
-        <article class="surface-card">
-          <div class="eyebrow" style="color:var(--ink-soft)">Scope</div>
-          <ul class="bullet-list" style="margin-top:1rem">
-            <li>Interactive safety dashboard with scenario filters and threshold tuning.</li>
-            <li>540-case benchmark runs per model.</li>
-            <li>Fairness, red-team, and regression views in one tool.</li>
-            <li>Live demo plus repo-backed product narrative.</li>
-          </ul>
-        </article>
-      </div>
     </section>
 
-    <section class="section" id="benchmarks">
-      <div class="section-header">
-        <div>
-          <div class="eyebrow">Benchmark Story</div>
-          <h2 class="section-title">The benchmark has one job: show when to block a launch.</h2>
+    <section class="case-section" data-frame id="benchmarks">
+      <div class="section-kicker">Benchmarks<span>02 / gate</span></div>
+      <div class="case-section-body">
+        <h2>The benchmark has one job: show when to block a launch.</h2>
+        <div class="system-map">
+          <div><span>Overview</span><h3>Gate verdict</h3><p>Launch decision with reasons, not a vague risk label.</p></div>
+          <div><span>Fairness</span><h3>Segment gaps</h3><p>Demographic parity, equal opportunity, and FPR gap visibility.</p></div>
+          <div><span>Change</span><h3>Baseline vs candidate</h3><p>Regressions become visible before launch.</p></div>
+          <div><span>Report</span><h3>Audit artifact</h3><p>The output can be shared in a launch review.</p></div>
         </div>
-      </div>
-
-      <div class="comparison-grid">
-        <article class="comparison-card before">
-          <span class="pill signal">Scenario logic</span>
-          <h3>Fairness by segment</h3>
-          <p>The tool computes protected-group metrics and turns them into something a PM, ML partner, and compliance partner can inspect together.</p>
-          <ul class="bullet-list" style="margin-top:1rem">
-            <li>Group-level metrics across protected attributes.</li>
-            <li>Gap visibility rather than single headline numbers.</li>
-            <li>Thresholds that can be tuned and defended.</li>
-          </ul>
-        </article>
-        <article class="comparison-card after">
-          <span class="pill accent">Launch logic</span>
-          <h3>Gate verdicts with reasons</h3>
-          <p>The output is not “this feels risky.” The output is a specific verdict with the factors that triggered it, which makes the launch conversation much more useful.</p>
-          <ul class="bullet-list" style="margin-top:1rem">
-            <li>PASS, WARN, BLOCK with explicit rationale.</li>
-            <li>Red-team outcomes tied to gate status.</li>
-            <li>Baseline-vs-candidate comparison for regressions.</li>
-          </ul>
-        </article>
+        <a class="text-link" href="ai-safety/">Open safety tool</a>
       </div>
     </section>
-
-    <section class="section">
-      <div class="split-section">
-        <article class="panel-card">
-          <div class="eyebrow">Executive Summary</div>
-          <h2 class="section-title" style="font-size:clamp(1.9rem,3vw,3rem)">A launch gate needs inspectable evidence.</h2>
-          <p>
-            This tool brings policy thresholds, fairness metrics, red-team outcomes, and scenario context into one review surface. The team can see the evidence, debate the threshold, and make a launch call.
-          </p>
-        </article>
-
-        <article class="surface-card">
-          <h3>Why it matters</h3>
-          <ul class="bullet-list">
-            <li>I know how to turn governance language into working product logic.</li>
-            <li>I can design tools for cross-functional launch reviews.</li>
-            <li>I treat fairness and safety as operating decisions.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="demo">
-      <div class="section-header">
-        <div>
-          <div class="eyebrow">Live Demo</div>
-          <h2 class="section-title">The working tool is part of the case study.</h2>
-        </div>
-        <div class="section-note">This embeds the same live build available at <code>/ai-safety/</code>.</div>
-      </div>
-
-      <div class="tool-embed">
-        <iframe src="/ai-safety/" title="AI Safety Audit Tool" loading="lazy" allow="fullscreen"></iframe>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <a href="index.html">Back to portfolio</a>
-    </footer>
   </main>
-<script>
-(function(){
-  var btn=document.querySelector('.nav-menu-btn');
-  var menu=document.querySelector('.mobile-menu');
-  if(btn&&menu){btn.addEventListener('click',function(){
-    var open=menu.classList.toggle('open');
-    btn.setAttribute('aria-expanded',open);
-    btn.textContent=open?'\u2715':'\u2630';
-  });}
-})();
-</script>
+  <script src="vertical-system.js"></script>
 </body>
 </html>
