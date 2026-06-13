@@ -1,5 +1,6 @@
 .git/
 .claude/
+.impeccable/
 .DS_Store
 .gitignore
 .assetsignore
@@ -7,5 +8,12 @@ changes.md
 portfolio-evaluation.html
 og-amplify.svg
 docs/
+mocks/
+mocks-v2/
+mocks-filmstrip/
+offline-vertical/
+react-luxury-portfolio/
+tmp/
+PRODUCT.md
 nitishprasad-website-threat-model.md
 security_best_practices_report.md
