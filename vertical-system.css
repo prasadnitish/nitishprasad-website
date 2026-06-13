@@ -239,6 +239,7 @@ button:focus-visible {
   align-content: center;
   gap: clamp(1.4rem, 4vw, 3rem);
   scroll-snap-align: start;
+  scroll-margin-top: 92px;
 }
 
 .frame.tight {
@@ -309,6 +310,94 @@ h3 {
   line-height: 1.04;
   letter-spacing: -0.03em;
   text-wrap: balance;
+}
+
+.statement-stack .lead {
+  max-width: 64ch;
+  color: var(--body);
+  font-size: clamp(1.05rem, 1.65vw, 1.32rem);
+  line-height: 1.48;
+  letter-spacing: -0.012em;
+}
+
+.surface-mosaic {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) repeat(2, minmax(0, 0.82fr));
+  gap: 0.65rem;
+  max-width: 720px;
+  margin-top: clamp(0.4rem, 2vw, 1rem);
+}
+
+.surface-tile {
+  position: relative;
+  min-height: clamp(9rem, 15vw, 13rem);
+  display: grid;
+  align-content: end;
+  gap: 0.35rem;
+  overflow: hidden;
+  padding: clamp(0.85rem, 1.7vw, 1.1rem);
+  background: rgba(245, 245, 247, 0.06);
+  background-size: cover;
+  background-position: center;
+}
+
+.surface-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 15%, rgba(13, 13, 12, 0.76) 100%);
+  pointer-events: none;
+}
+
+.surface-tile > * {
+  position: relative;
+  z-index: 1;
+}
+
+.surface-tile span {
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.surface-tile strong {
+  max-width: 15ch;
+  color: var(--ink);
+  font-size: clamp(0.95rem, 1.35vw, 1.18rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.surface-tile.is-amplify {
+  align-content: start;
+  min-height: clamp(10rem, 18vw, 15rem);
+  background:
+    linear-gradient(135deg, rgba(216, 180, 95, 0.15), transparent 48%),
+    rgba(245, 245, 247, 0.055);
+}
+
+.surface-tile.is-amplify::before {
+  background:
+    linear-gradient(180deg, rgba(13, 13, 12, 0.08), rgba(13, 13, 12, 0.68)),
+    repeating-linear-gradient(90deg, rgba(245, 245, 247, 0.08) 0 1px, transparent 1px 34px);
+}
+
+.surface-tile.is-amplify i {
+  display: block;
+  width: min(100%, 15rem);
+  height: 0.42rem;
+  margin-top: 0.55rem;
+  background: linear-gradient(90deg, var(--accent), rgba(245, 245, 247, 0.16));
+}
+
+.surface-tile.is-amplify i:nth-of-type(2) {
+  width: min(72%, 11rem);
+}
+
+.surface-tile.is-amplify i:nth-of-type(3) {
+  width: min(48%, 8rem);
 }
 
 .proof-path {
@@ -404,11 +493,19 @@ h3 {
 }
 
 .operating-list li {
+  border-top: 1px solid var(--line);
+}
+
+.operating-link {
   display: grid;
   grid-template-columns: minmax(120px, 0.28fr) minmax(0, 1fr);
   gap: clamp(1rem, 4vw, 4rem);
   padding: 1rem 0;
-  border-top: 1px solid var(--line);
+}
+
+.operating-link:hover span,
+.operating-link:focus-visible span {
+  color: var(--ink);
 }
 
 .operating-list strong {
@@ -421,6 +518,14 @@ h3 {
   font-size: clamp(1.15rem, 2vw, 1.75rem);
   line-height: 1.18;
   letter-spacing: -0.02em;
+  transition: color 180ms var(--ease);
+}
+
+.operating-list em {
+  grid-column: 2;
+  color: var(--muted);
+  font-style: normal;
+  font-size: 0.86rem;
 }
 
 .artifact-strip {
@@ -494,7 +599,7 @@ h3 {
   justify-items: end;
   gap: 0.55rem;
   color: var(--muted);
-  pointer-events: none;
+  pointer-events: auto;
   transition: opacity 260ms var(--ease), transform 260ms var(--ease);
 }
 
@@ -526,6 +631,7 @@ h3 {
 .has-moved .scroll-cue {
   opacity: 0;
   transform: translateY(8px);
+  pointer-events: none;
 }
 
 .site-footer {
@@ -645,6 +751,52 @@ h3 {
 
 .evidence-panel p {
   color: var(--body);
+}
+
+.amplify-exhibit {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 0.85fr) minmax(0, 1.1fr);
+  gap: 0.75rem;
+  margin-top: 1.4rem;
+}
+
+.amplify-card {
+  min-height: 13rem;
+  display: grid;
+  align-content: space-between;
+  gap: 1rem;
+  padding: clamp(1rem, 2vw, 1.35rem);
+  background:
+    linear-gradient(180deg, rgba(245, 245, 247, 0.075), rgba(245, 245, 247, 0.035)),
+    rgba(245, 245, 247, 0.035);
+}
+
+.amplify-card span {
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.amplify-card strong {
+  max-width: 10ch;
+  color: var(--ink);
+  font-size: clamp(1.55rem, 3vw, 2.7rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.amplify-card em {
+  max-width: 30ch;
+  color: var(--muted);
+  font-style: normal;
+}
+
+.amplify-card.is-output {
+  background:
+    linear-gradient(135deg, rgba(216, 180, 95, 0.18), transparent 52%),
+    rgba(245, 245, 247, 0.055);
 }
 
 .visual-grid {
@@ -851,6 +1003,18 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .surface-mosaic {
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    overflow-x: auto;
+    padding-bottom: 0.45rem;
+    scrollbar-color: var(--accent) transparent;
+  }
+
+  .surface-tile,
+  .surface-tile.is-amplify {
+    min-height: 10rem;
+  }
+
   .section-kicker {
     position: static;
   }
@@ -912,17 +1076,22 @@ h3 {
   .proof-link,
   .artifact-link,
   .case-row,
-  .operating-list li,
+  .operating-link,
   .archive-line,
   .resume-row {
     grid-template-columns: 1fr;
     gap: 0.5rem;
   }
 
+  .operating-list em {
+    grid-column: auto;
+  }
+
   .metric-line,
   .evidence-grid,
   .visual-grid,
   .visual-grid.two,
+  .amplify-exhibit,
   .system-map {
     grid-template-columns: 1fr;
   }

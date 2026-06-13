@@ -17,7 +17,7 @@
       <span>Product systems</span>
     </a>
     <nav class="nav-links" aria-label="Primary">
-      <a aria-current="page" href="index.html">Signal</a>
+      <a aria-current="page" href="#signal">Signal</a>
       <a href="project-sproutroute.html">SproutRoute</a>
       <a href="project-amplify.html">Amplify</a>
       <a class="optional" href="resume.html">Resume</a>
@@ -37,10 +37,10 @@
     <span class="vine-node" data-vine-node></span>
   </aside>
 
-  <div class="scroll-cue" aria-hidden="true">
+  <a class="scroll-cue" href="#signal" aria-label="Scroll to signal">
     <span>Scroll</span>
     <i></i>
-  </div>
+  </a>
 
   <main class="journey">
     <section class="frame two-col" data-frame id="start">
@@ -50,7 +50,22 @@
       </div>
       <div class="statement-stack">
         <p>14 years across fintech, Amazon Pay infrastructure, marketplaces, AI workflow systems, and 0-&gt;1 products.</p>
-        <p class="lead">I work where product direction, architecture constraints, and operating cadence have to meet. The work below moves from signal to proof to the artifacts behind the decisions.</p>
+        <p class="lead">Most of my work starts with a messy request: improve seller prep, make travel planning trustworthy, teach math offline, or evaluate AI releases. I turn the request into a product with clear boundaries and enough evidence for teams to act.</p>
+        <div class="surface-mosaic" aria-label="Selected product surfaces">
+          <a class="surface-tile is-amplify" href="project-amplify.html#architecture">
+            <span>Amplify</span>
+            <strong>Seller signal to next action</strong>
+            <i></i><i></i><i></i>
+          </a>
+          <a class="surface-tile is-image" href="project-sproutroute.html#screens" style="background-image:linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.72)), url('assets/screenshots/itinerary.jpg')">
+            <span>SproutRoute</span>
+            <strong>Verified itinerary flow</strong>
+          </a>
+          <a class="surface-tile is-image" href="project-sproutmath.html#visuals" style="background-image:linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.72)), url('assets/mathquest/candyland-background.png')">
+            <span>Sprout Math</span>
+            <strong>Offline learning world</strong>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -68,7 +83,7 @@
 
     <section class="frame" data-frame id="work">
       <p class="context">Proof path</p>
-      <h2>Every project is treated as evidence of a product decision.</h2>
+      <h2>Each case shows what I prioritized, tested, and cut.</h2>
       <div class="proof-path" aria-label="Case study proof path">
         <a class="proof-link" href="project-amplify.html">
           <span>Amplify Engine</span>
@@ -138,24 +153,36 @@
     <section class="frame two-col" data-frame id="operate">
       <div>
         <p class="context">Operating model</p>
-        <h2>How I work before the answer has a shape.</h2>
+        <h2>I start with the decision the team has to make.</h2>
       </div>
       <ul class="operating-list">
         <li>
-          <strong>Name the real problem.</strong>
-          <span>Most first requests are approximations. I look for the product decision behind the ask.</span>
+          <a class="operating-link" href="project-amplify.html#quick-read">
+            <strong>Frame the decision.</strong>
+            <span>Most asks arrive as feature requests. I turn them into a decision about who needs to act, what evidence they need, and what tradeoff we can accept.</span>
+            <em>Open Amplify framing</em>
+          </a>
         </li>
         <li>
-          <strong>Separate facts from generation.</strong>
-          <span>Models synthesize. Product systems decide, constrain, explain, and recover.</span>
+          <a class="operating-link" href="project-sproutroute.html#architecture">
+            <strong>Keep facts out of prose.</strong>
+            <span>Verified data, policy, eligibility, and permissions get their own rails. The model writes inside those constraints.</span>
+            <em>Open SproutRoute architecture</em>
+          </a>
         </li>
         <li>
-          <strong>Design for day two.</strong>
-          <span>Adoption, latency, cost, governance, and workflow fit matter as much as launch.</span>
+          <a class="operating-link" href="project-sproutmath.html#quick-read">
+            <strong>Prove the narrow version.</strong>
+            <span>A strong V1 makes adoption, latency, cost, and failure modes visible before the team adds surface area.</span>
+            <em>Open Sprout Math scope</em>
+          </a>
         </li>
         <li>
-          <strong>Make tradeoffs inspectable.</strong>
-          <span>The team should know why a system behaves the way it does before scaling it.</span>
+          <a class="operating-link" href="ai-eval-control-tower.html#benchmarks">
+            <strong>Leave a trail.</strong>
+            <span>Teams scale faster when they can inspect why a product ranked, blocked, cached, or generated something.</span>
+            <em>Open AI evaluation gates</em>
+          </a>
         </li>
       </ul>
     </section>
