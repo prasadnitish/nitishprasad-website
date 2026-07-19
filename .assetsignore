@@ -11,6 +11,9 @@ docs/
 mocks/
 mocks-v2/
 mocks-filmstrip/
+mocks-enterprise-platform/
+design_handoff_portfolio_v2/
+platform-system.entry.js
 offline-vertical/
 react-luxury-portfolio/
 tmp/

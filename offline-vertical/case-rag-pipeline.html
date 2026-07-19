@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>RAG Pipeline with Guardrails - Nitish Prasad</title>
+  <meta name="description" content="RAG Pipeline with Guardrails case study: dual-domain retrieval, safety checks, evaluation traces, and release gates for production AI systems." />
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="stylesheet" href="vertical-system.css" />
+</head>
+<body class="detail-page">
+  <div class="mobile-progress" aria-hidden="true"><span data-mobile-progress></span></div>
+  <header class="site-nav">
+    <a class="brand-lockup" href="index.html"><span>Nitish Prasad</span><span>Product systems</span></a>
+    <nav class="nav-links" aria-label="Case navigation">
+      <a href="index.html">Signal</a>
+      <a href="case-ai-eval.html">AI Eval</a>
+      <a aria-current="page" href="case-rag-pipeline.html">RAG</a>
+      <a href="case-ai-safety.html">Safety</a>
+    </nav>
+  </header>
+  <aside class="vine-shell" aria-hidden="true">
+    <svg viewBox="0 0 100 900" preserveAspectRatio="none"><path class="vine-track" d="M52 0 C28 105 82 170 50 270 C18 372 72 458 50 565 C30 672 66 770 48 900" /><path class="vine-progress" data-vine-progress d="M52 0 C28 105 82 170 50 270 C18 372 72 458 50 565 C30 672 66 770 48 900" /></svg>
+    <span class="vine-node" data-vine-node></span><span class="vine-node" data-vine-node></span><span class="vine-node" data-vine-node></span><span class="vine-node" data-vine-node></span><span class="vine-node" data-vine-node></span>
+  </aside>
+
+  <main class="case-shell">
+    <section class="case-hero" data-frame>
+      <p class="context">Grounded retrieval / guardrails / release logic</p>
+      <h1 class="case-title">RAG Pipeline with Guardrails</h1>
+      <p class="case-summary">Most RAG demos stop at retrieval quality. This one connects grounded answers, safety checks, benchmark traces, and release gates into one production-minded system.</p>
+      <dl class="metric-line">
+        <div><dt>Domains</dt><dd>2 corpora</dd></div>
+        <div><dt>Eval cases</dt><dd>24</dd></div>
+        <div><dt>Verdict</dt><dd>PASS</dd></div>
+        <div><dt>Guardrails</dt><dd>4 classes</dd></div>
+      </dl>
+    </section>
+
+    <section class="case-section" data-frame id="quick-read">
+      <div class="section-kicker">Quick read<span>01 / release discipline</span></div>
+      <div class="case-section-body">
+        <h2>Retrieval quality alone does not make a feature shippable.</h2>
+        <p>A grounded answer can still be risky, misleading, or hard to defend. The useful product question is whether the system can produce grounded answers, flag unsafe behavior, and explain why a release should move forward or stop.</p>
+        <div class="evidence-grid">
+          <article class="evidence-panel"><strong>Dual-domain retrieval</strong><p>Travel workflows and seller-intelligence scenarios test the same pipeline against different contexts.</p></article>
+          <article class="evidence-panel"><strong>Pre and post guardrails</strong><p>Prompt injection, PII, toxicity, and groundedness are checked around the answer flow.</p></article>
+          <article class="evidence-panel"><strong>Traceable outputs</strong><p>Citations, confidence, and verdict reasons make the answer defensible.</p></article>
+          <article class="evidence-panel"><strong>Release gate</strong><p>Policy thresholds turn raw eval output into a launch-review decision.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section" data-frame id="system">
+      <div class="section-kicker">System<span>02 / flow</span></div>
+      <div class="case-section-body">
+        <h2>The important part is how the pieces fit together.</h2>
+        <div class="system-map">
+          <div><span>Corpus</span><h3>Domain content</h3><p>Travel and seller workflow knowledge bases.</p></div>
+          <div><span>Retrieval</span><h3>Grounding</h3><p>Relevant context is selected before synthesis.</p></div>
+          <div><span>Guardrails</span><h3>Risk checks</h3><p>Inputs and outputs are checked before release.</p></div>
+          <div><span>Eval</span><h3>Decision</h3><p>Reports and gates produce PASS, WARN, or BLOCK.</p></div>
+        </div>
+        <a class="text-link" href="../project-rag-pipeline.html">Open current RAG page</a>
+      </div>
+    </section>
+  </main>
+  <script src="vertical-system.js"></script>
+</body>
+</html>

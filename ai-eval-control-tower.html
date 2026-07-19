@@ -2,21 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Eval Control Tower - Nitish Prasad</title>
-  <meta name="description" content="AI Eval Control Tower case study: model evaluation system for quality, safety, latency, cost, release gates, and PM launch decisions." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>AI Eval Control Tower - Release Readiness for AI Products</title>
+  <meta name="description" content="AI Eval Control Tower case study: release-readiness system for probabilistic products with quality, safety, latency, cost, provenance, and PASS/WARN/BLOCK launch decisions." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="vertical-system.css" />
+  <link rel="stylesheet" href="platform-system.css" />
+  <!-- SEO / social metadata -->
+  <link rel="canonical" href="https://www.nitishprasad.com/ai-eval-control-tower" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.nitishprasad.com/ai-eval-control-tower" />
+  <meta property="og:site_name" content="Nitish Prasad" />
+  <meta property="og:title" content="AI Eval Control Tower — Nitish Prasad" />
+  <meta property="og:description" content="A release-readiness system for probabilistic AI products: quality, safety, latency, cost, and provenance rolled into PASS / WARN / BLOCK launch decisions." />
+  <meta property="og:image" content="https://www.nitishprasad.com/og-ai-eval.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Eval Control Tower — Nitish Prasad" />
+  <meta name="twitter:description" content="A release-readiness system for probabilistic AI products: quality, safety, latency, cost, and provenance rolled into PASS / WARN / BLOCK launch decisions." />
+  <meta name="twitter:image" content="https://www.nitishprasad.com/og-ai-eval.png" />
 </head>
 <body class="detail-page">
   <div class="mobile-progress" aria-hidden="true"><span data-mobile-progress></span></div>
   <header class="site-nav">
-    <a class="brand-lockup" href="index.html"><span>Nitish Prasad</span><span>Product systems</span></a>
-    <nav class="nav-links" aria-label="Case navigation">
-      <a href="index.html#signal">Signal</a>
-      <a aria-current="page" href="ai-eval-control-tower.html">AI Eval</a>
-      <a href="project-rag-pipeline.html">RAG</a>
-      <a href="project-ai-safety.html">Safety</a>
+    <a class="brand-lockup" href="index.html"><span>Nitish Prasad</span><span>Principal / Staff PM</span></a>
+    <span class="nav-divider" aria-hidden="true"></span>
+    <nav class="nav-links" aria-label="Primary">
+      <a aria-current="page" href="index.html#work">Work</a>
+      <a href="enterprise-ai-platform.html">AI Platform</a>
+      <a href="index.html#about">About</a>
+      <a href="resume.html">Resume</a>
+      <a class="nav-cta" href="resume.html">Get the resume <span aria-hidden="true">↓</span></a>
     </nav>
   </header>
 
@@ -30,6 +47,7 @@
       <p class="context">Evaluation infrastructure / release operations</p>
       <h1 class="case-title">AI Eval Control Tower</h1>
       <p class="case-summary">A cloneable model-evaluation system that turns quality, safety, cost, latency, and score provenance into a PM-readable launch decision.</p>
+      <div class="evidence-status" aria-label="Evidence maturity"><span class="is-live">Working portfolio tool</span><span>Benchmark evidence</span></div>
       <dl class="metric-line">
         <div><dt>Models</dt><dd>7 registered</dd></div>
         <div><dt>Domains</dt><dd>3 workflows</dd></div>
@@ -38,12 +56,27 @@
       </dl>
       <div class="case-actions">
         <a class="button" href="evals/">Launch local tool</a>
+        <a class="button secondary" href="https://github.com/prasadnitish/AI-Eval-Control-Tower" target="_blank" rel="noopener">View GitHub â</a>
         <a class="button secondary" href="#benchmarks">Benchmarks</a>
+      </div>
+      <dl class="decision-summary">
+        <div><dt>Decision</dt><dd>Combine model quality, safety, latency, cost, and provenance in one release verdict.</dd></div>
+        <div><dt>Why</dt><dd>Separate notebooks and spreadsheets left launch owners without a comparable evidence chain.</dd></div>
+        <div><dt>Result</dt><dd>The benchmark exposed a production-model safety-floor failure and identified a stronger routing option.</dd></div>
+      </dl>
+    </section>
+
+    <section class="case-section" data-frame id="what-this-proves">
+      <div class="section-kicker">What this proves<span>Operating mechanism</span></div>
+      <div class="case-section-body">
+        <h2>AI quality should be an operating mechanism, not a subjective demo review.</h2>
+        <p>This case shows how I turn AI quality from a subjective demo review into an operating mechanism: eval rubrics, safety floors, latency/cost tradeoffs, score provenance, and explicit launch decisions. The Control Tower serves as the enterprise platform's decision plane.</p>
+        <a class="text-link" href="enterprise-ai-platform.html#capabilities">See its role in the platform operating model</a>
       </div>
     </section>
 
     <section class="case-section" data-frame id="quick-read">
-      <div class="section-kicker">Quick read<span>01 / operating layer</span></div>
+      <div class="section-kicker">Quick read<span>Operating layer</span></div>
       <div class="case-section-body">
         <h2>Most AI teams still lack a clear operating layer for model decisions.</h2>
         <p>One spreadsheet for prompts, one notebook for model experiments, another chart for latency, and a separate launch debate creates fragmented evidence. This tool makes the decision chain inspectable.</p>
@@ -57,7 +90,7 @@
     </section>
 
     <section class="case-section" data-frame id="benchmarks">
-      <div class="section-kicker">Benchmarks<span>02 / decision</span></div>
+      <div class="section-kicker">Benchmarks<span>Decision</span></div>
       <div class="case-section-body">
         <h2>Seven models, one rubric, one decision.</h2>
         <div class="system-map">
@@ -70,14 +103,16 @@
     </section>
 
     <section class="case-section" data-frame id="demo">
-      <div class="section-kicker">Artifact<span>03 / live build</span></div>
+      <div class="section-kicker">Artifact<span>Live build</span></div>
       <div class="case-section-body">
         <h2>The working tool is part of the case study.</h2>
-        <p>In production, this page should link to the live `/evals/` build, the GitHub runbook, the evidence chain, and the current release verdict. The portfolio claim becomes inspectable.</p>
+        <p>The live tool, benchmark evidence, and current release verdict turn this from an evaluation concept into an inspectable decision plane. The implemented observability extension adds a span contract, orchestrator adapter, failure-only filter, detail panel, and responsive waterfall while keeping raw prompt and trip payloads out of the trace.</p>
         <a class="text-link" href="evals/">Open eval tool</a>
+        <a class="text-link" href="project-agent-observability.html">Inspect the runtime trace layer</a>
       </div>
     </section>
   </main>
-  <script src="vertical-system.js"></script>
+  <script src="vertical-system.js?v=20260712"></script>
+  <script src="platform-system.js"></script>
 </body>
 </html>

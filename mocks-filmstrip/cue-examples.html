@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Filmstrip Cue Studies - Nitish Prasad</title>
+  <link rel="stylesheet" href="filmstrip.css" />
+</head>
+<body class="filmstrip cue-studies">
+  <header class="film-nav">
+    <a href="../index.html">Nitish Prasad</a>
+    <nav aria-label="Filmstrip options">
+      <a href="vertical.html">Vertical</a>
+      <a href="horizontal.html">Horizontal</a>
+      <a aria-current="page" href="cue-examples.html">Cues</a>
+    </nav>
+  </header>
+
+  <main class="cue-page">
+    <section class="cue-hero">
+      <p class="context">Cue studies</p>
+      <h1>Signals that teach the user there is another frame.</h1>
+      <p class="lead">These are not separate portfolio designs. They are motion affordances we can layer onto the filmstrip direction we pick.</p>
+    </section>
+
+    <section class="cue-grid" aria-label="Cue options">
+      <article class="cue-study">
+        <p class="context">A / edge pull</p>
+        <h2>Show a sliver of the next world.</h2>
+        <div class="cue-demo edge-demo">
+          <span>Current frame</span>
+          <i></i>
+          <em>Next</em>
+        </div>
+        <p>Best for horizontal. It makes the right side feel alive without asking the recruiter to understand a new control.</p>
+      </article>
+
+      <article class="cue-study">
+        <p class="context">B / motion instruction</p>
+        <h2>Say what to do, then animate the direction.</h2>
+        <div class="cue-demo arrow-demo">
+          <span>Scroll down or right</span>
+          <i></i>
+        </div>
+        <p>Best for MacBook risk. If vertical wheel moves the horizontal track, this tells users their normal scroll behavior still works.</p>
+      </article>
+
+      <article class="cue-study">
+        <p class="context">C / spiral attractor</p>
+        <h2>Use a quiet kinetic mark to pull attention.</h2>
+        <div class="cue-demo spiral-demo">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <p>Most distinctive. It adds an authored, memorable cue, but should disappear after the first interaction so it does not become decoration.</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

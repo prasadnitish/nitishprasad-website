@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Vertical Filmstrip - Nitish Prasad</title>
+  <link rel="stylesheet" href="filmstrip.css" />
+</head>
+<body class="filmstrip vertical-film">
+  <header class="film-nav">
+    <a href="../index.html">Nitish Prasad</a>
+    <nav aria-label="Filmstrip options">
+      <a aria-current="page" href="vertical.html">Vertical</a>
+      <a href="horizontal.html">Horizontal</a>
+      <a href="cue-examples.html">Cues</a>
+    </nav>
+  </header>
+
+  <aside class="frame-rail" aria-label="Journey progress">
+    <span data-frame-dot="0"></span>
+    <span data-frame-dot="1"></span>
+    <span data-frame-dot="2"></span>
+    <span data-frame-dot="3"></span>
+    <span data-frame-dot="4"></span>
+  </aside>
+
+  <div class="vertical-cue" aria-hidden="true">
+    <span>Scroll</span>
+    <i></i>
+  </div>
+
+  <main class="vertical-track" data-filmstrip>
+    <section class="frame hero-frame" data-frame>
+      <p class="context">Recruiter journey / start here</p>
+      <h1>Product judgment for systems that cannot be reduced to a roadmap.</h1>
+      <p class="lead">I am Nitish Prasad. For 14 years, I have worked where the product question and the system question are tangled together: Amazon Pay infrastructure, marketplace operations, AI workflow systems, and 0-&gt;1 products that need to become usable under real constraints.</p>
+    </section>
+
+    <section class="frame split-frame" data-frame>
+      <div>
+        <p class="context">Signal</p>
+        <h2>The first minute should make the pattern obvious.</h2>
+      </div>
+      <div class="statement-stack">
+        <p>I translate infrastructure pressure into product clarity.</p>
+        <p>I design AI surfaces around boundaries, not novelty.</p>
+        <p>I make the system legible before asking teams to scale it.</p>
+      </div>
+    </section>
+
+    <section class="frame proof-frame" data-frame>
+      <p class="context">Amplify Engine</p>
+      <h2>Dashboard-shaped request. Workflow-intelligence product.</h2>
+      <dl class="proof-metrics">
+        <div><dt>Architecture</dt><dd>AWS Bedrock / Lambda RAG</dd></div>
+        <div><dt>Latency target</dt><dd>sub-80ms</dd></div>
+        <div><dt>Product job</dt><dd>recommendation workflows</dd></div>
+      </dl>
+      <a class="text-link" href="../project-amplify.html">Read the case study</a>
+    </section>
+
+    <section class="frame proof-frame alt" data-frame>
+      <p class="context">SproutMath</p>
+      <h2>Offline-first product architecture as a trust decision.</h2>
+      <dl class="proof-metrics">
+        <div><dt>Platform</dt><dd>native iOS</dd></div>
+        <div><dt>State model</dt><dd>offline vectors</dd></div>
+        <div><dt>Privacy posture</dt><dd>no accounts / no analytics</dd></div>
+      </dl>
+      <a class="text-link" href="../project-sproutmath.html">Read the case study</a>
+    </section>
+
+    <section class="frame closing-frame" data-frame>
+      <p class="context">Next action</p>
+      <h2>If the role needs someone who can shape the product and stay close to the system, we should talk.</h2>
+      <div class="contact-line">
+        <a href="mailto:hello@nitishprasad.com">hello@nitishprasad.com</a>
+        <a href="../resume.html">Resume</a>
+        <a href="https://linkedin.com/in/nitishprasad" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="filmstrip.js"></script>
+</body>
+</html>

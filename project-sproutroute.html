@@ -2,21 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SproutRoute - Nitish Prasad</title>
-  <meta name="description" content="SproutRoute systems case study: hybrid AI travel planner with deterministic packing, attraction memory, latency optimization, and trust architecture." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>SproutRoute - AI Boundaries for Trustworthy Planning</title>
+  <meta name="description" content="SproutRoute systems case study: hybrid AI travel planner that separates generated prose from verified facts, deterministic packing, cached attractions, and family-safety data." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="vertical-system.css" />
+  <link rel="stylesheet" href="platform-system.css" />
+  <!-- SEO / social metadata -->
+  <link rel="canonical" href="https://www.nitishprasad.com/project-sproutroute" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.nitishprasad.com/project-sproutroute" />
+  <meta property="og:site_name" content="Nitish Prasad" />
+  <meta property="og:title" content="SproutRoute — AI Boundaries for Trustworthy Planning" />
+  <meta property="og:description" content="A hybrid AI travel planner that separates generated prose from verified facts, with deterministic packing, cached attractions, and family-safety data." />
+  <meta property="og:image" content="https://www.nitishprasad.com/og-sproutroute.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SproutRoute — AI Boundaries for Trustworthy Planning" />
+  <meta name="twitter:description" content="A hybrid AI travel planner that separates generated prose from verified facts, with deterministic packing, cached attractions, and family-safety data." />
+  <meta name="twitter:image" content="https://www.nitishprasad.com/og-sproutroute.png" />
 </head>
 <body class="detail-page">
   <div class="mobile-progress" aria-hidden="true"><span data-mobile-progress></span></div>
   <header class="site-nav">
-    <a class="brand-lockup" href="index.html"><span>Nitish Prasad</span><span>Product systems</span></a>
-    <nav class="nav-links" aria-label="Case navigation">
-      <a href="index.html#signal">Signal</a>
-      <a aria-current="page" href="project-sproutroute.html">SproutRoute</a>
-      <a href="project-sproutmath.html">SproutMath</a>
-      <a href="archive.html">Archive</a>
+    <a class="brand-lockup" href="index.html"><span>Nitish Prasad</span><span>Principal / Staff PM</span></a>
+    <span class="nav-divider" aria-hidden="true"></span>
+    <nav class="nav-links" aria-label="Primary">
+      <a aria-current="page" href="index.html#work">Work</a>
+      <a href="enterprise-ai-platform.html">AI Platform</a>
+      <a href="index.html#about">About</a>
+      <a href="resume.html">Resume</a>
+      <a class="nav-cta" href="resume.html">Get the resume <span aria-hidden="true">↓</span></a>
     </nav>
   </header>
 
@@ -36,7 +53,8 @@
     <section class="case-hero" data-frame>
       <p class="context">Hybrid AI / live production / family travel</p>
       <h1 class="case-title">SproutRoute</h1>
-      <p class="case-summary">A hybrid AI travel planner that separates what AI should generate from what must be verified, deterministic, or cached. I defined the product, designed the system architecture, and operate the web app in production.</p>
+      <p class="case-summary">A hybrid AI travel planner that separates what AI should generate from what must be verified, deterministic, or cached. The product decision was to make AI write connective tissue, not facts. I defined the product, designed the system architecture, and operate the web app in production.</p>
+      <div class="evidence-status" aria-label="Evidence maturity"><span class="is-live">Live production product</span><span class="is-implemented">MCP path implemented</span></div>
       <dl class="metric-line">
         <div><dt>Stack</dt><dd>Railway + Supabase</dd></div>
         <div><dt>AI</dt><dd>Gemini + Places</dd></div>
@@ -44,14 +62,29 @@
         <div><dt>Core choice</dt><dd>Facts before prose</dd></div>
       </dl>
       <div class="case-actions">
-        <a class="button" href="#screens">Screens</a>
+        <a class="button" href="https://sproutroute.app" target="_blank" rel="noopener">Use SproutRoute â</a>
+        <a class="button secondary" href="https://github.com/prasadnitish/SproutRoute" target="_blank" rel="noopener">View GitHub â</a>
+        <a class="button secondary" href="#screens">Screens</a>
         <a class="button secondary" href="#architecture">Architecture</a>
         <a class="button secondary" href="archive.html">Related artifacts</a>
+      </div>
+      <dl class="decision-summary">
+        <div><dt>Decision</dt><dd>Let verified APIs and deterministic rules own facts; use models for planning and connective prose.</dd></div>
+        <div><dt>Why</dt><dd>Weather, places, safety, and family packing require provenance and predictable failure handling.</dd></div>
+        <div><dt>Result</dt><dd>A production web product with 350+ tests and an additive four-agent MCP path with handoff traces.</dd></div>
+      </dl>
+    </section>
+
+    <section class="case-section" data-frame id="what-this-proves">
+      <div class="section-kicker">What this proves<span>AI boundaries</span></div>
+      <div class="case-section-body">
+        <h2>Trustworthy AI planning starts with product boundaries.</h2>
+        <p>This case shows product judgment under AI uncertainty: which user promises need deterministic control, which experiences can be generative, and how latency, cost, provenance, and trust shape the product architecture.</p>
       </div>
     </section>
 
     <section class="case-section" data-frame id="hard">
-      <div class="section-kicker">Complexity<span>01 / boundaries</span></div>
+      <div class="section-kicker">Complexity<span>Boundaries</span></div>
       <div class="case-section-body">
         <h2>The hard parts were in the boundaries.</h2>
         <p>Users type fuzzy travel intent. The system has to extract constraints, route across external APIs, separate factual data from generative text, keep family-safety information reliable, and avoid turning every trip plan into a slow serial dependency chain.</p>
@@ -65,7 +98,7 @@
     </section>
 
     <section class="case-section" data-frame id="screens">
-      <div class="section-kicker">Screens<span>02 / shipped flow</span></div>
+      <div class="section-kicker">Screens<span>Shipped flow</span></div>
       <div class="case-section-body">
         <h2>The artifacts should show the shipped flow, not a decorative mockup.</h2>
         <div class="visual-grid">
@@ -80,7 +113,7 @@
     </section>
 
     <section class="case-section" data-frame id="architecture">
-      <div class="section-kicker">Architecture<span>03 / evolution</span></div>
+      <div class="section-kicker">Architecture<span>Evolution</span></div>
       <div class="case-section-body">
         <h2>Three architectural stages, each driven by a production problem.</h2>
         <div class="evidence-grid">
@@ -88,18 +121,20 @@
           <article class="evidence-panel"><strong>V2: deterministic packing</strong><p>Moved packing to rules and routed models by task to improve reliability.</p></article>
           <article class="evidence-panel"><strong>V3: attraction memory</strong><p>Stored verified attractions with freshness scoring so one trip improves the next.</p></article>
           <article class="evidence-panel"><strong>Current state</strong><p>Verified data feeds the AI planner; AI writes connective tissue, not facts.</p></article>
+          <article class="evidence-panel"><strong>V4: additive agent + MCP path</strong><p>Implemented a LangGraph orchestrator with four specialist agents and a hosted MCP server without replacing the stable web route. The path validates delegation, partial results, trace privacy, and tool contracts for the enterprise agent runtime.</p></article>
         </div>
         <div class="visual-grid two">
           <figure class="visual diagram-visual"><img data-lightbox src="diagrams/runtime-architecture.svg" alt="SproutRoute runtime architecture" /><figcaption>Runtime architecture</figcaption></figure>
           <figure class="visual diagram-visual"><img data-lightbox src="diagrams/trust-architecture.svg" alt="SproutRoute trust architecture" /><figcaption>Trust architecture</figcaption></figure>
           <figure class="visual diagram-visual"><img data-lightbox src="diagrams/request-lifecycle.svg" alt="SproutRoute request lifecycle" /><figcaption>Request lifecycle</figcaption></figure>
           <figure class="visual diagram-visual"><img data-lightbox src="diagrams/latency-comparison.svg" alt="SproutRoute latency comparison" /><figcaption>Latency before and after</figcaption></figure>
+          <figure class="visual diagram-visual"><img data-lightbox src="diagrams/mcp-handoff-trace.png" alt="Claude Desktop calling the hosted SproutRoute MCP server: a San Diego trip plan plus the live agent handoff trace showing retrieval, safety, itinerary, and packing spans with per-agent latencies" /><figcaption>Live MCP handoff trace</figcaption></figure>
         </div>
       </div>
     </section>
 
     <section class="case-section" data-frame id="decisions">
-      <div class="section-kicker">Decisions<span>04 / judgment</span></div>
+      <div class="section-kicker">Decisions<span>Judgment</span></div>
       <div class="case-section-body">
         <h2>The page should make the tradeoffs inspectable.</h2>
         <div class="evidence-grid">
@@ -113,6 +148,7 @@
       </div>
     </section>
   </main>
-  <script src="vertical-system.js"></script>
+  <script src="vertical-system.js?v=20260712"></script>
+  <script src="platform-system.js"></script>
 </body>
 </html>

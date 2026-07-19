@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Sprout Math - Nitish Prasad</title>
+  <meta name="description" content="Sprout Math case study: offline-first iOS math product with local progress, deterministic hints, parent controls, and privacy-first architecture." />
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="stylesheet" href="vertical-system.css" />
+</head>
+<body class="detail-page">
+  <div class="mobile-progress" aria-hidden="true"><span data-mobile-progress></span></div>
+  <header class="site-nav">
+    <a class="brand-lockup" href="index.html"><span>Nitish Prasad</span><span>Product systems</span></a>
+    <nav class="nav-links" aria-label="Case navigation">
+      <a href="index.html">Signal</a>
+      <a href="case-sproutroute.html">SproutRoute</a>
+      <a aria-current="page" href="case-sproutmath.html">SproutMath</a>
+      <a href="archive.html">Archive</a>
+    </nav>
+  </header>
+
+  <aside class="vine-shell" aria-hidden="true">
+    <svg viewBox="0 0 100 900" preserveAspectRatio="none">
+      <path class="vine-track" d="M52 0 C28 105 82 170 50 270 C18 372 72 458 50 565 C30 672 66 770 48 900" />
+      <path class="vine-progress" data-vine-progress d="M52 0 C28 105 82 170 50 270 C18 372 72 458 50 565 C30 672 66 770 48 900" />
+    </svg>
+    <span class="vine-node" data-vine-node></span><span class="vine-node" data-vine-node></span><span class="vine-node" data-vine-node></span><span class="vine-node" data-vine-node></span><span class="vine-node" data-vine-node></span>
+  </aside>
+
+  <main class="case-shell">
+    <section class="case-hero" data-frame>
+      <p class="context">Native iOS / offline first / product restraint</p>
+      <h1 class="case-title">Sprout Math</h1>
+      <p class="case-summary">A focused K-5 iOS math product built around offline reliability, local progress, deterministic hints, parent trust, and a deliberately narrow V1. The value is not feature volume; it is restraint.</p>
+      <dl class="metric-line">
+        <div><dt>Platform</dt><dd>SwiftUI</dd></div>
+        <div><dt>Content</dt><dd>2,400+ templates</dd></div>
+        <div><dt>Audio</dt><dd>2,500+ clips</dd></div>
+        <div><dt>Privacy</dt><dd>No accounts</dd></div>
+      </dl>
+      <div class="case-actions">
+        <a class="button" href="#visuals">Visual worlds</a>
+        <a class="button secondary" href="#architecture">Offline system</a>
+        <a class="button secondary" href="../sproutmath-legal.html">Privacy and terms</a>
+      </div>
+    </section>
+
+    <section class="case-section" data-frame id="quick-read">
+      <div class="section-kicker">Quick read<span>01 / restraint</span></div>
+      <div class="case-section-body">
+        <h2>The value is in the product restraint.</h2>
+        <p>Kids apps lose trust when they lag, require accounts, push subscriptions, or bury parents under settings. Sprout Math keeps the core loop local, the hints deterministic, and the session design short enough to remain calm.</p>
+        <div class="evidence-grid">
+          <article class="evidence-panel"><strong>Focused learning loop</strong><p>Short sessions, adaptive placement, visible progress, and deterministic correction after repeated misses.</p></article>
+          <article class="evidence-panel"><strong>Parent trust first</strong><p>Parent-gated settings, local diagnostics export, no ads, no accounts, no surprise network dependency.</p></article>
+          <article class="evidence-panel"><strong>Content model</strong><p>40 lessons, K-5 curriculum, 2,400+ templates, 2,500+ narrated clips, 6 visual worlds.</p></article>
+          <article class="evidence-panel"><strong>Architecture</strong><p>Core Data persistence for profiles, attempts, mastery, history, and progress state vectors.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section" data-frame id="visuals">
+      <div class="section-kicker">Visuals<span>02 / evidence</span></div>
+      <div class="case-section-body">
+        <h2>The look is playful. The system underneath is controlled.</h2>
+        <div class="visual-grid">
+          <figure class="visual"><img data-lightbox src="../assets/mathquest/candyland-background.png" alt="Candyland visual world" /><figcaption>Candyland</figcaption></figure>
+          <figure class="visual"><img data-lightbox src="../assets/mathquest/axolotl-background.png" alt="Axolotl Lagoon visual world" /><figcaption>Axolotl Lagoon</figcaption></figure>
+          <figure class="visual"><img data-lightbox src="../assets/mathquest/rainbow-unicorn-background.png" alt="Rainbow Unicorn visual world" /><figcaption>Rainbow Unicorn</figcaption></figure>
+          <figure class="visual"><img data-lightbox src="../assets/mathquest/stars-space-background.png" alt="Stars and Space visual world" /><figcaption>Stars and Space</figcaption></figure>
+          <figure class="visual"><img data-lightbox src="../assets/mathquest/superhero-background.png" alt="Superhero City visual world" /><figcaption>Superhero City</figcaption></figure>
+          <figure class="visual"><img data-lightbox src="../assets/mathquest/turbo-cars-background.png" alt="Turbo Cars visual world" /><figcaption>Turbo Cars</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section" data-frame id="architecture">
+      <div class="section-kicker">Architecture<span>03 / offline</span></div>
+      <div class="case-section-body">
+        <h2>Offline-first product architecture is a trust decision.</h2>
+        <div class="system-map">
+          <div><span>Local state</span><h3>Core Data</h3><p>Profiles, attempts, mastery, lesson state, stickers, and history remain on device.</p></div>
+          <div><span>Learning loop</span><h3>Deterministic hints</h3><p>3-tier hint logic and correction flow avoid opaque tutoring behavior.</p></div>
+          <div><span>Content</span><h3>Template bank</h3><p>Question variety comes from maintained templates, not remote generation.</p></div>
+          <div><span>Trust</span><h3>No account loop</h3><p>V1 does not need accounts, ads, analytics, or subscriptions to prove value.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section" data-frame id="decisions">
+      <div class="section-kicker">Decisions<span>04 / scope</span></div>
+      <div class="case-section-body">
+        <h2>Most of the hard decisions were about boundaries.</h2>
+        <div class="evidence-grid">
+          <article class="evidence-panel"><strong>Short sessions over endless play.</strong><p>Practice stays repeatable and parent-friendly.</p></article>
+          <article class="evidence-panel"><strong>Universal iOS, portrait lock.</strong><p>Reducing layout modes protects quality in a first version.</p></article>
+          <article class="evidence-panel"><strong>Deterministic hints.</strong><p>Kids products need predictable help before cleverness.</p></article>
+          <article class="evidence-panel"><strong>Local export over remote analytics.</strong><p>Diagnostics can exist without turning a child product into a tracking surface.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="vertical-system.js"></script>
+</body>
+</html>

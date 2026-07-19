@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#f1ede3;color:#171915;font-family:"Geist",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:hover{color:inherit}
+</style>
+</helmet>
+<div data-screen-label="Home v2" style="min-height:100vh;background:#f1ede3;color:#171915;font-family:'Geist',Arial,sans-serif">
+
+  <sc-if value="{{ navPill }}" hint-placeholder-val="{{ true }}">
+    <header style="position:fixed;z-index:100;top:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:20px;padding:8px 8px 8px 24px;border:1px solid rgba(23,25,21,.16);border-radius:999px;background:rgba(255,250,240,.94);backdrop-filter:blur(18px);box-shadow:0 14px 44px rgba(28,25,18,.13)">
+      <a href="#" style="display:flex;align-items:baseline;gap:10px;text-decoration:none;white-space:nowrap">
+        <strong style="font-size:.98rem;letter-spacing:-.01em">Nitish Prasad</strong>
+        <span style="color:#b93822;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase">Principal / Staff PM</span>
+      </a>
+      <span style="width:1px;height:26px;background:rgba(23,25,21,.16)"></span>
+      <nav style="display:flex;align-items:center;gap:2px">
+        <a href="#work" style="min-height:42px;padding:0 15px;display:inline-flex;align-items:center;text-decoration:none;color:#171915;background:rgba(23,25,21,.07);border-radius:999px;font-size:.92rem;font-weight:600;white-space:nowrap">Work</a>
+        <a href="AI Platform v2.dc.html" style="min-height:42px;padding:0 15px;display:inline-flex;align-items:center;text-decoration:none;color:#5b6058;border-radius:999px;font-size:.92rem;font-weight:600;white-space:nowrap" style-hover="background:#171915;color:#f1ede3">AI Platform</a>
+        <a href="#about" style="min-height:42px;padding:0 15px;display:inline-flex;align-items:center;text-decoration:none;color:#5b6058;border-radius:999px;font-size:.92rem;font-weight:600;white-space:nowrap" style-hover="background:#171915;color:#f1ede3">About</a>
+        <a href="Resume v2.dc.html" style="min-height:42px;padding:0 15px;display:inline-flex;align-items:center;text-decoration:none;color:#5b6058;border-radius:999px;font-size:.92rem;font-weight:600;white-space:nowrap" style-hover="background:#171915;color:#f1ede3">Resume</a>
+      </nav>
+      <a href="Resume v2.dc.html" style="min-height:46px;padding:0 20px;display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:#b93822;color:#fff;font-weight:700;border-radius:999px;font-size:.92rem;white-space:nowrap" style-hover="background:#171915">Get the resume <span style="font-size:1rem">↓</span></a>
+    </header>
+  </sc-if>
+
+  <sc-if value="{{ navRole }}" hint-placeholder-val="{{ false }}">
+    <header style="position:fixed;z-index:100;top:18px;left:50%;transform:translateX(-50%);width:min(calc(100% - 32px),1400px);min-height:64px;padding:8px 10px 8px 20px;display:flex;align-items:center;justify-content:space-between;gap:24px;border:1px solid rgba(23,25,21,.16);background:rgba(255,250,240,.94);backdrop-filter:blur(18px);box-shadow:0 14px 44px rgba(28,25,18,.1)">
+      <a href="#" style="display:flex;flex-direction:column;text-decoration:none;line-height:1">
+        <strong style="font-size:.98rem">Nitish Prasad</strong>
+        <span style="margin-top:6px;color:#b93822;font-size:.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase">Principal / Staff PM · AI Platforms</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:2px">
+        <a href="#work" style="min-height:44px;padding:0 15px;display:inline-flex;align-items:center;text-decoration:none;color:#171915;background:rgba(23,25,21,.07);border-radius:999px;font-size:.92rem;font-weight:600;white-space:nowrap">Work</a>
+        <a href="AI Platform v2.dc.html" style="min-height:44px;padding:0 15px;display:inline-flex;align-items:center;text-decoration:none;color:#5b6058;border-radius:999px;font-size:.92rem;font-weight:600;white-space:nowrap" style-hover="background:#171915;color:#f1ede3">AI Platform</a>
+        <a href="#about" style="min-height:44px;padding:0 15px;display:inline-flex;align-items:center;text-decoration:none;color:#5b6058;border-radius:999px;font-size:.92rem;font-weight:600;white-space:nowrap" style-hover="background:#171915;color:#f1ede3">About</a>
+        <a href="Resume v2.dc.html" style="min-height:44px;padding:0 15px;display:inline-flex;align-items:center;text-decoration:none;color:#5b6058;border-radius:999px;font-size:.92rem;font-weight:600;white-space:nowrap" style-hover="background:#171915;color:#f1ede3">Resume</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:8px">
+        <a href="mailto:hello@nitishprasad.com" style="min-height:46px;padding:0 18px;display:inline-flex;align-items:center;text-decoration:none;border:1px solid rgba(23,25,21,.25);color:#171915;font-weight:700;border-radius:999px;font-size:.92rem;white-space:nowrap" style-hover="background:#171915;color:#f1ede3;border-color:#171915">Email</a>
+        <a href="Resume v2.dc.html" style="min-height:46px;padding:0 18px;display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:#b93822;color:#fff;font-weight:700;border-radius:999px;font-size:.92rem;white-space:nowrap" style-hover="background:#171915">Resume ↓</a>
+      </div>
+    </header>
+  </sc-if>
+
+  <sc-if value="{{ navEdge }}" hint-placeholder-val="{{ false }}">
+    <header style="position:fixed;z-index:100;top:0;left:0;right:0;min-height:68px;padding:0 max(28px,calc((100vw - 1400px)/2));display:flex;align-items:center;justify-content:space-between;gap:24px;background:rgba(241,237,227,.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(23,25,21,.19)">
+      <a href="#" style="display:flex;align-items:baseline;gap:10px;text-decoration:none">
+        <strong style="font-size:.98rem">Nitish Prasad</strong>
+        <span style="color:#b93822;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase">Principal / Staff PM</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:30px">
+        <a href="#work" style="text-decoration:none;color:#171915;font-size:.94rem;font-weight:700;border-bottom:2px solid #b93822;padding:4px 0">Work</a>
+        <a href="AI Platform v2.dc.html" style="text-decoration:none;color:#5b6058;font-size:.94rem;font-weight:600;border-bottom:2px solid transparent;padding:4px 0" style-hover="color:#171915;border-bottom:2px solid #171915">AI Platform</a>
+        <a href="#about" style="text-decoration:none;color:#5b6058;font-size:.94rem;font-weight:600;border-bottom:2px solid transparent;padding:4px 0" style-hover="color:#171915;border-bottom:2px solid #171915">About</a>
+        <a href="Resume v2.dc.html" style="text-decoration:none;color:#5b6058;font-size:.94rem;font-weight:600;border-bottom:2px solid transparent;padding:4px 0" style-hover="color:#171915;border-bottom:2px solid #171915">Resume</a>
+        <a href="Resume v2.dc.html" style="text-decoration:none;color:#b93822;font-size:.94rem;font-weight:700" style-hover="color:#171915">Get the resume ↓</a>
+      </nav>
+    </header>
+  </sc-if>
+
+  <main>
+    <section style="width:min(calc(100% - 48px),1440px);margin:0 auto;padding:150px 0 140px;min-height:100svh;display:grid;align-content:center">
+      <div style="display:grid;grid-template-columns:7fr 5fr;gap:clamp(32px,5vw,90px);align-items:center">
+        <div>
+          <p style="margin:0 0 16px;color:#b93822;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase">Principal / Staff Product Manager · AI platforms &amp; systems</p>
+          <h1 style="max-width:1050px;margin:0;font-size:clamp(4rem,8.4vw,9rem);line-height:.86;letter-spacing:-.075em;text-wrap:balance">I make AI ambition <span style="display:inline-block;padding:.02em .13em .09em;background:#b93822;color:#fff;transform:rotate(-1.5deg)">operational</span>.</h1>
+        </div>
+        <div style="max-width:590px;justify-self:end">
+          <p style="margin:0;color:#5b6058;font-size:clamp(1.15rem,1.55vw,1.5rem);line-height:1.5">Fourteen years across Amazon, marketplaces, fintech infrastructure, and shipped AI products. Currently open to Principal/Staff PM and AI Product Lead roles.</p>
+          <div style="margin-top:34px;display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+            <a href="Resume v2.dc.html" style="min-height:54px;padding:0 23px;display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid #b93822;background:#b93822;color:#fff;font-weight:700;text-decoration:none" style-hover="background:#171915;border-color:#171915;transform:translateY(-3px)">Download resume ↓</a>
+            <a href="mailto:hello@nitishprasad.com" style="min-height:54px;padding:0 23px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #171915;background:transparent;color:#171915;font-weight:700;text-decoration:none" style-hover="background:#171915;color:#f1ede3">Email me</a>
+            <a href="#work" style="min-height:48px;display:inline-flex;gap:10px;align-items:center;font-weight:700;text-underline-offset:5px;color:#171915">See product proof <span>↘</span></a>
+          </div>
+          <div style="margin-top:54px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(23,25,21,.19);border-left:1px solid rgba(23,25,21,.19)">
+            <span style="min-height:112px;padding:18px;border-right:1px solid rgba(23,25,21,.19);border-bottom:1px solid rgba(23,25,21,.19);color:#5b6058;font-size:.82rem;line-height:1.4"><strong style="display:block;margin-bottom:5px;color:#171915;font-size:1.28rem">14 years</strong> product leadership</span>
+            <span style="min-height:112px;padding:18px;border-right:1px solid rgba(23,25,21,.19);border-bottom:1px solid rgba(23,25,21,.19);color:#5b6058;font-size:.82rem;line-height:1.4"><strong style="display:block;margin-bottom:5px;color:#171915;font-size:1.28rem">1,600</strong> NA and EU users</span>
+            <span style="min-height:112px;padding:18px;border-right:1px solid rgba(23,25,21,.19);border-bottom:1px solid rgba(23,25,21,.19);color:#5b6058;font-size:.82rem;line-height:1.4"><strong style="display:block;margin-bottom:5px;color:#171915;font-size:1.28rem">$16B+</strong> incentive portfolio</span>
+          </div>
+        </div>
+      </div>
+      <a href="AI Platform v2.dc.html" style="position:relative;width:min(100%,1220px);min-height:300px;margin:80px auto -110px;padding:34px;display:grid;grid-template-columns:4fr 6fr;gap:50px;align-items:center;overflow:hidden;background:#203c32;color:#f4f0e5;text-decoration:none;box-shadow:0 30px 80px rgba(28,25,18,.12);transform:rotate(.6deg)" style-hover="transform:rotate(0deg)">
+        <span style="position:absolute;right:25px;top:20px;font-size:1.5rem">↗</span>
+        <div>
+          <span style="color:#bacbc3;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase">Enterprise AI Platform</span>
+          <strong style="display:block;max-width:440px;margin-top:14px;font-size:clamp(1.7rem,2.6vw,3.25rem);line-height:1;letter-spacing:-.04em">One control plane for how AI is accessed, evaluated, grounded, released, and operated.</strong>
+        </div>
+        <div style="min-height:220px;display:grid;grid-template-columns:repeat(5,1fr);align-items:center;gap:8px;position:relative">
+          <span style="position:absolute;left:5%;right:5%;top:49%;height:1px;background:#799487"></span>
+          <i style="position:relative;z-index:1;min-height:70px;padding:10px;display:grid;place-items:center;border:1px solid #789285;background:#203c32;font-style:normal;font-size:.72rem;text-align:center">Gateway</i>
+          <i style="position:relative;z-index:1;min-height:70px;padding:10px;display:grid;place-items:center;border:1px solid #789285;background:#203c32;font-style:normal;font-size:.72rem;text-align:center">Eval</i>
+          <i style="position:relative;z-index:1;min-height:70px;padding:10px;display:grid;place-items:center;border:1px solid #789285;background:#203c32;font-style:normal;font-size:.72rem;text-align:center">Integrity</i>
+          <i style="position:relative;z-index:1;min-height:70px;padding:10px;display:grid;place-items:center;border:1px solid #789285;background:#203c32;font-style:normal;font-size:.72rem;text-align:center">Grounding</i>
+          <i style="position:relative;z-index:1;min-height:70px;padding:10px;display:grid;place-items:center;border:1px solid #789285;background:#203c32;font-style:normal;font-size:.72rem;text-align:center">Agent runtime</i>
+          <b style="position:absolute;bottom:4px;left:50%;transform:translateX(-50%);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;color:#bacbc3">Shared identity · policy · evidence</b>
+        </div>
+      </a>
+    </section>
+
+    <section id="work" style="width:min(calc(100% - 48px),1440px);margin:0 auto;padding:140px 0">
+      <header style="margin-bottom:62px;display:flex;align-items:end;justify-content:space-between;gap:60px">
+        <div>
+          <p style="margin:0 0 16px;color:#b93822;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase">Selected work</p>
+          <h2 style="max-width:950px;margin:0;font-size:clamp(3rem,5.7vw,6.5rem);line-height:.92;letter-spacing:-.065em;text-wrap:balance">Three products show how I lead.</h2>
+        </div>
+        <p style="max-width:510px;margin:0;color:#5b6058;font-size:1.05rem;line-height:1.65">Three shipped or deeply validated products show the range. The platform cases underneath them show how I turn repeated constraints into shared capabilities.</p>
+      </header>
+
+      <div style="display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px">
+        <sc-for list="{{ workCards }}" as="wc" hint-placeholder-count="3">
+          <a href="{{ wc.href }}" style="position:relative;min-height:{{ wc.minHeight }};overflow:hidden;border:1px solid rgba(23,25,21,.19);background:#fffaf0;text-decoration:none;grid-column:{{ wc.gridColumn }};display:block" style-hover="box-shadow:0 30px 80px rgba(28,25,18,.18)">
+            <sc-if value="{{ wc.isRoute }}" hint-placeholder-val="{{ false }}">
+              <img src="assets/itinerary.jpg" alt="SproutRoute family itinerary interface" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+            </sc-if>
+            <sc-if value="{{ wc.isMath }}" hint-placeholder-val="{{ false }}">
+              <img src="assets/candyland-background.png" alt="Colorful Sprout Math candy world" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+            </sc-if>
+            <sc-if value="{{ wc.hasArt }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;inset:0;background:#d85b3e">
+                <i style="position:absolute;background:#f3e6cf;width:67%;height:56%;left:8%;top:10%"></i>
+                <i style="position:absolute;width:38%;height:25%;right:6%;top:27%;background:#24332c"></i>
+                <i style="position:absolute;width:50%;height:2px;left:18%;top:48%;background:#181a16"></i>
+                <b style="position:absolute;right:8%;top:12%;color:#fff;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase">Embedded intelligence</b>
+              </div>
+            </sc-if>
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 34%,rgba(0,0,0,.55) 60%,rgba(0,0,0,.9))"></div>
+            <div style="position:absolute;z-index:2;inset:auto 0 0;padding:30px 34px 26px;color:#fff">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+                <span style="font-size:.72rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase">{{ wc.tag }}</span>
+                <span style="font-size:.8rem;font-weight:700;white-space:nowrap">Read the case →</span>
+              </div>
+              <h3 style="margin:10px 0 0;font-size:clamp(2.4rem,4.3vw,5.4rem);line-height:.9;letter-spacing:-.06em">{{ wc.title }}</h3>
+              <p style="max-width:570px;margin:15px 0 0;color:rgba(255,255,255,.85);line-height:1.5">{{ wc.body }}</p>
+              <div style="margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.32)">
+                <sc-for list="{{ wc.stats }}" as="stt" hint-placeholder-count="3">
+                  <span style="padding:14px 14px 0 0;color:rgba(255,255,255,.75);font-size:.74rem;line-height:1.35"><strong style="display:block;margin-bottom:3px;color:#fff;font-size:1.15rem;letter-spacing:-.02em">{{ stt.n }}</strong>{{ stt.l }}</span>
+                </sc-for>
+              </div>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+
+      <div style="margin-top:14px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(23,25,21,.19);border-left:1px solid rgba(23,25,21,.19)">
+        <sc-for list="{{ platformCases }}" as="pc" hint-placeholder-count="4">
+          <a href="{{ pc.href }}" style="min-height:245px;padding:28px;display:flex;flex-direction:column;border-right:1px solid rgba(23,25,21,.19);border-bottom:1px solid rgba(23,25,21,.19);text-decoration:none;color:#171915" style-hover="background:#203c32;color:#fff">
+            <span style="color:#b93822;font-size:.72rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase">{{ pc.tag }}</span>
+            <strong style="margin-top:auto;font-size:clamp(1.35rem,2vw,2.1rem);line-height:1">{{ pc.title }}</strong>
+            <p style="margin:14px 0 0;color:#5b6058;line-height:1.45">{{ pc.body }}</p>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <section id="about" style="width:min(calc(100% - 48px),1440px);margin:0 auto;padding:100px 0 140px">
+      <header style="margin-bottom:62px;max-width:1100px">
+        <p style="margin:0 0 16px;color:#b93822;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase">How I operate</p>
+        <h2 style="max-width:950px;margin:0;font-size:clamp(3rem,5.7vw,6.5rem);line-height:.92;letter-spacing:-.065em;text-wrap:balance">I start with the decision the company has to make.</h2>
+      </header>
+      <div style="max-width:1120px;margin:0 auto">
+        <sc-for list="{{ operatingSteps }}" as="st" hint-placeholder-count="4">
+          <article style="position:sticky;top:110px;min-height:310px;margin-bottom:38px;padding:38px;display:grid;grid-template-columns:1fr 2fr;gap:40px;border:1px solid rgba(23,25,21,.19);background:{{ st.bg }};box-shadow:0 30px 80px rgba(28,25,18,.12)">
+            <span style="color:#b93822;font-size:.73rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase">{{ st.num }}</span>
+            <div>
+              <h3 style="margin:0;font-size:clamp(2.2rem,4.3vw,4.8rem);line-height:.94;letter-spacing:-.055em">{{ st.title }}</h3>
+              <p style="max-width:650px;margin:25px 0 0;color:#5b6058;font-size:1.05rem;line-height:1.65">{{ st.body }}</p>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="width:min(calc(100% - 48px),1440px);margin:0 auto;padding:100px 0 150px">
+      <p style="margin:0 0 16px;color:#b93822;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase">Hiring?</p>
+      <h2 style="max-width:1200px;margin:0;font-size:clamp(3.2rem,7vw,8rem);line-height:.9;letter-spacing:-.07em">Hiring a Principal or Staff PM for AI platforms?</h2>
+      <p style="max-width:700px;margin:34px 0 0;color:#5b6058;font-size:1.12rem;line-height:1.65">I'm the fit when the role sits at the intersection of AI systems, platform strategy, marketplace economics, and 0→1 execution — and the product has to earn adoption.</p>
+      <div style="margin-top:34px;display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+        <a href="mailto:hello@nitishprasad.com" style="min-height:54px;padding:0 23px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #b93822;background:#b93822;color:#fff;font-weight:700;text-decoration:none" style-hover="background:#171915;border-color:#171915">hello@nitishprasad.com</a>
+        <a href="Resume v2.dc.html" style="min-height:54px;padding:0 23px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #171915;background:transparent;color:#171915;font-weight:700;text-decoration:none" style-hover="background:#171915;color:#f1ede3">Download resume ↓</a>
+        <a href="#" style="min-height:48px;display:inline-flex;gap:10px;align-items:center;font-weight:700;text-underline-offset:5px;color:#171915">LinkedIn ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <sc-if value="{{ stickyResume }}" hint-placeholder-val="{{ false }}">
+    <a href="Resume v2.dc.html" style="position:fixed;z-index:90;right:24px;bottom:{{ resumeBottom }};min-height:52px;padding:0 22px;display:inline-flex;align-items:center;gap:8px;background:#b93822;color:#fff;font-weight:700;text-decoration:none;border-radius:999px;box-shadow:0 14px 40px rgba(28,25,18,.25)" style-hover="background:#171915">Resume ↓</a>
+  </sc-if>
+
+  <sc-if value="{{ showAssistant }}" hint-placeholder-val="{{ false }}">
+    <button onClick="{{ raOpenPanel }}" style="position:fixed;right:22px;bottom:22px;z-index:502;min-height:58px;padding:0 20px;display:inline-flex;align-items:center;gap:11px;border:2px solid #f1ede3;background:#171915;color:#fff;box-shadow:0 12px 34px rgba(16,20,17,.35);font-weight:700;font-size:.86rem;letter-spacing:.01em;cursor:pointer;font-family:inherit" style-hover="transform:translateY(-3px);background:#b93822;border-color:#f1ede3">
+      <span style="width:9px;height:9px;border-radius:50%;background:#b9cfad;box-shadow:0 0 0 5px rgba(185,207,173,.18)"></span>Recruiter? Ask me anything
+    </button>
+  </sc-if>
+
+  <sc-if value="{{ raOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ raClosePanel }}" style="position:fixed;z-index:503;inset:0;background:rgba(17,21,18,.48);backdrop-filter:blur(4px)"></div>
+    <aside style="position:fixed;z-index:504;top:12px;right:12px;bottom:12px;width:min(480px,calc(100vw - 24px));display:grid;grid-template-rows:auto auto minmax(0,1fr) auto;overflow:hidden;border:1px solid rgba(23,25,21,.22);background:#f1ede3;box-shadow:0 28px 90px rgba(16,20,17,.28)">
+      <header style="padding:21px 20px 18px;display:grid;grid-template-columns:1fr auto;gap:20px;border-bottom:1px solid rgba(23,25,21,.22);background:#203c32;color:#fff">
+        <div>
+          <p style="margin:0 0 6px;color:#bfd0c8;font-size:.66rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase">Portfolio assistant</p>
+          <h2 style="margin:0;font-size:1.45rem;line-height:1;letter-spacing:-.035em">Ask about Nitish</h2>
+        </div>
+        <button onClick="{{ raClosePanel }}" style="width:44px;height:44px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.28);background:transparent;color:#fff;font-size:1.25rem;cursor:pointer">×</button>
+      </header>
+      <div style="padding:0 20px;display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(23,25,21,.22);background:#fffaf0">
+        <button onClick="{{ raTabAsk }}" style="min-height:50px;border:0;border-bottom:3px solid {{ askTabBorder }};background:transparent;color:{{ askTabColor }};font-weight:700;cursor:pointer;font-family:inherit;font-size:.95rem">Ask</button>
+        <button onClick="{{ raTabContact }}" style="min-height:50px;border:0;border-bottom:3px solid {{ contactTabBorder }};background:transparent;color:{{ contactTabColor }};font-weight:700;cursor:pointer;font-family:inherit;font-size:.95rem">Contact</button>
+      </div>
+      <sc-if value="{{ raAskActive }}" hint-placeholder-val="{{ true }}">
+        <section style="min-height:0;display:grid;grid-template-rows:minmax(0,1fr) auto">
+          <div style="min-height:0;padding:22px 20px 8px;overflow:auto;overscroll-behavior:contain">
+            <sc-for list="{{ raMessages }}" as="msg" hint-placeholder-count="1">
+              <div style="max-width:92%;margin:0 0 16px {{ msg.marginLeft }};padding:{{ msg.padding }};border:{{ msg.border }};background:{{ msg.bg }};color:{{ msg.color }}">
+                <sc-if value="{{ msg.isAssistant }}" hint-placeholder-val="{{ true }}">
+                  <span style="display:block;margin-bottom:7px;color:#b93822;font-size:.64rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase">Portfolio assistant</span>
+                </sc-if>
+                <p style="margin:0;white-space:pre-wrap;font-size:.94rem;line-height:1.55">{{ msg.text }}</p>
+                <sc-if value="{{ msg.showFitCta }}" hint-placeholder-val="{{ false }}">
+                  <button onClick="{{ raTabContact }}" style="margin-top:13px;padding:10px 14px;border:1px solid #203c32;background:#203c32;color:#fff;font-size:.76rem;font-weight:700;cursor:pointer;font-family:inherit" style-hover="background:#171915;border-color:#171915">Sounds like a fit? Share the role →</button>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+          <div>
+            <div style="padding:10px 20px 2px;display:flex;gap:7px;overflow-x:auto">
+              <sc-for list="{{ raSuggestions }}" as="sg" hint-placeholder-count="4">
+                <button onClick="{{ sg.ask }}" style="flex:0 0 auto;max-width:270px;min-height:36px;padding:7px 10px;border:1px solid rgba(23,25,21,.22);background:transparent;color:#171915;font-size:.72rem;font-weight:600;text-align:left;cursor:pointer;font-family:inherit" style-hover="background:#e8dcbf">{{ sg.q }}</button>
+              </sc-for>
+            </div>
+            <div style="padding:12px 20px 17px">
+              <div style="display:grid;grid-template-columns:1fr auto;border:1px solid #171915;background:#fffaf0">
+                <textarea value="{{ raInput }}" onChange="{{ raInputChange }}" onKeyDown="{{ raKeyDown }}" rows="2" placeholder="Ask about role fit, experience, or strengths…" style="min-height:72px;max-height:150px;padding:13px;border:0;resize:none;background:transparent;color:#171915;font-family:inherit;font-size:.94rem;line-height:1.45;outline:none"></textarea>
+                <button onClick="{{ raSend }}" style="width:72px;border:0;border-left:1px solid #171915;background:#b93822;color:#fff;font-weight:800;cursor:pointer;font-family:inherit">Ask</button>
+              </div>
+              <p style="margin:8px 0 0;color:#5b6058;font-size:.68rem;line-height:1.4">Enter to send · Shift+Enter for a new line. No live web search or inferred personal details.</p>
+            </div>
+          </div>
+        </section>
+      </sc-if>
+      <sc-if value="{{ raContactActive }}" hint-placeholder-val="{{ false }}">
+        <section style="min-height:0;padding:20px;overflow:auto">
+          <p style="margin:0 0 18px;color:#5b6058;font-size:.9rem;line-height:1.5">Share a role or opportunity. Your details are stored separately from chat questions and used only to respond.</p>
+          <div style="display:grid;gap:12px">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div style="display:grid;gap:6px"><label style="font-size:.72rem;font-weight:700">Name</label><input style="width:100%;padding:12px;border:1px solid rgba(23,25,21,.22);background:#fffaf0;color:#171915;font-family:inherit;font-size:.9rem;box-sizing:border-box" /></div>
+              <div style="display:grid;gap:6px"><label style="font-size:.72rem;font-weight:700">Work email</label><input style="width:100%;padding:12px;border:1px solid rgba(23,25,21,.22);background:#fffaf0;color:#171915;font-family:inherit;font-size:.9rem;box-sizing:border-box" /></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div style="display:grid;gap:6px"><label style="font-size:.72rem;font-weight:700">Company</label><input style="width:100%;padding:12px;border:1px solid rgba(23,25,21,.22);background:#fffaf0;color:#171915;font-family:inherit;font-size:.9rem;box-sizing:border-box" /></div>
+              <div style="display:grid;gap:6px"><label style="font-size:.72rem;font-weight:700">Role / opportunity</label><input style="width:100%;padding:12px;border:1px solid rgba(23,25,21,.22);background:#fffaf0;color:#171915;font-family:inherit;font-size:.9rem;box-sizing:border-box" /></div>
+            </div>
+            <div style="display:grid;gap:6px"><label style="font-size:.72rem;font-weight:700">Job link <span style="font-weight:500;color:#5b6058">(optional)</span></label><input placeholder="https://" style="width:100%;padding:12px;border:1px solid rgba(23,25,21,.22);background:#fffaf0;color:#171915;font-family:inherit;font-size:.9rem;box-sizing:border-box" /></div>
+            <div style="display:grid;gap:6px"><label style="font-size:.72rem;font-weight:700">Message</label><textarea style="width:100%;min-height:104px;padding:12px;border:1px solid rgba(23,25,21,.22);background:#fffaf0;color:#171915;font-family:inherit;font-size:.9rem;resize:vertical;box-sizing:border-box"></textarea></div>
+            <label style="display:grid;grid-template-columns:auto 1fr;gap:9px;align-items:start;color:#5b6058;font-size:.72rem;line-height:1.4"><input type="checkbox" style="margin-top:3px" /><span>I consent to Nitish storing these details to respond to this opportunity.</span></label>
+            <button onClick="{{ raContactSubmit }}" style="min-height:50px;border:1px solid #171915;background:#171915;color:#f1ede3;font-weight:800;cursor:pointer;font-family:inherit;font-size:.95rem">Send to Nitish</button>
+            <p style="min-height:20px;margin:0;color:#5b6058;font-size:.76rem;line-height:1.4">{{ raContactStatus }}</p>
+          </div>
+        </section>
+      </sc-if>
+      <footer style="padding:10px 20px 12px;display:flex;justify-content:space-between;gap:12px;border-top:1px solid rgba(23,25,21,.22);background:#fffaf0;color:#5b6058;font-size:.64rem">
+        <span>FAQ cache + GPT-5.6 for approved-source synthesis</span>
+        <a href="#" style="color:inherit;text-underline-offset:3px">Privacy</a>
+      </footer>
+    </aside>
+  </sc-if>
+
+  <footer style="min-height:100px;padding:24px max(24px,calc((100vw - 1440px)/2));display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(23,25,21,.19);color:#5b6058;font-size:.82rem">
+    <span>2026 Nitish Prasad</span>
+    <nav style="display:flex;gap:24px">
+      <a href="Archive v2.dc.html" style="text-underline-offset:4px">Evidence archive</a>
+      <a href="#" style="text-underline-offset:4px">Privacy</a>
+      <a href="#" style="text-underline-offset:4px">Terms</a>
+    </nav>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;navStyle&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;Pill capsule&quot;, &quot;options&quot;: [&quot;Pill capsule&quot;, &quot;Role-forward bar&quot;, &quot;Edge-anchored&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Navigation&quot;}, &quot;stickyResume&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Recruiter path&quot;}, &quot;showAssistant&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Recruiter path&quot;}}">
+class Component extends DCLogic {
+  state = {
+    raOpen: false,
+    raTab: "ask",
+    raInput: "",
+    raContactStatus: "",
+    raMessages: [
+      { role: "assistant", text: "Nitish is open to Principal/Staff PM and AI Product Lead roles. Ask me about his experience, strengths, AI and platform work, or work preferences — answers use approved portfolio sources." }
+    ]
+  };
+
+  raCanned = {
+    "What roles is Nitish looking for?": "Nitish is targeting Principal/Staff PM and AI Product Lead roles at the intersection of AI systems, platform strategy, marketplace economics, and 0→1 execution.",
+    "What are Nitish's strongest capabilities?": "Product leadership across enterprise AI platforms: defining the workflow and economic wedge, separating deterministic controls from model judgment, and establishing evaluation, observability, and release mechanisms.",
+    "How has Nitish worked with engineering and data teams?": "He led Amplify with engineering and data teams end to end — API and microservice integration into Salesforce, hybrid batch/cache inference, and sub-500ms P95 latency across 1,600 NA/EU users.",
+    "What technologies and tools has Nitish worked with?": "LLM gateways, RAG/GraphRAG, agent runtimes and MCP, evaluation and observability tooling, PyRIT red-teaming, Salesforce integration, and AWS services."
+  };
+
+  raRespond(question) {
+    const answer = this.raCanned[question] || "(Design mock — the live assistant synthesizes an answer from approved portfolio sources with citations.)";
+    this.setState((s) => ({
+      raMessages: s.raMessages.concat([{ role: "user", text: question }, { role: "assistant", text: answer }]),
+      raInput: ""
+    }));
+  }
+
+  renderVals() {
+    const nav = this.props.navStyle ?? "Pill capsule";
+    const showAssistant = this.props.showAssistant ?? true;
+    const tab = this.state.raTab;
+    return {
+      navPill: nav === "Pill capsule",
+      navRole: nav === "Role-forward bar",
+      navEdge: nav === "Edge-anchored",
+      stickyResume: this.props.stickyResume ?? true,
+      resumeBottom: showAssistant ? "94px" : "24px",
+      showAssistant: showAssistant && !this.state.raOpen,
+      raOpen: this.state.raOpen,
+      raOpenPanel: () => this.setState({ raOpen: true }),
+      raClosePanel: () => this.setState({ raOpen: false }),
+      raAskActive: tab === "ask",
+      raContactActive: tab === "contact",
+      raTabAsk: () => this.setState({ raTab: "ask" }),
+      raTabContact: () => this.setState({ raTab: "contact" }),
+      askTabBorder: tab === "ask" ? "#b93822" : "transparent",
+      askTabColor: tab === "ask" ? "#171915" : "#5b6058",
+      contactTabBorder: tab === "contact" ? "#b93822" : "transparent",
+      contactTabColor: tab === "contact" ? "#171915" : "#5b6058",
+      raMessages: this.state.raMessages.map((m, i) => ({
+        text: m.text,
+        isAssistant: m.role === "assistant",
+        showFitCta: m.role === "assistant" && i > 0 && i === this.state.raMessages.length - 1,
+        marginLeft: m.role === "user" ? "auto" : "0",
+        padding: m.role === "user" ? "13px 15px" : "16px",
+        border: m.role === "user" ? "0" : "1px solid rgba(23,25,21,.22)",
+        bg: m.role === "user" ? "#171915" : "#fffaf0",
+        color: m.role === "user" ? "#f1ede3" : "#171915"
+      })),
+      raSuggestions: Object.keys(this.raCanned).map((q) => ({ q, ask: () => this.raRespond(q) })),
+      raInput: this.state.raInput,
+      raInputChange: (e) => this.setState({ raInput: e.target.value }),
+      raKeyDown: (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          if (this.state.raInput.trim()) this.raRespond(this.state.raInput.trim());
+        }
+      },
+      raSend: () => { if (this.state.raInput.trim()) this.raRespond(this.state.raInput.trim()); },
+      raContactStatus: this.state.raContactStatus,
+      raContactSubmit: () => this.setState({ raContactStatus: "(Design mock) On the live site this sends the opportunity details to Nitish." }),
+      workCards: [
+        { href: "Case Study — Amplify v2.dc.html", gridColumn: "span 7", minHeight: "590px", isRoute: false, isMath: false, hasArt: true,
+          tag: "Shipped enterprise product", title: "Amplify",
+          body: "A reporting request became an AI seller-workflow system embedded where 1,600 commercial users already worked.",
+          stats: [{ n: "89%", l: "faster prep" }, { n: "<500ms", l: "P95 latency" }, { n: "−99%", l: "inference cost" }] },
+        { href: "Project — SproutRoute v2.dc.html", gridColumn: "span 5", minHeight: "590px", isRoute: true, isMath: false, hasArt: false,
+          tag: "Live production product", title: "SproutRoute",
+          body: "A hybrid travel planner that keeps verified facts, policy, and family-safety data outside generated prose.",
+          stats: [{ n: "350+", l: "tests in CI" }, { n: "Gemini", l: "+ Google Places" }, { n: "MCP", l: "agent path" }] },
+        { href: "Project — Sprout Math v2.dc.html", gridColumn: "3/span 8", minHeight: "500px", isRoute: false, isMath: true, hasArt: false,
+          tag: "Implemented native product", title: "Sprout Math",
+          body: "A native learning product where local state, no accounts, and constrained scope are the trust strategy.",
+          stats: [{ n: "2,400+", l: "problem templates" }, { n: "2,500+", l: "audio clips" }, { n: "0", l: "accounts required" }] }
+      ],
+      platformCases: [
+        { href: "Project — LLM Gateway v2.dc.html", tag: "Implemented / Control plane", title: "Governed LLM Gateway", body: "Policy routing, DLP, cache economics, quotas, and a reversible SproutRoute migration path." },
+        { href: "Project — Agent Observability v2.dc.html", tag: "Implemented / Runtime evidence", title: "Agent Observability", body: "Failure-first traces for eval and multi-agent runs, verified at desktop and mobile breakpoints." },
+        { href: "Project — GraphRAG v2.dc.html", tag: "Implemented / Grounding", title: "Seller Ontology GraphRAG", body: "Tenant-safe traversal and a 20-question multi-hop comparison over one governed fact source." },
+        { href: "Project — Red-Team Gate v2.dc.html", tag: "Implemented / Release integrity", title: "Automated Red-Team Gate", body: "PyRIT probes, redacted evidence, named controls, and a baseline BLOCK that proves the gate can fail." }
+      ],
+      operatingSteps: [
+        { num: "01 / Frame", bg: "#fffaf0", title: "Find the real product decision.", body: "Separate the stated feature request from the user action, business constraint, evidence requirement, and tradeoff the company can accept." },
+        { num: "02 / Bound", bg: "#e9dcbf", title: "Draw the deterministic and AI boundary.", body: "Keep policy, eligibility, permissions, freshness, and safety floors in deterministic rails. Let AI synthesize and reason inside them." },
+        { num: "03 / Prove", bg: "#d9e2d8", title: "Make readiness inspectable.", body: "Connect quality, safety, latency, cost, provenance, and business impact to an explicit owner and a PASS, WARN, or BLOCK decision." },
+        { num: "04 / Scale", bg: "#d8dfef", title: "Design the operating mechanism.", body: "Treat internal developers and operators as customers. Migration, onboarding, feedback, support, and unit economics decide whether a product scales." }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

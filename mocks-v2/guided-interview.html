@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Guided Interview - Minimal Journey Mock</title>
+  <link rel="stylesheet" href="journey.css" />
+</head>
+<body class="interview-page">
+  <a class="skip-link" href="#main">Skip to interview</a>
+  <main id="main" class="interview-grid">
+    <section class="question-panel">
+      <a class="brand" href="index.html"><span class="mark">NP</span><span>Nitish Prasad</span></a>
+      <h1 class="serif-title" style="margin-top:6rem">What do you want to know first?</h1>
+      <div class="question-list" role="tablist" aria-label="Recruiter questions">
+        <button class="choice-button is-active" type="button" role="tab" aria-selected="true" data-answer-target="think"><span>How does he think?</span><span>-></span></button>
+        <button class="choice-button" type="button" role="tab" aria-selected="false" data-answer-target="ship"><span>What has he shipped?</span><span>-></span></button>
+        <button class="choice-button" type="button" role="tab" aria-selected="false" data-answer-target="scale"><span>Can he scale?</span><span>-></span></button>
+        <button class="choice-button" type="button" role="tab" aria-selected="false" data-answer-target="proof"><span>Show me proof.</span><span>-></span></button>
+      </div>
+      <div style="margin-top:2rem">
+        <a class="text-button" style="color:var(--blue)" href="../resume.html">Open resume</a>
+      </div>
+    </section>
+
+    <section class="answer-sheet" aria-live="polite">
+      <div class="answer-steps mono" aria-hidden="true">
+        <span>01 question</span><span>-----</span><span class="is-active">02 answer</span><span>-----</span><span>03 proof</span><span>-----</span><span>04 next</span>
+      </div>
+
+      <article class="answer-panel is-active" data-answer-panel="think">
+        <p class="mono" style="color:var(--blue)">How does he think?</p>
+        <h2>He turns ambiguity into structure you can act on<i>.</i></h2>
+        <p>Nitish frames fuzzy problems into testable wedges, defines the operating model, and designs systems that learn from reality. He separates what AI should synthesize from what deterministic logic, data, and policy must control.</p>
+        <a class="artifact-row" href="../project-amplify.html">
+          <span class="doc-icon" aria-hidden="true"></span>
+          <span><strong>AI Workflow Operating System</strong><br /><span class="muted">Boundaries, loops, and decision rights</span></span>
+          <span>-></span>
+        </a>
+      </article>
+
+      <article class="answer-panel" data-answer-panel="ship" hidden>
+        <p class="mono" style="color:var(--blue)">What has he shipped?</p>
+        <h2>He has built the product surfaces and the systems underneath<i>.</i></h2>
+        <p>SproutRoute is the clearest shipped artifact: hybrid AI planning, verified places, deterministic packing, safety data, and production operations. Sprout Math shows a different muscle: restraint, privacy, and native product craft.</p>
+        <a class="artifact-row" href="../project-sproutroute.html">
+          <span class="doc-icon" aria-hidden="true"></span>
+          <span><strong>SproutRoute</strong><br /><span class="muted">Hybrid AI travel planner</span></span>
+          <span>-></span>
+        </a>
+      </article>
+
+      <article class="answer-panel" data-answer-panel="scale" hidden>
+        <p class="mono" style="color:var(--blue)">Can he scale?</p>
+        <h2>He thinks past launch into cadence, cost, trust, and adoption<i>.</i></h2>
+        <p>The resume validates the operating context: Amazon marketplace systems, seller workflows, payments CX, research, platform migration, executive stakeholders, and cross-region complexity.</p>
+        <a class="artifact-row" href="../resume.html">
+          <span class="doc-icon" aria-hidden="true"></span>
+          <span><strong>Resume</strong><br /><span class="muted">Operating context and progression</span></span>
+          <span>-></span>
+        </a>
+      </article>
+
+      <article class="answer-panel" data-answer-panel="proof" hidden>
+        <p class="mono" style="color:var(--blue)">Show me proof.</p>
+        <h2>Start with the flagship case, then inspect the live systems<i>.</i></h2>
+        <p>The recommended path is AI Seller Workflow Intelligence, then SproutRoute, then AI Eval Control Tower. It gives a recruiter strategy, product craft, and post-launch operating discipline in sequence.</p>
+        <a class="artifact-row" href="../ai-eval-control-tower.html">
+          <span class="doc-icon" aria-hidden="true"></span>
+          <span><strong>AI Eval Control Tower</strong><br /><span class="muted">Quality, safety, cost, latency, release gates</span></span>
+          <span>-></span>
+        </a>
+      </article>
+
+      <div style="display:flex;justify-content:space-between;gap:1rem;align-items:center">
+        <a class="line-button" href="thread.html">See thread version</a>
+        <a class="solid-button" href="mailto:hello@nitishprasad.com">Contact</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="journey.js"></script>
+</body>
+</html>

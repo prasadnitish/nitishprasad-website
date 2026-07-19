@@ -2,21 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>RAG Pipeline with Guardrails - Nitish Prasad</title>
   <meta name="description" content="RAG Pipeline with Guardrails case study: dual-domain retrieval, safety checks, evaluation traces, and release gates for production AI systems." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="vertical-system.css" />
+  <link rel="stylesheet" href="platform-system.css" />
+  <!-- SEO / social metadata -->
+  <link rel="canonical" href="https://www.nitishprasad.com/project-rag-pipeline" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.nitishprasad.com/project-rag-pipeline" />
+  <meta property="og:site_name" content="Nitish Prasad" />
+  <meta property="og:title" content="RAG Pipeline with Guardrails — Nitish Prasad" />
+  <meta property="og:description" content="Dual-domain retrieval, safety checks, evaluation traces, and release gates for production AI systems." />
+  <meta property="og:image" content="https://www.nitishprasad.com/og-rag-pipeline.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RAG Pipeline with Guardrails — Nitish Prasad" />
+  <meta name="twitter:description" content="Dual-domain retrieval, safety checks, evaluation traces, and release gates for production AI systems." />
+  <meta name="twitter:image" content="https://www.nitishprasad.com/og-rag-pipeline.png" />
 </head>
 <body class="detail-page">
   <div class="mobile-progress" aria-hidden="true"><span data-mobile-progress></span></div>
   <header class="site-nav">
-    <a class="brand-lockup" href="index.html"><span>Nitish Prasad</span><span>Product systems</span></a>
-    <nav class="nav-links" aria-label="Case navigation">
-      <a href="index.html#signal">Signal</a>
-      <a href="ai-eval-control-tower.html">AI Eval</a>
-      <a aria-current="page" href="project-rag-pipeline.html">RAG</a>
-      <a href="project-ai-safety.html">Safety</a>
+    <a class="brand-lockup" href="index.html"><span>Nitish Prasad</span><span>Principal / Staff PM</span></a>
+    <span class="nav-divider" aria-hidden="true"></span>
+    <nav class="nav-links" aria-label="Primary">
+      <a aria-current="page" href="index.html#work">Work</a>
+      <a href="enterprise-ai-platform.html">AI Platform</a>
+      <a href="index.html#about">About</a>
+      <a href="resume.html">Resume</a>
+      <a class="nav-cta" href="resume.html">Get the resume <span aria-hidden="true">↓</span></a>
     </nav>
   </header>
   <aside class="vine-shell" aria-hidden="true">
@@ -28,17 +45,24 @@
     <section class="case-hero" data-frame>
       <p class="context">Grounded retrieval / guardrails / release logic</p>
       <h1 class="case-title">RAG Pipeline with Guardrails</h1>
-      <p class="case-summary">Most RAG demos stop at retrieval quality. This one connects grounded answers, safety checks, benchmark traces, and release gates into one production-minded system.</p>
+      <p class="case-summary">The vector baseline for the enterprise knowledge layer: grounded answers, safety checks, benchmark traces, and release gates connected in one production-minded system. A separate implemented GraphRAG layer now tests when relationship traversal earns its extra complexity.</p>
+      <div class="evidence-status" aria-label="Evidence maturity"><span class="is-implemented">Implemented vector baseline</span><span>GraphRAG implemented offline</span></div>
+      <div class="case-actions"><a class="button" href="demos/rag-guardrails/">Try the guardrails lab</a><a class="button secondary" href="https://github.com/prasadnitish/rag-pipeline-guardrails" target="_blank" rel="noopener">View GitHub â</a></div>
       <dl class="metric-line">
         <div><dt>Domains</dt><dd>2 corpora</dd></div>
         <div><dt>Eval cases</dt><dd>24</dd></div>
         <div><dt>Verdict</dt><dd>PASS</dd></div>
         <div><dt>Guardrails</dt><dd>4 classes</dd></div>
       </dl>
+      <dl class="decision-summary">
+        <div><dt>Decision</dt><dd>Connect citations, confidence, input/output guardrails, and evaluation traces in one pipeline.</dd></div>
+        <div><dt>Why</dt><dd>Retrieval accuracy alone cannot support a release decision or explain a failure.</dd></div>
+        <div><dt>Result</dt><dd>A 24-case, dual-domain baseline with four guardrail classes and an explicit PASS verdict.</dd></div>
+      </dl>
     </section>
 
     <section class="case-section" data-frame id="quick-read">
-      <div class="section-kicker">Quick read<span>01 / release discipline</span></div>
+      <div class="section-kicker">Quick read<span>Release discipline</span></div>
       <div class="case-section-body">
         <h2>Retrieval quality alone does not make a feature shippable.</h2>
         <p>A grounded answer can still be risky, misleading, or hard to defend. The useful product question is whether the system can produce grounded answers, flag unsafe behavior, and explain why a release should move forward or stop.</p>
@@ -52,7 +76,7 @@
     </section>
 
     <section class="case-section" data-frame id="system">
-      <div class="section-kicker">System<span>02 / flow</span></div>
+      <div class="section-kicker">System<span>Flow</span></div>
       <div class="case-section-body">
         <h2>The important part is how the pieces fit together.</h2>
         <div class="system-map">
@@ -61,10 +85,11 @@
           <div><span>Guardrails</span><h3>Risk checks</h3><p>Inputs and outputs are checked before release.</p></div>
           <div><span>Eval</span><h3>Decision</h3><p>Reports and gates produce PASS, WARN, or BLOCK.</p></div>
         </div>
-        <a class="text-link" href="project-rag-pipeline.html">Open current RAG page</a>
+        <a class="text-link" href="project-graphrag.html">Inspect the implemented GraphRAG comparison</a>
       </div>
     </section>
   </main>
-  <script src="vertical-system.js"></script>
+  <script src="vertical-system.js?v=20260712"></script>
+  <script src="platform-system.js"></script>
 </body>
 </html>

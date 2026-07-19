@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Field Guide - Minimal Journey Mock</title>
+  <link rel="stylesheet" href="journey.css" />
+</head>
+<body class="guide-page">
+  <a class="skip-link" href="#main">Skip to field guide</a>
+  <main id="main" class="guide-grid">
+    <section class="guide-map">
+      <a class="brand" href="index.html"><span class="mark">NP</span><span>Field Guide</span></a>
+      <div>
+        <h1 class="serif-title">Nitish<br />Prasad</h1>
+        <p style="font-family:var(--font-serif);font-size:2rem;line-height:1.1">A field guide to product judgment.</p>
+      </div>
+      <div class="floorplan" role="tablist" aria-label="Field guide rooms">
+        <button class="room-button is-active" type="button" role="tab" aria-selected="true" data-room-target="ambiguity"><span>1</span><strong>ambiguity</strong></button>
+        <button class="room-button" type="button" role="tab" aria-selected="false" data-room-target="systems"><span>2</span><strong>systems</strong></button>
+        <button class="room-button" type="button" role="tab" aria-selected="false" data-room-target="proof"><span>3</span><strong>proof</strong></button>
+        <button class="room-button" type="button" role="tab" aria-selected="false" data-room-target="cadence"><span>4</span><strong>operating cadence</strong></button>
+        <button class="room-button" type="button" role="tab" aria-selected="false" data-room-target="talk"><span>5</span><strong>talk</strong></button>
+      </div>
+      <p class="guide-note muted"><span class="mono" style="color:var(--moss)">How to read</span><br />Five rooms. One idea each. One artifact that shows the thinking.</p>
+    </section>
+
+    <section class="guide-room" aria-live="polite">
+      <article class="room-panel is-active" data-room-panel="ambiguity">
+        <p class="mono" style="color:var(--moss)">Room 1: ambiguity</p>
+        <h2 class="serif-title">I turn fuzzy questions into shippable wedges.</h2>
+        <p>The first proof is the reframing: a dashboard request becomes workflow intelligence when the real user need is faster judgment.</p>
+        <div class="room-artifact diagram">
+          <img src="../diagrams/architecture.svg" alt="AI workflow architecture diagram" />
+        </div>
+        <div class="room-controls">
+          <button class="solid-button" type="button" data-next-room>Next room</button>
+          <a class="line-button" href="../project-amplify.html">Open artifact</a>
+        </div>
+      </article>
+
+      <article class="room-panel" data-room-panel="systems" hidden>
+        <p class="mono" style="color:var(--moss)">Room 2: systems</p>
+        <h2 class="serif-title">I separate intelligence from control.</h2>
+        <p>Generative AI can synthesize. Deterministic systems should own eligibility, policy, freshness, safety data, routing, and auditability.</p>
+        <div class="room-artifact diagram">
+          <img src="../diagrams/trust-architecture.svg" alt="Trust architecture diagram" />
+        </div>
+        <div class="room-controls">
+          <button class="solid-button" type="button" data-next-room>Next room</button>
+          <a class="line-button" href="../project-rag-pipeline.html">Open artifact</a>
+        </div>
+      </article>
+
+      <article class="room-panel" data-room-panel="proof" hidden>
+        <p class="mono" style="color:var(--moss)">Room 3: proof</p>
+        <h2 class="serif-title">The strongest proof is shipped product behavior.</h2>
+        <p>SproutRoute shows the work in motion: trip setup, itinerary generation, packing, safety, and verified data layers.</p>
+        <div class="room-artifact">
+          <img src="../assets/screenshots/safety.jpg" alt="SproutRoute safety screen" />
+        </div>
+        <div class="room-controls">
+          <button class="solid-button" type="button" data-next-room>Next room</button>
+          <a class="line-button" href="../project-sproutroute.html">Open artifact</a>
+        </div>
+      </article>
+
+      <article class="room-panel" data-room-panel="cadence" hidden>
+        <p class="mono" style="color:var(--moss)">Room 4: operating cadence</p>
+        <h2 class="serif-title">Launch is not the finish line. It is when judgment needs instrumentation.</h2>
+        <p>AI Eval Control Tower turns quality, safety, latency, cost, and release readiness into a repeatable operating layer.</p>
+        <div class="room-artifact diagram">
+          <img src="../diagrams/latency-comparison.svg" alt="Latency comparison diagram" />
+        </div>
+        <div class="room-controls">
+          <button class="solid-button" type="button" data-next-room>Next room</button>
+          <a class="line-button" href="../ai-eval-control-tower.html">Open artifact</a>
+        </div>
+      </article>
+
+      <article class="room-panel" data-room-panel="talk" hidden>
+        <p class="mono" style="color:var(--moss)">Room 5: talk</p>
+        <h2 class="serif-title">If the role needs this kind of judgment, the next step is simple.</h2>
+        <p>Open the resume for operating context, or email directly.</p>
+        <div class="room-controls">
+          <a class="solid-button" href="../resume.html">Open resume</a>
+          <a class="line-button" href="mailto:hello@nitishprasad.com">Email</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="journey.js"></script>
+</body>
+</html>

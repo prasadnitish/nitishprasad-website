@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#f1ede3;color:#171915;font-family:"Geist",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:hover{color:inherit}
+</style>
+</helmet>
+<div data-screen-label="Case Study — Amplify v2" style="min-height:100vh;background:#f1ede3;color:#171915;font-family:'Geist',Arial,sans-serif">
+
+  <header style="position:fixed;z-index:100;top:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:20px;padding:8px 8px 8px 24px;border:1px solid rgba(23,25,21,.16);border-radius:999px;background:rgba(255,250,240,.94);backdrop-filter:blur(18px);box-shadow:0 14px 44px rgba(28,25,18,.13)">
+    <a href="Home v2.dc.html" style="display:flex;align-items:baseline;gap:10px;text-decoration:none;white-space:nowrap">
+      <strong style="font-size:.98rem;letter-spacing:-.01em">Nitish Prasad</strong>
+      <span style="color:#b93822;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase">Principal / Staff PM</span>
+    </a>
+    <span style="width:1px;height:26px;background:rgba(23,25,21,.16)"></span>
+    <nav style="display:flex;align-items:center;gap:2px">
+      <a href="Home v2.dc.html" style="min-height:42px;padding:0 15px;display:inline-flex;align-items:center;text-decoration:none;color:#171915;background:rgba(23,25,21,.07);border-radius:999px;font-size:.92rem;font-weight:600;white-space:nowrap">Work</a>
+      <a href="AI Platform v2.dc.html" style="min-height:42px;padding:0 15px;display:inline-flex;align-items:center;text-decoration:none;color:#5b6058;border-radius:999px;font-size:.92rem;font-weight:600;white-space:nowrap" style-hover="background:#171915;color:#f1ede3">AI Platform</a>
+      <a href="Home v2.dc.html" style="min-height:42px;padding:0 15px;display:inline-flex;align-items:center;text-decoration:none;color:#5b6058;border-radius:999px;font-size:.92rem;font-weight:600;white-space:nowrap" style-hover="background:#171915;color:#f1ede3">About</a>
+      <a href="Resume v2.dc.html" style="min-height:42px;padding:0 15px;display:inline-flex;align-items:center;text-decoration:none;color:#5b6058;border-radius:999px;font-size:.92rem;font-weight:600;white-space:nowrap" style-hover="background:#171915;color:#f1ede3">Resume</a>
+    </nav>
+    <a href="Resume v2.dc.html" style="min-height:46px;padding:0 20px;display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:#b93822;color:#fff;font-weight:700;border-radius:999px;font-size:.92rem;white-space:nowrap" style-hover="background:#171915">Get the resume <span style="font-size:1rem">↓</span></a>
+  </header>
+
+  <main>
+    <section style="width:min(calc(100% - 48px),1440px);min-height:88svh;margin:0 auto;padding:165px 0 110px;display:grid;align-content:center">
+      <p style="margin:0 0 18px;color:#b93822;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase">Anonymized enterprise AI case study</p>
+      <h1 style="max-width:1240px;margin:0;font-size:clamp(4.4rem,8vw,9.2rem);line-height:.84;letter-spacing:-.075em;text-wrap:balance">AI Seller Workflow Intelligence System</h1>
+      <p style="max-width:900px;margin:34px 0 0;color:#5b6058;font-size:clamp(1.1rem,1.55vw,1.45rem);line-height:1.6">I reframed a dashboard request into a seller-facing workflow intelligence system. Commercial teams needed a faster way to prepare, prioritize, and act with a visible evidence trail.</p>
+      <div style="margin-top:28px;display:flex;gap:10px;flex-wrap:wrap">
+        <span style="padding:8px 14px;border:1px solid #203c32;background:#203c32;color:#fff;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Shipped enterprise system</span>
+        <span style="padding:8px 14px;border:1px solid rgba(23,25,21,.19);color:#5b6058;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Anonymized evidence</span>
+      </div>
+      <dl style="margin:48px 0 0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(23,25,21,.19);border-left:1px solid rgba(23,25,21,.19)">
+        <sc-for list="{{ metrics }}" as="m" hint-placeholder-count="4">
+          <div style="min-height:105px;padding:20px;border-right:1px solid rgba(23,25,21,.19);border-bottom:1px solid rgba(23,25,21,.19)">
+            <dt style="color:#5b6058;font-size:.73rem">{{ m.label }}</dt>
+            <dd style="margin:8px 0 0;color:#171915;font-size:clamp(1.2rem,2vw,1.8rem);letter-spacing:-.03em">{{ m.value }}</dd>
+          </div>
+        </sc-for>
+      </dl>
+      <div style="margin-top:30px;display:flex;flex-wrap:wrap;gap:12px">
+        <a href="#" style="min-height:54px;padding:0 23px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #171915;background:#171915;color:#f1ede3;font-weight:700;text-decoration:none">Try the workflow lab</a>
+        <a href="#architecture" style="min-height:54px;padding:0 23px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #171915;background:transparent;color:#171915;font-weight:700;text-decoration:none">System design</a>
+        <a href="Resume v2.dc.html" style="min-height:54px;padding:0 23px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #171915;background:transparent;color:#171915;font-weight:700;text-decoration:none">Resume context</a>
+      </div>
+      <dl style="margin:42px 0 0;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(23,25,21,.19);border-left:1px solid rgba(23,25,21,.19)">
+        <sc-for list="{{ decisions }}" as="d" hint-placeholder-count="3">
+          <div style="min-height:105px;padding:20px;border-right:1px solid rgba(23,25,21,.19);border-bottom:1px solid rgba(23,25,21,.19)">
+            <dt style="color:#5b6058;font-size:.73rem">{{ d.label }}</dt>
+            <dd style="margin:8px 0 0;color:#171915;font-size:1rem;line-height:1.5">{{ d.value }}</dd>
+          </div>
+        </sc-for>
+      </dl>
+    </section>
+
+    <sc-for list="{{ sections }}" as="sec" hint-placeholder-count="4">
+      <section style="width:min(calc(100% - 48px),1440px);margin:0 auto;padding:115px 0;display:grid;grid-template-columns:3fr 9fr;gap:60px;border-top:1px solid rgba(23,25,21,.19)">
+        <div style="position:sticky;top:115px;align-self:start;display:flex;flex-direction:column;gap:8px;color:#b93822;font-size:.72rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase">
+          {{ sec.kicker }}<span style="color:#5b6058;font-weight:500">{{ sec.kickerSub }}</span>
+        </div>
+        <div style="min-width:0">
+          <h2 style="max-width:980px;margin:0;color:#171915;font-size:clamp(2.8rem,5.2vw,6rem);line-height:.92;letter-spacing:-.065em;text-wrap:balance">{{ sec.title }}</h2>
+          <sc-if value="{{ sec.hasBody }}" hint-placeholder-val="{{ true }}">
+            <p style="max-width:800px;margin:28px 0 0;color:#5b6058;font-size:1.08rem;line-height:1.7">{{ sec.body }}</p>
+          </sc-if>
+          <div style="margin-top:48px;display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid rgba(23,25,21,.19);border-left:1px solid rgba(23,25,21,.19)">
+            <sc-for list="{{ sec.panels }}" as="pn" hint-placeholder-count="2">
+              <article style="min-height:240px;padding:26px;display:flex;flex-direction:column;border-right:1px solid rgba(23,25,21,.19);border-bottom:1px solid rgba(23,25,21,.19);background:#fffaf0">
+                <strong style="margin-top:auto;color:#171915;font-size:clamp(1.3rem,2vw,2rem);line-height:1.05">{{ pn.title }}</strong>
+                <p style="margin:16px 0 0;color:#5b6058;line-height:1.55">{{ pn.body }}</p>
+              </article>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+    </sc-for>
+
+    <section id="architecture" style="width:min(calc(100% - 48px),1440px);margin:0 auto;padding:115px 0;display:grid;grid-template-columns:3fr 9fr;gap:60px;border-top:1px solid rgba(23,25,21,.19)">
+      <div style="position:sticky;top:115px;align-self:start;display:flex;flex-direction:column;gap:8px;color:#b93822;font-size:.72rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase">
+        Architecture<span style="color:#5b6058;font-weight:500">System</span>
+      </div>
+      <div style="min-width:0">
+        <h2 style="max-width:980px;margin:0;font-size:clamp(2.8rem,5.2vw,6rem);line-height:.92;letter-spacing:-.065em;text-wrap:balance">A hybrid AI architecture made the strategy shippable.</h2>
+        <p style="max-width:800px;margin:28px 0 0;color:#5b6058;font-size:1.08rem;line-height:1.7">The system separated deterministic workflow control from AI synthesis so teams could keep the product fast, explainable, and cost-aware.</p>
+        <div style="margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(23,25,21,.19);border-left:1px solid rgba(23,25,21,.19)">
+          <sc-for list="{{ systemMap }}" as="sm" hint-placeholder-count="4">
+            <div style="min-height:300px;padding:26px;display:flex;flex-direction:column;border-right:1px solid rgba(23,25,21,.19);border-bottom:1px solid rgba(23,25,21,.19);background:#fffaf0">
+              <span style="color:#b93822;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase">{{ sm.tag }}</span>
+              <h3 style="margin:auto 0 0;color:#171915;font-size:clamp(1.4rem,2.2vw,2.5rem);line-height:1;letter-spacing:-.045em">{{ sm.title }}</h3>
+              <p style="margin:15px 0 0;color:#5b6058;line-height:1.5">{{ sm.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section style="width:min(calc(100% - 48px),1440px);margin:0 auto;padding:115px 0;display:grid;grid-template-columns:3fr 9fr;gap:60px;border-top:1px solid rgba(23,25,21,.19)">
+      <div style="position:sticky;top:115px;align-self:start;display:flex;flex-direction:column;gap:8px;color:#b93822;font-size:.72rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase">
+        Anonymized evidence<span style="color:#5b6058;font-weight:500">Artifact</span>
+      </div>
+      <div style="min-width:0">
+        <h2 style="max-width:980px;margin:0;font-size:clamp(2.8rem,5.2vw,6rem);line-height:.92;letter-spacing:-.065em;text-wrap:balance">Confidential work still needs visible proof.</h2>
+        <p style="max-width:800px;margin:28px 0 0;color:#5b6058;font-size:1.08rem;line-height:1.7">I show the shape of the decision without exposing customer data, internal systems, or proprietary screens. The artifact below captures the product move: seller signals become recommended actions only after the system checks policy, eligibility, freshness, and confidence.</p>
+        <div style="margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(23,25,21,.19);border-left:1px solid rgba(23,25,21,.19)">
+          <sc-for list="{{ exhibit }}" as="ex" hint-placeholder-count="3">
+            <div style="min-height:280px;padding:26px;display:flex;flex-direction:column;border-right:1px solid rgba(23,25,21,.19);border-bottom:1px solid rgba(23,25,21,.19);background:{{ ex.bg }};color:{{ ex.color }}">
+              <span style="color:{{ ex.tagColor }};font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase">{{ ex.tag }}</span>
+              <strong style="margin:auto 0 0;font-size:clamp(1.4rem,2.2vw,2.5rem);line-height:1">{{ ex.title }}</strong>
+              <em style="margin-top:16px;color:{{ ex.bodyColor }};font-style:normal;line-height:1.5">{{ ex.body }}</em>
+            </div>
+          </sc-for>
+        </div>
+        <a href="Home v2.dc.html" style="display:inline-flex;margin:28px 20px 0 0;font-weight:700;text-underline-offset:5px;color:#171915">Back to proof path</a>
+      </div>
+    </section>
+  </main>
+
+  <dc-import name="RecruiterAssistant" hint-size="240px,58px" style="position:fixed;right:0;bottom:0;width:0;height:0"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      metrics: [
+        { label: "Role", value: "Senior PM" },
+        { label: "Users", value: "1,600 NA/EU" },
+        { label: "Portfolio", value: "$16B+ fees" },
+        { label: "Latency", value: "<500ms P95" }
+      ],
+      decisions: [
+        { label: "Decision", value: "Embed seller guidance in Salesforce and use hybrid batch-and-cache inference." },
+        { label: "Why", value: "Account teams needed a recommended action with evidence inside their existing workflow." },
+        { label: "Result", value: "1,600 NA/EU users, 89% less prep time, sub-500ms P95, and roughly 99% lower inference cost." }
+      ],
+      sections: [
+        { kicker: "What this proves", kickerSub: "Staff PM case", title: "A reporting ask became a workflow intelligence product.", hasBody: true, body: "This is my clearest Staff/Principal PM case: a stakeholder request for reporting became a workflow intelligence product with a defined wedge, embedded distribution, deterministic system controls, AI synthesis, measurable adoption, and operating economics.", panels: [
+          { title: "Embedded distribution", body: "Recommendations moved into Salesforce through API and microservice integration instead of depending only on a standalone surface." },
+          { title: "Operating economics", body: "Hybrid batch/cache inference reduced annual inference cost roughly 99% while keeping the account-team experience fast." }
+        ] },
+        { kicker: "Quick read", kickerSub: "Decision", title: "Commercial teams needed better decisions, not more reports.", hasBody: true, body: "Account teams had dashboards. They lacked a consistent way to turn fragmented seller signals, playbooks, and regional constraints into a confident next action. A reporting surface would have moved the burden of synthesis back to the user.", panels: [
+          { title: "Problem framing", body: "Separate the stated request from the real workflow problem: preparation burden, evidence discovery, and inconsistent recommendation quality." },
+          { title: "Product strategy", body: "Start with call preparation and seller prioritization, then expand from insight consumption into embedded guidance." },
+          { title: "Trust boundary", body: "AI could synthesize and explain. Deterministic services owned permissions, eligibility, regional routing, freshness, and auditability." },
+          { title: "Operating signal", body: "Success needed to show up in workflow adoption, decision speed, recommendation quality, and operating economics." }
+        ] },
+        { kicker: "Tradeoffs", kickerSub: "Judgment", title: "The important decisions were about where the product should be deterministic, intelligent, or embedded.", hasBody: false, body: "", panels: [
+          { title: "Workflow intelligence changed the work.", body: "A reporting page would still ask account teams to synthesize the answer themselves." },
+          { title: "Hybrid inference over always-live generation.", body: "Pre-computation and retrieval kept the experience responsive and cost-aware." },
+          { title: "Retrieval-grounded AI over model-only answers.", body: "Recommendations needed evidence, confidence boundaries, and policy grounding." },
+          { title: "Embedded distribution over a standalone destination.", body: "Adoption depended on appearing where account teams already made decisions." }
+        ] }
+      ],
+      systemMap: [
+        { tag: "Frontend", title: "Workflow surface", body: "Seller context, recommended actions, explanation trails, and feedback capture." },
+        { tag: "Backend", title: "Orchestration", body: "Permissions, seller-state checks, retrieval, cache lookups, inference, and response assembly." },
+        { tag: "Data", title: "Seller signals", body: "Structured account data combined with curated policy and playbook context." },
+        { tag: "AI", title: "Selective generation", body: "Retrieval-grounded synthesis while eligibility, ranking, and routing stay deterministic." }
+      ],
+      exhibit: [
+        { tag: "Signal", title: "Seller context", body: "Account data, playbook intent, regional constraints", bg: "#fffaf0", color: "#171915", tagColor: "#b93822", bodyColor: "#5b6058" },
+        { tag: "Controls", title: "Deterministic gates", body: "Permissions, eligibility, policy, freshness, audit trail", bg: "#fffaf0", color: "#171915", tagColor: "#b93822", bodyColor: "#5b6058" },
+        { tag: "Output", title: "Recommended next action", body: "Evidence, confidence, follow-up path, feedback capture", bg: "#203c32", color: "#fff", tagColor: "#b9cec4", bodyColor: "#c4d1cb" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

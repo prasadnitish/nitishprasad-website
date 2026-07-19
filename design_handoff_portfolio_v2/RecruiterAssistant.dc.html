@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div>
+  <sc-if value="{{ showLauncher }}" hint-placeholder-val="{{ true }}">
+    <button onClick="{{ raOpenPanel }}" style="position:fixed;right:22px;bottom:22px;z-index:502;min-height:58px;padding:0 20px;display:inline-flex;align-items:center;gap:11px;border:2px solid #f1ede3;background:#171915;color:#fff;box-shadow:0 12px 34px rgba(16,20,17,.35);font-weight:700;font-size:.86rem;letter-spacing:.01em;cursor:pointer;font-family:inherit" style-hover="transform:translateY(-3px);background:#b93822;border-color:#f1ede3">
+      <span style="width:9px;height:9px;border-radius:50%;background:#b9cfad;box-shadow:0 0 0 5px rgba(185,207,173,.18)"></span>Recruiter? Ask me anything
+    </button>
+  </sc-if>
+
+  <sc-if value="{{ raOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ raClosePanel }}" style="position:fixed;z-index:503;inset:0;background:rgba(17,21,18,.48);backdrop-filter:blur(4px)"></div>
+    <aside style="position:fixed;z-index:504;top:12px;right:12px;bottom:12px;width:min(480px,calc(100vw - 24px));display:grid;grid-template-rows:auto auto minmax(0,1fr) auto;overflow:hidden;border:1px solid rgba(23,25,21,.22);background:#f1ede3;box-shadow:0 28px 90px rgba(16,20,17,.28)">
+      <header style="padding:21px 20px 18px;display:grid;grid-template-columns:1fr auto;gap:20px;border-bottom:1px solid rgba(23,25,21,.22);background:#203c32;color:#fff">
+        <div>
+          <p style="margin:0 0 6px;color:#bfd0c8;font-size:.66rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase">Portfolio assistant</p>
+          <h2 style="margin:0;font-size:1.45rem;line-height:1;letter-spacing:-.035em">Ask about Nitish</h2>
+        </div>
+        <button onClick="{{ raClosePanel }}" style="width:44px;height:44px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.28);background:transparent;color:#fff;font-size:1.25rem;cursor:pointer">×</button>
+      </header>
+      <div style="padding:0 20px;display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(23,25,21,.22);background:#fffaf0">
+        <button onClick="{{ raTabAsk }}" style="min-height:50px;border:0;border-bottom:3px solid {{ askTabBorder }};background:transparent;color:{{ askTabColor }};font-weight:700;cursor:pointer;font-family:inherit;font-size:.95rem">Ask</button>
+        <button onClick="{{ raTabContact }}" style="min-height:50px;border:0;border-bottom:3px solid {{ contactTabBorder }};background:transparent;color:{{ contactTabColor }};font-weight:700;cursor:pointer;font-family:inherit;font-size:.95rem">Contact</button>
+      </div>
+      <sc-if value="{{ raAskActive }}" hint-placeholder-val="{{ true }}">
+        <section style="min-height:0;display:grid;grid-template-rows:minmax(0,1fr) auto">
+          <div style="min-height:0;padding:22px 20px 8px;overflow:auto;overscroll-behavior:contain">
+            <sc-for list="{{ raMessages }}" as="msg" hint-placeholder-count="1">
+              <div style="max-width:92%;margin:0 0 16px {{ msg.marginLeft }};padding:{{ msg.padding }};border:{{ msg.border }};background:{{ msg.bg }};color:{{ msg.color }}">
+                <sc-if value="{{ msg.isAssistant }}" hint-placeholder-val="{{ true }}">
+                  <span style="display:block;margin-bottom:7px;color:#b93822;font-size:.64rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase">Portfolio assistant</span>
+                </sc-if>
+                <p style="margin:0;white-space:pre-wrap;font-size:.94rem;line-height:1.55">{{ msg.text }}</p>
+                <sc-if value="{{ msg.showFitCta }}" hint-placeholder-val="{{ false }}">
+                  <button onClick="{{ raTabContact }}" style="margin-top:13px;padding:10px 14px;border:1px solid #203c32;background:#203c32;color:#fff;font-size:.76rem;font-weight:700;cursor:pointer;font-family:inherit" style-hover="background:#171915;border-color:#171915">Sounds like a fit? Share the role →</button>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+          <div>
+            <div style="padding:10px 20px 2px;display:flex;gap:7px;overflow-x:auto">
+              <sc-for list="{{ raSuggestions }}" as="sg" hint-placeholder-count="4">
+                <button onClick="{{ sg.ask }}" style="flex:0 0 auto;max-width:270px;min-height:36px;padding:7px 10px;border:1px solid rgba(23,25,21,.22);background:transparent;color:#171915;font-size:.72rem;font-weight:600;text-align:left;cursor:pointer;font-family:inherit" style-hover="background:#e8dcbf">{{ sg.q }}</button>
+              </sc-for>
+            </div>
+            <div style="padding:12px 20px 17px">
+              <div style="display:grid;grid-template-columns:1fr auto;border:1px solid #171915;background:#fffaf0">
+                <textarea value="{{ raInput }}" onChange="{{ raInputChange }}" onKeyDown="{{ raKeyDown }}" rows="2" placeholder="Ask about role fit, experience, or strengths…" style="min-height:72px;max-height:150px;padding:13px;border:0;resize:none;background:transparent;color:#171915;font-family:inherit;font-size:.94rem;line-height:1.45;outline:none"></textarea>
+                <button onClick="{{ raSend }}" style="width:72px;border:0;border-left:1px solid #171915;background:#b93822;color:#fff;font-weight:800;cursor:pointer;font-family:inherit">Ask</button>
+              </div>
+              <p style="margin:8px 0 0;color:#5b6058;font-size:.68rem;line-height:1.4">Enter to send · Shift+Enter for a new line. No live web search or inferred personal details.</p>
+            </div>
+          </div>
+        </section>
+      </sc-if>
+      <sc-if value="{{ raContactActive }}" hint-placeholder-val="{{ false }}">
+        <section style="min-height:0;padding:20px;overflow:auto">
+          <p style="margin:0 0 18px;color:#5b6058;font-size:.9rem;line-height:1.5">Share a role or opportunity. Your details are stored separately from chat questions and used only to respond.</p>
+          <div style="display:grid;gap:12px">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div style="display:grid;gap:6px"><label style="font-size:.72rem;font-weight:700">Name</label><input style="width:100%;padding:12px;border:1px solid rgba(23,25,21,.22);background:#fffaf0;color:#171915;font-family:inherit;font-size:.9rem;box-sizing:border-box" /></div>
+              <div style="display:grid;gap:6px"><label style="font-size:.72rem;font-weight:700">Work email</label><input style="width:100%;padding:12px;border:1px solid rgba(23,25,21,.22);background:#fffaf0;color:#171915;font-family:inherit;font-size:.9rem;box-sizing:border-box" /></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div style="display:grid;gap:6px"><label style="font-size:.72rem;font-weight:700">Company</label><input style="width:100%;padding:12px;border:1px solid rgba(23,25,21,.22);background:#fffaf0;color:#171915;font-family:inherit;font-size:.9rem;box-sizing:border-box" /></div>
+              <div style="display:grid;gap:6px"><label style="font-size:.72rem;font-weight:700">Role / opportunity</label><input style="width:100%;padding:12px;border:1px solid rgba(23,25,21,.22);background:#fffaf0;color:#171915;font-family:inherit;font-size:.9rem;box-sizing:border-box" /></div>
+            </div>
+            <div style="display:grid;gap:6px"><label style="font-size:.72rem;font-weight:700">Job link <span style="font-weight:500;color:#5b6058">(optional)</span></label><input placeholder="https://" style="width:100%;padding:12px;border:1px solid rgba(23,25,21,.22);background:#fffaf0;color:#171915;font-family:inherit;font-size:.9rem;box-sizing:border-box" /></div>
+            <div style="display:grid;gap:6px"><label style="font-size:.72rem;font-weight:700">Message</label><textarea style="width:100%;min-height:104px;padding:12px;border:1px solid rgba(23,25,21,.22);background:#fffaf0;color:#171915;font-family:inherit;font-size:.9rem;resize:vertical;box-sizing:border-box"></textarea></div>
+            <label style="display:grid;grid-template-columns:auto 1fr;gap:9px;align-items:start;color:#5b6058;font-size:.72rem;line-height:1.4"><input type="checkbox" style="margin-top:3px" /><span>I consent to Nitish storing these details to respond to this opportunity.</span></label>
+            <button onClick="{{ raContactSubmit }}" style="min-height:50px;border:1px solid #171915;background:#171915;color:#f1ede3;font-weight:800;cursor:pointer;font-family:inherit;font-size:.95rem">Send to Nitish</button>
+            <p style="min-height:20px;margin:0;color:#5b6058;font-size:.76rem;line-height:1.4">{{ raContactStatus }}</p>
+          </div>
+        </section>
+      </sc-if>
+      <footer style="padding:10px 20px 12px;display:flex;justify-content:space-between;gap:12px;border-top:1px solid rgba(23,25,21,.22);background:#fffaf0;color:#5b6058;font-size:.64rem">
+        <span>FAQ cache + GPT-5.6 for approved-source synthesis</span>
+        <a href="#" style="color:inherit;text-underline-offset:3px">Privacy</a>
+      </footer>
+    </aside>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 520, &quot;height&quot;: 700}, &quot;show&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = {
+    raOpen: false,
+    raTab: "ask",
+    raInput: "",
+    raContactStatus: "",
+    raMessages: [
+      { role: "assistant", text: "Nitish is open to Principal/Staff PM and AI Product Lead roles. Ask me about his experience, strengths, AI and platform work, or work preferences — answers use approved portfolio sources." }
+    ]
+  };
+
+  raCanned = {
+    "What roles is Nitish looking for?": "Nitish is targeting Principal/Staff PM and AI Product Lead roles at the intersection of AI systems, platform strategy, marketplace economics, and 0→1 execution.",
+    "What are Nitish's strongest capabilities?": "Product leadership across enterprise AI platforms: defining the workflow and economic wedge, separating deterministic controls from model judgment, and establishing evaluation, observability, and release mechanisms.",
+    "How has Nitish worked with engineering and data teams?": "He led Amplify with engineering and data teams end to end — API and microservice integration into Salesforce, hybrid batch/cache inference, and sub-500ms P95 latency across 1,600 NA/EU users.",
+    "What technologies and tools has Nitish worked with?": "LLM gateways, RAG/GraphRAG, agent runtimes and MCP, evaluation and observability tooling, PyRIT red-teaming, Salesforce integration, and AWS services."
+  };
+
+  raRespond(question) {
+    const answer = this.raCanned[question] || "(Design mock — the live assistant synthesizes an answer from approved portfolio sources with citations.)";
+    this.setState((s) => ({
+      raMessages: s.raMessages.concat([{ role: "user", text: question }, { role: "assistant", text: answer }]),
+      raInput: ""
+    }));
+  }
+
+  renderVals() {
+    const tab = this.state.raTab;
+    return {
+      showLauncher: (this.props.show ?? true) && !this.state.raOpen,
+      raOpen: this.state.raOpen,
+      raOpenPanel: () => this.setState({ raOpen: true }),
+      raClosePanel: () => this.setState({ raOpen: false }),
+      raAskActive: tab === "ask",
+      raContactActive: tab === "contact",
+      raTabAsk: () => this.setState({ raTab: "ask" }),
+      raTabContact: () => this.setState({ raTab: "contact" }),
+      askTabBorder: tab === "ask" ? "#b93822" : "transparent",
+      askTabColor: tab === "ask" ? "#171915" : "#5b6058",
+      contactTabBorder: tab === "contact" ? "#b93822" : "transparent",
+      contactTabColor: tab === "contact" ? "#171915" : "#5b6058",
+      raMessages: this.state.raMessages.map((m, i) => ({
+        text: m.text,
+        isAssistant: m.role === "assistant",
+        showFitCta: m.role === "assistant" && i > 0 && i === this.state.raMessages.length - 1,
+        marginLeft: m.role === "user" ? "auto" : "0",
+        padding: m.role === "user" ? "13px 15px" : "16px",
+        border: m.role === "user" ? "0" : "1px solid rgba(23,25,21,.22)",
+        bg: m.role === "user" ? "#171915" : "#fffaf0",
+        color: m.role === "user" ? "#f1ede3" : "#171915"
+      })),
+      raSuggestions: Object.keys(this.raCanned).map((q) => ({ q, ask: () => this.raRespond(q) })),
+      raInput: this.state.raInput,
+      raInputChange: (e) => this.setState({ raInput: e.target.value }),
+      raKeyDown: (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          if (this.state.raInput.trim()) this.raRespond(this.state.raInput.trim());
+        }
+      },
+      raSend: () => { if (this.state.raInput.trim()) this.raRespond(this.state.raInput.trim()); },
+      raContactStatus: this.state.raContactStatus,
+      raContactSubmit: () => this.setState({ raContactStatus: "(Design mock) On the live site this sends the opportunity details to Nitish." })
+    };
+  }
+}
+</script>
+</body>
+</html>

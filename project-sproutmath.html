@@ -2,21 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Sprout Math - Nitish Prasad</title>
   <meta name="description" content="Sprout Math case study: offline-first iOS math product with local progress, deterministic hints, parent controls, and privacy-first architecture." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="vertical-system.css" />
+  <link rel="stylesheet" href="platform-system.css" />
+  <!-- SEO / social metadata -->
+  <link rel="canonical" href="https://www.nitishprasad.com/project-sproutmath" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.nitishprasad.com/project-sproutmath" />
+  <meta property="og:site_name" content="Nitish Prasad" />
+  <meta property="og:title" content="Sprout Math — Nitish Prasad" />
+  <meta property="og:description" content="An offline-first iOS math product with local progress, deterministic hints, parent controls, and a privacy-first architecture." />
+  <meta property="og:image" content="https://www.nitishprasad.com/og-sproutmath.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sprout Math — Nitish Prasad" />
+  <meta name="twitter:description" content="An offline-first iOS math product with local progress, deterministic hints, parent controls, and a privacy-first architecture." />
+  <meta name="twitter:image" content="https://www.nitishprasad.com/og-sproutmath.png" />
 </head>
 <body class="detail-page">
   <div class="mobile-progress" aria-hidden="true"><span data-mobile-progress></span></div>
   <header class="site-nav">
-    <a class="brand-lockup" href="index.html"><span>Nitish Prasad</span><span>Product systems</span></a>
-    <nav class="nav-links" aria-label="Case navigation">
-      <a href="index.html#signal">Signal</a>
-      <a href="project-sproutroute.html">SproutRoute</a>
-      <a aria-current="page" href="project-sproutmath.html">SproutMath</a>
-      <a href="archive.html">Archive</a>
+    <a class="brand-lockup" href="index.html"><span>Nitish Prasad</span><span>Principal / Staff PM</span></a>
+    <span class="nav-divider" aria-hidden="true"></span>
+    <nav class="nav-links" aria-label="Primary">
+      <a aria-current="page" href="index.html#work">Work</a>
+      <a href="enterprise-ai-platform.html">AI Platform</a>
+      <a href="index.html#about">About</a>
+      <a href="resume.html">Resume</a>
+      <a class="nav-cta" href="resume.html">Get the resume <span aria-hidden="true">↓</span></a>
     </nav>
   </header>
 
@@ -33,6 +50,7 @@
       <p class="context">Native iOS / offline first / product restraint</p>
       <h1 class="case-title">Sprout Math</h1>
       <p class="case-summary">A focused K-5 iOS math product built around offline reliability, local progress, deterministic hints, parent trust, and a deliberately narrow V1. The first version earns trust through restraint.</p>
+      <div class="evidence-status" aria-label="Evidence maturity"><span class="is-implemented">Implemented native product</span><span>Local release evidence</span></div>
       <dl class="metric-line">
         <div><dt>Platform</dt><dd>SwiftUI</dd></div>
         <div><dt>Content</dt><dd>2,400+ templates</dd></div>
@@ -40,14 +58,21 @@
         <div><dt>Privacy</dt><dd>No accounts</dd></div>
       </dl>
       <div class="case-actions">
-        <a class="button" href="#visuals">Visual worlds</a>
+        <a class="button" href="https://sproutmath.app" target="_blank" rel="noopener">Open live site â</a>
+        <a class="button secondary" href="https://github.com/prasadnitish/mathquest-kids" target="_blank" rel="noopener">View GitHub â</a>
+        <a class="button secondary" href="#visuals">Visual worlds</a>
         <a class="button secondary" href="#architecture">Offline system</a>
         <a class="button secondary" href="sproutmath-legal.html">Privacy and terms</a>
       </div>
+      <dl class="decision-summary">
+        <div><dt>Decision</dt><dd>Keep progress, content, hints, and diagnostics on device with no account requirement.</dd></div>
+        <div><dt>Why</dt><dd>A child-focused first release needs predictable help, fast sessions, and a small privacy surface.</dd></div>
+        <div><dt>Result</dt><dd>A native SwiftUI product with 2,400+ templates, 2,500+ audio clips, and six visual worlds.</dd></div>
+      </dl>
     </section>
 
     <section class="case-section" data-frame id="quick-read">
-      <div class="section-kicker">Quick read<span>01 / restraint</span></div>
+      <div class="section-kicker">Quick read<span>Restraint</span></div>
       <div class="case-section-body">
         <h2>Product restraint carries the value.</h2>
         <p>Kids apps lose trust when they lag, require accounts, push subscriptions, or bury parents under settings. Sprout Math keeps the core loop local, the hints deterministic, and the session design short enough to remain calm.</p>
@@ -61,7 +86,7 @@
     </section>
 
     <section class="case-section" data-frame id="visuals">
-      <div class="section-kicker">Visuals<span>02 / evidence</span></div>
+      <div class="section-kicker">Visuals<span>Evidence</span></div>
       <div class="case-section-body">
         <h2>The look is playful. The system underneath is controlled.</h2>
         <div class="visual-grid">
@@ -76,7 +101,7 @@
     </section>
 
     <section class="case-section" data-frame id="architecture">
-      <div class="section-kicker">Architecture<span>03 / offline</span></div>
+      <div class="section-kicker">Architecture<span>Offline</span></div>
       <div class="case-section-body">
         <h2>Offline-first product architecture is a trust decision.</h2>
         <div class="system-map">
@@ -89,7 +114,7 @@
     </section>
 
     <section class="case-section" data-frame id="decisions">
-      <div class="section-kicker">Decisions<span>04 / scope</span></div>
+      <div class="section-kicker">Decisions<span>Scope</span></div>
       <div class="case-section-body">
         <h2>Most of the hard decisions were about boundaries.</h2>
         <div class="evidence-grid">
@@ -101,6 +126,7 @@
       </div>
     </section>
   </main>
-  <script src="vertical-system.js"></script>
+  <script src="vertical-system.js?v=20260712"></script>
+  <script src="platform-system.js"></script>
 </body>
 </html>

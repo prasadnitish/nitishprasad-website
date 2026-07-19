@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>SproutRoute - Nitish Prasad</title>
+  <meta name="description" content="SproutRoute systems case study: hybrid AI travel planner with deterministic packing, attraction memory, latency optimization, and trust architecture." />
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="stylesheet" href="vertical-system.css" />
+</head>
+<body class="detail-page">
+  <div class="mobile-progress" aria-hidden="true"><span data-mobile-progress></span></div>
+  <header class="site-nav">
+    <a class="brand-lockup" href="index.html"><span>Nitish Prasad</span><span>Product systems</span></a>
+    <nav class="nav-links" aria-label="Case navigation">
+      <a href="index.html">Signal</a>
+      <a aria-current="page" href="case-sproutroute.html">SproutRoute</a>
+      <a href="case-sproutmath.html">SproutMath</a>
+      <a href="archive.html">Archive</a>
+    </nav>
+  </header>
+
+  <aside class="vine-shell" aria-hidden="true">
+    <svg viewBox="0 0 100 900" preserveAspectRatio="none">
+      <path class="vine-track" d="M52 0 C28 105 82 170 50 270 C18 372 72 458 50 565 C30 672 66 770 48 900" />
+      <path class="vine-progress" data-vine-progress d="M52 0 C28 105 82 170 50 270 C18 372 72 458 50 565 C30 672 66 770 48 900" />
+    </svg>
+    <span class="vine-node" data-vine-node></span>
+    <span class="vine-node" data-vine-node></span>
+    <span class="vine-node" data-vine-node></span>
+    <span class="vine-node" data-vine-node></span>
+    <span class="vine-node" data-vine-node></span>
+  </aside>
+
+  <main class="case-shell">
+    <section class="case-hero" data-frame>
+      <p class="context">Hybrid AI / live production / family travel</p>
+      <h1 class="case-title">SproutRoute</h1>
+      <p class="case-summary">A hybrid AI travel planner that separates what AI should generate from what must be verified, deterministic, or cached. I defined the product, designed the system architecture, and operate the web app in production.</p>
+      <dl class="metric-line">
+        <div><dt>Stack</dt><dd>Railway + Supabase</dd></div>
+        <div><dt>AI</dt><dd>Gemini + Places</dd></div>
+        <div><dt>Quality</dt><dd>350+ tests</dd></div>
+        <div><dt>Core choice</dt><dd>Facts before prose</dd></div>
+      </dl>
+      <div class="case-actions">
+        <a class="button" href="#screens">Screens</a>
+        <a class="button secondary" href="#architecture">Architecture</a>
+        <a class="button secondary" href="archive.html">Related artifacts</a>
+      </div>
+    </section>
+
+    <section class="case-section" data-frame id="hard">
+      <div class="section-kicker">Complexity<span>01 / boundaries</span></div>
+      <div class="case-section-body">
+        <h2>The hard parts were in the boundaries.</h2>
+        <p>Users type fuzzy travel intent. The system has to extract constraints, route across external APIs, separate factual data from generative text, keep family-safety information reliable, and avoid turning every trip plan into a slow serial dependency chain.</p>
+        <div class="evidence-grid">
+          <article class="evidence-panel"><strong>Fuzzy input</strong><p>Free text has to become destination, dates, children, pets, travel mode, and planning constraints.</p></article>
+          <article class="evidence-panel"><strong>API failure modes</strong><p>Weather, geocoding, places, policy, AI, and persistence layers all fail differently.</p></article>
+          <article class="evidence-panel"><strong>Factual vs generative</strong><p>Weather, safety, places, and packing must not be hallucinated by itinerary prose.</p></article>
+          <article class="evidence-panel"><strong>Latency</strong><p>Moving from 8-12 seconds required parallelization, caching, and hot-path discipline.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section" data-frame id="screens">
+      <div class="section-kicker">Screens<span>02 / shipped flow</span></div>
+      <div class="case-section-body">
+        <h2>The artifacts should show the shipped flow, not a decorative mockup.</h2>
+        <div class="visual-grid">
+          <figure class="visual"><img data-lightbox src="../assets/screenshots/location-picker.jpg" alt="SproutRoute destination search screen" /><figcaption>Natural-language destination setup</figcaption></figure>
+          <figure class="visual"><img data-lightbox src="../assets/screenshots/date-picker.jpg" alt="SproutRoute date picker screen" /><figcaption>Date range drives weather and packing</figcaption></figure>
+          <figure class="visual"><img data-lightbox src="../assets/screenshots/whos-coming.jpg" alt="SproutRoute traveler setup screen" /><figcaption>Family composition changes constraints</figcaption></figure>
+          <figure class="visual"><img data-lightbox src="../assets/screenshots/itinerary.jpg" alt="SproutRoute itinerary screen" /><figcaption>Verified itinerary surface</figcaption></figure>
+          <figure class="visual"><img data-lightbox src="../assets/screenshots/packing-list.jpg" alt="SproutRoute packing list screen" /><figcaption>Deterministic packing list</figcaption></figure>
+          <figure class="visual"><img data-lightbox src="../assets/screenshots/safety.jpg" alt="SproutRoute safety screen" /><figcaption>Safety from verified sources</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section" data-frame id="architecture">
+      <div class="section-kicker">Architecture<span>03 / evolution</span></div>
+      <div class="case-section-body">
+        <h2>Three architectural stages, each driven by a production problem.</h2>
+        <div class="evidence-grid">
+          <article class="evidence-panel"><strong>V1: AI-heavy generation</strong><p>Fast to ship, but slow, expensive, and unreliable for packing and safety.</p></article>
+          <article class="evidence-panel"><strong>V2: deterministic packing</strong><p>Moved packing to rules and routed models by task to improve reliability.</p></article>
+          <article class="evidence-panel"><strong>V3: attraction memory</strong><p>Stored verified attractions with freshness scoring so one trip improves the next.</p></article>
+          <article class="evidence-panel"><strong>Current state</strong><p>Verified data feeds the AI planner; AI writes connective tissue, not facts.</p></article>
+        </div>
+        <div class="visual-grid two">
+          <figure class="visual diagram-visual"><img data-lightbox src="../diagrams/runtime-architecture.svg" alt="SproutRoute runtime architecture" /><figcaption>Runtime architecture</figcaption></figure>
+          <figure class="visual diagram-visual"><img data-lightbox src="../diagrams/trust-architecture.svg" alt="SproutRoute trust architecture" /><figcaption>Trust architecture</figcaption></figure>
+          <figure class="visual diagram-visual"><img data-lightbox src="../diagrams/request-lifecycle.svg" alt="SproutRoute request lifecycle" /><figcaption>Request lifecycle</figcaption></figure>
+          <figure class="visual diagram-visual"><img data-lightbox src="../diagrams/latency-comparison.svg" alt="SproutRoute latency comparison" /><figcaption>Latency before and after</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section" data-frame id="decisions">
+      <div class="section-kicker">Decisions<span>04 / judgment</span></div>
+      <div class="case-section-body">
+        <h2>The page should make the tradeoffs inspectable.</h2>
+        <div class="evidence-grid">
+          <article class="evidence-panel"><strong>Deterministic packing over AI packing.</strong><p>Family travel packing is constraint-based. Reliability beats novelty.</p></article>
+          <article class="evidence-panel"><strong>Per-task model routing over one global model.</strong><p>Different steps need different cost, latency, and reasoning profiles.</p></article>
+          <article class="evidence-panel"><strong>Cached attraction shortlist over open-ended discovery.</strong><p>Freshness scoring narrows the search space and improves repeat plans.</p></article>
+          <article class="evidence-panel"><strong>Factual APIs separated from generative output.</strong><p>Weather, places, and safety data need provenance before prose.</p></article>
+        </div>
+        <a class="text-link" href="../privacy-policy.html">Privacy</a>
+        <a class="text-link" href="../terms.html">Terms</a>
+      </div>
+    </section>
+  </main>
+  <script src="vertical-system.js"></script>
+</body>
+</html>

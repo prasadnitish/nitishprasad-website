@@ -1,0 +1,15 @@
+{
+  "files": [
+    "*.html",
+    "ai-safety/**/*.html",
+    "evals/**/*.html"
+  ],
+  "exclude": [
+    "mocks/**",
+    "mocks-v2/**",
+    "react-luxury-portfolio/**"
+  ],
+  "insertBefore": "</body>",
+  "commentSyntax": "html",
+  "cspChecked": true
+}

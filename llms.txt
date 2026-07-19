@@ -12,12 +12,40 @@ This site is intended to be readable by search crawlers, recruiter tools, hiring
 - AI Eval Control Tower case study: https://www.nitishprasad.com/ai-eval-control-tower.html
 - RAG Pipeline with Guardrails case study: https://www.nitishprasad.com/project-rag-pipeline.html
 - AI Safety Audit Tool case study: https://www.nitishprasad.com/project-ai-safety.html
+- Enterprise AI Platform operating model: https://www.nitishprasad.com/enterprise-ai-platform.html
+- Governed LLM Gateway case study: https://www.nitishprasad.com/project-llm-gateway.html
+- Seller Ontology GraphRAG case study: https://www.nitishprasad.com/project-graphrag.html
+- Agent Runtime Observability case study: https://www.nitishprasad.com/project-agent-observability.html
+- Automated Red-Team Release Gate case study: https://www.nitishprasad.com/project-redteam-harness.html
+- Multi-Agent Orchestrator and MCP case study: https://www.nitishprasad.com/project-multi-agent-orchestrator.html
+
+## Interactive Demos and Source
+
+- Anonymized seller workflow lab: https://www.nitishprasad.com/demos/amplify/
+- RAG guardrails lab: https://www.nitishprasad.com/demos/rag-guardrails/
+- RAG guardrails source: https://github.com/prasadnitish/rag-pipeline-guardrails
+- AI Eval Control Tower: https://www.nitishprasad.com/evals/
+- AI Eval source: https://github.com/prasadnitish/AI-Eval-Control-Tower
+- AI Safety Audit Tool: https://www.nitishprasad.com/ai-safety/
+- AI Safety source: https://github.com/prasadnitish/ai-safety-audit-tool
+- Sprout Math live product: https://sproutmath.app
+- Sprout Math source: https://github.com/prasadnitish/mathquest-kids
+- LLM Gateway routing lab: https://www.nitishprasad.com/demos/llm-gateway/
+- LLM Gateway source: https://github.com/prasadnitish/llm-gateway
+- GraphRAG traversal lab: https://www.nitishprasad.com/demos/graphrag/
+- GraphRAG source: https://github.com/prasadnitish/seller-ontology-graphrag
+- Agent Observability console: https://www.nitishprasad.com/demos/agent-observability/
+- Agent Observability source: https://github.com/prasadnitish/AI-Eval-Control-Tower/tree/codex/agent-observability
+- Red-Team release gate: https://www.nitishprasad.com/demos/redteam/
+- Red-Team source: https://github.com/prasadnitish/ai-safety-audit-tool/tree/codex/redteam-harness
+- SproutRoute live product: https://sproutroute.app
+- SproutRoute source: https://github.com/prasadnitish/SproutRoute
 
 ## Candidate Summary
 
 Nitish Prasad is a product leader focused on 0->1 product strategy, scaled AI systems, marketplace economics, RAG, AI evaluation, trust and safety, and product operations.
 
-Flagship work includes an anonymized AI seller workflow intelligence case study; SproutRoute, a hybrid AI travel planner with deterministic and verified data layers; and Sprout Math, a privacy-first offline iOS math learning app for K-5 learners.
+Flagship work includes an anonymized AI seller workflow intelligence case study; SproutRoute, a hybrid AI travel planner with deterministic and verified data layers; Sprout Math, a privacy-first offline iOS learning app; and an implemented enterprise AI platform portfolio spanning governed model access, GraphRAG, agent observability, adversarial release gates, and MCP execution.
 
 ## Contact
 
