@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
@@ -123,6 +123,13 @@ test("Gateway fixtures select the policy context their labels promise", async ()
   assert.match(gateway, /Restricted-data block<\/button>/);
   assert.match(gateway, /data-data-class="restricted"[^>]*>Restricted-data block/);
   assert.ok(runtime.includes('button.dataset.dataClass'));
+});
+
+test("published HTML contains no mojibake", async () => {
+  const htmlFiles = (await readdir(root, { recursive: true })).filter((path) => path.endsWith(".html"));
+  for (const path of htmlFiles) {
+    assert.doesNotMatch(await text(path), /[âÂÃð�]/u, `${path} contains broken UTF-8 text`);
+  }
 });
 
 test("case studies link their manifest and disclose reproduction boundaries", async () => {
