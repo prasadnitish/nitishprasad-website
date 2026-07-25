@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "mode": "committed_replay",
+  "publishable_graph_vs_vector_claim": false,
+  "repository": "https://github.com/prasadnitish/seller-ontology-graphrag",
+  "scenarios": {
+    "incidents": {
+      "name": "Incident Dependency Graph",
+      "version": "1.0.0",
+      "ontology_hash": "2d25ebdc4ba2dca864928218f61b176cbbf0a61838458feb6fd62677d715f1a0",
+      "data_hash": "ef347f6379b546e50e31ae8a294be7413d816ec865ae3639bc99b45f0346d87a",
+      "counts": {"sources": 9, "mapped_fields": 22, "nodes": 17, "relationships": 17, "chunks": 36},
+      "evaluation": {"passed": 40, "cases": 40, "provider": "rule-planner", "claim": "Recipe routing and parameter extraction only"},
+      "examples": [
+        "Which customers are exposed to incident INC-104 and which team owns the failure?",
+        "Summarize the mitigation steps in the order ledger postmortem.",
+        "For INC-104, who owns the failing service and what mitigation does the runbook recommend?",
+        "Which customers are exposed to incident INC-777?"
+      ],
+      "recipes": [
+        {
+          "id": "incident_customer_impact",
+          "route": "graph",
+          "questions": ["Which customers are exposed to incident INC-104 and which team owns the failure?", "Show the customer impact path for INC-104.", "Who is affected by incident INC-099?"],
+          "entities": ["INC-104", "INC-099"],
+          "parameters": {"incident_id": "INC-104"},
+          "cypher": "MATCH (i:Incident {tenant_id: $tenant_id, id: $incident_id})-[:IMPACTS]->(root:Service)\nMATCH path=(customer:Customer {tenant_id: $tenant_id})-[:USES]->(entry:Service)-[:DEPENDS_ON*0..3]->(root)\nMATCH (root)-[:OWNED_BY]->(team:Team {tenant_id: $tenant_id})\nWHERE all(node IN nodes(path) WHERE node.tenant_id = $tenant_id)\nRETURN i.id AS incident, collect(DISTINCT customer.name) AS customers, team.name AS owner\nLIMIT 20",
+          "answer": "Northstar Retail, Cedar Marketplace, Harbor Goods, and Kumo Direct are exposed to INC-104. Identity Foundations owns the affected Authentication Service.",
+          "graph_trace": ["Incident:INC-104", "Service:Authentication Service", "Team:Identity Foundations", "Customer:Northstar Retail", "Customer:Cedar Marketplace", "Customer:Harbor Goods", "Customer:Kumo Direct"],
+          "vector_trace": [],
+          "citations": [{"source":"incidents.csv","locator":"row:1"},{"source":"services.csv","locator":"row:2"},{"source":"usage.csv","locator":"rows:1-4"},{"source":"dependencies.csv","locator":"rows:1,4"}]
+        },
+        {
+          "id": "postmortem_mitigation",
+          "route": "vector",
+          "questions": ["Summarize the mitigation steps in the order ledger postmortem.", "What rollback and recovery actions are described in the postmortem?", "Explain the authentication runbook."],
+          "entities": [],
+          "parameters": {},
+          "cypher": null,
+          "answer": "The team paused the migration, restored the prior index, drained the backlog, and added a pre-deployment query-plan comparison.",
+          "graph_trace": [],
+          "vector_trace": ["The team paused the migration, restored the prior index, drained the event backlog, and added a pre-deployment query-plan comparison to the release checklist."],
+          "citations": [{"source":"postmortem.md","locator":"paragraph:3"}]
+        },
+        {
+          "id": "incident_mitigation_owner",
+          "route": "hybrid",
+          "questions": ["For INC-104, who owns the failing service and what mitigation does the runbook recommend?", "Combine the INC-099 owner with the documented recovery steps."],
+          "entities": ["INC-104", "INC-099"],
+          "parameters": {"incident_id": "INC-104"},
+          "cypher": "MATCH (incident:Incident {tenant_id: $tenant_id, id: $incident_id})-[:IMPACTS]->(service:Service {tenant_id: $tenant_id})-[:OWNED_BY]->(team:Team {tenant_id: $tenant_id})\nRETURN incident.id AS incident, service.name AS service, team.name AS owner\nLIMIT 10",
+          "answer": "Identity Foundations owns the Authentication Service. The runbook says to disable the new flag, verify token issuance in two regions, and confirm checkout recovery.",
+          "graph_trace": ["Incident:INC-104", "Service:Authentication Service", "Team:Identity Foundations"],
+          "vector_trace": ["If authentication errors rise after a feature configuration deployment, disable the new flag, verify token issuance in two regions, and confirm checkout recovery before closing the incident."],
+          "citations": [{"source":"incidents.csv","locator":"row:1"},{"source":"services.csv","locator":"row:2"},{"source":"runbook.md","locator":"paragraph:2"}]
+        }
+      ]
+    },
+    "seller": {
+      "name": "Seller Policy Graph",
+      "version": "1.0.0",
+      "ontology_hash": "3df05d1d0e17434b0c749a04630924022d0632c78bbe91476426e7e0928b8fb1",
+      "data_hash": "19197fa8dd42882997fb64adba93c81e80b990f0dc71ef1644cea82036014c68",
+      "counts": {"sources": 8, "mapped_fields": 20, "nodes": 33, "relationships": 53, "chunks": 87},
+      "evaluation": {"passed": 37, "cases": 40, "provider": "rule-planner", "claim": "Recipe routing and parameter extraction only; three failures retained"},
+      "examples": [
+        "Which US sellers are eligible for Growth and what fee applies?",
+        "Explain how seller eligibility should be evaluated.",
+        "What does Growth charge and why does the guide say tier alone is insufficient?",
+        "Which US sellers qualify for Diamond?"
+      ],
+      "recipes": [
+        {
+          "id": "seller_eligibility_fee",
+          "route": "graph",
+          "questions": ["Which US sellers are eligible for Growth and what fee applies?", "Show Export sellers in CA and the program fee.", "Who qualifies for Premium in UK?"],
+          "entities": ["US", "CA", "UK", "DE", "JP", "Growth", "Export", "Launch", "Premium"],
+          "parameters": {"region_code":"US","program_name":"Growth"},
+          "cypher": "MATCH (seller:Seller {tenant_id: $tenant_id})-[:APPLIES_IN]->(region:Region {tenant_id: $tenant_id, code: $region_code})\nMATCH (seller)-[:ELIGIBLE_FOR]->(program:Program {tenant_id: $tenant_id, name: $program_name})\nMATCH (program)-[:CHARGES]->(fee:Fee {tenant_id: $tenant_id})\nRETURN collect(DISTINCT seller.name) AS sellers, program.name AS program, region.code AS region, fee.amount AS fee_amount\nLIMIT 100",
+          "answer": "Northstar Goods, Cedar Lane, Desert Bloom, and Pacific Loom are eligible for Growth in the US; the referral fee is 2.5%.",
+          "graph_trace": ["Region:US", "Program:Growth", "Fee:2.5%", "Seller:Northstar Goods", "Seller:Cedar Lane", "Seller:Desert Bloom", "Seller:Pacific Loom"],
+          "vector_trace": [],
+          "citations": [{"source":"sellers.csv","locator":"rows:1,6,11,12"},{"source":"eligibility.csv","locator":"enrollment rows"},{"source":"programs.csv","locator":"row:1"},{"source":"fees.csv","locator":"row:1"}]
+        },
+        {
+          "id": "policy_explanation",
+          "route": "vector",
+          "questions": ["Explain how seller eligibility should be evaluated.", "Summarize the seller program policy guide.", "Why should seller tier not determine a waiver?"],
+          "entities": [],
+          "parameters": {},
+          "cypher": null,
+          "answer": "Eligibility depends on operating region and explicit enrollment. Fees belong to programs, while waivers come from the program's policy and cannot be inferred from seller tier.",
+          "graph_trace": [],
+          "vector_trace": ["Seller eligibility depends on the seller's operating region and an explicit program enrollment. Fees belong to programs, not to sellers or regions. Waivers are governed by the policy connected to the program and must not be inferred from seller tier alone."],
+          "citations": [{"source":"policy-guide.md","locator":"paragraph:2"}]
+        },
+        {
+          "id": "program_policy_context",
+          "route": "hybrid",
+          "questions": ["What does Growth charge and why does the guide say tier alone is insufficient?", "Combine the Export fee with the narrative policy guidance."],
+          "entities": ["Growth", "Export", "Launch", "Premium"],
+          "parameters": {"program_name":"Growth"},
+          "cypher": "MATCH (program:Program {tenant_id: $tenant_id, name: $program_name})-[:CHARGES]->(fee:Fee {tenant_id: $tenant_id})\nMATCH (program)-[:GOVERNED_BY]->(policy:Policy {tenant_id: $tenant_id})\nRETURN program.name AS program, fee.type AS fee_type, fee.amount AS fee_amount, policy.name AS policy\nLIMIT 10",
+          "answer": "Growth charges a 2.5% referral fee and is governed by Growth Policy. The guide says tier alone is insufficient because waivers must follow the connected policy.",
+          "graph_trace": ["Program:Growth", "Fee:2.5%", "Policy:Growth Policy"],
+          "vector_trace": ["Waivers are governed by the policy connected to the program and must not be inferred from seller tier alone."],
+          "citations": [{"source":"programs.csv","locator":"row:1"},{"source":"fees.csv","locator":"row:1"},{"source":"policies.csv","locator":"row:1"},{"source":"policy-guide.md","locator":"paragraph:2"}]
+        }
+      ]
+    }
+  }
+}

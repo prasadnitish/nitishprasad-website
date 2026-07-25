@@ -1,25 +1,171 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" /><title>Seller Ontology GraphRAG â Nitish Prasad</title><meta name="description" content="Implemented tenant-scoped GraphRAG knowledge layer with a lossless graph and corpus projection, safe Cypher, multi-hop evaluation, and operations controls." /><link rel="icon" type="image/png" href="favicon.png" /><link rel="stylesheet" href="vertical-system.css" /><link rel="stylesheet" href="platform-system.css" />  <!-- SEO / social metadata -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>GraphRAG Ontology Workbench | Nitish Prasad</title>
+  <meta name="description" content="A reusable, local-first workbench for turning CSV, JSON, Markdown, and text into an approved ontology, Neo4j graph, safe retrieval application, and reproducible evaluation." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="vertical-system.css" />
+  <link rel="stylesheet" href="platform-system.css" />
   <link rel="canonical" href="https://www.nitishprasad.com/project-graphrag" />
-
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.nitishprasad.com/project-graphrag" />
   <meta property="og:site_name" content="Nitish Prasad" />
-  <meta property="og:title" content="Seller Ontology GraphRAG — Nitish Prasad" />
-  <meta property="og:description" content="A tenant-scoped GraphRAG knowledge layer with a lossless graph and corpus projection, safe Cypher, multi-hop evaluation, and operations controls." />
-  <meta property="og:image" content="https://www.nitishprasad.com/og-default.png" />
-
+  <meta property="og:title" content="GraphRAG Ontology Workbench | Nitish Prasad" />
+  <meta property="og:description" content="A governed workflow for converting mixed source data into an evaluated GraphRAG application." />
+  <meta property="og:image" content="https://www.nitishprasad.com/assets/graphrag-workbench.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Seller Ontology GraphRAG — Nitish Prasad" />
-  <meta name="twitter:description" content="A tenant-scoped GraphRAG knowledge layer with a lossless graph and corpus projection, safe Cypher, multi-hop evaluation, and operations controls." />
-  <meta name="twitter:image" content="https://www.nitishprasad.com/og-default.png" />
+  <meta name="twitter:title" content="GraphRAG Ontology Workbench | Nitish Prasad" />
+  <meta name="twitter:description" content="A governed workflow for converting mixed source data into an evaluated GraphRAG application." />
+  <meta name="twitter:image" content="https://www.nitishprasad.com/assets/graphrag-workbench.png" />
 </head>
-<body class="detail-page"><div class="mobile-progress" aria-hidden="true"><span data-mobile-progress></span></div><header class="site-nav"><a class="brand-lockup" href="index.html"><span>Nitish Prasad</span><span>Principal / Staff PM</span></a>
-    <span class="nav-divider" aria-hidden="true"></span><nav class="nav-links" aria-label="Primary"><a href="index.html#work">Work</a><a aria-current="page" href="enterprise-ai-platform.html">AI Platform</a><a href="index.html#about">About</a><a href="resume.html">Resume</a>
-      <a class="nav-cta" href="resume.html">Get the resume <span aria-hidden="true">↓</span></a></nav></header>
-<main class="case-shell">
-  <section class="case-hero" data-frame><p class="context">Implemented platform capability / relationship-aware grounding</p><h1 class="case-title">Make policy relationships queryable.</h1><p class="case-summary">A schema-first seller ontology answers questions that vector similarity routinely flattens: who is eligible, where, under which policy, with which fee and waiver. Every answer carries a read-only Cypher trace and cited subgraph.</p><div class="evidence-status" aria-label="Evidence maturity"><span class="is-implemented">Implemented and tested</span><span>Offline comparison / Neo4j gate open</span></div><div class="case-actions"><a class="button" href="demos/graphrag/">Try the traversal lab</a><a class="button secondary" href="https://github.com/prasadnitish/seller-ontology-graphrag" target="_blank" rel="noopener">View GitHub â</a></div><dl class="metric-line"><div><dt>Graph tests</dt><dd>9 passing</dd></div><div><dt>Multi-hop set</dt><dd>20 questions</dd></div><div><dt>Offline wins</dt><dd>100%</dd></div><div><dt>Tenant crossover</dt><dd>0</dd></div></dl><dl class="decision-summary"><div><dt>Decision</dt><dd>Reserve GraphRAG for relationship-dependent decisions; keep simpler vector retrieval as the default baseline.</dd></div><div><dt>Why</dt><dd>An ontology earns its maintenance cost only when traversal improves correctness and makes the evidence path easier to defend.</dd></div><div><dt>Evidence boundary</dt><dd>The comparison uses a deterministic vector simulation and offline reference scorer. Neo4j, the live RAG endpoint, and the Control Tower judge remain external validation gates.</dd></div></dl></section>
-  <section class="case-section" data-frame><div class="section-kicker">Fair comparison<span>One source of truth</span></div><div class="case-section-body"><h2>No fact gets to exist on only one side.</h2><div class="system-map"><div><span>Source</span><h3>Seller domain</h3><p>Twelve sellers, four programs, six policies, five regions, fees, and waiver rules live in one synthetic source file.</p></div><div><span>Project</span><h3>Two views</h3><p>One generator emits both the graph seed and prose corpus; a test asserts that every graph fact appears in the corpus.</p></div><div><span>Traverse</span><h3>Safe Cypher</h3><p>Queries require tenant predicates and limits, reject writes and unbounded paths, and return insufficient data on empty results.</p></div><div><span>Compare</span><h3>Same questions</h3><p>Twenty fixed three-hop questions produce a per-answer score, winner, and delta.</p></div></div></div></section>
-  <section class="case-section" data-frame><div class="section-kicker">Worked trace<span>Question to evidence</span></div><div class="case-section-body"><h2>âWhich US sellers qualify for Growth, and what fee applies?â</h2><div class="evidence-grid"><article class="evidence-panel"><strong>Intent</strong><p>Resolve region and program, then cross seller eligibility and the program fee relationship.</p></article><article class="evidence-panel"><strong>Traversal</strong><p><code>Seller â APPLIES_IN â Region</code>, <code>Seller â ELIGIBLE_FOR â Program</code>, and <code>Program â CHARGES â Fee</code>.</p></article><article class="evidence-panel"><strong>Grounded answer</strong><p>Northstar Goods, Cedar Lane, Desert Bloom, and Pacific Loom qualify; the referral fee is 2.5%.</p></article><article class="evidence-panel"><strong>Citations</strong><p>The trace retains seller, program, region, and fee IDsânot an uninspectable similarity score.</p></article></div></div></section>
-  <section class="case-section" data-frame><div class="section-kicker">Operate the graph<span>Beyond the demo</span></div><div class="case-section-body"><h2>Ontology governance is part of the product.</h2><p>Tenant and version keys scope the subgraph cache. Immutable events carry idempotency keys; optimistic conflicts retry with a cap and dead-letter on exhaustion. The virtual million-node harness proves control behavior, not database latency. The next gate is a local Neo4j run against the existing vector-RAG service and live judge.</p><a class="text-link" href="project-rag-pipeline.html">Inspect the vector-RAG baseline</a><a class="text-link" href="enterprise-ai-platform.html">Return to the operating model</a></div></section>
-</main><script src="vertical-system.js?v=20260712"></script><script src="platform-system.js"></script></body></html>
+<body class="detail-page">
+  <div class="mobile-progress" aria-hidden="true"><span data-mobile-progress></span></div>
+  <header class="site-nav">
+    <a class="brand-lockup" href="index.html"><span>Nitish Prasad</span><span>Principal / Staff PM</span></a>
+    <span class="nav-divider" aria-hidden="true"></span>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a aria-current="page" href="enterprise-ai-platform.html">AI Platform</a>
+      <a href="about.html">About</a>
+      <a class="nav-cta" href="resume.html">Get the resume <span aria-hidden="true">↓</span></a>
+    </nav>
+  </header>
+
+  <main class="case-shell">
+    <section class="case-hero" data-frame>
+      <p class="context">Implemented toolkit / governed knowledge systems</p>
+      <h1 class="case-title">Make GraphRAG prove it deserves the graph.</h1>
+      <p class="case-summary">I built a local-first conversion workbench that profiles source data, gives coding agents a schema-backed ontology task, requires human approval, compiles deterministic graph IR, routes questions through safe recipes, and publishes case-level evaluation evidence.</p>
+      <div class="evidence-status" aria-label="Evidence maturity">
+        <span class="is-implemented">Local product implemented and tested</span>
+        <span>Hosted Neo4j and provider certification still gated</span>
+      </div>
+      <div class="case-actions">
+        <a class="button" href="demos/graphrag/">Open the artifact walkthrough</a>
+        <a class="button secondary" href="https://github.com/prasadnitish/seller-ontology-graphrag" target="_blank" rel="noopener">View repository ↗</a>
+      </div>
+      <dl class="metric-line">
+        <div><dt>Structured coverage</dt><dd>100%</dd></div>
+        <div><dt>Held-out cases</dt><dd>80</dd></div>
+        <div><dt>Incident routing</dt><dd>40 / 40</dd></div>
+        <div><dt>Seller routing</dt><dd>37 / 40</dd></div>
+      </dl>
+      <dl class="decision-summary">
+        <div><dt>Decision</dt><dd>Use GraphRAG when the path is part of the answer. Keep vector RAG as the default for narrative retrieval.</dd></div>
+        <div><dt>What the evidence says</dt><dd>The local compiler and safe-routing contract work across two domains. Three seller routing failures remain visible.</dd></div>
+        <div><dt>What it does not say</dt><dd>No committed artifact yet proves GraphRAG beats vector RAG on answer quality. OpenAI, Ollama, AuraDB, and measured latency remain release gates.</dd></div>
+      </dl>
+    </section>
+
+    <section class="case-section" data-frame>
+      <div class="section-kicker">Product problem<span>Turn mixed sources into a governed retrieval contract</span></div>
+      <div class="case-section-body">
+        <h2>Relationship questions need an inspectable path from source data to answer.</h2>
+        <div class="evidence-grid">
+          <article class="evidence-panel"><strong>Mixed sources</strong><p>Operational knowledge spans records, policies, runbooks, and postmortems with different keys and levels of structure.</p></article>
+          <article class="evidence-panel"><strong>Ontology choices</strong><p>Teams need to review entity keys, relationships, field mappings, constraints, and ignored data before ingestion.</p></article>
+          <article class="evidence-panel"><strong>Safe questions</strong><p>Free text must resolve to typed parameters and bounded query recipes without giving the model unrestricted Cypher access.</p></article>
+          <article class="evidence-panel"><strong>Decision evidence</strong><p>Held-out cases must show where graph, vector, hybrid, and unsupported routes succeed or fail.</p></article>
+        </div>
+        <p>The workbench stores these decisions in one GraphSpec and carries source provenance through compilation, retrieval, and evaluation.</p>
+      </div>
+    </section>
+
+    <section class="case-section" data-frame>
+      <div class="section-kicker">Reusable workflow<span>One contract, several tools</span></div>
+      <div class="case-section-body">
+        <h2>AI proposes. A person approves. The compiler decides what can run.</h2>
+        <div class="system-map">
+          <div><span>01 / Profile</span><h3>Inspect the evidence</h3><p>Hash files, infer fields, sample values, discover text sections, and warn on potential sensitive data.</p></div>
+          <div><span>02 / Propose</span><h3>Use any coding agent</h3><p>Codex, Claude Code, Cursor, or another repository-aware agent proposes one schema-backed GraphSpec.</p></div>
+          <div><span>03 / Review</span><h3>Refine visibly</h3><p>Edit node types, relationships, mappings, and recipes through forms with a live ontology canvas.</p></div>
+          <div><span>04 / Approve</span><h3>Bind meaning to sources</h3><p>Semantic and source hashes form the build gate. Dragging layout does not alter approval.</p></div>
+          <div><span>05 / Compile</span><h3>Create neutral graph IR</h3><p>Nodes, relationships, chunks, and exact provenance exist before any provider or Neo4j write.</p></div>
+          <div><span>06 / Evaluate</span><h3>Keep losses visible</h3><p>Graph, vector, hybrid, unsupported, safety, and paraphrase cases produce a versioned report.</p></div>
+        </div>
+        <img class="case-product-shot" src="assets/graphrag-workbench.png" width="1440" height="1158" alt="GraphRAG Ontology Workbench showing hashed source files and a live ontology canvas" />
+      </div>
+    </section>
+
+    <section class="case-section" data-frame>
+      <div class="section-kicker">Architecture<span>Trust boundaries first</span></div>
+      <div class="case-section-body">
+        <h2>The model never receives an unrestricted database capability.</h2>
+        <div class="system-map">
+          <div><span>Inputs</span><h3>Local sources</h3><p>CSV, JSON, Markdown, and text remain local until a cloud provider is explicitly chosen.</p></div>
+          <div><span>Contract</span><h3>GraphSpec</h3><p>Pydantic emits the same JSON Schema for the CLI, editor, coding agents, and structured model outputs.</p></div>
+          <div><span>Compiler</span><h3>Deterministic IR</h3><p>Every structured field is mapped or ignored with a reason. Text facts need an exact source quote.</p></div>
+          <div><span>Storage</span><h3>Neo4j + vectors</h3><p>Tenant-scoped idempotent merges and model/version-specific index namespaces prevent silent reuse.</p></div>
+          <div><span>Runtime</span><h3>Approved recipes</h3><p>AI selects a route and typed parameters. It cannot invent executable Cypher.</p></div>
+          <div><span>Evidence</span><h3>Case-level artifacts</h3><p>Provider, model, ontology, data, commit, route, parameters, citations, failures, and latency travel together.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section" data-frame>
+      <div class="section-kicker">Worked examples<span>Graph, vector, hybrid, unsupported</span></div>
+      <div class="case-section-body">
+        <h2>The route is a product decision, not a GraphRAG marketing claim.</h2>
+        <div class="evidence-grid">
+          <article class="evidence-panel"><strong>Graph / incident impact</strong><p>“Which customers are exposed to INC-104?” traverses incident, service dependencies, customer usage, and ownership. The path is bounded at three hops.</p></article>
+          <article class="evidence-panel"><strong>Vector / mitigation</strong><p>“Summarize the postmortem mitigation” retrieves narrative text. Modeling every mitigation sentence as graph structure would add cost without obvious value.</p></article>
+          <article class="evidence-panel"><strong>Hybrid / owner + response</strong><p>Ownership comes from exact graph relationships; response guidance comes from cited runbook chunks.</p></article>
+          <article class="evidence-panel"><strong>Unsupported / missing incident</strong><p>INC-777 does not exist. The system returns no recipe, no Cypher, and no score instead of guessing.</p></article>
+        </div>
+        <a class="text-link" href="demos/graphrag/">Inspect recipe, parameters, Cypher, subgraph, chunks, and citations</a>
+      </div>
+    </section>
+
+    <section class="case-section" data-frame>
+      <div class="section-kicker">Measured results<span>No predetermined winner</span></div>
+      <div class="case-section-body">
+        <h2>Current evidence covers source conversion and safe recipe routing.</h2>
+        <div class="evidence-grid">
+          <article class="evidence-panel"><strong>Incident build</strong><p>22 mapped fields, 17 nodes, 17 relationships, 36 chunks, and zero unresolved structured fields.</p></article>
+          <article class="evidence-panel"><strong>Seller build</strong><p>20 mapped fields, 33 nodes, 53 relationships, 87 chunks, and zero unresolved structured fields.</p></article>
+          <article class="evidence-panel"><strong>Incident routing</strong><p>40 of 40 reviewed cases passed the deterministic recipe-selection and parameter suite.</p></article>
+          <article class="evidence-panel"><strong>Seller routing</strong><p>37 of 40 passed. The three failures remain in the case-level artifact and constrain the claim.</p></article>
+        </div>
+        <p>These results do not measure answer correctness. Provider-backed certification will add exact entity/value scoring, citation validation, the same synthesis model for graph and vector, and measured latency. No metric ships unless CI can trace it to the evidence manifest.</p>
+        <div class="case-actions">
+          <a class="button secondary" href="https://github.com/prasadnitish/seller-ontology-graphrag/blob/main/evidence/manifest.json" target="_blank" rel="noopener">Evidence manifest ↗</a>
+          <a class="button secondary" href="https://github.com/prasadnitish/seller-ontology-graphrag/blob/main/examples/incidents/generated/evaluation.json" target="_blank" rel="noopener">Incident cases ↗</a>
+          <a class="button secondary" href="https://github.com/prasadnitish/seller-ontology-graphrag/blob/main/examples/seller/generated/evaluation.json" target="_blank" rel="noopener">Seller cases ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section" data-frame>
+      <div class="section-kicker">Security and governance<span>Fail closed by design</span></div>
+      <div class="case-section-body">
+        <h2>The ontology is governed before it becomes executable.</h2>
+        <div class="evidence-grid">
+          <article class="evidence-panel"><strong>Approval hashes</strong><p>Semantic or source changes make approval stale. Draft history is retained locally.</p></article>
+          <article class="evidence-panel"><strong>Query constraints</strong><p>Writes, procedures, unbounded traversal, missing tenant predicates, missing numeric limits, and undeclared parameters are rejected.</p></article>
+          <article class="evidence-panel"><strong>Local editor</strong><p>Loopback binding, same-site HttpOnly session cookie, per-launch CSRF token, and no telemetry.</p></article>
+          <article class="evidence-panel"><strong>Public boundary</strong><p>Read-only routes only, synthetic data, rate limits, no source uploads, and no local editing API.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section" data-frame>
+      <div class="section-kicker">Decision and roadmap<span>Where complexity earns its keep</span></div>
+      <div class="case-section-body">
+        <h2>GraphRAG is an evaluated option, not the default answer.</h2>
+        <p>Use it for dependency impact, ownership, entitlement, supply-chain, configuration, and policy questions where relationships and paths must remain inspectable. Use vector RAG for summary and explanation. Use hybrid retrieval only when both are necessary.</p>
+        <p>The next release gates are provider-backed OpenAI and Ollama runs, executed Neo4j and vector traces, reference-answer scoring, AuraDB with synthetic samples, and deployment of the read-only Python API. PDFs, live connectors, unrestricted Text2Cypher, public uploads, and multi-user hosting remain intentionally deferred.</p>
+        <div class="case-actions">
+          <a class="button" href="https://github.com/prasadnitish/seller-ontology-graphrag#ten-minute-quick-start" target="_blank" rel="noopener">Reproduce the incident build ↗</a>
+          <a class="button secondary" href="https://github.com/prasadnitish/seller-ontology-graphrag/blob/main/examples/incidents/graphspec.yaml" target="_blank" rel="noopener">Read GraphSpec ↗</a>
+          <a class="button secondary" href="enterprise-ai-platform.html">Return to the platform model</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="vertical-system.js?v=20260712"></script>
+  <script src="platform-system.js"></script>
+</body>
+</html>

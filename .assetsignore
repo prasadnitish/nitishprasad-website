@@ -1,9 +1,13 @@
 .git/
+.git
+.github/
 .claude/
 .impeccable/
 .DS_Store
 .gitignore
 .assetsignore
+README.md
+tests/
 changes.md
 portfolio-evaluation.html
 og-amplify.svg

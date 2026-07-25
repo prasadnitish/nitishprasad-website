@@ -1,0 +1,35 @@
+name: Validate GraphRAG evidence
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/validate-graphrag.yml"
+      - "assets/graphrag-workbench.png"
+      - "project-graphrag.html"
+      - "index.html"
+      - "platform-system.css"
+      - "demos/graphrag/**"
+      - "tests/validate-graphrag-evidence.mjs"
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/validate-graphrag.yml"
+      - "assets/graphrag-workbench.png"
+      - "project-graphrag.html"
+      - "index.html"
+      - "platform-system.css"
+      - "demos/graphrag/**"
+      - "tests/validate-graphrag-evidence.mjs"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node tests/validate-graphrag-evidence.mjs
