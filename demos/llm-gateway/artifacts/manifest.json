@@ -1,0 +1,68 @@
+{
+  "demo_id": "llm-gateway",
+  "mode": "local_execution",
+  "source_repository": "https://github.com/prasadnitish/llm-gateway",
+  "source_commit": "a82bde6783f792814b3fd905b940a2428315c2e8",
+  "generated_at": "2026-07-12T17:31:00.000Z",
+  "generator_command": "npm test && npm run benchmark && npm run load",
+  "inputs": [
+    {
+      "name": "deterministic benchmark",
+      "path": "before-after.json",
+      "sha256": "d2b0b53b9efa850aac819e2ddce4ca7e2b1d82b9d74428b485ec338cc8a1be94",
+      "bytes": 2127
+    },
+    {
+      "name": "load and isolation report",
+      "path": "load-and-isolation.json",
+      "sha256": "07c104f4e125962ac8cc3a8c41317646a2f9956018156da7e47ed1f280fadd89",
+      "bytes": 637
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "deterministic benchmark",
+      "path": "before-after.json",
+      "sha256": "d2b0b53b9efa850aac819e2ddce4ca7e2b1d82b9d74428b485ec338cc8a1be94",
+      "bytes": 2127,
+      "media_type": "application/json"
+    },
+    {
+      "name": "load and isolation report",
+      "path": "load-and-isolation.json",
+      "sha256": "07c104f4e125962ac8cc3a8c41317646a2f9956018156da7e47ed1f280fadd89",
+      "bytes": 637,
+      "media_type": "application/json"
+    }
+  ],
+  "environment": {
+    "execution": "browser-local policy engine",
+    "provider_calls": false,
+    "benchmark": "deterministic synthetic provider simulation"
+  },
+  "providers": [
+    {
+      "name": "deterministic-provider-stub",
+      "model": "none",
+      "live": false
+    }
+  ],
+  "claims": [
+    {
+      "id": "gateway-policy-controls",
+      "statement": "Arbitrary request envelopes exercise DLP, residency, quota, tenant-scoped cache, routing, and fallback policy locally.",
+      "evidence_artifact": "load-and-isolation.json",
+      "evidence_pointer": "/controls"
+    },
+    {
+      "id": "gateway-benchmark-boundary",
+      "statement": "Published cost and latency figures are deterministic benchmark results, not live-provider measurements.",
+      "evidence_artifact": "before-after.json",
+      "evidence_pointer": "/evidence_level"
+    }
+  ],
+  "limitations": [
+    "The public interaction never calls a model provider and does not generate a model answer.",
+    "The benchmark validates gateway policy behavior, not internet or provider latency."
+  ]
+}

@@ -1,1 +1,93 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Interactive governed LLM gateway routing lab"><title>LLM Gateway Lab — Nitish Prasad</title><link rel="stylesheet" href="../demo-system.css"></head><body data-lab="gateway"><a class="skip" href="#main">Skip to lab</a><header class="lab-header"><a class="brand" href="../../index.html"><b>NP / PLATFORM LAB</b><span>GATEWAY-01</span></a><nav class="lab-nav"><a href="../../project-llm-gateway.html">Case study</a><a class="source" href="https://github.com/prasadnitish/llm-gateway" target="_blank" rel="noopener">GitHub ↗</a></nav></header><main id="main" class="lab-shell"><section class="lab-hero"><div><div class="eyebrow">Interactive control-plane simulation</div><h1>Route under policy.</h1></div><div class="hero-note"><strong>No credentials required.</strong>This browser lab runs the same routing, DLP, cache, and fallback decisions locally. It does not call a paid provider.</div></section><section class="lab-grid"><div class="control-panel"><div class="panel-head"><h2>Request envelope</h2><span class="status-pill">LOCAL / SAFE</span></div><form id="gateway-form"><div class="form-row"><label>Task type<select id="task"><option value="tripPlan">tripPlan</option><option value="packingList">packingList</option><option value="parseInput">parseInput</option></select></label><label>Tenant<input id="tenant" value="portfolio-demo" maxlength="30"></label></div><label>Prompt<textarea id="prompt">Plan a three-day family trip to Seattle with one toddler and indoor backup options.</textarea></label><div><span class="field-label">Try a fixture</span><div class="examples"><button class="example" type="button" data-prompt="Create a compact packing list for a rainy weekend with a preschooler." data-task="packingList">Packing list</button><button class="example" type="button" data-prompt="Extract destination and dates from: Boston next Friday for two adults." data-task="parseInput">Parse input</button><button class="example" type="button" data-prompt="My card is 4111 1111 1111 1111. Plan my trip." data-task="tripPlan">DLP block</button></div></div><button class="button primary" type="submit">Send through gateway →</button></form><div class="disclosure">Evidence mode: deterministic simulation. Cost and latency are modeled; identity, DLP, cache namespaces, and policy decisions are exercised in-browser.</div></div><div class="output-panel"><div class="panel-head"><h2>Decision trace</h2><span id="gateway-verdict" class="status-pill">WAITING</span></div><div class="trace" id="gateway-trace"><div class="trace-step"><span>01 / identity</span><strong>Pending</strong></div><div class="trace-step"><span>02 / DLP</span><strong>Pending</strong></div><div class="trace-step"><span>03 / policy</span><strong>Pending</strong></div><div class="trace-step"><span>04 / inference</span><strong>Pending</strong></div></div><div id="gateway-result" class="result-card" aria-live="polite"><div class="result-empty">Submit a request to inspect the governed route.</div></div></div></section><footer class="lab-footer"><span>LLM GATEWAY / PUBLIC LAB</span><span>POLICY 2026-07-12.1</span></footer></main><script src="../demo-system.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Run the real LLM gateway policy engine locally and inspect committed benchmark evidence.">
+  <title>LLM Gateway Policy Workbench — Nitish Prasad</title>
+  <link rel="stylesheet" href="../demo-system.css">
+  <link rel="stylesheet" href="../evidence.css">
+</head>
+<body data-lab="gateway" data-evidence-mode="local_execution">
+  <a class="skip" href="#main">Skip to workbench</a>
+  <header class="lab-header">
+    <a class="brand" href="../../index.html"><b>NP / PLATFORM LAB</b><span>GATEWAY-01</span></a>
+    <nav class="lab-nav" aria-label="Demo navigation">
+      <a href="../../project-llm-gateway.html">Case study</a>
+      <a class="source" href="https://github.com/prasadnitish/llm-gateway" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </header>
+  <main id="main" class="lab-shell">
+    <section class="lab-hero">
+      <div>
+        <div class="eyebrow">Local execution</div>
+        <h1>Inspect the policy decision.</h1>
+        <div id="evidence-summary" class="evidence-summary" aria-live="polite">Loading evidence manifest…</div>
+      </div>
+      <div class="hero-note"><strong>No provider call. No invented answer.</strong>Arbitrary request envelopes exercise the repository’s DLP, residency, quota, tenant-scoped cache, routing, and fallback logic in this browser.</div>
+    </section>
+    <section class="lab-grid">
+      <div class="control-panel">
+        <div class="panel-head"><h2>Request envelope</h2><span class="status-pill">RUN LOCALLY</span></div>
+        <form id="gateway-form">
+          <div class="form-row">
+            <label>Task type
+              <select id="task">
+                <option value="tripPlan">tripPlan</option>
+                <option value="packingList">packingList</option>
+                <option value="parseInput">parseInput</option>
+              </select>
+            </label>
+            <label>Tenant
+              <input id="tenant" value="portfolio-demo" maxlength="30" autocomplete="off">
+            </label>
+          </div>
+          <label>Prompt
+            <textarea id="prompt" maxlength="2000">Plan a three-day family trip to Seattle with one toddler and indoor backup options.</textarea>
+          </label>
+          <div class="form-row">
+            <label>Data class
+              <select id="data-class"><option value="internal">Internal</option><option value="restricted">Restricted</option></select>
+            </label>
+            <label class="inline-check"><input id="force-outage" type="checkbox"> Force preferred-provider outage</label>
+          </div>
+          <div class="form-row">
+            <label>Source region
+              <select id="source-region"><option value="us-west">US West</option><option value="eu-west">EU West</option></select>
+            </label>
+            <label>Provider region
+              <select id="provider-region"><option value="us-west">US West</option><option value="eu-west">EU West</option></select>
+            </label>
+          </div>
+          <div>
+            <span class="field-label">Fixtures</span>
+            <div class="examples">
+              <button class="example" type="button" data-prompt="Create a compact packing list for a rainy weekend with a preschooler." data-task="packingList">Cache and route</button>
+              <button class="example" type="button" data-prompt="My card is 4111 1111 1111 1111. Plan my trip." data-task="tripPlan">Restricted-data block</button>
+            </div>
+          </div>
+          <button class="button primary" type="submit">Evaluate policy →</button>
+          <button class="button secondary" id="quota-reset" type="button">Reset local quota</button>
+        </form>
+        <div class="disclosure">The browser demonstration quota is deliberately three requests per tenant so the denial path is inspectable. The production repository’s defaults are higher.</div>
+      </div>
+      <div class="output-panel">
+        <div class="panel-head"><h2>Decision trace</h2><span id="gateway-verdict" class="status-pill">WAITING</span></div>
+        <div class="trace" id="gateway-trace">
+          <div class="trace-step"><span>01 / identity</span><strong>Pending</strong></div>
+          <div class="trace-step"><span>02 / quota</span><strong>Pending</strong></div>
+          <div class="trace-step"><span>03 / DLP + residency</span><strong>Pending</strong></div>
+          <div class="trace-step"><span>04 / route + cache</span><strong>Pending</strong></div>
+        </div>
+        <div id="gateway-result" class="result-card" aria-live="polite"><div class="result-empty">Submit any request to inspect the policy decision.</div></div>
+        <section class="evidence-section" aria-labelledby="gateway-benchmark-title">
+          <h2 id="gateway-benchmark-title">Committed benchmark evidence</h2>
+          <div id="gateway-benchmark">Loading…</div>
+        </section>
+      </div>
+    </section>
+    <footer class="lab-footer"><span>LLM GATEWAY / LOCAL EXECUTION</span><span>PROVIDER STUB</span></footer>
+  </main>
+  <script src="../demo-system.js"></script>
+</body>
+</html>

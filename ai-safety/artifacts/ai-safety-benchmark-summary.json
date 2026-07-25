@@ -1,0 +1,132 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-02-27T14:59:17.785Z",
+  "dataset": {
+    "id": "ai-safety-seed-v1",
+    "version": "1.0.0",
+    "total_cases": 540,
+    "evaluated_cases": 540,
+    "prompt_template_version": "1.0.0",
+    "source_path": "datasets/ai-safety-seed-v1.json"
+  },
+  "settings": {
+    "models": [
+      "claude-sonnet-4-6",
+      "deepseek-chat"
+    ],
+    "limit": 540,
+    "retries": 5,
+    "concurrency": 6,
+    "retry_backoff_ms": 1250,
+    "rate_limits": {
+      "Anthropic": {
+        "requests_per_minute": 30,
+        "min_interval_ms": 2000
+      },
+      "DeepSeek": {
+        "requests_per_minute": 60,
+        "min_interval_ms": 1000
+      }
+    }
+  },
+  "models": [
+    {
+      "model_id": "claude-sonnet-4-6",
+      "model_name": "Claude Sonnet 4.6",
+      "provider": "Anthropic",
+      "cases_attempted": 540,
+      "cases_success": 540,
+      "cases_failed": 0,
+      "avg_score": 70.01,
+      "verdict_accuracy_pct": 70.56,
+      "json_parse_valid_pct": 97.78,
+      "schema_valid_pct": 97.78,
+      "avg_issue_f1": 0.5204,
+      "latency_ms": {
+        "p50": 10298,
+        "p95": 18629,
+        "avg": 14832.3
+      },
+      "cost_usd": {
+        "total": 3.391665,
+        "avg_per_case": 0.006281
+      },
+      "throughput_cases_per_min": 17.854,
+      "by_scenario": {
+        "hiring_screening_v1": {
+          "cases": 180,
+          "avg_score": 71.92,
+          "verdict_accuracy": 73.89,
+          "avg_latency_ms": 10571.01,
+          "avg_cost_usd": 0.006165
+        },
+        "lending_risk_v1": {
+          "cases": 180,
+          "avg_score": 75.63,
+          "verdict_accuracy": 77.22,
+          "avg_latency_ms": 20348.53,
+          "avg_cost_usd": 0.006355
+        },
+        "support_priority_v1": {
+          "cases": 180,
+          "avg_score": 62.48,
+          "verdict_accuracy": 60.56,
+          "avg_latency_ms": 13577.37,
+          "avg_cost_usd": 0.006323
+        }
+      }
+    },
+    {
+      "model_id": "deepseek-chat",
+      "model_name": "DeepSeek-V3",
+      "provider": "DeepSeek",
+      "cases_attempted": 540,
+      "cases_success": 540,
+      "cases_failed": 0,
+      "avg_score": 68.57,
+      "verdict_accuracy_pct": 67.96,
+      "json_parse_valid_pct": 100,
+      "schema_valid_pct": 100,
+      "avg_issue_f1": 0.5117,
+      "latency_ms": {
+        "p50": 5043,
+        "p95": 7677,
+        "avg": 5257.41
+      },
+      "cost_usd": {
+        "total": 0.110346,
+        "avg_per_case": 0.000204
+      },
+      "throughput_cases_per_min": 63.303,
+      "by_scenario": {
+        "hiring_screening_v1": {
+          "cases": 180,
+          "avg_score": 69.88,
+          "verdict_accuracy": 70.56,
+          "avg_latency_ms": 5372.68,
+          "avg_cost_usd": 0.000202
+        },
+        "lending_risk_v1": {
+          "cases": 180,
+          "avg_score": 71.37,
+          "verdict_accuracy": 71.11,
+          "avg_latency_ms": 4894.18,
+          "avg_cost_usd": 0.000207
+        },
+        "support_priority_v1": {
+          "cases": 180,
+          "avg_score": 64.46,
+          "verdict_accuracy": 62.22,
+          "avg_latency_ms": 5505.37,
+          "avg_cost_usd": 0.000204
+        }
+      }
+    }
+  ],
+  "source_artifact": {
+    "path": "output/ai-safety-benchmark-full.json",
+    "sha256": "0ae2a228efdf349a0b898a47e6535ac4d90381b6de473dff605979fcf6c24487",
+    "bytes": 5423577,
+    "per_case_transcripts_public": false
+  }
+}

@@ -1,0 +1,107 @@
+[
+  {
+    "doc_id": "travel_doc_001",
+    "title": "SproutRoute Car Seat Guidance Scope",
+    "source": "sproutroute_system",
+    "tags": ["car-seat", "jurisdiction", "family-safety"],
+    "content": "SproutRoute includes car seat guidance for all 50 US states, plus Canada, UK, Australia, and an EU R129 baseline. Guidance should always be presented as informational and parents should confirm with official local regulations."
+  },
+  {
+    "doc_id": "travel_doc_002",
+    "title": "California Child Passenger Rules (Simplified)",
+    "source": "travel_policy_snapshot",
+    "tags": ["car-seat", "california", "law"],
+    "content": "In California, children under age 8 generally require a proper child restraint or booster in the rear seat. Children under age 2 should ride rear-facing unless height and weight exceed seat limits."
+  },
+  {
+    "doc_id": "travel_doc_003",
+    "title": "Travel Advisory Interpretation",
+    "source": "state_dept_model",
+    "tags": ["advisory", "risk", "international"],
+    "content": "Travel advisories are interpreted using a Level 1 to Level 4 model. Level 1 means normal precautions, Level 2 increased caution, Level 3 reconsider travel, and Level 4 do not travel."
+  },
+  {
+    "doc_id": "travel_doc_004",
+    "title": "Neighborhood Safety Score Use",
+    "source": "safety_scoring",
+    "tags": ["neighborhood", "safety", "scores"],
+    "content": "Neighborhood safety scores provide directional risk context, not guarantees. Use scores to compare areas and time of day, and pair them with practical safety behaviors."
+  },
+  {
+    "doc_id": "travel_doc_005",
+    "title": "Weather Routing for SproutRoute",
+    "source": "sproutroute_system",
+    "tags": ["weather", "routing", "us", "international"],
+    "content": "US destinations are served by Weather.gov while international destinations use OpenWeatherMap. iOS clients may use WeatherKit natively when available."
+  },
+  {
+    "doc_id": "travel_doc_006",
+    "title": "Packing List Personalization Rules",
+    "source": "packing_logic",
+    "tags": ["packing", "family", "kids"],
+    "content": "Packing guidance should factor destination weather, trip length, child age, medication needs, feeding supplies, and sleep routines. Include optional extras and uncertainty notes when forecast reliability is low."
+  },
+  {
+    "doc_id": "travel_doc_007",
+    "title": "Graceful Degradation Policy",
+    "source": "reliability_policy",
+    "tags": ["resilience", "fallback"],
+    "content": "If external safety or advisory APIs fail, itinerary generation should still continue. Missing data must be explicitly marked unavailable rather than fabricated."
+  },
+  {
+    "doc_id": "travel_doc_008",
+    "title": "Family Trip Safety Communication",
+    "source": "ux_policy",
+    "tags": ["communication", "tone", "safety"],
+    "content": "Safety responses must avoid alarmist language. Explain risk levels in plain language, provide practical mitigation tips, and include confidence statements when evidence is incomplete."
+  },
+  {
+    "doc_id": "travel_doc_009",
+    "title": "Stroller-Friendly Planning Heuristics",
+    "source": "travel_heuristics",
+    "tags": ["stroller", "accessibility"],
+    "content": "When families mention toddlers or strollers, prioritize walkable routes, step-free access, nearby restrooms, shaded breaks, and lower nighttime activity density."
+  },
+  {
+    "doc_id": "travel_doc_010",
+    "title": "High-Risk Advice Constraint",
+    "source": "safety_policy",
+    "tags": ["policy", "high-risk", "legal"],
+    "content": "For legal or safety-critical queries, the system should provide informational guidance with citation and should avoid definitive legal guarantees."
+  },
+  {
+    "doc_id": "travel_doc_011",
+    "title": "Travel With Infant Essentials",
+    "source": "packing_logic",
+    "tags": ["infant", "packing"],
+    "content": "Infant travel guidance should include diapers, wipes, backup clothing layers, bottle-feeding supplies, sleep comfort items, weather-appropriate outerwear, and medication checklist prompts."
+  },
+  {
+    "doc_id": "travel_doc_012",
+    "title": "International Weather Reliability Note",
+    "source": "weather_policy",
+    "tags": ["weather", "uncertainty"],
+    "content": "Weather reliability declines farther into forecast windows. Advice should communicate uncertainty and avoid overconfident promises for day 4 and day 5 conditions."
+  },
+  {
+    "doc_id": "travel_doc_013",
+    "title": "Car Seat Advice Disclaimer",
+    "source": "legal_disclaimer",
+    "tags": ["disclaimer", "car-seat"],
+    "content": "Always include a reminder that local authorities and official transport departments are the final source of truth for car seat compliance."
+  },
+  {
+    "doc_id": "travel_doc_014",
+    "title": "Travel Advisory Fallback",
+    "source": "reliability_policy",
+    "tags": ["advisory", "fallback"],
+    "content": "If advisory feed is unavailable, do not synthesize advisory levels. Return unavailable status and suggest checking official government travel pages."
+  },
+  {
+    "doc_id": "travel_doc_015",
+    "title": "Neighborhood Safety Dimensions",
+    "source": "safety_scoring",
+    "tags": ["safety", "dimensions"],
+    "content": "Neighborhood safety can be discussed by dimensions such as theft risk, physical harm risk, women safety indicators, and political stability context."
+  }
+]

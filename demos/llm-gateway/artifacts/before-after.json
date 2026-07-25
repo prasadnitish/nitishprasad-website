@@ -1,0 +1,84 @@
+{
+  "evidence_level": "deterministic synthetic provider simulation; replace with --live when provider credentials are available",
+  "workload": {
+    "requests": 50,
+    "synthetic": true,
+    "raw_user_data": false
+  },
+  "cold": {
+    "direct": {
+      "requests": 50,
+      "successes": 50,
+      "success_rate_pct": 100,
+      "cost_per_success": 0.0005,
+      "mean_quality": 86.54,
+      "p50_latency_ms": 375,
+      "p95_latency_ms": 453,
+      "fallback_count": 0
+    },
+    "gateway": {
+      "requests": 50,
+      "successes": 50,
+      "success_rate_pct": 100,
+      "cost_per_success": 0.0002,
+      "mean_quality": 85.54,
+      "p50_latency_ms": 398,
+      "p95_latency_ms": 458,
+      "fallback_count": 1
+    },
+    "cost_reduction_pct": 66.41,
+    "quality_delta": -1,
+    "annualized": {
+      "one_million_requests_monthly": {
+        "baseline_cost": 6480,
+        "gateway_cost": 2176.8,
+        "savings": 4303.2
+      },
+      "one_hundred_million_requests_monthly": {
+        "baseline_cost": 648000,
+        "gateway_cost": 217680,
+        "savings": 430320
+      }
+    }
+  },
+  "warm": {
+    "direct": {
+      "requests": 50,
+      "successes": 50,
+      "success_rate_pct": 100,
+      "cost_per_success": 0.0005,
+      "mean_quality": 86.54,
+      "p50_latency_ms": 375,
+      "p95_latency_ms": 453,
+      "fallback_count": 0
+    },
+    "gateway": {
+      "requests": 50,
+      "successes": 50,
+      "success_rate_pct": 100,
+      "cost_per_success": 0.0001,
+      "mean_quality": 85.54,
+      "p50_latency_ms": 11,
+      "p95_latency_ms": 446,
+      "fallback_count": 1
+    },
+    "cost_reduction_pct": 82.81,
+    "quality_delta": -1,
+    "annualized": {
+      "one_million_requests_monthly": {
+        "baseline_cost": 6480,
+        "gateway_cost": 1113.6,
+        "savings": 5366.4
+      },
+      "one_hundred_million_requests_monthly": {
+        "baseline_cost": 648000,
+        "gateway_cost": 111360,
+        "savings": 536640
+      }
+    }
+  },
+  "claims": {
+    "real_provider_fallback_verified": false,
+    "reason": "No provider credentials were present in the execution environment."
+  }
+}

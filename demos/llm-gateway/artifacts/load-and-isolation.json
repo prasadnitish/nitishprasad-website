@@ -1,0 +1,19 @@
+{
+  "evidence_level": "in-process synthetic control-plane load test",
+  "target_requests_per_minute": 5000,
+  "attempted": 5200,
+  "allowed": 4792,
+  "denied": 408,
+  "harness_runtime_ms": 6.84,
+  "controls": {
+    "platform_envelope_held": true,
+    "cross_tenant_cache_result": false,
+    "dlp_fixture_blocked": true,
+    "provider_outage_fallback": "covered by router.test.js",
+    "cache_eviction": "covered by semantic-cache.test.js"
+  },
+  "limitations": [
+    "This validates control-plane behavior, not network or provider latency.",
+    "Docker was unavailable, so LiteLLM and Redis were not started in this environment."
+  ]
+}
