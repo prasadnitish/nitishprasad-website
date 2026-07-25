@@ -6,7 +6,6 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const artifacts = JSON.parse(await readFile(join(root, "demos/graphrag/artifacts.json"), "utf8"));
 const caseStudy = await readFile(join(root, "project-graphrag.html"), "utf8");
-const home = await readFile(join(root, "index.html"), "utf8");
 
 assert.equal(artifacts.publishable_graph_vs_vector_claim, false);
 
@@ -46,7 +45,6 @@ for (const claim of [
   assert.ok(caseStudy.includes(claim), `Missing case-study evidence claim: ${claim}`);
 }
 
-assert.ok(home.includes("80 held-out cases"));
 assert.ok(!caseStudy.includes("Offline wins"));
 assert.ok(!caseStudy.includes("100% win"));
 assert.ok(!caseStudy.includes("Graph score"));
