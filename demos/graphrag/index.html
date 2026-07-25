@@ -1,1 +1,102 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Interactive seller ontology GraphRAG traversal lab"><title>GraphRAG Lab — Nitish Prasad</title><link rel="stylesheet" href="../demo-system.css"></head><body data-lab="graph"><a class="skip" href="#main">Skip to lab</a><header class="lab-header"><a class="brand" href="../../index.html"><b>NP / PLATFORM LAB</b><span>GRAPH-02</span></a><nav class="lab-nav"><a href="../../project-graphrag.html">Case study</a><a class="source" href="https://github.com/prasadnitish/seller-ontology-graphrag" target="_blank" rel="noopener">GitHub ↗</a></nav></header><main id="main" class="lab-shell"><section class="lab-hero"><div><div class="eyebrow">Interactive ontology traversal</div><h1>Ask across relationships.</h1></div><div class="hero-note"><strong>One synthetic fact source.</strong>Choose a multi-hop question to see the constrained Cypher, retrieved subgraph, cited answer, and vector baseline delta.</div></section><section class="lab-grid"><div class="control-panel"><div class="panel-head"><h2>Question</h2><span class="status-pill">TENANT / DEMO</span></div><form id="graph-form"><label>Relationship-dependent query<select id="graph-question"><option>Which US sellers are eligible for Growth, and what fee applies?</option><option>Which UK sellers are eligible for Premium, and what fee applies?</option><option>Which CA sellers are eligible for Export, and what fee applies?</option><option>Which DE sellers are eligible for Launch, and what fee applies?</option><option>Which JP sellers are eligible for Growth, and what fee applies?</option></select></label><button class="button primary" type="submit">Traverse governed graph →</button></form><div class="disclosure">Evidence mode: the public lab uses the committed synthetic ontology. It does not claim hosted Neo4j latency or a live LLM judge score.</div></div><div class="output-panel"><div class="panel-head"><h2>Traversal evidence</h2><span id="graph-verdict" class="status-pill">WAITING</span></div><div id="graph-result" class="result-card" aria-live="polite"><div class="result-empty">Run a question to reveal the query and cited subgraph.</div></div></div></section><footer class="lab-footer"><span>SELLER ONTOLOGY / PUBLIC LAB</span><span>ONTOLOGY V1</span></footer></main><script src="../demo-system.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Evidence-backed GraphRAG ontology conversion walkthrough" />
+  <title>GraphRAG Ontology Workbench — Nitish Prasad</title>
+  <link rel="stylesheet" href="../demo-system.css" />
+  <link rel="stylesheet" href="graphrag.css" />
+</head>
+<body data-lab="graph-workbench">
+  <a class="skip" href="#main">Skip to walkthrough</a>
+  <header class="lab-header">
+    <a class="brand" href="../../index.html"><b>NP / PLATFORM LAB</b><span>GRAPH-02</span></a>
+    <nav class="lab-nav">
+      <a href="../../project-graphrag.html">Case study</a>
+      <a class="source" href="https://github.com/prasadnitish/seller-ontology-graphrag" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </header>
+
+  <main id="main" class="lab-shell">
+    <section class="lab-hero">
+      <div>
+        <div class="eyebrow">Committed artifact replay / no fabricated scores</div>
+        <h1>See what the graph actually proves.</h1>
+      </div>
+      <div class="hero-note">
+        <strong>This is the honest intermediate release.</strong>
+        It replays real compiler and evaluation artifacts. Hosted Neo4j is still a visible gate,
+        so latency and arbitrary answer quality are not simulated.
+      </div>
+    </section>
+
+    <section class="artifact-banner" aria-label="Evidence status">
+      <div><span>MODE</span><strong>COMMITTED REPLAY</strong></div>
+      <div><span>GRAPH EXECUTION</span><strong>AURADB GATE OPEN</strong></div>
+      <div><span>ANSWER QUALITY</span><strong>NOT YET CLAIMED</strong></div>
+      <div><span>PUBLIC UPLOADS</span><strong>DISABLED</strong></div>
+    </section>
+
+    <section class="conversion-strip" aria-label="Conversion workflow">
+      <div class="is-done"><span>01</span><strong>Profile</strong><small>Hashes + fields</small></div>
+      <div class="is-done"><span>02</span><strong>Propose</strong><small>Agent + schema</small></div>
+      <div class="is-done"><span>03</span><strong>Approve</strong><small>Human gate</small></div>
+      <div class="is-done"><span>04</span><strong>Compile</strong><small>Graph IR</small></div>
+      <div class="is-done"><span>05</span><strong>Evaluate</strong><small>Held-out cases</small></div>
+      <div><span>06</span><strong>Host</strong><small>AuraDB pending</small></div>
+    </section>
+
+    <section class="lab-grid graph-lab-grid">
+      <div class="control-panel">
+        <div class="panel-head"><h2>Question</h2><span id="scenario-version" class="status-pill">LOADING</span></div>
+        <form id="graph-form">
+          <label>Scenario
+            <select id="graph-scenario">
+              <option value="incidents">Incident dependencies</option>
+              <option value="seller">Seller policy</option>
+            </select>
+          </label>
+          <label>Free-text question
+            <textarea id="graph-question" maxlength="500" required></textarea>
+          </label>
+          <div id="graph-examples" class="examples" aria-label="Committed example questions"></div>
+          <button class="button primary" type="submit">Route through approved recipes →</button>
+        </form>
+        <div class="disclosure">
+          The browser can only replay source-backed traces committed with this build. If no
+          approved recipe and entity match, it returns unsupported. It never invents Cypher.
+        </div>
+      </div>
+
+      <div class="output-panel">
+        <div class="panel-head"><h2>Evidence response</h2><span id="graph-verdict" class="status-pill">WAITING</span></div>
+        <div id="graph-result" class="result-card" aria-live="polite">
+          <div class="result-empty">Choose a scenario and route a question.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="evidence-dashboard">
+      <article>
+        <span class="coordinate">BUILD ARTIFACT</span>
+        <h2 id="build-title">Loading scenario…</h2>
+        <div id="build-metrics" class="metric-rail"></div>
+        <code id="build-hash" class="hash-line"></code>
+      </article>
+      <article>
+        <span class="coordinate">HELD-OUT ROUTING</span>
+        <h2 id="eval-title">No summary loaded</h2>
+        <p id="eval-note"></p>
+        <a id="eval-link" class="text-link" href="#" target="_blank" rel="noopener">Open case-level artifact ↗</a>
+      </article>
+    </section>
+
+    <footer class="lab-footer">
+      <span>GRAPHKIT / PUBLIC ARTIFACT WALKTHROUGH</span>
+      <span>NO TELEMETRY / NO UPLOADS</span>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

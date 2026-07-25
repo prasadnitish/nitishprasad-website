@@ -70,3 +70,4 @@ button{font:inherit}
 /* Portfolio v2 — detail-page pill nav casing (override vertical-system uppercase) */
 .detail-page .brand-lockup.platform-brand span:first-child{text-transform:none!important}
 .detail-page .nav-links.primary-nav a{text-transform:none!important;letter-spacing:normal!important}
+.detail-page .case-product-shot{display:block;width:100%;height:auto;margin-top:48px;border:1px solid var(--line);background:var(--surface)}
