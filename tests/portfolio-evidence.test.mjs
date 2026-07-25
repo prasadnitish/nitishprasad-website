@@ -116,6 +116,14 @@ test("public routes declare the correct evidence mode and local imports stay bro
   assert.ok(safety.includes("file.text()"));
 });
 
+test("Gateway fixtures select the policy context their labels promise", async () => {
+  const gateway = await text("demos/llm-gateway/index.html");
+  const runtime = await text("demos/demo-system.js");
+  assert.match(gateway, /Restricted-data block<\/button>/);
+  assert.match(gateway, /data-data-class="restricted"[^>]*>Restricted-data block/);
+  assert.ok(runtime.includes('button.dataset.dataClass'));
+});
+
 test("case studies link their manifest and disclose reproduction boundaries", async () => {
   const cases = {
     "project-llm-gateway.html": ["llm-gateway", "demos/llm-gateway/artifacts/manifest.json"],

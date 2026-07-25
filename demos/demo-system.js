@@ -173,6 +173,7 @@
     document.querySelectorAll("[data-prompt]").forEach((button) => button.addEventListener("click", () => {
       document.querySelector("#prompt").value = button.dataset.prompt;
       if (button.dataset.task) document.querySelector("#task").value = button.dataset.task;
+      if (button.dataset.dataClass) document.querySelector("#data-class").value = button.dataset.dataClass;
     }));
     document.querySelector("#quota-reset").addEventListener("click", () => {
       quotas.clear();
