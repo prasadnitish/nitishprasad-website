@@ -8,6 +8,7 @@
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="vertical-system.css" />
   <link rel="stylesheet" href="platform-system.css" />
+  <link rel="stylesheet" href="portfolio-evidence.css" />
   <!-- SEO / social metadata -->
   <link rel="canonical" href="https://www.nitishprasad.com/project-rag-pipeline" />
 
@@ -46,8 +47,8 @@
       <p class="context">Grounded retrieval / guardrails / release logic</p>
       <h1 class="case-title">RAG Pipeline with Guardrails</h1>
       <p class="case-summary">The vector baseline for the enterprise knowledge layer: grounded answers, safety checks, benchmark traces, and release gates connected in one production-minded system. A separate implemented GraphRAG layer now tests when relationship traversal earns its extra complexity.</p>
-      <div class="evidence-status" aria-label="Evidence maturity"><span class="is-implemented">Implemented vector baseline</span><span>GraphRAG implemented offline</span></div>
-      <div class="case-actions"><a class="button" href="demos/rag-guardrails/">Try the guardrails lab</a><a class="button secondary" href="https://github.com/prasadnitish/rag-pipeline-guardrails" target="_blank" rel="noopener">View GitHub â</a></div>
+      <div class="evidence-status" aria-label="Evidence maturity"><span class="is-implemented">Local execution</span><span>Committed corpus and 24-case evaluation</span></div>
+      <div class="case-actions"><a class="button" href="demos/rag-guardrails/">Run locally</a><a class="button secondary" href="https://github.com/prasadnitish/rag-pipeline-guardrails" target="_blank" rel="noopener">View GitHub â</a></div>
       <dl class="metric-line">
         <div><dt>Domains</dt><dd>2 corpora</dd></div>
         <div><dt>Eval cases</dt><dd>24</dd></div>
@@ -86,6 +87,14 @@
           <div><span>Eval</span><h3>Decision</h3><p>Reports and gates produce PASS, WARN, or BLOCK.</p></div>
         </div>
         <a class="text-link" href="project-graphrag.html">Inspect the implemented GraphRAG comparison</a>
+      </div>
+    </section>
+    <section class="case-section evidence-contract" data-frame>
+      <div class="section-kicker">Evidence contract<span>Local execution</span></div>
+      <div class="case-section-body">
+        <h2>Questions resolve to ranked committed source text.</h2>
+        <p>Run <code>npm test &amp;&amp; npm run eval &amp;&amp; npm run gate</code>. The public workbench uses the source repository’s tokenizer, term-weighted ranking, injection rule set, extractive generator, groundedness calculation, and abstention boundary. It makes no live-model claim.</p>
+        <div class="evidence-contract-links"><a href="demos/rag-guardrails/artifacts/manifest.json">Evidence manifest â</a><a href="demos/rag-guardrails/artifacts/rag-eval-report.json">Evaluation artifact â</a><a href="demos/rag-guardrails/artifacts/rag-gate-report.json">Gate artifact â</a></div>
       </div>
     </section>
   </main>

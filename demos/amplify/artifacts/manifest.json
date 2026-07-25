@@ -1,0 +1,43 @@
+{
+  "demo_id": "amplify",
+  "mode": "workflow_walkthrough",
+  "source_repository": "https://github.com/prasadnitish/nitishprasad-website",
+  "source_commit": "c11dabe50e51f75956211b47650e287d11b96afe",
+  "generated_at": "2026-07-25T12:00:00.000Z",
+  "generator_command": "node scripts/sync-portfolio-evidence.mjs",
+  "inputs": [
+    {
+      "name": "anonymized workflow states",
+      "path": "workflow-states.json",
+      "sha256": "1c8e455277f12e1aeb8e269c59643ee3812f3c4fadc9c016b172cd2dc723c461",
+      "bytes": 1075
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "anonymized workflow states",
+      "path": "workflow-states.json",
+      "sha256": "1c8e455277f12e1aeb8e269c59643ee3812f3c4fadc9c016b172cd2dc723c461",
+      "bytes": 1075,
+      "media_type": "application/json"
+    }
+  ],
+  "environment": {
+    "execution": "authored anonymized workflow walkthrough",
+    "provider_calls": false,
+    "proprietary_data": false
+  },
+  "providers": [],
+  "claims": [
+    {
+      "id": "amplify-walkthrough-only",
+      "statement": "Inputs select an illustrative workflow state and do not execute an AI system.",
+      "evidence_artifact": "workflow-states.json",
+      "evidence_pointer": "/evidence_level"
+    }
+  ],
+  "limitations": [
+    "The public route contains no proprietary implementation, data, confidence score, or latency benchmark.",
+    "Workflow states illustrate product decision architecture rather than system performance."
+  ]
+}

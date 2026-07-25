@@ -1,15 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Evals Control Tower</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/demos/agent-observability/assets/index-CVFo98TI.js"></script>
-    <link rel="stylesheet" crossorigin href="/demos/agent-observability/assets/index-BFG1QDKv.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Inspect a committed forced-failure agent trace and collector load evidence.">
+  <title>Agent Trace Evidence Explorer — Nitish Prasad</title>
+  <link rel="stylesheet" href="../demo-system.css">
+  <link rel="stylesheet" href="../evidence.css">
+  <link rel="stylesheet" href="../evidence-explorer.css">
+</head>
+<body data-evidence-app="observability" data-evidence-mode="artifact_replay">
+  <a class="skip" href="#main">Skip to evidence</a>
+  <header class="lab-header">
+    <a class="brand" href="../../index.html"><b>NP / PLATFORM LAB</b><span>TRACE-02</span></a>
+    <nav class="lab-nav" aria-label="Demo navigation">
+      <a href="../../project-agent-observability.html">Case study</a>
+      <a class="source" href="https://github.com/prasadnitish/AI-Eval-Control-Tower/tree/codex/agent-observability" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </header>
+  <main id="main" class="explorer-shell">
+    <section class="lab-hero">
+      <div>
+        <div class="eyebrow">Artifact replay</div>
+        <h1>Follow the failure.</h1>
+        <div id="evidence-summary" class="evidence-summary" aria-live="polite">Loading evidence manifest…</div>
+      </div>
+      <div class="hero-note"><strong>Committed runtime evidence.</strong>The default view reads a forced-failure trace and 150,000-span load report from source artifacts. Validated local imports never leave this browser.</div>
+    </section>
+    <section class="explorer-grid">
+      <aside class="explorer-controls">
+        <div class="panel-head"><h2>Trace controls</h2><span class="status-pill">INSPECT EVIDENCE</span></div>
+        <div class="filter-stack" aria-label="Trace filters">
+          <button class="button secondary" data-trace-filter="all" aria-pressed="true">All spans</button>
+          <button class="button secondary" data-trace-filter="errors" aria-pressed="false">Failures only</button>
+        </div>
+        <div class="import-box">
+          <label>Expected tenant<input id="expected-tenant" value="portfolio" maxlength="80"></label>
+          <label>Local trace JSON<input id="trace-file" type="file" accept=".json,application/json"></label>
+          <p id="trace-import-message" class="import-message">Maximum 2 MB. Unknown detail fields are discarded.</p>
+        </div>
+        <section class="evidence-section" aria-labelledby="load-title">
+          <h2 id="load-title">Collector evidence</h2>
+          <div id="trace-load-evidence">Loading…</div>
+        </section>
+      </aside>
+      <section class="explorer-output">
+        <div class="panel-head"><h2>Span evidence</h2><span id="trace-status" class="status-pill">LOADING</span></div>
+        <div id="trace-output" class="result-card" aria-live="polite"><div class="result-empty">Loading the committed trace…</div></div>
+      </section>
+    </section>
+  </main>
+  <script type="module" src="../evidence-explorer.js"></script>
+</body>
 </html>

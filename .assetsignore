@@ -8,6 +8,10 @@
 .assetsignore
 README.md
 tests/
+evidence/
+scripts/
+package.json
+package-lock.json
 changes.md
 portfolio-evaluation.html
 og-amplify.svg

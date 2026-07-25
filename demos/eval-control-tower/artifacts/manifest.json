@@ -1,0 +1,62 @@
+{
+  "demo_id": "eval-control-tower",
+  "mode": "artifact_replay",
+  "source_repository": "https://github.com/prasadnitish/AI-Eval-Control-Tower/tree/codex/principal-pm-dashboard-redesign",
+  "source_commit": "3b87af78781893eee9a3c634c805a4724b5c12aa",
+  "generated_at": "2026-04-17T12:48:00.549Z",
+  "generator_command": "npm test && npm run eval:sproutroute:full && npm run eval:seller:v3",
+  "inputs": [
+    {
+      "name": "SproutRoute full evaluation",
+      "path": "sproutroute-full.json",
+      "sha256": "bbf62a75a34f56709dc15a57be0d05e071d39d47e8501b02ee5e21c705af65ec",
+      "bytes": 1283467
+    },
+    {
+      "name": "seller intelligence evaluation",
+      "path": "seller-intelligence-v3.json",
+      "sha256": "fa24e1b177ca4dd6a6c7e392a4c29807999772d3b214e8f8d9add8fb890d164f",
+      "bytes": 541819
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "SproutRoute full evaluation",
+      "path": "sproutroute-full.json",
+      "sha256": "bbf62a75a34f56709dc15a57be0d05e071d39d47e8501b02ee5e21c705af65ec",
+      "bytes": 1283467,
+      "media_type": "application/json"
+    },
+    {
+      "name": "seller intelligence evaluation",
+      "path": "seller-intelligence-v3.json",
+      "sha256": "fa24e1b177ca4dd6a6c7e392a4c29807999772d3b214e8f8d9add8fb890d164f",
+      "bytes": 541819,
+      "media_type": "application/json"
+    }
+  ],
+  "environment": {
+    "execution": "committed provider evaluation replay with browser-local import",
+    "provider_calls": false,
+    "judge": "recorded in each artifact"
+  },
+  "providers": [
+    {
+      "name": "OpenRouter",
+      "model": "artifact-specific",
+      "live": false
+    }
+  ],
+  "claims": [
+    {
+      "id": "eval-artifact-derived",
+      "statement": "Candidates, quality dimensions, latency, cost, policy violations, and recommendations are derived from the selected artifact.",
+      "evidence_artifact": "seller-intelligence-v3.json",
+      "evidence_pointer": "/summary/per_model"
+    }
+  ],
+  "limitations": [
+    "The explorer replays completed evaluations and does not call providers.",
+    "Historical provider behavior may not represent current model versions."
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "demo_id": "rag-guardrails",
+  "mode": "local_execution",
+  "source_repository": "https://github.com/prasadnitish/rag-pipeline-guardrails",
+  "source_commit": "976a847351ddc68dbbde5dc2a660bdbf207cfc82",
+  "generated_at": "2026-04-02T23:16:00.000Z",
+  "generator_command": "npm test && npm run eval && npm run gate",
+  "inputs": [
+    {
+      "name": "travel corpus",
+      "path": "travel-docs.json",
+      "sha256": "d61e58c7d78874298edd9db4c7ab0415693fa822da7c0f999339e3ca6b0cd452",
+      "bytes": 5366
+    },
+    {
+      "name": "seller corpus",
+      "path": "seller-docs.json",
+      "sha256": "58ab8751949b337da67a562400a5401b2623ab16373d61641016a4e74e8f7b3f",
+      "bytes": 3950
+    },
+    {
+      "name": "24-case evaluation",
+      "path": "rag-eval-report.json",
+      "sha256": "2685f87d68eb63b768ba9b1844d16f88635c10f18e117baf3ce1555f7b5c824a",
+      "bytes": 15077
+    },
+    {
+      "name": "release gate report",
+      "path": "rag-gate-report.json",
+      "sha256": "5409fc9cf9da4795826c079d7603e7cd76512755bbb6bada11374d96a6ec0b46",
+      "bytes": 1366
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "travel corpus",
+      "path": "travel-docs.json",
+      "sha256": "d61e58c7d78874298edd9db4c7ab0415693fa822da7c0f999339e3ca6b0cd452",
+      "bytes": 5366,
+      "media_type": "application/json"
+    },
+    {
+      "name": "seller corpus",
+      "path": "seller-docs.json",
+      "sha256": "58ab8751949b337da67a562400a5401b2623ab16373d61641016a4e74e8f7b3f",
+      "bytes": 3950,
+      "media_type": "application/json"
+    },
+    {
+      "name": "24-case evaluation",
+      "path": "rag-eval-report.json",
+      "sha256": "2685f87d68eb63b768ba9b1844d16f88635c10f18e117baf3ce1555f7b5c824a",
+      "bytes": 15077,
+      "media_type": "application/json"
+    },
+    {
+      "name": "release gate report",
+      "path": "rag-gate-report.json",
+      "sha256": "5409fc9cf9da4795826c079d7603e7cd76512755bbb6bada11374d96a6ec0b46",
+      "bytes": 1366,
+      "media_type": "application/json"
+    }
+  ],
+  "environment": {
+    "execution": "browser-local term-weighted retrieval and guardrails",
+    "provider_calls": false,
+    "corpus": "committed synthetic policy documents"
+  },
+  "providers": [
+    {
+      "name": "extractive-template",
+      "model": "none",
+      "live": false
+    }
+  ],
+  "claims": [
+    {
+      "id": "rag-input-dependent-retrieval",
+      "statement": "Arbitrary questions are ranked against the committed corpus and return source-backed extractive answers or abstain.",
+      "evidence_artifact": "rag-eval-report.json",
+      "evidence_pointer": "/summary"
+    },
+    {
+      "id": "rag-injection-boundary",
+      "statement": "Prompt-injection patterns are blocked before retrieval.",
+      "evidence_artifact": "rag-gate-report.json",
+      "evidence_pointer": "/checks"
+    }
+  ],
+  "limitations": [
+    "The public demo uses an extractive generator; it does not compare live model providers.",
+    "The corpus is intentionally small and synthetic."
+  ]
+}
