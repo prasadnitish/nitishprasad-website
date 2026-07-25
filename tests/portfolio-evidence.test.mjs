@@ -107,6 +107,7 @@ test("public routes declare the correct evidence mode and local imports stay bro
   for (const [path, mode] of Object.entries(routes)) {
     const html = await text(path);
     assert.ok(html.includes(`data-evidence-mode="${mode}"`), `${path} is missing ${mode}`);
+    assert.match(html, /<script[^>]+src="[^"]+\.js\?v=\d{8}-\d+"/, `${path} must cache-bust its demo runtime`);
   }
   const explorer = await text("demos/evidence-explorer.js");
   const safety = await text("ai-safety/app.js");
