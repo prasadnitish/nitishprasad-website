@@ -31,3 +31,13 @@
   color: #fff;
   background: #20211f;
 }
+
+.founder-site.detail-page .lightbox figure {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.founder-site.detail-page .lightbox img,
+.founder-site.detail-page .lightbox figcaption {
+  max-width: 100%;
+}
