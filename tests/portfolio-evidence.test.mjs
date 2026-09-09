@@ -101,8 +101,7 @@ test("public routes declare the correct evidence mode and local imports stay bro
     "demos/redteam/index.html": "artifact_replay",
     "demos/agent-observability/index.html": "artifact_replay",
     "evals/index.html": "artifact_replay",
-    "ai-safety/index.html": "local_execution",
-    "demos/amplify/index.html": "workflow_walkthrough"
+    "ai-safety/index.html": "local_execution"
   };
   for (const [path, mode] of Object.entries(routes)) {
     const html = await text(path);
@@ -139,8 +138,7 @@ test("case studies link their manifest and disclose reproduction boundaries", as
     "project-redteam-harness.html": ["redteam", "demos/redteam/artifacts/manifest.json"],
     "project-agent-observability.html": ["agent-observability", "demos/agent-observability/artifacts/manifest.json"],
     "ai-eval-control-tower.html": ["eval-control-tower", "demos/eval-control-tower/artifacts/manifest.json"],
-    "project-ai-safety.html": ["ai-safety-audit", "demos/ai-safety-audit/artifacts/manifest.json"],
-    "project-amplify.html": ["amplify", "demos/amplify/artifacts/manifest.json"]
+    "project-ai-safety.html": ["ai-safety-audit", "demos/ai-safety-audit/artifacts/manifest.json"]
   };
   for (const [path, [demoId, manifest]] of Object.entries(cases)) {
     const html = await text(path);
@@ -152,4 +150,17 @@ test("case studies link their manifest and disclose reproduction boundaries", as
       `${path} has drifted from the manifest generator command`
     );
   }
+});
+
+test("the retired Amplify lookup leads to the illustrated case study", async () => {
+  const redirect = await text("demos/amplify/index.html");
+  const page = await text("project-amplify.html");
+  assert.match(redirect, /http-equiv="refresh" content="0; url=\/project-amplify.html#artifact"/);
+  assert.ok(redirect.includes('href="/project-amplify.html#artifact"'));
+  assert.ok(!redirect.includes("amplify-form"));
+  assert.ok(!redirect.includes("demo-system.js"));
+  assert.ok(page.includes('id="artifact"'));
+  assert.ok(page.includes('src="assets/amplify-workflow.svg"'));
+  assert.ok(page.includes("Illustrative reconstruction"));
+  assert.match(await text("assets/amplify-workflow.svg"), /<svg[^>]+viewBox=/);
 });

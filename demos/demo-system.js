@@ -476,40 +476,10 @@
     render();
   }
 
-  async function initAmplify() {
-    await renderManifest("artifacts/manifest.json");
-    const artifact = await fetchJson("artifacts/workflow-states.json");
-    const result = document.querySelector("#amplify-result");
-    const verdict = document.querySelector("#amplify-verdict");
-    document.querySelector("#amplify-form").addEventListener("submit", (event) => {
-      event.preventDefault();
-      const scenario = document.querySelector("#amplify-scenario").value;
-      const region = document.querySelector("#amplify-region").value;
-      const state = artifact.states[scenario];
-      verdict.textContent = "ILLUSTRATED";
-      setResult(result, `
-        <div class="result-label">WORKFLOW WALKTHROUGH / ${escapeHtml(region)}</div>
-        <h3>${escapeHtml(state.title)}</h3>
-        <p>This selection reveals an authored workflow state. It does not run an AI system.</p>
-        <div class="trace">
-          ${state.signals.map((signal, index) => `<div class="trace-step done"><span>0${index + 1} / signal</span><strong>${escapeHtml(signal)}</strong></div>`).join("")}
-          <div class="trace-step"><span>04 / next gate</span><strong>${escapeHtml(state.next_gate)}</strong></div>
-        </div>
-        <div class="metric-rail">
-          <div class="metric"><span>Owner</span><strong>${escapeHtml(state.owner)}</strong></div>
-          <div class="metric"><span>Mode</span><strong>walkthrough</strong></div>
-          <div class="metric"><span>AI calls</span><strong>0</strong></div>
-          <div class="metric"><span>Customer data</span><strong>none</strong></div>
-        </div>
-      `);
-    });
-  }
-
   const initializers = {
     gateway: initGateway,
     rag: initRag,
-    redteam: initRedteam,
-    amplify: initAmplify
+    redteam: initRedteam
   };
 
   if (initializers[lab]) {

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="794" viewBox="0 0 440 794" role="img" aria-labelledby="title desc">
+<title id="title">Amplify: catalog-recovery workflow</title>
+<desc id="desc">An illustrative reconstruction. A blocking catalog defect and rising revenue impact prompt a matching remediation playbook. The account manager prioritizes resolving the defect with a catalog specialist before expansion.</desc>
+<rect width="440" height="794" rx="12" fill="#f0efeb"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#20211f">
+<text x="26" y="38" font-size="14" letter-spacing="1" fill="#a33d28">AMPLIFY / ILLUSTRATIVE WORKFLOW</text>
+<text x="26" y="77" font-size="27" font-weight="600">Prepare a seller conversation</text>
+<rect x="24" y="104" width="392" height="158" rx="8" fill="#faf9f6" stroke="#dcdcd5"/>
+<text x="44" y="136" font-size="15" fill="#a33d28">01 / SELLER CONTEXT</text>
+<text x="44" y="176" font-size="23" font-weight="600">Catalog health needs attention</text>
+<text x="44" y="215" font-size="21" fill="#61615c">Blocking defect open</text>
+<text x="44" y="244" font-size="21" fill="#61615c">Revenue impact rising</text>
+<path d="M220 274v30m-7-8 7 8 7-8" fill="none" stroke="#a33d28" stroke-width="2"/>
+<rect x="24" y="316" width="392" height="158" rx="8" fill="#faf9f6" stroke="#dcdcd5"/>
+<text x="44" y="348" font-size="15" fill="#a33d28">02 / RECOMMENDATION</text>
+<text x="44" y="388" font-size="23" font-weight="600">Resolve the defect first</text>
+<text x="44" y="427" font-size="21" fill="#61615c">Remediation playbook matched</text>
+<text x="44" y="456" font-size="21" fill="#61615c">Expansion waits for resolution</text>
+<path d="M220 486v30m-7-8 7 8 7-8" fill="none" stroke="#a33d28" stroke-width="2"/>
+<rect x="24" y="528" width="392" height="194" rx="8" fill="#faf9f6" stroke="#dcdcd5"/>
+<text x="44" y="560" font-size="15" fill="#a33d28">03 / ACCOUNT-MANAGER ACTION</text>
+<text x="44" y="600" font-size="23" font-weight="600">Prepare the recovery discussion</text>
+<text x="44" y="639" font-size="21" fill="#61615c">Review the supporting context</text>
+<text x="44" y="668" font-size="21" fill="#61615c">Coordinate with a catalog specialist</text>
+<text x="44" y="697" font-size="21" fill="#61615c">Revisit expansion after resolution</text>
+<text x="26" y="763" font-size="15" fill="#61615c">Reconstruction from anonymized workflow notes</text>
+</g></svg>
