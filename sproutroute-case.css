@@ -1,0 +1,33 @@
+/* Keep current product screenshots readable within the shared case-study shell. */
+.founder-site.detail-page .case-section {
+  scroll-margin-top: 90px;
+}
+
+.founder-site.detail-page .visual,
+.founder-site.detail-page .visual .image-zoom {
+  min-height: 0;
+}
+
+.founder-site.detail-page .visual .image-zoom {
+  height: auto;
+}
+
+.founder-site.detail-page .diagram-visual img {
+  display: block;
+  height: auto;
+  min-height: 0;
+  padding: 0;
+}
+
+.founder-site.detail-page .visual figcaption {
+  position: static;
+  color: var(--ink);
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  line-height: 1.5;
+}
+
+.founder-site.detail-page .image-zoom::after {
+  color: #fff;
+  background: #20211f;
+}
