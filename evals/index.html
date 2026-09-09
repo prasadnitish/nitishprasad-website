@@ -21,16 +21,16 @@
   <main id="main" class="explorer-shell">
     <section class="lab-hero">
       <div>
-        <div class="eyebrow">Artifact replay</div>
-        <h1>Read the evidence, not a scoreboard.</h1>
-        <div id="evidence-summary" class="evidence-summary" aria-live="polite">Loading evidence manifest…</div>
+        <div class="eyebrow">Recorded results</div>
+        <h1>Compare models for a release decision.</h1>
+        <div id="evidence-summary" class="evidence-summary" aria-live="polite">Loading test data…</div>
       </div>
-      <div class="hero-note"><strong>No metric is duplicated in frontend code.</strong>Models, dimensions, verdicts, latency, cost, policy violations, judge metadata, and the recommendation are derived from the selected JSON artifact.</div>
+      <div class="hero-note"><strong>Quality, safety, latency, and cost in one view.</strong>Select a recorded evaluation or open a results file to compare models and understand the release recommendation.</div>
     </section>
     <section class="explorer-grid">
       <aside class="explorer-controls">
-        <div class="panel-head"><h2>Evidence source</h2><span class="status-pill">INSPECT EVIDENCE</span></div>
-        <label>Committed artifact
+        <div class="panel-head"><h2>Evidence source</h2><span class="status-pill">EXPLORE RESULTS</span></div>
+        <label>Recorded evaluation
           <select id="eval-artifact">
             <option value="seller-intelligence-v3.json">Seller intelligence v3</option>
             <option value="sproutroute-full.json">SproutRoute full suite</option>
@@ -43,11 +43,11 @@
         <div id="eval-source-links" class="source-links"></div>
       </aside>
       <section class="explorer-output">
-        <div class="panel-head"><h2>Artifact-derived decision</h2><span id="eval-status" class="status-pill">LOADING</span></div>
+        <div class="panel-head"><h2>Release recommendation</h2><span id="eval-status" class="status-pill">LOADING</span></div>
         <div id="eval-output" class="result-card" aria-live="polite"><div class="result-empty">Loading evaluation evidence…</div></div>
       </section>
     </section>
   </main>
-  <script type="module" src="../demos/evidence-explorer.js?v=20260725-2"></script>
+  <script type="module" src="../demos/evidence-explorer.js?v=20260909-1"></script>
 </body>
 </html>

@@ -20,15 +20,15 @@
   <main id="main" class="lab-shell">
     <section class="lab-hero">
       <div>
-        <div class="eyebrow">Local execution</div>
+        <div class="eyebrow">Browser lab</div>
         <h1>Retrieve it—or abstain.</h1>
-        <div id="evidence-summary" class="evidence-summary" aria-live="polite">Loading evidence manifest…</div>
+        <div id="evidence-summary" class="evidence-summary" aria-live="polite">Loading test data…</div>
       </div>
-      <div class="hero-note"><strong>Input-dependent evidence.</strong>Every question is ranked against the committed corpus. The result shows exact source text, term-weighted scores, citations, groundedness, and the gate.</div>
+      <div class="hero-note"><strong>Find the supporting passage.</strong>Ask a question of the sample corpus and inspect the ranked passages, extracted answer, and citations.</div>
     </section>
     <section class="lab-grid">
       <div class="control-panel">
-        <div class="panel-head"><h2>Query envelope</h2><span class="status-pill">RUN LOCALLY</span></div>
+        <div class="panel-head"><h2>Query envelope</h2><span class="status-pill">TRY THE LAB</span></div>
         <form id="rag-form">
           <label>Corpus
             <select id="rag-domain"><option value="travel">SproutRoute travel</option><option value="seller">Synthetic seller workflow</option></select>
@@ -43,19 +43,19 @@
           </div>
           <button class="button primary" type="submit">Run governed query →</button>
         </form>
-        <div class="disclosure">The public workbench uses the repository’s deterministic term-weighted retriever and extractive generator. It does not call a model. Term overlap and grounded extracts do not establish answer relevance.</div>
+        <div class="disclosure">This lab matches query terms and extracts passages locally. It can miss the intent of a question, so check whether the cited passages answer it.</div>
       </div>
       <div class="output-panel">
         <div class="panel-head"><h2>Retrieval and gate trace</h2><span id="rag-verdict" class="status-pill">WAITING</span></div>
         <div id="rag-result" class="result-card" aria-live="polite"><div class="result-empty">Ask any question to inspect ranked source evidence.</div></div>
         <section class="evidence-section" aria-labelledby="rag-evidence-title">
-          <h2 id="rag-evidence-title">Committed evaluation</h2>
+          <h2 id="rag-evidence-title">Recorded evaluation</h2>
           <div id="rag-evidence">Loading…</div>
         </section>
       </div>
     </section>
     <footer class="lab-footer"><span>RAG GUARDRAILS / LOCAL EXECUTION</span><span>EXTRACTIVE GENERATOR</span></footer>
   </main>
-  <script src="../demo-system.js?v=20260725-2"></script>
+  <script src="../demo-system.js?v=20260909-1"></script>
 </body>
 </html>

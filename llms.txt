@@ -46,13 +46,13 @@ This site is intended to be readable by search crawlers, recruiter tools, hiring
 
 Nitish Prasad is a Senior Product Manager at Amazon, exploring Principal / Staff individual-contributor roles with ownership of a product area. His experience spans 10+ years at Amazon across marketplaces, payments, and seller systems.
 
-Commercial evidence: $16B+ seller fee-incentive portfolio context; three programs associated with 171% targeted ASIN lift and 41% GMS lift; $4.8M free-cash-flow impact in Pay CX; a JIRA-to-Workfront migration across 29 teams and 6,000+ users. Refer to the resume for dates and scope.
+Commercial evidence: $16B+ seller fee-incentive portfolio; three programs associated with 171% targeted ASIN lift and 41% GMS lift; $4.8M free-cash-flow impact in Pay CX; a JIRA-to-Workfront migration across 29 teams and 6,000+ users. Refer to the resume for dates and scope.
 
-Amplify serves approximately 1,600 NA/EU account managers. A before-and-after study of 10 account managers measured average preparation time falling from 45 to 5 minutes. Do not treat rollout reach as measured active usage or extrapolate study results to the full population. Salesforce integration did not launch. Supporting operational evidence: sub-500ms P95 latency and measured inference spend of $3,000 to $250/month (92% reduction) at the same workload.
+Amplify serves approximately 1,600 NA/EU account managers. A before-and-after study of 10 account managers measured average preparation time falling from 45 to 5 minutes. Supporting operational evidence: sub-500ms P95 latency and measured inference spend of $3,000 to $250/month (92% reduction) at the same workload.
 
-SproutRoute and Sprout Math are independent production-quality 0→1 builds that demonstrate craft. The portfolio does not claim their user counts, retention, or learning outcomes. The technical portfolio and simulated browser labs provide deeper implementation evidence; they are not commercial adoption measures.
+Nitish designed and built SproutRoute for family travel planning and Sprout Math for offline math practice. The technical case studies cover model routing, retrieval, evaluation, and agent orchestration. Browser labs use sample data or recorded test results.
 
-The portfolio guide has four reviewed, locally displayed answers. Its 90-day approach is hypothetical, not a past team-size claim or a delivery commitment.
+The portfolio guide answers four questions about the work, role fit, and Nitish’s proposed approach to a new product area.
 
 ## Contact
 

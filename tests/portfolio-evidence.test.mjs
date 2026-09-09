@@ -131,7 +131,7 @@ test("published HTML contains no mojibake", async () => {
   }
 });
 
-test("case studies link their manifest and disclose reproduction boundaries", async () => {
+test("case studies link source reports and documentation preserves reproduction commands", async () => {
   const cases = {
     "project-llm-gateway.html": ["llm-gateway", "demos/llm-gateway/artifacts/manifest.json"],
     "project-rag-pipeline.html": ["rag-guardrails", "demos/rag-guardrails/artifacts/manifest.json"],
@@ -144,9 +144,10 @@ test("case studies link their manifest and disclose reproduction boundaries", as
     const html = await text(path);
     const source = portfolioEvidenceSources.find((candidate) => candidate.demoId === demoId);
     assert.ok(html.includes(manifest), `${path} does not link its manifest`);
-    assert.ok(html.includes("Evidence contract"), `${path} has no evidence contract`);
+    const reproduction = await text("docs/reproducing-portfolio-evidence.md");
+    assert.ok(reproduction.includes(path), `${path} has no reproduction documentation`);
     assert.ok(
-      html.includes(source.generatorCommand.replaceAll("&", "&amp;")),
+      reproduction.includes(source.generatorCommand),
       `${path} has drifted from the manifest generator command`
     );
   }
@@ -163,4 +164,17 @@ test("the retired Amplify lookup leads to the illustrated case study", async () 
   assert.ok(page.includes('src="assets/amplify-workflow.svg"'));
   assert.ok(page.includes("Illustrative reconstruction"));
   assert.match(await text("assets/amplify-workflow.svg"), /<svg[^>]+viewBox=/);
+});
+
+test("public copy does not expose drafting and verification notes", async () => {
+  const top = (await readdir(root)).filter((p) => p.endsWith(".html"));
+  const activePages = [];
+  for (const path of top) {
+    if ((await text(path)).includes('class="founder-site')) activePages.push(path);
+  }
+  const labs = ["demos/llm-gateway/index.html", "demos/rag-guardrails/index.html", "demos/redteam/index.html", "demos/graphrag/index.html", "demos/agent-observability/index.html", "evals/index.html", "ai-safety/index.html"];
+  const scripts = ["recruiter-assistant.js", "demos/demo-system.js", "demos/evidence-explorer.js", "demos/graphrag/app.js", "ai-safety/app.js", "llms.txt"];
+  for (const path of [...activePages, ...labs, ...scripts]) {
+    assert.doesNotMatch(await text(path), /no traction claim|not (?:a claim|claiming|presenting)|public (?:source|summary) does not|supplied for this case|should not be read as|not an incremental revenue claim|no fabricated scores|no model answer was fabricated/i, path);
+  }
 });

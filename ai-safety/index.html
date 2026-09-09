@@ -21,11 +21,11 @@
   <main id="main" class="safety-shell">
     <section class="lab-hero">
       <div>
-        <div class="eyebrow">Local execution + provider evidence</div>
-        <h1>Calculate locally. Compare honestly.</h1>
-        <div id="evidence-summary" class="evidence-summary" aria-live="polite">Loading evidence manifest…</div>
+        <div class="eyebrow">Browser lab + provider evidence</div>
+        <h1>See where a decision process needs review.</h1>
+        <div id="evidence-summary" class="evidence-summary" aria-live="polite">Loading test data…</div>
       </div>
-      <div class="hero-note"><strong>Two separate proof modes.</strong>The fairness audit recalculates from browser-local rows. The provider tab replays a committed 540-case-per-model benchmark summary. Neither path calls a provider.</div>
+      <div class="hero-note"><strong>Explore fairness and model performance.</strong>Audit sample decisions or your own CSV in the browser. The model tab shows recorded results from a 540-case-per-model benchmark.</div>
     </section>
 
     <div class="view-tabs" role="tablist" aria-label="Safety evidence view">
@@ -35,7 +35,7 @@
 
     <section id="local-view" class="safety-grid" role="tabpanel">
       <aside class="safety-controls">
-        <div class="panel-head"><h2>Audit inputs</h2><span class="status-pill">RUN LOCALLY</span></div>
+        <div class="panel-head"><h2>Audit inputs</h2><span class="status-pill">TRY THE LAB</span></div>
         <form id="safety-form">
           <label>Scenario
             <select id="scenario">
@@ -76,11 +76,11 @@
     </section>
 
     <section id="benchmark-view" class="benchmark-panel" role="tabpanel" hidden>
-      <div class="panel-head"><h2>Committed provider benchmark</h2><span id="benchmark-status" class="status-pill">ARTIFACT REPLAY</span></div>
+      <div class="panel-head"><h2>Recorded model benchmark</h2><span id="benchmark-status" class="status-pill">RECORDED RESULTS</span></div>
       <div id="benchmark-output" class="result-card" aria-live="polite"><div class="result-empty">Loading benchmark evidence…</div></div>
-      <p class="redteam-link">Adversarial campaigns are maintained separately. <a href="../demos/redteam/">Inspect the dedicated 40-probe artifact →</a></p>
+      <p class="redteam-link"><a href="../demos/redteam/">Explore the 40-probe red-team campaign →</a></p>
     </section>
   </main>
-  <script type="module" src="app.js?v=20260725-2"></script>
+  <script type="module" src="app.js?v=20260909-1"></script>
 </body>
 </html>

@@ -11,24 +11,26 @@ const context = vm.createContext({ document: { querySelector: () => true } });
 vm.runInContext(script, context);
 const answer = context.portfolioGuideAnswer;
 
-test('Amplify separates the study, rollout population, and unlaunched integration', () => {
+test('Amplify retains study size, measured result, and rollout population', () => {
   const result = answer('amplify');
   assert.match(result.body, /study of 10 account managers/);
   assert.match(result.body, /approximately 1,600/);
-  assert.match(result.body, /Salesforce integration did not launch/);
-  assert.match(result.body, /does not establish a population-wide causal effect/);
+  assert.match(result.body, /45 to 5 minutes/);
+  assert.match(result.body, /European engineering adapted it/);
 });
 
 test('commercial scope does not claim the portfolio as incremental revenue', () => {
   const result = answer('fees');
   assert.match(result.body, /171%.*41%/);
-  assert.match(result.body, /not incremental revenue/);
+  assert.match(result.body, /across a \$16B\+ seller fee-incentive portfolio/);
+  assert.doesNotMatch(result.body, /generated \$16B|delivered \$16B/);
   assert.match(result.body, /Senior Product Manager at Amazon/);
 });
 
 test('90-day answer does not invent past team size or commit to a delivery date', () => {
-  assert.match(answer('ninety').body, /Hypothetical approach/);
-  assert.match(answer('ninety').body, /not a claim about a past team or a delivery commitment/);
+  assert.match(answer('ninety').body, /I would start/);
+  assert.match(answer('ninety').body, /would shape the sequence/);
+  assert.doesNotMatch(answer('ninety').body, /I (shipped|delivered|led)/);
 });
 
 test('scope answer distinguishes current title from target roles', () => {

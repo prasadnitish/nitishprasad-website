@@ -42,7 +42,7 @@
       <p class="case-summary">I built a local-first conversion workbench that profiles source data, gives coding agents a schema-backed ontology task, requires human approval, compiles deterministic graph IR, routes questions through safe recipes, and publishes case-level evaluation evidence.</p>
       <div class="evidence-status" aria-label="Evidence maturity">
         <span class="is-implemented">Local product implemented and tested</span>
-        <span>Hosted Neo4j and provider certification still gated</span>
+        <span>Local evaluation · hosted testing planned</span>
       </div>
       <div class="case-actions">
         <a class="button" href="demos/graphrag/">Open the artifact walkthrough</a>
@@ -56,8 +56,8 @@
       </dl>
       <dl class="decision-summary">
         <div><dt>Decision</dt><dd>Use GraphRAG when the path is part of the answer. Keep vector RAG as the default for narrative retrieval.</dd></div>
-        <div><dt>What the evidence says</dt><dd>The local compiler and safe-routing contract work across two domains. Three seller routing failures remain visible.</dd></div>
-        <div><dt>What it does not say</dt><dd>No committed artifact yet proves GraphRAG beats vector RAG on answer quality. OpenAI, Ollama, AuraDB, and measured latency remain release gates.</dd></div>
+        <div><dt>Local test results</dt><dd>The local compiler and safe-routing contract work across two domains. Three seller routing failures remain visible.</dd></div>
+        <div><dt>Next evaluation</dt><dd>A graph-versus-vector answer-quality comparison is planned, along with hosted Neo4j testing and latency measurement.</dd></div>
       </dl>
     </section>
 
@@ -109,7 +109,7 @@
     <section class="case-section" data-frame>
       <div class="section-kicker">Worked examples<span>Graph, vector, hybrid, unsupported</span></div>
       <div class="case-section-body">
-        <h2>The route is a product decision, not a GraphRAG marketing claim.</h2>
+        <h2>Choose retrieval to match the question.</h2>
         <div class="evidence-grid">
           <article class="evidence-panel"><strong>Graph / incident impact</strong><p>“Which customers are exposed to INC-104?” traverses incident, service dependencies, customer usage, and ownership. The path is bounded at three hops.</p></article>
           <article class="evidence-panel"><strong>Vector / mitigation</strong><p>“Summarize the postmortem mitigation” retrieves narrative text. Modeling every mitigation sentence as graph structure would add cost without obvious value.</p></article>
@@ -128,11 +128,11 @@
           <article class="evidence-panel"><strong>Incident build</strong><p>22 mapped fields, 17 nodes, 17 relationships, 36 chunks, and zero unresolved structured fields.</p></article>
           <article class="evidence-panel"><strong>Seller build</strong><p>20 mapped fields, 33 nodes, 53 relationships, 87 chunks, and zero unresolved structured fields.</p></article>
           <article class="evidence-panel"><strong>Incident routing</strong><p>40 of 40 reviewed cases passed the deterministic recipe-selection and parameter suite.</p></article>
-          <article class="evidence-panel"><strong>Seller routing</strong><p>37 of 40 passed. The three failures remain in the case-level artifact and constrain the claim.</p></article>
+          <article class="evidence-panel"><strong>Seller routing</strong><p>37 of 40 passed. Three cases failed; the linked report includes each result.</p></article>
         </div>
-        <p>These results do not measure answer correctness. Provider-backed certification will add exact entity/value scoring, citation validation, the same synthesis model for graph and vector, and measured latency. No metric ships unless CI can trace it to the evidence manifest.</p>
+        <p>These tests measure source conversion and query routing. The next evaluation will compare answer quality, citations, and latency using the same synthesis model for graph and vector retrieval.</p>
         <div class="case-actions">
-          <a class="button secondary" href="https://github.com/prasadnitish/seller-ontology-graphrag/blob/main/evidence/manifest.json" target="_blank" rel="noopener">Evidence manifest ↗</a>
+          <a class="button secondary" href="https://github.com/prasadnitish/seller-ontology-graphrag/blob/main/evidence/manifest.json" target="_blank" rel="noopener">Source details ↗</a>
           <a class="button secondary" href="https://github.com/prasadnitish/seller-ontology-graphrag/blob/main/examples/incidents/generated/evaluation.json" target="_blank" rel="noopener">Incident cases ↗</a>
           <a class="button secondary" href="https://github.com/prasadnitish/seller-ontology-graphrag/blob/main/examples/seller/generated/evaluation.json" target="_blank" rel="noopener">Seller cases ↗</a>
         </div>
@@ -147,7 +147,7 @@
           <article class="evidence-panel"><strong>Approval hashes</strong><p>Semantic or source changes make approval stale. Draft history is retained locally.</p></article>
           <article class="evidence-panel"><strong>Query constraints</strong><p>Writes, procedures, unbounded traversal, missing tenant predicates, missing numeric limits, and undeclared parameters are rejected.</p></article>
           <article class="evidence-panel"><strong>Local editor</strong><p>Loopback binding, same-site HttpOnly session cookie, per-launch CSRF token, and no telemetry.</p></article>
-          <article class="evidence-panel"><strong>Public boundary</strong><p>Read-only routes only, synthetic data, rate limits, no source uploads, and no local editing API.</p></article>
+          <article class="evidence-panel"><strong>Browser demo</strong><p>Read-only routes only, synthetic data, rate limits, no source uploads, and no local editing API.</p></article>
         </div>
       </div>
     </section>
@@ -155,9 +155,9 @@
     <section class="case-section" data-frame>
       <div class="section-kicker">Decision and roadmap<span>Where complexity earns its keep</span></div>
       <div class="case-section-body">
-        <h2>GraphRAG is an evaluated option, not the default answer.</h2>
+        <h2>Use the graph where relationships matter.</h2>
         <p>Use it for dependency impact, ownership, entitlement, supply-chain, configuration, and policy questions where relationships and paths must remain inspectable. Use vector RAG for summary and explanation. Use hybrid retrieval only when both are necessary.</p>
-        <p>The next release gates are provider-backed OpenAI and Ollama runs, executed Neo4j and vector traces, reference-answer scoring, AuraDB with synthetic samples, and deployment of the read-only Python API. PDFs, live connectors, unrestricted Text2Cypher, public uploads, and multi-user hosting remain intentionally deferred.</p>
+        <p>Next, I would test OpenAI and Ollama answer generation, compare Neo4j and vector retrieval, and measure hosted performance using synthetic samples.</p>
         <div class="case-actions">
           <a class="button" href="https://github.com/prasadnitish/seller-ontology-graphrag#ten-minute-quick-start" target="_blank" rel="noopener">Reproduce the incident build ↗</a>
           <a class="button secondary" href="https://github.com/prasadnitish/seller-ontology-graphrag/blob/main/examples/incidents/graphspec.yaml" target="_blank" rel="noopener">Read GraphSpec ↗</a>
@@ -170,6 +170,6 @@
 
   <script src="vertical-system.js?v=20260712"></script>
   <script src="founder-system.js?v=20260908" defer></script>
-  <script src="recruiter-assistant.js?v=20260908" defer></script>
+  <script src="recruiter-assistant.js?v=20260909-2" defer></script>
 </body>
 </html>

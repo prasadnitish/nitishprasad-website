@@ -20,15 +20,15 @@
   <main id="main" class="lab-shell">
     <section class="lab-hero">
       <div>
-        <div class="eyebrow">Local execution</div>
+        <div class="eyebrow">Browser lab</div>
         <h1>Inspect the policy decision.</h1>
-        <div id="evidence-summary" class="evidence-summary" aria-live="polite">Loading evidence manifest…</div>
+        <div id="evidence-summary" class="evidence-summary" aria-live="polite">Loading test data…</div>
       </div>
-      <div class="hero-note"><strong>No provider call. No invented answer.</strong>Arbitrary request envelopes exercise the repository’s DLP, residency, quota, tenant-scoped cache, routing, and fallback logic in this browser.</div>
+      <div class="hero-note"><strong>Try a routing decision.</strong>Change the request, region, or data class to see which model the policy selects or why it blocks the request. The lab runs in your browser with a simulated provider.</div>
     </section>
     <section class="lab-grid">
       <div class="control-panel">
-        <div class="panel-head"><h2>Request envelope</h2><span class="status-pill">RUN LOCALLY</span></div>
+        <div class="panel-head"><h2>Request envelope</h2><span class="status-pill">TRY THE LAB</span></div>
         <form id="gateway-form">
           <div class="form-row">
             <label>Task type
@@ -60,7 +60,7 @@
             </label>
           </div>
           <div>
-            <span class="field-label">Fixtures</span>
+            <span class="field-label">Sample requests</span>
             <div class="examples">
               <button class="example" type="button" data-prompt="Create a compact packing list for a rainy weekend with a preschooler." data-task="packingList">Cache and route</button>
               <button class="example" type="button" data-prompt="My card is 4111 1111 1111 1111. Plan my trip." data-task="tripPlan" data-data-class="restricted">Restricted-data block</button>
@@ -69,7 +69,7 @@
           <button class="button primary" type="submit">Evaluate policy →</button>
           <button class="button secondary" id="quota-reset" type="button">Reset local quota</button>
         </form>
-        <div class="disclosure">The browser demonstration quota is deliberately three requests per tenant so the denial path is inspectable. The production repository’s defaults are higher.</div>
+        <div class="disclosure">Each tenant has a three-request demo quota. Submit a fourth request to see the quota block, or reset it to keep exploring.</div>
       </div>
       <div class="output-panel">
         <div class="panel-head"><h2>Decision trace</h2><span id="gateway-verdict" class="status-pill">WAITING</span></div>
@@ -81,13 +81,13 @@
         </div>
         <div id="gateway-result" class="result-card" aria-live="polite"><div class="result-empty">Submit any request to inspect the policy decision.</div></div>
         <section class="evidence-section" aria-labelledby="gateway-benchmark-title">
-          <h2 id="gateway-benchmark-title">Committed benchmark evidence</h2>
+          <h2 id="gateway-benchmark-title">Synthetic benchmark results</h2>
           <div id="gateway-benchmark">Loading…</div>
         </section>
       </div>
     </section>
     <footer class="lab-footer"><span>LLM GATEWAY / LOCAL EXECUTION</span><span>PROVIDER STUB</span></footer>
   </main>
-  <script src="../demo-system.js?v=20260725-2"></script>
+  <script src="../demo-system.js?v=20260909-1"></script>
 </body>
 </html>

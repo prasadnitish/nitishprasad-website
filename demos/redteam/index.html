@@ -20,15 +20,15 @@
   <main id="main" class="lab-shell">
     <section class="lab-hero">
       <div>
-        <div class="eyebrow">Artifact replay</div>
+        <div class="eyebrow">Recorded results</div>
         <h1>Inspect why the gate failed.</h1>
-        <div id="evidence-summary" class="evidence-summary" aria-live="polite">Loading evidence manifest…</div>
+        <div id="evidence-summary" class="evidence-summary" aria-live="polite">Loading test data…</div>
       </div>
-      <div class="hero-note"><strong>No browser attack is running.</strong>This route replays the committed PyRIT-shaped vulnerable-baseline artifact, verifies its hash, and exposes all 40 redacted probe rows.</div>
+      <div class="hero-note"><strong>Explore a recorded red-team campaign.</strong>Review 40 probes against a deliberately vulnerable test target. Filter the results to see which attacks succeeded and why the release was blocked.</div>
     </section>
     <section class="lab-grid">
       <div class="control-panel">
-        <div class="panel-head"><h2>Campaign filters</h2><span class="status-pill">INSPECT EVIDENCE</span></div>
+        <div class="panel-head"><h2>Campaign filters</h2><span class="status-pill">EXPLORE RESULTS</span></div>
         <form id="redteam-form">
           <span class="field-label">Attack classes</span>
           <div class="check-grid">
@@ -40,17 +40,17 @@
           <label>Outcome
             <select id="redteam-outcome"><option value="all">All probe rows</option><option value="success">Attack successes only</option><option value="safe">Behavior not observed</option></select>
           </label>
-          <button class="button primary" id="redteam-inspect" type="button">Inspect committed campaign →</button>
+          <button class="button primary" id="redteam-inspect" type="button">Explore campaign results →</button>
         </form>
-        <div class="disclosure">Filters never recompute the campaign verdict. They only narrow the immutable rows produced by the source harness.</div>
+        <div class="disclosure">Filters narrow the recorded results; the overall campaign verdict stays visible.</div>
       </div>
       <div class="output-panel">
         <div class="panel-head"><h2>Release evidence</h2><span id="redteam-status" class="status-pill">LOADING</span></div>
         <div id="redteam-result" class="result-card" aria-live="polite"><div class="result-empty">Loading the committed campaign…</div></div>
       </div>
     </section>
-    <footer class="lab-footer"><span>RED-TEAM GATE / ARTIFACT REPLAY</span><span>PYRIT 0.14.0 SHAPE</span></footer>
+    <footer class="lab-footer"><span>RED-TEAM GATE / RECORDED RESULTS</span><span>RECORDED TEST CAMPAIGN</span></footer>
   </main>
-  <script src="../demo-system.js?v=20260725-2"></script>
+  <script src="../demo-system.js?v=20260909-1"></script>
 </body>
 </html>

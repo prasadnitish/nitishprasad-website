@@ -24,8 +24,8 @@ async function digestHex(text) {
 
 function modeLabel(mode) {
   return {
-    local_execution: "Local execution",
-    artifact_replay: "Artifact replay",
+    local_execution: "Browser lab",
+    artifact_replay: "Recorded results",
     workflow_walkthrough: "Workflow walkthrough"
   }[mode] || mode;
 }
@@ -34,7 +34,7 @@ function renderManifest(target, manifest, manifestPath) {
   target.innerHTML = `
     <span class="evidence-mode">${escapeHtml(modeLabel(manifest.mode))}</span>
     <span>Source <code>${escapeHtml(manifest.source_commit.slice(0, 8))}</code></span>
-    <a href="${escapeHtml(manifestPath)}">Manifest ↗</a>
+    <a href="${escapeHtml(manifestPath)}">Source details ↗</a>
   `;
 }
 
@@ -123,7 +123,7 @@ async function initObservability() {
         <div class="metric"><span>Trace hash</span><strong>${actualHash === expectedHash ? "verified" : "local import"}</strong></div>
         <div class="metric"><span>Raw payload fields</span><strong>${escapeHtml(load.raw_payload_fields_persisted)}</strong></div>
       </div>
-      <p class="limitation">Timeline positions use relative millisecond offsets from the source artifact. They are not reconstructed wall-clock timestamps.</p>
+      <p class="limitation">The timeline shows milliseconds elapsed from the start of the trace.</p>
       <div class="span-list">${rows || "<p>No spans match this filter.</p>"}</div>
     `;
   }
@@ -134,7 +134,7 @@ async function initObservability() {
       <article><span>Errors retained</span><strong>${load.retained_errors}</strong><small>Low-priority successes dropped: ${load.dropped_low_priority_successes.toLocaleString()}</small></article>
       <article><span>Tenant crossovers</span><strong>${load.tenant_crossovers}</strong><small>Buffer limit: ${load.buffer_limit.toLocaleString()}</small></article>
     </div>
-    <p class="limitation">${escapeHtml(manifest.limitations.join(" "))}</p>
+    <p class="limitation">The load test simulates collector traffic in one process.</p>
   `;
 
   document.querySelectorAll("[data-trace-filter]").forEach((button) => button.addEventListener("click", () => {

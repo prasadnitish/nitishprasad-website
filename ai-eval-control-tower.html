@@ -52,7 +52,7 @@
         <div><dt>Use</dt><dd>Release gate</dd></div>
       </dl>
       <div class="case-actions">
-        <a class="button" href="evals/">Inspect evidence</a>
+        <a class="button" href="evals/">Explore results</a>
         <a class="button secondary" href="https://github.com/prasadnitish/AI-Eval-Control-Tower" target="_blank" rel="noopener">View GitHub ↗</a>
         <a class="button secondary" href="#benchmarks">Benchmarks</a>
       </div>
@@ -64,9 +64,9 @@
     </section>
 
     <section class="case-section" data-frame id="what-this-proves">
-      <div class="section-kicker">What this proves<span>Operating mechanism</span></div>
+      <div class="section-kicker">Product decision<span>Operating mechanism</span></div>
       <div class="case-section-body">
-        <h2>AI quality should be an operating mechanism, not a subjective demo review.</h2>
+        <h2>Make model selection a repeatable product decision.</h2>
         <p>This case shows how I turn AI quality from a subjective demo review into an operating mechanism: eval rubrics, safety floors, latency/cost tradeoffs, score provenance, and explicit launch decisions. The Control Tower serves as the enterprise platform's decision plane.</p>
         <a class="text-link" href="enterprise-ai-platform.html#capabilities">See its role in the platform operating model</a>
       </div>
@@ -78,7 +78,7 @@
         <h2>Most AI teams still lack a clear operating layer for model decisions.</h2>
         <p>One spreadsheet for prompts, one notebook for model experiments, another chart for latency, and a separate launch debate creates fragmented evidence. This tool makes the decision chain inspectable.</p>
         <div class="evidence-grid">
-          <article class="evidence-panel"><strong>7.64 safety score</strong><p>The current SproutRoute production model fell below the 8.0 safety floor.</p></article>
+          <article class="evidence-panel"><strong>7.64 safety score</strong><p>The SproutRoute model evaluated in this benchmark fell below the 8.0 safety floor.</p></article>
           <article class="evidence-panel"><strong>87.8 top quality</strong><p>Sonnet 4.6 led the field, but with latency and cost tradeoffs.</p></article>
           <article class="evidence-panel"><strong>19x cost spread</strong><p>The matrix makes "good enough and cheaper" a provable product decision.</p></article>
           <article class="evidence-panel"><strong>Manual live evals</strong><p>Secret-free PR checks stay safe; live OpenRouter runs happen only by manual workflow.</p></article>
@@ -93,7 +93,7 @@
         <div class="system-map">
           <div><span>Quality leader</span><h3>Sonnet 4.6</h3><p>Quality 87.8, safety 9.04, high latency and cost.</p></div>
           <div><span>Best tradeoff</span><h3>Gemini 2.5 Flash</h3><p>Cleared safety, faster than production, lower cost.</p></div>
-          <div><span>Blocked path</span><h3>Haiku 4.5</h3><p>Production model scored below the safety floor.</p></div>
+          <div><span>Blocked path</span><h3>Haiku 4.5</h3><p>Evaluated model scored below the safety floor.</p></div>
           <div><span>Evidence</span><h3>Judge citations</h3><p>Car seat law, venue closure, and infeasible routing errors were surfaced.</p></div>
         </div>
       </div>
@@ -109,17 +109,17 @@
       </div>
     </section>
     <section class="case-section evidence-contract" data-frame>
-      <div class="section-kicker">Evidence contract<span>Artifact replay</span></div>
+      <div class="section-kicker">Test reports<span>Artifact replay</span></div>
       <div class="case-section-body">
-        <h2>The frontend contains no competing metric source.</h2>
-        <p>Run <code>npm test &amp;&amp; npm run eval:sproutroute:full &amp;&amp; npm run eval:seller:v3</code> in the source branch. The explorer validates the result contract, calculates artifact age, enforces the recorded policy-violation floor, and refuses to score an import with missing evidence.</p>
-        <div class="evidence-contract-links"><a href="demos/eval-control-tower/artifacts/manifest.json">Evidence manifest ↗</a><a href="demos/eval-control-tower/artifacts/sproutroute-full.json">SproutRoute artifact ↗</a><a href="demos/eval-control-tower/artifacts/seller-intelligence-v3.json">Seller artifact ↗</a></div>
+        <h2>Compare the results behind a release decision.</h2>
+        <p>Select a recorded evaluation to compare quality, safety, latency, and cost across models. Open your own results locally to review another run against the same release criteria.</p>
+        <div class="evidence-contract-links"><a href="demos/eval-control-tower/artifacts/manifest.json">Source details ↗</a><a href="demos/eval-control-tower/artifacts/sproutroute-full.json">SproutRoute artifact ↗</a><a href="demos/eval-control-tower/artifacts/seller-intelligence-v3.json">Seller artifact ↗</a></div>
       </div>
     </section>
   </main>
   <footer class="platform-footer"><span>© 2026 Nitish Prasad</span><nav aria-label="Footer"><a href="enterprise-ai-platform.html">AI Platform</a><a href="archive.html">All work</a><a href="portfolio-privacy.html">Privacy</a><a href="terms.html">Terms</a></nav></footer>
   <script src="vertical-system.js?v=20260712"></script>
   <script src="founder-system.js?v=20260908" defer></script>
-  <script src="recruiter-assistant.js?v=20260908" defer></script>
+  <script src="recruiter-assistant.js?v=20260909-2" defer></script>
 </body>
 </html>

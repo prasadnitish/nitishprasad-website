@@ -51,3 +51,7 @@ Wrangler dry-run passed with the existing Worker bindings. Pre-release productio
 ## Amplify follow-up
 
 Removed the requested regional, Salesforce/date/rollout, and extrapolation caveats from the case-study prose. The 10-person study qualification and EU engineering attribution remain. Replaced the text-only artifact and preset lookup with an accessible SVG workflow illustration based on the existing catalog-recovery notes. The old demo URL redirects to the illustration, with a visible fallback link. Historical workflow notes and their manifest remain available as provenance; their generator is `node scripts/sync-portfolio-evidence.mjs`. The illustration is explicitly labeled as a reconstruction.
+
+## Recruiter-facing copy review
+
+Reviewed the public portfolio, case studies, guide answers, browser-lab introductions and generated results, crawler summary, and resume download for drafting notes and defensive caveats. Rewrote those passages around customer problems, ownership, decisions, and results. The 10-account-manager study qualification, factual current title, independent-project labels, and synthetic/recorded demo labels remain. Privacy disclosures and immutable benchmark artifacts are preserved. Reproduction commands now live in `docs/reproducing-portfolio-evidence.md`. Added a regression check for the internal-note patterns removed in this pass.

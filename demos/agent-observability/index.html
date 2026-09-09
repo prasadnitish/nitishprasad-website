@@ -21,15 +21,15 @@
   <main id="main" class="explorer-shell">
     <section class="lab-hero">
       <div>
-        <div class="eyebrow">Artifact replay</div>
+        <div class="eyebrow">Recorded results</div>
         <h1>Follow the failure.</h1>
-        <div id="evidence-summary" class="evidence-summary" aria-live="polite">Loading evidence manifest…</div>
+        <div id="evidence-summary" class="evidence-summary" aria-live="polite">Loading test data…</div>
       </div>
-      <div class="hero-note"><strong>Committed runtime evidence.</strong>The default view reads a forced-failure trace and 150,000-span load report from source artifacts. Validated local imports never leave this browser.</div>
+      <div class="hero-note"><strong>Find where a workflow failed.</strong>Explore a recorded failure trace and a simulated 150,000-span load test. You can also open your own trace file; it stays in your browser.</div>
     </section>
     <section class="explorer-grid">
       <aside class="explorer-controls">
-        <div class="panel-head"><h2>Trace controls</h2><span class="status-pill">INSPECT EVIDENCE</span></div>
+        <div class="panel-head"><h2>Trace controls</h2><span class="status-pill">EXPLORE RESULTS</span></div>
         <div class="filter-stack" aria-label="Trace filters">
           <button class="button secondary" data-trace-filter="all" aria-pressed="true">All spans</button>
           <button class="button secondary" data-trace-filter="errors" aria-pressed="false">Failures only</button>
@@ -50,6 +50,6 @@
       </section>
     </section>
   </main>
-  <script type="module" src="../evidence-explorer.js?v=20260725-2"></script>
+  <script type="module" src="../evidence-explorer.js?v=20260909-1"></script>
 </body>
 </html>

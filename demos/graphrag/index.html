@@ -21,21 +21,21 @@
   <main id="main" class="lab-shell">
     <section class="lab-hero">
       <div>
-        <div class="eyebrow">Committed artifact replay / no fabricated scores</div>
-        <h1>See what the graph actually proves.</h1>
+        <div class="eyebrow">Recorded graph and routing examples</div>
+        <h1>Follow a question through the graph.</h1>
       </div>
       <div class="hero-note">
-        <strong>This release replays committed compiler and evaluation artifacts.</strong>
-        Hosted Neo4j remains a release gate, so the walkthrough leaves latency and arbitrary
-        answer quality unscored.
+        <strong>Explore two sample knowledge graphs.</strong>
+        Choose a question to inspect its query route, relationships, and source passages.
+        This walkthrough uses recorded results; hosted database testing is planned.
       </div>
     </section>
 
     <section class="artifact-banner" aria-label="Evidence status">
-      <div><span>MODE</span><strong>COMMITTED REPLAY</strong></div>
-      <div><span>GRAPH EXECUTION</span><strong>AURADB GATE OPEN</strong></div>
-      <div><span>ANSWER QUALITY</span><strong>NOT YET CLAIMED</strong></div>
-      <div><span>PUBLIC UPLOADS</span><strong>DISABLED</strong></div>
+      <div><span>MODE</span><strong>RECORDED RESULTS</strong></div>
+      <div><span>DATA</span><strong>2 SAMPLE GRAPHS</strong></div>
+      <div><span>EVALUATION</span><strong>QUERY ROUTING</strong></div>
+      <div><span>DATABASE CALLS</span><strong>NONE</strong></div>
     </section>
 
     <section class="conversion-strip" aria-label="Conversion workflow">
@@ -64,8 +64,8 @@
           <button class="button primary" type="submit">Route through approved recipes →</button>
         </form>
         <div class="disclosure">
-          The browser can only replay source-backed traces committed with this build. If no
-          approved recipe and entity match, it returns unsupported. It never invents Cypher.
+          Questions need to match an available query recipe and entity. Try a suggested
+            question first, then change it to explore which requests are supported.
         </div>
       </div>
 

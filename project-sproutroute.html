@@ -42,7 +42,7 @@
     <section class="case-hero" data-frame>
       <p class="context">Hybrid AI / live production / family travel</p>
       <h1 class="case-title">SproutRoute</h1>
-      <p class="case-summary">Parents need a trip plan that accounts for children, weather, activities, and packing. I defined, designed, built, and operate SproutRoute as a production-quality 0→1 web product. I moved unreliable AI-generated packing into rules and kept place and weather facts separate from generated text. This case demonstrates craft; it does not claim user growth or retention.</p>
+      <p class="case-summary">Parents need a trip plan that accounts for children, weather, activities, and packing. I defined, designed, built, and operate SproutRoute. I moved unreliable AI-generated packing into rules and kept place and weather facts separate from generated text.</p>
       <div class="evidence-status" aria-label="Evidence maturity"><span class="is-live">Live production product</span><span class="is-implemented">MCP path implemented</span></div>
       <dl class="metric-line">
         <div><dt>Customer</dt><dd>Traveling families</dd></div>
@@ -60,15 +60,15 @@
       <dl class="decision-summary">
         <div><dt>Decision</dt><dd>Let verified APIs and deterministic rules own facts; use models for planning and connective prose.</dd></div>
         <div><dt>Why</dt><dd>Weather, places, safety, and family packing require provenance and predictable failure handling.</dd></div>
-        <div><dt>Result</dt><dd>A working family travel product. Test counts and the agent path are supporting engineering evidence, not adoption measures.</dd></div>
+        <div><dt>Result</dt><dd>A working family travel product that brings itinerary, packing, and safety information into one plan.</dd></div>
       </dl>
     </section>
 
     <section class="case-section" data-frame id="what-this-proves">
-      <div class="section-kicker">What this proves<span>AI boundaries</span></div>
+      <div class="section-kicker">Product decision<span>AI boundaries</span></div>
       <div class="case-section-body">
         <h2>A family needs a plan it can act on.</h2>
-        <p>I changed the product as I found reliability problems: early AI-heavy generation was slow and unreliable for packing and safety, so I moved packing into rules and used verified data for places and weather. No measured family-use study or retention result is supplied for this case.</p>
+        <p>I changed the product as I found reliability problems: early AI-heavy generation was slow and unreliable for packing and safety, so I moved packing into rules and used verified data for places and weather.</p>
       </div>
     </section>
 
@@ -89,7 +89,7 @@
     <section class="case-section" data-frame id="screens">
       <div class="section-kicker">Screens<span>Shipped flow</span></div>
       <div class="case-section-body">
-        <h2>The artifacts should show the shipped flow, not a decorative mockup.</h2>
+        <h2>Plan the trip, then prepare for it.</h2>
         <div class="visual-grid">
           <figure class="visual"><img data-lightbox src="assets/screenshots/location-picker.webp" alt="SproutRoute destination search screen" /><figcaption>Natural-language destination setup</figcaption></figure>
           <figure class="visual"><img data-lightbox src="assets/screenshots/date-picker.webp" alt="SproutRoute date picker screen" /><figcaption>Date range drives weather and packing</figcaption></figure>
@@ -104,7 +104,7 @@
     <section class="case-section" data-frame id="architecture">
       <div class="section-kicker">Architecture<span>Evolution</span></div>
       <div class="case-section-body">
-        <h2>Three architectural stages, each driven by a production problem.</h2>
+        <h2>How the architecture evolved.</h2>
         <div class="evidence-grid">
           <article class="evidence-panel"><strong>V1: AI-heavy generation</strong><p>Fast to ship, but slow, expensive, and unreliable for packing and safety.</p></article>
           <article class="evidence-panel"><strong>V2: deterministic packing</strong><p>Moved packing to rules and routed models by task to improve reliability.</p></article>
@@ -125,7 +125,7 @@
     <section class="case-section" data-frame id="decisions">
       <div class="section-kicker">Decisions<span>Judgment</span></div>
       <div class="case-section-body">
-        <h2>The page should make the tradeoffs inspectable.</h2>
+        <h2>The choices behind the product.</h2>
         <div class="evidence-grid">
           <article class="evidence-panel"><strong>Deterministic packing over AI packing.</strong><p>Family travel packing is constraint-based. Reliability beats novelty.</p></article>
           <article class="evidence-panel"><strong>Per-task model routing over one global model.</strong><p>Different steps need different cost, latency, and reasoning profiles.</p></article>
@@ -140,6 +140,6 @@
   <footer class="platform-footer"><span>© 2026 Nitish Prasad</span><nav aria-label="Footer"><a href="enterprise-ai-platform.html">AI Platform</a><a href="archive.html">All work</a><a href="portfolio-privacy.html">Privacy</a><a href="terms.html">Terms</a></nav></footer>
   <script src="vertical-system.js?v=20260712"></script>
   <script src="founder-system.js?v=20260908" defer></script>
-  <script src="recruiter-assistant.js?v=20260908" defer></script>
+  <script src="recruiter-assistant.js?v=20260909-2" defer></script>
 </body>
 </html>

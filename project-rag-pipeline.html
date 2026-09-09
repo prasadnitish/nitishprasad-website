@@ -45,7 +45,7 @@
       <h1 class="case-title">RAG Pipeline with Guardrails</h1>
       <p class="case-summary">The vector baseline for the enterprise knowledge layer: grounded answers, safety checks, benchmark traces, and release gates connected in one production-minded system. A separate implemented GraphRAG layer now tests when relationship traversal earns its extra complexity.</p>
       <div class="evidence-status" aria-label="Evidence maturity"><span class="is-implemented">Local execution</span><span>Committed corpus and 24-case evaluation</span></div>
-      <div class="case-actions"><a class="button" href="demos/rag-guardrails/">Run locally</a><a class="button secondary" href="https://github.com/prasadnitish/rag-pipeline-guardrails" target="_blank" rel="noopener">View GitHub ↗</a></div>
+      <div class="case-actions"><a class="button" href="demos/rag-guardrails/">Try the lab</a><a class="button secondary" href="https://github.com/prasadnitish/rag-pipeline-guardrails" target="_blank" rel="noopener">View GitHub ↗</a></div>
       <dl class="metric-line">
         <div><dt>Domains</dt><dd>2 corpora</dd></div>
         <div><dt>Eval cases</dt><dd>24</dd></div>
@@ -76,7 +76,7 @@
     <section class="case-section" data-frame id="system">
       <div class="section-kicker">System<span>Flow</span></div>
       <div class="case-section-body">
-        <h2>The important part is how the pieces fit together.</h2>
+        <h2>From a question to a supported answer.</h2>
         <div class="system-map">
           <div><span>Corpus</span><h3>Domain content</h3><p>Travel and seller workflow knowledge bases.</p></div>
           <div><span>Retrieval</span><h3>Grounding</h3><p>Relevant context is selected before synthesis.</p></div>
@@ -87,17 +87,17 @@
       </div>
     </section>
     <section class="case-section evidence-contract" data-frame>
-      <div class="section-kicker">Evidence contract<span>Local execution</span></div>
+      <div class="section-kicker">Test reports<span>Local execution</span></div>
       <div class="case-section-body">
-        <h2>Questions resolve to ranked committed source text.</h2>
-        <p>Run <code>npm test &amp;&amp; npm run eval &amp;&amp; npm run gate</code>. The public workbench uses the source repository’s tokenizer, term-weighted ranking, injection rule set, extractive generator, groundedness calculation, and abstention boundary. It makes no live-model claim.</p>
-        <div class="evidence-contract-links"><a href="demos/rag-guardrails/artifacts/manifest.json">Evidence manifest ↗</a><a href="demos/rag-guardrails/artifacts/rag-eval-report.json">Evaluation artifact ↗</a><a href="demos/rag-guardrails/artifacts/rag-gate-report.json">Gate artifact ↗</a></div>
+        <h2>Try retrieval, citations, and abstention.</h2>
+        <p>Ask a question of the sample travel or seller corpus. The browser ranks passages, extracts an answer, and shows its citations. An unsupported question returns an abstention. This lab runs locally without a model provider.</p>
+        <div class="evidence-contract-links"><a href="demos/rag-guardrails/artifacts/manifest.json">Source details ↗</a><a href="demos/rag-guardrails/artifacts/rag-eval-report.json">Evaluation report ↗</a><a href="demos/rag-guardrails/artifacts/rag-gate-report.json">Release report ↗</a></div>
       </div>
     </section>
   </main>
   <footer class="platform-footer"><span>© 2026 Nitish Prasad</span><nav aria-label="Footer"><a href="enterprise-ai-platform.html">AI Platform</a><a href="archive.html">All work</a><a href="portfolio-privacy.html">Privacy</a><a href="terms.html">Terms</a></nav></footer>
   <script src="vertical-system.js?v=20260712"></script>
   <script src="founder-system.js?v=20260908" defer></script>
-  <script src="recruiter-assistant.js?v=20260908" defer></script>
+  <script src="recruiter-assistant.js?v=20260909-2" defer></script>
 </body>
 </html>

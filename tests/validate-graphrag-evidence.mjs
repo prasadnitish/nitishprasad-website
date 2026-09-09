@@ -40,7 +40,7 @@ for (const claim of [
   "37 / 40",
   "17 nodes",
   "33 nodes",
-  "No committed artifact yet proves GraphRAG beats vector RAG",
+  "A graph-versus-vector answer-quality comparison is planned",
 ]) {
   assert.ok(caseStudy.includes(claim), `Missing case-study evidence claim: ${claim}`);
 }

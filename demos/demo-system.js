@@ -18,8 +18,8 @@
 
   function modeLabel(mode) {
     return {
-      local_execution: "Local execution",
-      artifact_replay: "Artifact replay",
+      local_execution: "Browser lab",
+      artifact_replay: "Recorded results",
       workflow_walkthrough: "Workflow walkthrough"
     }[mode] || mode;
   }
@@ -31,7 +31,7 @@
     target.innerHTML = `
       <span class="evidence-mode">${escapeHtml(modeLabel(manifest.mode))}</span>
       <span>Source <code>${escapeHtml(manifest.source_commit.slice(0, 8))}</code></span>
-      <a href="${escapeHtml(path)}">Manifest ↗</a>
+      <a href="${escapeHtml(path)}">Source details ↗</a>
     `;
     return manifest;
   }
@@ -163,11 +163,11 @@
 
     document.querySelector("#gateway-benchmark").innerHTML = `
       <div class="evidence-grid">
-        <article><span>Warm cost reduction</span><strong>${escapeHtml(benchmark.warm.cost_reduction_pct)}%</strong><small>${escapeHtml(benchmark.evidence_level)}</small></article>
+        <article><span>Warm cost reduction</span><strong>${escapeHtml(benchmark.warm.cost_reduction_pct)}%</strong><small>50-request synthetic workload</small></article>
         <article><span>Isolation</span><strong>${isolation.controls.cross_tenant_cache_result ? "Failed" : "Passed"}</strong><small>Cross-tenant cache result: ${escapeHtml(isolation.controls.cross_tenant_cache_result)}</small></article>
-        <article><span>Load envelope</span><strong>${escapeHtml(isolation.allowed)} allowed</strong><small>${escapeHtml(isolation.evidence_level)}</small></article>
+        <article><span>Load envelope</span><strong>${escapeHtml(isolation.allowed)} allowed</strong><small>Simulated collector load</small></article>
       </div>
-      <p class="limitation">${escapeHtml(manifest.limitations.join(" "))}</p>
+      <p class="limitation">Benchmark results use a fixed synthetic workload and simulated providers.</p>
     `;
 
     document.querySelectorAll("[data-prompt]").forEach((button) => button.addEventListener("click", () => {
@@ -275,13 +275,13 @@
         provider_stub: {
           called: false,
           answer_generated: false,
-          note: "The public workbench stops after the real policy decision."
+          note: "Routing policy evaluated with a simulated provider."
         }
       };
       setResult(result, `
         <div class="result-label">LOCAL EXECUTION / PROVIDER STUB</div>
         <h3>${cached ? "Reused a tenant-scoped route." : "Produced an approved route."}</h3>
-        <p>No model answer was fabricated. The browser executed the policy engine and stopped at the deterministic provider boundary.</p>
+        <p>The policy result above shows the selected route or block reason. The provider response is simulated.</p>
         <pre>${escapeHtml(JSON.stringify(decision, null, 2))}</pre>
       `);
     });
@@ -363,7 +363,7 @@
         <article><span>Corpus</span><strong>${travel.length + seller.length} documents</strong><small>${travel.length} travel · ${seller.length} seller</small></article>
         <article><span>Provider calls</span><strong>0</strong><small>Extractive local execution</small></article>
       </div>
-      <p class="limitation">${escapeHtml(manifest.limitations.join(" "))}</p>
+      <p class="limitation">Evaluation uses a small synthetic corpus and local passage extraction.</p>
     `;
 
     document.querySelector("#rag-form").addEventListener("submit", (event) => {
@@ -390,7 +390,7 @@
         setResult(result, `
           <div class="result-label">LOCAL EXECUTION / UNSUPPORTED</div>
           <div class="gate warn">ABSTAIN</div>
-          <p>No document met the minimum retrieval score. No answer or quality score was manufactured.</p>
+          <p>No matching passage was found. Try a question about the selected corpus.</p>
         `);
         return;
       }

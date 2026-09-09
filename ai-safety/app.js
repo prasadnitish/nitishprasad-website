@@ -243,7 +243,7 @@ function renderAudit() {
       <div class="metric"><span>Data movement</span><strong>browser only</strong></div>
     </div>
     <div class="audit-groups">${groups}</div>
-    <p class="limitation">These metrics describe the selected rows and policy. They are not a claim of real-world model fairness.</p>
+    <p class="limitation">Review these metrics alongside the selected data, thresholds, and decision context.</p>
   `;
 }
 
@@ -274,12 +274,12 @@ async function init() {
   document.querySelector("#evidence-summary").innerHTML = `
     <span class="evidence-mode">Local execution</span>
     <span>Source <code>${escapeHtml(manifest.source_commit.slice(0, 8))}</code></span>
-    <a href="${manifestPath}">Manifest ↗</a>
+    <a href="${manifestPath}">Source details ↗</a>
   `;
   document.querySelector("#benchmark-output").innerHTML = `
     <div class="result-label">PROVIDER EVIDENCE / ${escapeHtml(benchmark.generated_at)}</div>
     <h3>Both models completed ${escapeHtml(benchmark.dataset.evaluated_cases)} cases.</h3>
-    <p>Metrics below are read directly from the committed summary. The browser does not rerun or reinterpret provider outputs.</p>
+    <p>Compare the recorded model results across 540 test cases per model.</p>
     <div class="benchmark-models">
       ${benchmark.models.map((model) => `
         <article class="benchmark-model">
@@ -296,8 +296,8 @@ async function init() {
         </article>
       `).join("")}
     </div>
-    <pre>${escapeHtml(JSON.stringify(benchmark.source_artifact, null, 2))}</pre>
-    <p class="limitation">${escapeHtml(manifest.limitations.join(" "))}</p>
+    <details><summary>Source details</summary><pre>${escapeHtml(JSON.stringify(benchmark.source_artifact, null, 2))}</pre></details>
+    <p class="limitation">This benchmark uses synthetic hiring, lending, and support scenarios.</p>
   `;
 
   document.querySelector("#safety-form").addEventListener("submit", (event) => {

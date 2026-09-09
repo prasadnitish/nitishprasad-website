@@ -4,25 +4,25 @@ function portfolioGuideAnswer(key) {
     amplify: {
       question: 'Amplify customer',
       title: 'Account managers preparing for seller conversations.',
-      body: 'Account managers pieced together seller signals and playbooks before calls. Nitish reframed a dashboard request around preparation and recommended next actions, built Amplify, and launched in North America with data-engineering support. European engineering adapted it. The product became the primary seller-insights tool for approximately 1,600 NA/EU account managers. Average preparation fell from 45 to 5 minutes in a before-and-after study of 10 account managers. That study does not establish a population-wide causal effect. Salesforce integration did not launch.',
+      body: 'Account managers pieced together seller signals and playbooks before calls. Nitish reframed a dashboard request around preparation and recommended next actions, built Amplify, and launched in North America with data-engineering support. European engineering adapted it. The product became the primary seller-insights tool for approximately 1,600 NA/EU account managers. Average preparation fell from 45 to 5 minutes in a before-and-after study of 10 account managers.',
       sources: [{ label: 'Amplify: customer, ownership, and evidence', url: '/project-amplify.html' }]
     },
     fees: {
       question: 'Fees portfolio',
       title: 'Commercial mechanisms for third-party sellers.',
-      body: 'Since May 2025, Nitish has owned strategy and operating mechanisms across a $16B+ seller fee-incentive portfolio as a Senior Product Manager at Amazon. He launched three programs associated with 171% lift in targeted ASINs and 41% GMS lift. The $16B+ figure describes portfolio context; it is not incremental revenue attributed to him. Earlier Amazon Pay CX work delivered $4.8M in free-cash-flow impact. The public source does not give program-by-program attribution or experimental design.',
-      sources: [{ label: 'Seller fees and incentives', url: '/project-seller-incentives.html' }, { label: 'Dated experience', url: '/resume.html#experience' }]
+      body: 'Since May 2025, Nitish has owned strategy and operating mechanisms across a $16B+ seller fee-incentive portfolio as a Senior Product Manager at Amazon. He launched three programs associated with 171% lift in targeted ASINs and 41% GMS lift. Earlier Amazon Pay CX work delivered $4.8M in free-cash-flow impact.',
+      sources: [{ label: 'Seller fees and incentives', url: '/project-seller-incentives.html' }, { label: 'Experience and results', url: '/resume.html#experience' }]
     },
     ninety: {
       question: '90 days with 2 engineers',
-      title: 'A starting approach, subject to the customer and business.',
-      body: 'Hypothetical approach, not a claim about a past team or a delivery commitment: first observe the customer workflow, agree on one problem and a baseline, and choose what to leave out. Then ship the smallest useful end-to-end flow with the two engineers and test it with a small group of users. Use the remaining time to measure repeat use and customer outcomes, fix the largest adoption barrier, and decide whether to expand, change direction, or stop. Scope and timing would depend on the product, access to customers, and technical constraints.',
+      title: 'Start with one customer problem.',
+      body: 'I would start by observing the customer workflow, agreeing on one problem and a baseline, and choosing what to leave out. With two engineers, I would build the smallest useful end-to-end flow and test it with a small group of users. I would use the results to improve adoption and decide whether to expand, change direction, or stop. Customer access and technical constraints would shape the sequence.',
       sources: [{ label: 'Frame / Bound / Prove / Scale', url: '/index.html#operate' }]
     },
     scope: {
       question: 'Principal vs Staff AI Platform',
       title: 'Principal / Staff IC ownership of a product area.',
-      body: 'Nitish’s current title is Senior Product Manager at Amazon. He is exploring Principal and Staff individual-contributor roles across marketplaces, fintech, and AI products. The intended scope includes the customer problem, commercial tradeoffs, roadmap, rollout, and adoption. His technical portfolio demonstrates hands-on work with latency, cost, evaluation, and migrations. A Staff AI Platform role may fit when those systems serve clear product and customer outcomes. He is not claiming Principal or Staff as his current title, or using the target role to imply people-management responsibility.',
+      body: 'Nitish’s current title is Senior Product Manager at Amazon. He is exploring Principal and Staff individual-contributor roles across marketplaces, fintech, and AI products. The intended scope includes the customer problem, commercial tradeoffs, roadmap, rollout, and adoption. His projects include hands-on work with latency, cost, evaluation, and migrations. A Staff AI Platform role may fit when those systems serve clear product and customer outcomes.',
       sources: [{ label: 'About and role fit', url: '/about.html' }, { label: 'Technical portfolio', url: '/enterprise-ai-platform.html' }]
     }
   };
@@ -37,7 +37,7 @@ function portfolioGuideAnswer(key) {
     <button class="ra-launcher" type="button" aria-haspopup="dialog" aria-controls="portfolio-guide" aria-expanded="false">Questions about scope <span aria-hidden="true">↗</span></button>
     <dialog class="ra-panel" id="portfolio-guide" aria-labelledby="ra-title" aria-describedby="ra-intro">
       <header class="ra-head"><div><p class="ra-eyebrow">Portfolio guide</p><h2 id="ra-title">A little more context.</h2></div><button class="ra-close" type="button" aria-label="Close portfolio guide" autofocus>×</button></header>
-      <div class="ra-content"><p id="ra-intro">Four questions about the work and role fit. These are reviewed answers with links to the portfolio.</p>
+      <div class="ra-content"><p id="ra-intro">Explore the work, role fit, and how I would approach a new product area.</p>
       <div class="ra-suggestions" aria-label="Questions about scope"></div>
       <section class="ra-answer" aria-live="polite" aria-atomic="true"><p>Select a question to read the answer.</p></section></div>
       <footer class="ra-footer"><a href="mailto:hello@nitishprasad.com">Ask Nitish directly ↗</a><a href="/portfolio-privacy.html">Privacy</a></footer>

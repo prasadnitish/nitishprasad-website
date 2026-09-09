@@ -74,7 +74,7 @@
     }));
     document.querySelector("#build-hash").textContent = `ontology ${data.ontology_hash} / data ${data.data_hash}`;
     document.querySelector("#eval-title").textContent = `${data.evaluation.passed}/${data.evaluation.cases} routing cases passed`;
-    document.querySelector("#eval-note").textContent = `${data.evaluation.claim}. This is not a GraphRAG-versus-vector answer score.`;
+    document.querySelector("#eval-note").textContent = "Evaluation covers query routing and parameters for this sample graph.";
     document.querySelector("#eval-link").href = `https://github.com/prasadnitish/seller-ontology-graphrag/blob/main/examples/${scenarioSelect.value}/generated/evaluation.json`;
     setResultEmpty("Route a question to reveal the approved recipe and committed evidence.");
     verdict.textContent = "WAITING";
@@ -115,7 +115,7 @@
       element(
         "p",
         "",
-        `The committed workbench returns unsupported instead of inventing an entity, route, or Cypher statement for “${question}”.`,
+        `No available query recipe and entity match “${question}”. Try one of the suggested questions.`,
       ),
       metricRail([
         ["Cypher", "none"],
@@ -201,8 +201,8 @@
         "p",
         "reference-note",
         heldOut
-          ? "This exact question exists in the committed held-out routing suite. The artifact evaluates route and parameters—not synthesized answer quality."
-          : "This phrasing has no exact held-out reference, so the demo does not assign it a score.",
+          ? "This question is included in the recorded routing tests. Open its case result to inspect the route and parameters."
+          : "This phrasing is outside the recorded test set. The selected recipe is shown for exploration.",
       ),
     );
   }
