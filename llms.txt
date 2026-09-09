@@ -8,7 +8,7 @@ This site is intended to be readable by search crawlers, recruiter tools, hiring
 - Resume: https://www.nitishprasad.com/resume.html
 - Seller fees and incentives: https://www.nitishprasad.com/project-seller-incentives.html
 - Amplify customer and product-ownership case study: https://www.nitishprasad.com/project-amplify.html
-- SproutRoute case study: https://www.nitishprasad.com/project-sproutroute.html
+- SproutRoute case study: https://www.nitishprasad.com/project-sproutroute
 - Sprout Math case study: https://www.nitishprasad.com/project-sproutmath.html
 - AI Eval Control Tower case study: https://www.nitishprasad.com/ai-eval-control-tower.html
 - RAG Pipeline with Guardrails case study: https://www.nitishprasad.com/project-rag-pipeline.html
@@ -59,3 +59,11 @@ The portfolio guide answers four questions about the work, role fit, and Nitishâ
 - Email: hello@nitishprasad.com
 - LinkedIn: https://linkedin.com/in/nitishprasad
 - GitHub: https://github.com/prasadnitish
+
+## SproutRoute release evidence (September 9, 2026)
+
+The live web planner supports single- and multi-city itineraries, ordered daily driving maps, rule-based packing, and location-specific safety guidance. AI-generated venues, schedules and safety tips require verification; API enrichment is not a guarantee of accuracy.
+
+A production check of an eight-day Tokyo/Kyoto/Hakone trip completed in 24.984 seconds, with the first city ready in 12.191 seconds, measured after route confirmation. This is one observation, not a service guarantee. An 18-call production-prompt benchmark selected Gemini 3.8 Flash for itinerary generation: 13.8-second mean versus 28.1 seconds for GPT-5.4 nano. Flash Lite averaged 10.7 seconds but missed requested activity coverage on some days. The benchmark did not validate venue hours or safety quality.
+
+Release evidence: https://github.com/prasadnitish/SproutRoute/pull/22

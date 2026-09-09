@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>SproutRoute - AI Boundaries for Trustworthy Planning</title>
-  <meta name="description" content="SproutRoute systems case study: hybrid AI travel planner that separates generated prose from verified facts, deterministic packing, cached attractions, and family-safety data." />
+  <title>SproutRoute - Family Trip Planning, Routes and Reliability</title>
+  <meta name="description" content="How Nitish Prasad built and operates SproutRoute: multi-city itineraries, daily route maps, rule-based packing, safety guidance, and measured AI model selection." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="vertical-system.css" />
   <link rel="stylesheet" href="platform-system.css?v=20260908" />
@@ -14,14 +14,14 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.nitishprasad.com/project-sproutroute" />
   <meta property="og:site_name" content="Nitish Prasad" />
-  <meta property="og:title" content="SproutRoute — AI Boundaries for Trustworthy Planning" />
-  <meta property="og:description" content="A hybrid AI travel planner that separates generated prose from verified facts, with deterministic packing, cached attractions, and family-safety data." />
-  <meta property="og:image" content="https://www.nitishprasad.com/og-sproutroute.png" />
+  <meta property="og:title" content="SproutRoute: Family Trip Planning, Routes and Reliability" />
+  <meta property="og:description" content="How Nitish Prasad built and operates SproutRoute: multi-city itineraries, daily route maps, rule-based packing, safety guidance, and measured AI model selection." />
+  <meta property="og:image" content="https://www.nitishprasad.com/assets/screenshots/sproutroute-web-route-20260909.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="SproutRoute — AI Boundaries for Trustworthy Planning" />
-  <meta name="twitter:description" content="A hybrid AI travel planner that separates generated prose from verified facts, with deterministic packing, cached attractions, and family-safety data." />
-  <meta name="twitter:image" content="https://www.nitishprasad.com/og-sproutroute.png" />
+  <meta name="twitter:title" content="SproutRoute: Family Trip Planning, Routes and Reliability" />
+  <meta name="twitter:description" content="How Nitish Prasad built and operates SproutRoute: multi-city itineraries, daily route maps, rule-based packing, safety guidance, and measured AI model selection." />
+  <meta name="twitter:image" content="https://www.nitishprasad.com/assets/screenshots/sproutroute-web-route-20260909.jpg" />
   <link rel="stylesheet" href="founder-system.css?v=20260908" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,99 +40,112 @@
 
   <main id="main" class="case-shell">
     <section class="case-hero" data-frame>
-      <p class="context">Hybrid AI / live production / family travel</p>
+      <p class="context">Independent product / live web app / family travel</p>
       <h1 class="case-title">SproutRoute</h1>
-      <p class="case-summary">Parents need a trip plan that accounts for children, weather, activities, and packing. I defined, designed, built, and operate SproutRoute. I moved unreliable AI-generated packing into rules and kept place and weather facts separate from generated text.</p>
-      <div class="evidence-status" aria-label="Evidence maturity"><span class="is-live">Live production product</span><span class="is-implemented">MCP path implemented</span></div>
+      <p class="case-summary">I designed, built, and operate a travel planner that brings a day-by-day itinerary, route maps, packing, and location-specific safety guidance into one place. Travelers describe the trip in plain language, review the stops, and prepare for each day.</p>
+      <div class="evidence-status" aria-label="Evidence maturity"><span class="is-live">Live web product</span><span>Verified September 9, 2026</span></div>
       <dl class="metric-line">
         <div><dt>Customer</dt><dd>Traveling families</dd></div>
-        <div><dt>Scope</dt><dd>Independent 0→1 build</dd></div>
-        <div><dt>Evidence</dt><dd>Live web product</dd></div>
-        <div><dt>Core choice</dt><dd>Facts before prose</dd></div>
+        <div><dt>Scope</dt><dd>Idea to live product</dd></div>
+        <div><dt>Trip support</dt><dd>Single or multiple cities</dd></div>
+        <div><dt>Core choice</dt><dd>AI plus rules and APIs</dd></div>
       </dl>
       <div class="case-actions">
         <a class="button" href="https://sproutroute.app" target="_blank" rel="noopener">Use SproutRoute ↗</a>
         <a class="button secondary" href="https://github.com/prasadnitish/SproutRoute" target="_blank" rel="noopener">View GitHub ↗</a>
         <a class="button secondary" href="#screens">Screens</a>
+        <a class="button secondary" href="#evidence">Measured results</a>
         <a class="button secondary" href="#architecture">Architecture</a>
-        <a class="button secondary" href="archive.html">Related artifacts</a>
       </div>
       <dl class="decision-summary">
-        <div><dt>Decision</dt><dd>Let verified APIs and deterministic rules own facts; use models for planning and connective prose.</dd></div>
-        <div><dt>Why</dt><dd>Weather, places, safety, and family packing require provenance and predictable failure handling.</dd></div>
-        <div><dt>Result</dt><dd>A working family travel product that brings itinerary, packing, and safety information into one plan.</dd></div>
+        <div><dt>Decision</dt><dd>Use AI for itinerary suggestions, rules for packing, and dedicated services for weather, place details, and map directions.</dd></div>
+        <div><dt>Why</dt><dd>A useful trip plan needs clear loading states, recoverable failures, and an honest distinction between suggestions and sourced information.</dd></div>
+        <div><dt>Result</dt><dd>An eight-day, three-city Japan trip completed in 25.0 seconds in a production check. Packing and safety appeared while the itinerary was still generating.</dd></div>
       </dl>
     </section>
 
     <section class="case-section" data-frame id="what-this-proves">
-      <div class="section-kicker">Product decision<span>AI boundaries</span></div>
+      <div class="section-kicker">Product decisions<span>Planning and preparation</span></div>
       <div class="case-section-body">
-        <h2>A family needs a plan it can act on.</h2>
-        <p>I changed the product as I found reliability problems: early AI-heavy generation was slow and unreliable for packing and safety, so I moved packing into rules and used verified data for places and weather.</p>
+        <h2>Keep the useful details with the plan.</h2>
+        <p>Families need more than a list of attractions. I built the flow around the decisions they make next: which cities to visit, how to move between the day’s stops, what to pack, and what to check before leaving. The planner also supports adults-only trips and pet-related guidance.</p>
+        <p>I moved packing into rules after finding inconsistent AI output. I brought safety highlights onto the main plan so travelers can see them without hunting through a separate tab. The full guidance remains one click away.</p>
       </div>
     </section>
 
     <section class="case-section" data-frame id="hard">
-      <div class="section-kicker">Complexity<span>Boundaries</span></div>
+      <div class="section-kicker">Reliability work<span>September 2026</span></div>
       <div class="case-section-body">
-        <h2>The hard parts were in the boundaries.</h2>
-        <p>Users type fuzzy travel intent. The system has to extract constraints, route across external APIs, separate factual data from generative text, keep family-safety information reliable, and avoid turning every trip plan into a slow serial dependency chain.</p>
+        <h2>Fix the failures a demo exposed.</h2>
+        <p>A Japan trip exposed missing attractions, slow generation, and maps that showed a city instead of the day’s route. I traced the browser requests and production timings, repaired the failure paths, and checked the full trip on desktop and a narrow screen.</p>
         <div class="evidence-grid">
-          <article class="evidence-panel"><strong>Fuzzy input</strong><p>Free text has to become destination, dates, children, pets, travel mode, and planning constraints.</p></article>
-          <article class="evidence-panel"><strong>API failure modes</strong><p>Weather, geocoding, places, policy, AI, and persistence layers all fail differently.</p></article>
-          <article class="evidence-panel"><strong>Factual vs generative</strong><p>Weather, safety, places, and packing must not be hallucinated by itinerary prose.</p></article>
-          <article class="evidence-panel"><strong>Latency</strong><p>Moving from 8-12 seconds required parallelization, caching, and hot-path discipline.</p></article>
+          <article class="evidence-panel"><strong>Faster results</strong><p>Two city plans can run at once. Packing starts independently, and safety starts when destination context is available.</p></article>
+          <article class="evidence-panel"><strong>Visible failures</strong><p>API-origin fixes and explicit retry/edit actions replace blocked requests and silent regeneration after a stream error.</p></article>
+          <article class="evidence-panel"><strong>A route for each day</strong><p>Named attractions stay on the map even when coordinates are missing. Google Maps connects the stops in itinerary order.</p></article>
+          <article class="evidence-panel"><strong>Operational evidence</strong><p>I restored the protected dashboard’s sign-in and metric mappings, then used stage and model timings to identify the slow calls.</p></article>
         </div>
       </div>
     </section>
 
     <section class="case-section" data-frame id="screens">
-      <div class="section-kicker">Screens<span>Shipped flow</span></div>
+      <div class="section-kicker">Screens<span>Current web build</span></div>
       <div class="case-section-body">
         <h2>Plan the trip, then prepare for it.</h2>
-        <div class="visual-grid">
-          <figure class="visual"><img data-lightbox src="assets/screenshots/location-picker.webp" alt="SproutRoute destination search screen" /><figcaption>Natural-language destination setup</figcaption></figure>
-          <figure class="visual"><img data-lightbox src="assets/screenshots/date-picker.webp" alt="SproutRoute date picker screen" /><figcaption>Date range drives weather and packing</figcaption></figure>
-          <figure class="visual"><img data-lightbox src="assets/screenshots/whos-coming.webp" alt="SproutRoute traveler setup screen" /><figcaption>Family composition changes constraints</figcaption></figure>
-          <figure class="visual"><img data-lightbox src="assets/screenshots/itinerary.webp" alt="SproutRoute itinerary screen" /><figcaption>Verified itinerary surface</figcaption></figure>
-          <figure class="visual"><img data-lightbox src="assets/screenshots/packing-list.webp" alt="SproutRoute packing list screen" /><figcaption>Deterministic packing list</figcaption></figure>
-          <figure class="visual"><img data-lightbox src="assets/screenshots/safety.webp" alt="SproutRoute safety screen" /><figcaption>Safety from verified sources</figcaption></figure>
+        <p>Production screenshots from the September 9 check. Daily maps currently show driving directions; travelers can open Google Maps for other transport options. Suggested times and safety advice still need local verification.</p>
+        <div class="visual-grid two">
+          <figure class="visual diagram-visual"><img data-lightbox src="assets/screenshots/sproutroute-web-route-20260909.jpg" width="1514" height="815" loading="lazy" alt="Tokyo itinerary beside an ordered daily street route and numbered stop list" /><figcaption>Attractions and the day’s route, side by side</figcaption></figure>
+          <figure class="visual diagram-visual"><img data-lightbox src="assets/screenshots/sproutroute-web-safety-20260909.jpg" width="1514" height="815" loading="lazy" alt="Location-specific safety highlights directly below the Japan trip heading" /><figcaption>Safety highlights on the main plan</figcaption></figure>
+        </div>
+        <p>Packing includes checkboxes, custom items, and retailer search links. The September update corrected cool-weather layers and adults-only wording, and removed shopping actions from documents and personal prescriptions.</p>
+      </div>
+    </section>
+
+    <section class="case-section" data-frame id="evidence">
+      <div class="section-kicker">Measured results<span>September 9, 2026</span></div>
+      <div class="case-section-body">
+        <h2>Choose the model against the actual workload.</h2>
+        <p>I compared three models using the production prompt: Tokyo trips of three and six days for adults, and a three-day Kyoto trip with children. Two passes produced six samples per model. These timings measure the model calls, separately from the full application.</p>
+        <div class="evidence-grid">
+          <article class="evidence-panel"><strong>GPT-5.4 nano: 28.1s</strong><p>Mean across six calls; range 19.8–38.8s. The checks found an invalid activity reference and a repeated activity.</p></article>
+          <article class="evidence-panel"><strong>Gemini 3.8 Flash: 13.8s</strong><p>Mean across six calls; range 10.8–18.2s. I selected it for itineraries after the second pass met the requested activity coverage and reference checks.</p></article>
+          <article class="evidence-panel"><strong>Gemini 3.5 Flash Lite: 10.7s</strong><p>Mean across six calls; range 7.3–17.2s. It was faster, but supplied fewer than the requested four activities on some days.</p></article>
+        </div>
+        <p>The benchmark checks output structure and coverage. It does not establish venue accuracy, opening hours, or safety quality.</p>
+        <dl class="metric-line">
+          <div><dt>First city ready</dt><dd>12.2 seconds</dd></div>
+          <div><dt>Full route ready</dt><dd>25.0 seconds</dd></div>
+          <div><dt>Unit/integration tests</dt><dd>533 passed</dd></div>
+          <div><dt>Browser tests</dt><dd>73 passed</dd></div>
+        </dl>
+        <p>Production check: two adults, Tokyo → Kyoto → Hakone, December 1–8, 2026. Timing starts after route confirmation and excludes parsing and review time. This is one observed run, not a response-time guarantee. CI also passed the frontend build and iOS simulator/archive checks.</p>
+        <div class="case-actions">
+          <a class="button secondary" href="https://github.com/prasadnitish/SproutRoute/pull/22" target="_blank" rel="noopener">Release and checks ↗</a>
+          <a class="button secondary" href="https://github.com/prasadnitish/SproutRoute/blob/f6b41b45b1825b2e5cdc61ba624f9f62c09ff052/docs/ai-change-log/2026-09-09-trip-performance-and-routes.md" target="_blank" rel="noopener">Benchmark method and limits ↗</a>
         </div>
       </div>
     </section>
 
     <section class="case-section" data-frame id="architecture">
-      <div class="section-kicker">Architecture<span>Evolution</span></div>
+      <div class="section-kicker">Architecture<span>Current web flow</span></div>
       <div class="case-section-body">
-        <h2>How the architecture evolved.</h2>
+        <h2>Separate the work that can fail independently.</h2>
         <div class="evidence-grid">
-          <article class="evidence-panel"><strong>V1: AI-heavy generation</strong><p>Fast to ship, but slow, expensive, and unreliable for packing and safety.</p></article>
-          <article class="evidence-panel"><strong>V2: deterministic packing</strong><p>Moved packing to rules and routed models by task to improve reliability.</p></article>
-          <article class="evidence-panel"><strong>V3: attraction memory</strong><p>Stored verified attractions with freshness scoring so one trip improves the next.</p></article>
-          <article class="evidence-panel"><strong>Current state</strong><p>Verified data feeds the AI planner; AI writes connective tissue, not facts.</p></article>
-          <article class="evidence-panel"><strong>V4: additive agent + MCP path</strong><p>Implemented a LangGraph orchestrator with four specialist agents and a hosted MCP server without replacing the stable web route. The path validates delegation, partial results, trace privacy, and tool contracts for the enterprise agent runtime.</p></article>
+          <article class="evidence-panel"><strong>Parse and review</strong><p>React sends the trip prompt to Express. The parser extracts travel constraints, and travelers confirm or reorder a multi-city route.</p></article>
+          <article class="evidence-panel"><strong>Plan and stream</strong><p>The backend resolves destinations, retrieves weather and cached attraction candidates, and streams itinerary results. Model choice is configurable by task.</p></article>
+          <article class="evidence-panel"><strong>Prepare and explore</strong><p>Rules produce packing items. Separate requests supply safety guidance and place details; Google Maps draws the daily route from its ordered stops.</p></article>
+          <article class="evidence-panel"><strong>Measure and recover</strong><p>Railway runs the app. Protected metrics record model latency, trip stages, and errors. Partial results stay visible when a later stage fails.</p></article>
         </div>
-        <div class="visual-grid two">
-          <figure class="visual diagram-visual"><img data-lightbox src="diagrams/runtime-architecture.svg" alt="SproutRoute runtime architecture" /><figcaption>Runtime architecture</figcaption></figure>
-          <figure class="visual diagram-visual"><img data-lightbox src="diagrams/trust-architecture.svg" alt="SproutRoute trust architecture" /><figcaption>Trust architecture</figcaption></figure>
-          <figure class="visual diagram-visual"><img data-lightbox src="diagrams/request-lifecycle.svg" alt="SproutRoute request lifecycle" /><figcaption>Request lifecycle</figcaption></figure>
-          <figure class="visual diagram-visual"><img data-lightbox src="diagrams/latency-comparison.svg" alt="SproutRoute latency comparison" /><figcaption>Latency before and after</figcaption></figure>
-          <figure class="visual diagram-visual"><img data-lightbox src="diagrams/mcp-handoff-trace.png" alt="Claude Desktop calling the hosted SproutRoute MCP server: a San Diego trip plan plus the live agent handoff trace showing retrieval, safety, itinerary, and packing spans with per-agent latencies" /><figcaption>Live MCP handoff trace</figcaption></figure>
-        </div>
+        <p>The separate <a href="project-multi-agent-orchestrator.html">agent and MCP implementation</a> explores specialist delegation and tool contracts. It does not replace the default browser flow described here.</p>
       </div>
     </section>
 
     <section class="case-section" data-frame id="decisions">
-      <div class="section-kicker">Decisions<span>Judgment</span></div>
+      <div class="section-kicker">Next decisions<span>Known limits</span></div>
       <div class="case-section-body">
-        <h2>The choices behind the product.</h2>
-        <div class="evidence-grid">
-          <article class="evidence-panel"><strong>Deterministic packing over AI packing.</strong><p>Family travel packing is constraint-based. Reliability beats novelty.</p></article>
-          <article class="evidence-panel"><strong>Per-task model routing over one global model.</strong><p>Different steps need different cost, latency, and reasoning profiles.</p></article>
-          <article class="evidence-panel"><strong>Cached attraction shortlist over open-ended discovery.</strong><p>Freshness scoring narrows the search space and improves repeat plans.</p></article>
-          <article class="evidence-panel"><strong>Factual APIs separated from generative output.</strong><p>Weather, places, and safety data need provenance before prose.</p></article>
-        </div>
-        <a class="text-link" href="privacy-policy.html">Privacy</a>
+        <h2>Make the remaining limits visible.</h2>
+        <p>AI still proposes venues and safety tips. API enrichment and a map route do not prove that every suggestion is open, suitable, or safe. The next reliability work is broader venue and safety evaluation, transport-aware routes with place IDs, and clearer release-by-release metrics.</p>
+        <p>For a multi-city demo, enter the full prompt and review the route. Recent-trip shortcuts currently rebuild a simplified destination request. Packing uses weather from the initial destination; mixed-climate routes need a route-wide check.</p>
+        <a class="text-link" href="privacy-policy.html">Privacy and data handling</a>
         <a class="text-link" href="terms.html">Terms</a>
       </div>
     </section>
