@@ -1,0 +1,13 @@
+{
+  "name": "nitishprasad-portfolio-evidence",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync:evidence": "node scripts/sync-portfolio-evidence.mjs",
+    "validate:evidence": "node tests/validate-portfolio-evidence.mjs",
+    "test": "node --test tests/*.test.mjs tests/*.test.cjs && python3 tests/check_founder_site.py && node tests/validate-graphrag-evidence.mjs && node tests/validate-portfolio-evidence.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

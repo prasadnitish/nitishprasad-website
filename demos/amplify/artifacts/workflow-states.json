@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "evidence_level": "anonymized workflow walkthrough; no AI execution claim",
+  "states": {
+    "growth": {
+      "title": "Prioritize a Growth program conversation",
+      "signals": [
+        "Eligibility passed",
+        "Engagement signal fresh",
+        "Regional policy current"
+      ],
+      "owner": "Account lead",
+      "next_gate": "Human confirms account context before outreach"
+    },
+    "recovery": {
+      "title": "Resolve catalog health before expansion",
+      "signals": [
+        "Blocking defect open",
+        "Revenue impact rising",
+        "Remediation playbook matched"
+      ],
+      "owner": "Catalog specialist",
+      "next_gate": "Defect is resolved before expansion is reconsidered"
+    },
+    "expansion": {
+      "title": "Validate cross-border prerequisites",
+      "signals": [
+        "Demand signal present",
+        "Tax evidence incomplete",
+        "Logistics evidence incomplete"
+      ],
+      "owner": "Expansion specialist",
+      "next_gate": "Tax and logistics owners approve prerequisites"
+    }
+  }
+}

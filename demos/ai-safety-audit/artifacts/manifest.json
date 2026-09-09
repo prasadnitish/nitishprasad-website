@@ -1,0 +1,54 @@
+{
+  "demo_id": "ai-safety-audit",
+  "mode": "local_execution",
+  "source_repository": "https://github.com/prasadnitish/AI-Eval-Control-Tower",
+  "source_commit": "94eeaf68ed8851ed0658e0de649b292f43d2116d",
+  "generated_at": "2026-02-27T14:59:17.785Z",
+  "generator_command": "npm run ai-safety:bench -- --limit 540",
+  "inputs": [
+    {
+      "name": "540-case-per-model benchmark summary",
+      "path": "ai-safety-benchmark-summary.json",
+      "sha256": "c1f00fd2a8d9405b324ea6fde2ba3a4a67c33fae58de9291e66bd972ad7ab410",
+      "bytes": 3410
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "540-case-per-model benchmark summary",
+      "path": "ai-safety-benchmark-summary.json",
+      "sha256": "c1f00fd2a8d9405b324ea6fde2ba3a4a67c33fae58de9291e66bd972ad7ab410",
+      "bytes": 3410,
+      "media_type": "application/json"
+    }
+  ],
+  "environment": {
+    "execution": "browser-local fairness calculation plus committed provider benchmark summary",
+    "provider_calls": false,
+    "benchmark_cases_per_model": 540
+  },
+  "providers": [
+    {
+      "name": "Anthropic",
+      "model": "claude-sonnet-4-6",
+      "live": false
+    },
+    {
+      "name": "DeepSeek",
+      "model": "deepseek-chat",
+      "live": false
+    }
+  ],
+  "claims": [
+    {
+      "id": "safety-provider-benchmark",
+      "statement": "The evidence view summarizes 540 completed cases per model and preserves the full source artifact hash.",
+      "evidence_artifact": "ai-safety-benchmark-summary.json",
+      "evidence_pointer": "/models"
+    }
+  ],
+  "limitations": [
+    "The browser receives the benchmark summary, not the 5.4 MB per-case provider transcript.",
+    "Local fairness calculations are synthetic unless the user imports a CSV."
+  ]
+}

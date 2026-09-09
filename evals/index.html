@@ -1,15 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>AI Evals Control Tower</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/evals/assets/index-dUPLY1xV.js"></script>
-    <link rel="stylesheet" crossorigin href="/evals/assets/index-vZXXP2Us.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore versioned AI evaluation artifacts without duplicating metrics in frontend code.">
+  <title>Evaluation Evidence Explorer — Nitish Prasad</title>
+  <link rel="stylesheet" href="../demos/demo-system.css">
+  <link rel="stylesheet" href="../demos/evidence.css">
+  <link rel="stylesheet" href="../demos/evidence-explorer.css">
+</head>
+<body data-evidence-app="evaluations" data-evidence-mode="artifact_replay">
+  <a class="skip" href="#main">Skip to evidence</a>
+  <header class="lab-header">
+    <a class="brand" href="../index.html"><b>NP / PLATFORM LAB</b><span>EVAL-05</span></a>
+    <nav class="lab-nav" aria-label="Demo navigation">
+      <a href="../ai-eval-control-tower.html">Case study</a>
+      <a class="source" href="https://github.com/prasadnitish/AI-Eval-Control-Tower/tree/codex/principal-pm-dashboard-redesign" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </header>
+  <main id="main" class="explorer-shell">
+    <section class="lab-hero">
+      <div>
+        <div class="eyebrow">Artifact replay</div>
+        <h1>Read the evidence, not a scoreboard.</h1>
+        <div id="evidence-summary" class="evidence-summary" aria-live="polite">Loading evidence manifest…</div>
+      </div>
+      <div class="hero-note"><strong>No metric is duplicated in frontend code.</strong>Models, dimensions, verdicts, latency, cost, policy violations, judge metadata, and the recommendation are derived from the selected JSON artifact.</div>
+    </section>
+    <section class="explorer-grid">
+      <aside class="explorer-controls">
+        <div class="panel-head"><h2>Evidence source</h2><span class="status-pill">INSPECT EVIDENCE</span></div>
+        <label>Committed artifact
+          <select id="eval-artifact">
+            <option value="seller-intelligence-v3.json">Seller intelligence v3</option>
+            <option value="sproutroute-full.json">SproutRoute full suite</option>
+          </select>
+        </label>
+        <div class="import-box">
+          <label>Local eval-results JSON<input id="eval-file" type="file" accept=".json,application/json"></label>
+          <p id="eval-import-message" class="import-message">Maximum 5 MB. The file is validated and remains in this browser.</p>
+        </div>
+        <div id="eval-source-links" class="source-links"></div>
+      </aside>
+      <section class="explorer-output">
+        <div class="panel-head"><h2>Artifact-derived decision</h2><span id="eval-status" class="status-pill">LOADING</span></div>
+        <div id="eval-output" class="result-card" aria-live="polite"><div class="result-empty">Loading evaluation evidence…</div></div>
+      </section>
+    </section>
+  </main>
+  <script type="module" src="../demos/evidence-explorer.js?v=20260725-2"></script>
+</body>
 </html>

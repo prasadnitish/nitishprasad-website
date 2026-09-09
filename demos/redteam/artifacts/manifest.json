@@ -1,0 +1,50 @@
+{
+  "demo_id": "redteam",
+  "mode": "artifact_replay",
+  "source_repository": "https://github.com/prasadnitish/ai-safety-audit-tool/tree/codex/redteam-harness",
+  "source_commit": "7e80c861da6e67a9b77dddfd1b77f1d5b481803e",
+  "generated_at": "2026-07-25T20:26:29.430Z",
+  "generator_command": "npm test && npm run redteam:bench",
+  "inputs": [
+    {
+      "name": "40-probe vulnerable-baseline campaign",
+      "path": "redteam-benchmark.json",
+      "sha256": "aad4b3d53db4ef5396aca67352521a675dcb8c4dd54ae456ab1fe678c767597f",
+      "bytes": 18476
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "40-probe vulnerable-baseline campaign",
+      "path": "redteam-benchmark.json",
+      "sha256": "aad4b3d53db4ef5396aca67352521a675dcb8c4dd54ae456ab1fe678c767597f",
+      "bytes": 18476,
+      "media_type": "application/json"
+    }
+  ],
+  "environment": {
+    "execution": "committed artifact replay",
+    "provider_calls": false,
+    "target": "fixture://vulnerable-baseline"
+  },
+  "providers": [
+    {
+      "name": "PyRIT",
+      "model": "deterministic vulnerable baseline",
+      "live": false,
+      "version": "0.14.0"
+    }
+  ],
+  "claims": [
+    {
+      "id": "redteam-release-verdict",
+      "statement": "The committed 40-probe vulnerable-baseline campaign produced a BLOCK verdict.",
+      "evidence_artifact": "redteam-benchmark.json",
+      "evidence_pointer": "/verdict"
+    }
+  ],
+  "limitations": [
+    "Controls filter and inspect a completed campaign; PyRIT is not executing in the browser.",
+    "The artifact makes no claim that a live commercial model was compromised."
+  ]
+}

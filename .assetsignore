@@ -27,3 +27,7 @@ security_best_practices_report.md
 
 .agents/
 skills-lock.json
+evidence/
+scripts/
+package.json
+package-lock.json

@@ -1,0 +1,62 @@
+{
+  "demo_id": "agent-observability",
+  "mode": "artifact_replay",
+  "source_repository": "https://github.com/prasadnitish/AI-Eval-Control-Tower/tree/codex/agent-observability",
+  "source_commit": "24d5d87fcd9c57ea957bed45c6bc38ed4a25b5e7",
+  "generated_at": "2026-07-12T17:44:17.969Z",
+  "generator_command": "npm test && npm run trace:failure && npm run trace:load",
+  "inputs": [
+    {
+      "name": "forced-failure trace",
+      "path": "forced-failure.json",
+      "sha256": "101396cc31fe3962b21fe0559efe0ee840c116dd689879009c32519c83d0ab76",
+      "bytes": 1088
+    },
+    {
+      "name": "150,000-span load report",
+      "path": "trace-load.json",
+      "sha256": "e9268261b6fddc5e13361de6ef97f3b3b0b9235124d82c01930ab1411083888e",
+      "bytes": 369
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "forced-failure trace",
+      "path": "forced-failure.json",
+      "sha256": "101396cc31fe3962b21fe0559efe0ee840c116dd689879009c32519c83d0ab76",
+      "bytes": 1088,
+      "media_type": "application/json"
+    },
+    {
+      "name": "150,000-span load report",
+      "path": "trace-load.json",
+      "sha256": "e9268261b6fddc5e13361de6ef97f3b3b0b9235124d82c01930ab1411083888e",
+      "bytes": 369,
+      "media_type": "application/json"
+    }
+  ],
+  "environment": {
+    "execution": "committed artifact replay with browser-local import",
+    "provider_calls": false,
+    "timestamp_offsets": "reconstructed from source trace timing"
+  },
+  "providers": [],
+  "claims": [
+    {
+      "id": "trace-forced-failure",
+      "statement": "The committed trace retains the policy-service failure and the release-gate fallback reason.",
+      "evidence_artifact": "forced-failure.json",
+      "evidence_pointer": "/spans/1/detail/error_code"
+    },
+    {
+      "id": "trace-load",
+      "statement": "The in-process collector simulation attempted 150,000 spans and retained all 150 error spans.",
+      "evidence_artifact": "trace-load.json",
+      "evidence_pointer": "/retained_errors"
+    }
+  ],
+  "limitations": [
+    "Load evidence is an in-process buffered collector simulation, not a hosted throughput benchmark.",
+    "The fixture contains relative millisecond offsets rather than original wall-clock span timestamps."
+  ]
+}

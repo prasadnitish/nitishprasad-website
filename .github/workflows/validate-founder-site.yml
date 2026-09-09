@@ -3,6 +3,8 @@ on:
   pull_request:
   push:
     branches: [main, 'codex/**']
+permissions:
+  contents: read
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -12,6 +14,4 @@ jobs:
         with:
           node-version: '22'
       - run: node --check founder-system.js && node --check recruiter-assistant.js
-      - run: node --test tests/portfolio-guide.test.cjs
-      - run: python3 tests/check_founder_site.py
-      - run: node tests/validate-graphrag-evidence.mjs
+      - run: npm test

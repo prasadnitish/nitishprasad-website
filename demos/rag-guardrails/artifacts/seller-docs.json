@@ -1,0 +1,86 @@
+[
+  {
+    "doc_id": "seller_doc_001",
+    "title": "Synthetic Marketplace Policy - Prohibited Claims",
+    "source": "seller_policy_synth",
+    "tags": ["policy", "listing", "compliance"],
+    "content": "Listings cannot claim guaranteed medical outcomes or absolute performance claims without substantiated evidence. Risky claims require immediate revision."
+  },
+  {
+    "doc_id": "seller_doc_002",
+    "title": "Synthetic Seller KPI Definitions",
+    "source": "seller_metrics_synth",
+    "tags": ["kpi", "conversion", "traffic"],
+    "content": "Core seller KPIs include sessions, conversion rate, average selling price, return rate, and advertising cost of sales. Sudden conversion drops should be analyzed alongside traffic quality and review changes."
+  },
+  {
+    "doc_id": "seller_doc_003",
+    "title": "Synthetic Returns Policy Escalation",
+    "source": "seller_policy_synth",
+    "tags": ["returns", "escalation"],
+    "content": "If return rate rises above policy threshold for two consecutive weeks, trigger listing quality review and customer issue triage."
+  },
+  {
+    "doc_id": "seller_doc_004",
+    "title": "Synthetic Review Velocity Risk",
+    "source": "seller_risk_synth",
+    "tags": ["reviews", "risk"],
+    "content": "Unusual spikes in review velocity can indicate campaign distortion or compliance risk. Investigate timing, sentiment, and source attribution before bid expansion."
+  },
+  {
+    "doc_id": "seller_doc_005",
+    "title": "Synthetic Pricing and Margin Guardrail",
+    "source": "seller_finance_synth",
+    "tags": ["pricing", "margin"],
+    "content": "Promotion plans should maintain a minimum gross margin floor. High discounting without incremental demand can create cannibalization risk."
+  },
+  {
+    "doc_id": "seller_doc_006",
+    "title": "Synthetic Seller Action Playbook",
+    "source": "seller_playbook_synth",
+    "tags": ["actions", "optimization"],
+    "content": "When conversion drops with stable traffic, prioritize PDP clarity, image refresh, review health diagnostics, and keyword relevance checks before budget increase."
+  },
+  {
+    "doc_id": "seller_doc_007",
+    "title": "Synthetic Compliance Severity Model",
+    "source": "seller_policy_synth",
+    "tags": ["severity", "compliance"],
+    "content": "Severity 1 issues are informational, Severity 2 requires remediation plan, Severity 3 blocks launch until policy owner sign-off."
+  },
+  {
+    "doc_id": "seller_doc_008",
+    "title": "Synthetic Forecasting Guidance",
+    "source": "seller_forecast_synth",
+    "tags": ["forecast", "planning"],
+    "content": "Post-spike forecasting should use scenario ranges: soft landing, sticky growth, and re-acceleration. Plan inventory to baseline confidence, not viral peak."
+  },
+  {
+    "doc_id": "seller_doc_009",
+    "title": "Synthetic Ad Efficiency Guidance",
+    "source": "seller_ads_synth",
+    "tags": ["ads", "acos", "efficiency"],
+    "content": "If ACOS rises above target with weak conversion, reallocate spend toward proven terms and reduce bids on low-intent segments."
+  },
+  {
+    "doc_id": "seller_doc_010",
+    "title": "Synthetic Data Sensitivity Rule",
+    "source": "seller_security_synth",
+    "tags": ["security", "data"],
+    "content": "Do not expose raw seller identifiers, payment details, or personally identifiable data in generated responses."
+  },
+  {
+    "doc_id": "seller_doc_011",
+    "title": "Synthetic Policy Citation Requirement",
+    "source": "seller_policy_synth",
+    "tags": ["citation", "governance"],
+    "content": "All compliance-related recommendations must include policy-backed rationale and reference at least one policy source."
+  },
+  {
+    "doc_id": "seller_doc_012",
+    "title": "Synthetic Seller Support Tone Guide",
+    "source": "seller_ux_synth",
+    "tags": ["tone", "support"],
+    "content": "Responses should be direct and action-oriented. Avoid certainty when evidence is incomplete and label assumptions clearly."
+  }
+]
