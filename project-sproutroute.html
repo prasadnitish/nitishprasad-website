@@ -7,7 +7,7 @@
   <meta name="description" content="SproutRoute systems case study: hybrid AI travel planner that separates generated prose from verified facts, deterministic packing, cached attractions, and family-safety data." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="vertical-system.css" />
-  <link rel="stylesheet" href="platform-system.css" />
+  <link rel="stylesheet" href="platform-system.css?v=20260908" />
   <!-- SEO / social metadata -->
   <link rel="canonical" href="https://www.nitishprasad.com/project-sproutroute" />
 
@@ -22,43 +22,32 @@
   <meta name="twitter:title" content="SproutRoute — AI Boundaries for Trustworthy Planning" />
   <meta name="twitter:description" content="A hybrid AI travel planner that separates generated prose from verified facts, with deterministic packing, cached attractions, and family-safety data." />
   <meta name="twitter:image" content="https://www.nitishprasad.com/og-sproutroute.png" />
+  <link rel="stylesheet" href="founder-system.css?v=20260908" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="recruiter-assistant.css?v=20260908" />
 </head>
-<body class="detail-page">
-  <div class="mobile-progress" aria-hidden="true"><span data-mobile-progress></span></div>
-  <header class="site-nav">
-    <a class="brand-lockup" href="index.html"><span>Nitish Prasad</span><span>Principal / Staff PM</span></a>
-    <span class="nav-divider" aria-hidden="true"></span>
-    <nav class="nav-links" aria-label="Primary">
-      <a aria-current="page" href="index.html#work">Work</a>
-      <a href="enterprise-ai-platform.html">AI Platform</a>
-      <a href="index.html#about">About</a>
-      <a href="resume.html">Resume</a>
-      <a class="nav-cta" href="resume.html">Get the resume <span aria-hidden="true">↓</span></a>
+<body class="founder-site detail-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="platform-nav">
+    <a class="platform-brand" href="index.html" aria-label="Nitish Prasad, home"><strong>Nitish Prasad</strong></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+      <a href="index.html#work">Work</a><a href="about.html">About</a><a class="nav-cta" href="resume.html">Resume <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
 
-  <aside class="vine-shell" aria-hidden="true">
-    <svg viewBox="0 0 100 900" preserveAspectRatio="none">
-      <path class="vine-track" d="M52 0 C28 105 82 170 50 270 C18 372 72 458 50 565 C30 672 66 770 48 900" />
-      <path class="vine-progress" data-vine-progress d="M52 0 C28 105 82 170 50 270 C18 372 72 458 50 565 C30 672 66 770 48 900" />
-    </svg>
-    <span class="vine-node" data-vine-node></span>
-    <span class="vine-node" data-vine-node></span>
-    <span class="vine-node" data-vine-node></span>
-    <span class="vine-node" data-vine-node></span>
-    <span class="vine-node" data-vine-node></span>
-  </aside>
-
-  <main class="case-shell">
+  <main id="main" class="case-shell">
     <section class="case-hero" data-frame>
       <p class="context">Hybrid AI / live production / family travel</p>
       <h1 class="case-title">SproutRoute</h1>
-      <p class="case-summary">A hybrid AI travel planner that separates what AI should generate from what must be verified, deterministic, or cached. The product decision was to make AI write connective tissue, not facts. I defined the product, designed the system architecture, and operate the web app in production.</p>
+      <p class="case-summary">Parents need a trip plan that accounts for children, weather, activities, and packing. I defined, designed, built, and operate SproutRoute as a production-quality 0→1 web product. I moved unreliable AI-generated packing into rules and kept place and weather facts separate from generated text. This case demonstrates craft; it does not claim user growth or retention.</p>
       <div class="evidence-status" aria-label="Evidence maturity"><span class="is-live">Live production product</span><span class="is-implemented">MCP path implemented</span></div>
       <dl class="metric-line">
-        <div><dt>Stack</dt><dd>Railway + Supabase</dd></div>
-        <div><dt>AI</dt><dd>Gemini + Places</dd></div>
-        <div><dt>Quality</dt><dd>350+ tests</dd></div>
+        <div><dt>Customer</dt><dd>Traveling families</dd></div>
+        <div><dt>Scope</dt><dd>Independent 0→1 build</dd></div>
+        <div><dt>Evidence</dt><dd>Live web product</dd></div>
         <div><dt>Core choice</dt><dd>Facts before prose</dd></div>
       </dl>
       <div class="case-actions">
@@ -71,15 +60,15 @@
       <dl class="decision-summary">
         <div><dt>Decision</dt><dd>Let verified APIs and deterministic rules own facts; use models for planning and connective prose.</dd></div>
         <div><dt>Why</dt><dd>Weather, places, safety, and family packing require provenance and predictable failure handling.</dd></div>
-        <div><dt>Result</dt><dd>A production web product with 350+ tests and an additive four-agent MCP path with handoff traces.</dd></div>
+        <div><dt>Result</dt><dd>A working family travel product. Test counts and the agent path are supporting engineering evidence, not adoption measures.</dd></div>
       </dl>
     </section>
 
     <section class="case-section" data-frame id="what-this-proves">
       <div class="section-kicker">What this proves<span>AI boundaries</span></div>
       <div class="case-section-body">
-        <h2>Trustworthy AI planning starts with product boundaries.</h2>
-        <p>This case shows product judgment under AI uncertainty: which user promises need deterministic control, which experiences can be generative, and how latency, cost, provenance, and trust shape the product architecture.</p>
+        <h2>A family needs a plan it can act on.</h2>
+        <p>I changed the product as I found reliability problems: early AI-heavy generation was slow and unreliable for packing and safety, so I moved packing into rules and used verified data for places and weather. No measured family-use study or retention result is supplied for this case.</p>
       </div>
     </section>
 
@@ -102,12 +91,12 @@
       <div class="case-section-body">
         <h2>The artifacts should show the shipped flow, not a decorative mockup.</h2>
         <div class="visual-grid">
-          <figure class="visual"><img data-lightbox src="assets/screenshots/location-picker.jpg" alt="SproutRoute destination search screen" /><figcaption>Natural-language destination setup</figcaption></figure>
-          <figure class="visual"><img data-lightbox src="assets/screenshots/date-picker.jpg" alt="SproutRoute date picker screen" /><figcaption>Date range drives weather and packing</figcaption></figure>
-          <figure class="visual"><img data-lightbox src="assets/screenshots/whos-coming.jpg" alt="SproutRoute traveler setup screen" /><figcaption>Family composition changes constraints</figcaption></figure>
-          <figure class="visual"><img data-lightbox src="assets/screenshots/itinerary.jpg" alt="SproutRoute itinerary screen" /><figcaption>Verified itinerary surface</figcaption></figure>
-          <figure class="visual"><img data-lightbox src="assets/screenshots/packing-list.jpg" alt="SproutRoute packing list screen" /><figcaption>Deterministic packing list</figcaption></figure>
-          <figure class="visual"><img data-lightbox src="assets/screenshots/safety.jpg" alt="SproutRoute safety screen" /><figcaption>Safety from verified sources</figcaption></figure>
+          <figure class="visual"><img data-lightbox src="assets/screenshots/location-picker.webp" alt="SproutRoute destination search screen" /><figcaption>Natural-language destination setup</figcaption></figure>
+          <figure class="visual"><img data-lightbox src="assets/screenshots/date-picker.webp" alt="SproutRoute date picker screen" /><figcaption>Date range drives weather and packing</figcaption></figure>
+          <figure class="visual"><img data-lightbox src="assets/screenshots/whos-coming.webp" alt="SproutRoute traveler setup screen" /><figcaption>Family composition changes constraints</figcaption></figure>
+          <figure class="visual"><img data-lightbox src="assets/screenshots/itinerary.webp" alt="SproutRoute itinerary screen" /><figcaption>Verified itinerary surface</figcaption></figure>
+          <figure class="visual"><img data-lightbox src="assets/screenshots/packing-list.webp" alt="SproutRoute packing list screen" /><figcaption>Deterministic packing list</figcaption></figure>
+          <figure class="visual"><img data-lightbox src="assets/screenshots/safety.webp" alt="SproutRoute safety screen" /><figcaption>Safety from verified sources</figcaption></figure>
         </div>
       </div>
     </section>
@@ -148,7 +137,9 @@
       </div>
     </section>
   </main>
+  <footer class="platform-footer"><span>© 2026 Nitish Prasad</span><nav aria-label="Footer"><a href="enterprise-ai-platform.html">AI Platform</a><a href="archive.html">All work</a><a href="privacy-policy.html">Privacy</a><a href="terms.html">Terms</a></nav></footer>
   <script src="vertical-system.js?v=20260712"></script>
-  <script src="platform-system.js"></script>
+  <script src="founder-system.js?v=20260908" defer></script>
+  <script src="recruiter-assistant.js?v=20260908" defer></script>
 </body>
 </html>

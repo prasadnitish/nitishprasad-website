@@ -7,7 +7,7 @@
   <meta name="description" content="Sprout Math case study: offline-first iOS math product with local progress, deterministic hints, parent controls, and privacy-first architecture." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="vertical-system.css" />
-  <link rel="stylesheet" href="platform-system.css" />
+  <link rel="stylesheet" href="platform-system.css?v=20260908" />
   <!-- SEO / social metadata -->
   <link rel="canonical" href="https://www.nitishprasad.com/project-sproutmath" />
 
@@ -22,39 +22,32 @@
   <meta name="twitter:title" content="Sprout Math — Nitish Prasad" />
   <meta name="twitter:description" content="An offline-first iOS math product with local progress, deterministic hints, parent controls, and a privacy-first architecture." />
   <meta name="twitter:image" content="https://www.nitishprasad.com/og-sproutmath.png" />
+  <link rel="stylesheet" href="founder-system.css?v=20260908" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="recruiter-assistant.css?v=20260908" />
 </head>
-<body class="detail-page">
-  <div class="mobile-progress" aria-hidden="true"><span data-mobile-progress></span></div>
-  <header class="site-nav">
-    <a class="brand-lockup" href="index.html"><span>Nitish Prasad</span><span>Principal / Staff PM</span></a>
-    <span class="nav-divider" aria-hidden="true"></span>
-    <nav class="nav-links" aria-label="Primary">
-      <a aria-current="page" href="index.html#work">Work</a>
-      <a href="enterprise-ai-platform.html">AI Platform</a>
-      <a href="index.html#about">About</a>
-      <a href="resume.html">Resume</a>
-      <a class="nav-cta" href="resume.html">Get the resume <span aria-hidden="true">↓</span></a>
+<body class="founder-site detail-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="platform-nav">
+    <a class="platform-brand" href="index.html" aria-label="Nitish Prasad, home"><strong>Nitish Prasad</strong></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+      <a href="index.html#work">Work</a><a href="about.html">About</a><a class="nav-cta" href="resume.html">Resume <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
 
-  <aside class="vine-shell" aria-hidden="true">
-    <svg viewBox="0 0 100 900" preserveAspectRatio="none">
-      <path class="vine-track" d="M52 0 C28 105 82 170 50 270 C18 372 72 458 50 565 C30 672 66 770 48 900" />
-      <path class="vine-progress" data-vine-progress d="M52 0 C28 105 82 170 50 270 C18 372 72 458 50 565 C30 672 66 770 48 900" />
-    </svg>
-    <span class="vine-node" data-vine-node></span><span class="vine-node" data-vine-node></span><span class="vine-node" data-vine-node></span><span class="vine-node" data-vine-node></span><span class="vine-node" data-vine-node></span>
-  </aside>
-
-  <main class="case-shell">
+  <main id="main" class="case-shell">
     <section class="case-hero" data-frame>
       <p class="context">Native iOS / offline first / product restraint</p>
       <h1 class="case-title">Sprout Math</h1>
-      <p class="case-summary">A focused K-5 iOS math product built around offline reliability, local progress, deterministic hints, parent trust, and a deliberately narrow V1. The first version earns trust through restraint.</p>
+      <p class="case-summary">Children need clear math practice, and parents need control over their data. I built Sprout Math around short offline sessions, on-device progress, and predictable hints. This production-quality 0→1 iOS build demonstrates product craft; I am not claiming user growth, learning outcomes, or retention here.</p>
       <div class="evidence-status" aria-label="Evidence maturity"><span class="is-implemented">Implemented native product</span><span>Local release evidence</span></div>
       <dl class="metric-line">
-        <div><dt>Platform</dt><dd>SwiftUI</dd></div>
-        <div><dt>Content</dt><dd>2,400+ templates</dd></div>
-        <div><dt>Audio</dt><dd>2,500+ clips</dd></div>
+        <div><dt>Customer</dt><dd>Children and parents</dd></div>
+        <div><dt>Scope</dt><dd>Independent 0→1 build</dd></div>
+        <div><dt>Platform</dt><dd>Native iOS</dd></div>
         <div><dt>Privacy</dt><dd>No accounts</dd></div>
       </dl>
       <div class="case-actions">
@@ -67,7 +60,7 @@
       <dl class="decision-summary">
         <div><dt>Decision</dt><dd>Keep progress, content, hints, and diagnostics on device with no account requirement.</dd></div>
         <div><dt>Why</dt><dd>A child-focused first release needs predictable help, fast sessions, and a small privacy surface.</dd></div>
-        <div><dt>Result</dt><dd>A native SwiftUI product with 2,400+ templates, 2,500+ audio clips, and six visual worlds.</dd></div>
+        <div><dt>Result</dt><dd>An offline native math product with a working practice loop and local progress. Content counts demonstrate implementation scope, not learning or adoption outcomes.</dd></div>
       </dl>
     </section>
 
@@ -79,7 +72,7 @@
         <div class="evidence-grid">
           <article class="evidence-panel"><strong>Focused learning loop</strong><p>Short sessions, adaptive placement, visible progress, and deterministic correction after repeated misses.</p></article>
           <article class="evidence-panel"><strong>Parent trust first</strong><p>Parent-gated settings, local diagnostics export, no ads, no accounts, no surprise network dependency.</p></article>
-          <article class="evidence-panel"><strong>Content model</strong><p>40 lessons, K-5 curriculum, 2,400+ templates, 2,500+ narrated clips, 6 visual worlds.</p></article>
+          <article class="evidence-panel"><strong>Content model</strong><p>A bundled K–5 practice curriculum, deterministic hints, narration, and six visual worlds. See the live product site for the current content inventory.</p></article>
           <article class="evidence-panel"><strong>Architecture</strong><p>Core Data persistence for profiles, attempts, mastery, history, and progress state vectors.</p></article>
         </div>
       </div>
@@ -90,7 +83,7 @@
       <div class="case-section-body">
         <h2>The look is playful. The system underneath is controlled.</h2>
         <div class="visual-grid">
-          <figure class="visual"><img data-lightbox src="assets/mathquest/candyland-background.png" alt="Candyland visual world" /><figcaption>Candyland</figcaption></figure>
+          <figure class="visual"><img data-lightbox src="assets/mathquest/candyland-background.webp" alt="Candyland visual world" /><figcaption>Candyland</figcaption></figure>
           <figure class="visual"><img data-lightbox src="assets/mathquest/axolotl-background.png" alt="Axolotl Lagoon visual world" /><figcaption>Axolotl Lagoon</figcaption></figure>
           <figure class="visual"><img data-lightbox src="assets/mathquest/rainbow-unicorn-background.png" alt="Rainbow Unicorn visual world" /><figcaption>Rainbow Unicorn</figcaption></figure>
           <figure class="visual"><img data-lightbox src="assets/mathquest/stars-space-background.png" alt="Stars and Space visual world" /><figcaption>Stars and Space</figcaption></figure>
@@ -126,7 +119,9 @@
       </div>
     </section>
   </main>
+  <footer class="platform-footer"><span>© 2026 Nitish Prasad</span><nav aria-label="Footer"><a href="enterprise-ai-platform.html">AI Platform</a><a href="archive.html">All work</a><a href="privacy-policy.html">Privacy</a><a href="terms.html">Terms</a></nav></footer>
   <script src="vertical-system.js?v=20260712"></script>
-  <script src="platform-system.js"></script>
+  <script src="founder-system.js?v=20260908" defer></script>
+  <script src="recruiter-assistant.js?v=20260908" defer></script>
 </body>
 </html>

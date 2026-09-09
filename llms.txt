@@ -6,7 +6,8 @@ This site is intended to be readable by search crawlers, recruiter tools, hiring
 
 - Homepage: https://www.nitishprasad.com/
 - Resume: https://www.nitishprasad.com/resume.html
-- AI Seller Workflow Intelligence case study: https://www.nitishprasad.com/project-amplify.html
+- Seller fees and incentives: https://www.nitishprasad.com/project-seller-incentives.html
+- Amplify customer and product-ownership case study: https://www.nitishprasad.com/project-amplify.html
 - SproutRoute case study: https://www.nitishprasad.com/project-sproutroute.html
 - Sprout Math case study: https://www.nitishprasad.com/project-sproutmath.html
 - AI Eval Control Tower case study: https://www.nitishprasad.com/ai-eval-control-tower.html
@@ -43,9 +44,15 @@ This site is intended to be readable by search crawlers, recruiter tools, hiring
 
 ## Candidate Summary
 
-Nitish Prasad is a product leader focused on 0->1 product strategy, scaled AI systems, marketplace economics, RAG, AI evaluation, trust and safety, and product operations.
+Nitish Prasad is a Senior Product Manager at Amazon, exploring Principal / Staff individual-contributor roles with ownership of a product area. His experience spans 10+ years at Amazon across marketplaces, payments, and seller systems.
 
-Flagship work includes an anonymized AI seller workflow intelligence case study; SproutRoute, a hybrid AI travel planner with deterministic and verified data layers; Sprout Math, a privacy-first offline iOS learning app; and an implemented enterprise AI platform portfolio spanning governed model access, GraphRAG, agent observability, adversarial release gates, and MCP execution.
+Commercial evidence: $16B+ seller fee-incentive portfolio context; three programs associated with 171% targeted ASIN lift and 41% GMS lift; $4.8M free-cash-flow impact in Pay CX; a JIRA-to-Workfront migration across 29 teams and 6,000+ users. Refer to the resume for dates and scope.
+
+Amplify serves approximately 1,600 NA/EU account managers. A before-and-after study of 10 account managers measured average preparation time falling from 45 to 5 minutes. Do not treat rollout reach as measured active usage or extrapolate study results to the full population. Salesforce integration did not launch. Supporting operational evidence: sub-500ms P95 latency and measured inference spend of $3,000 to $250/month (92% reduction) at the same workload.
+
+SproutRoute and Sprout Math are independent production-quality 0→1 builds that demonstrate craft. The portfolio does not claim their user counts, retention, or learning outcomes. The technical portfolio and simulated browser labs provide deeper implementation evidence; they are not commercial adoption measures.
+
+The portfolio guide has four reviewed, locally displayed answers. Its 90-day approach is hypothetical, not a past team-size claim or a delivery commitment.
 
 ## Contact
 

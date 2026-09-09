@@ -24,3 +24,6 @@ tmp/
 PRODUCT.md
 nitishprasad-website-threat-model.md
 security_best_practices_report.md
+
+.agents/
+skills-lock.json

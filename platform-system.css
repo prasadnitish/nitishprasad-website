@@ -70,4 +70,60 @@ button{font:inherit}
 /* Portfolio v2 — detail-page pill nav casing (override vertical-system uppercase) */
 .detail-page .brand-lockup.platform-brand span:first-child{text-transform:none!important}
 .detail-page .nav-links.primary-nav a{text-transform:none!important;letter-spacing:normal!important}
+
+/* Portfolio v2.1 — "See it running" demos band */
+.demos-band .section-head{margin-bottom:40px}
+.demo-rail{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.demo-tile{position:relative;min-height:196px;padding:24px;display:flex;flex-direction:column;border-right:1px solid var(--line);border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);background:var(--surface);transition:background .2s var(--ease),color .2s var(--ease),transform .2s var(--ease)}
+.demo-tile:hover,.demo-tile:focus-visible{z-index:1;background:var(--green);color:#fff;transform:translateY(-4px)}
+.demo-tile span{color:var(--red);font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+.demo-tile.is-live span{color:var(--green)}
+.demo-tile strong{margin-top:13px;font-size:clamp(1.15rem,1.5vw,1.5rem);line-height:1.05;letter-spacing:-.02em}
+.demo-tile em{margin-top:8px;color:var(--muted);font-style:normal;font-size:.85rem;line-height:1.4}
+.demo-tile b{margin-top:auto;padding-top:18px;font-size:1.2rem;font-weight:400}
+.demo-tile:hover span,.demo-tile:focus-visible span,.demo-tile.is-live:hover span{color:#b9cfad}
+.demo-tile:hover em,.demo-tile:focus-visible em{color:#c7d5ce}
+
+/* Portfolio v2.1 — image cards: full-card cover link + raised proof links */
+.proof-card{position:relative;z-index:0}
+.proof-card:hover{z-index:2}
+.proof-card:after{z-index:1}
+.proof-cover{position:absolute;inset:0;z-index:2}
+.proof-copy{z-index:3;pointer-events:none}
+.proof-links{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px;pointer-events:none}
+.proof-links a{pointer-events:auto;min-height:38px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,.55);border-radius:999px;background:rgba(0,0,0,.32);color:#fff;font-size:.8rem;font-weight:700;text-decoration:none;transition:background .18s var(--ease),color .18s var(--ease)}
+.proof-links a:hover{background:#fff;color:#171915;border-color:#fff}
+
+/* Portfolio v2.1 — platform tiles become cards with demo/repo links */
+.platform-cases.platform-cases-4{grid-template-columns:repeat(4,1fr)}
+.platform-case{position:relative;z-index:0;min-height:280px;padding:28px;display:flex;flex-direction:column;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .2s var(--ease),color .2s var(--ease)}
+.platform-case:hover{background:var(--green);color:#fff}
+.platform-case>span{color:var(--red);font-size:.72rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+.platform-case>strong{margin-top:auto;font-size:clamp(1.35rem,2vw,2.1rem);line-height:1}
+.platform-case>p{margin:14px 0 0;color:var(--muted);line-height:1.45}
+.platform-case:hover>p,.platform-case:hover>span{color:#c7d5ce}
+.platform-case .proof-cover{z-index:1}
+.platform-case .proof-links{position:relative;z-index:2;margin-top:18px;pointer-events:auto}
+.platform-case .proof-links a{pointer-events:auto;min-height:34px;padding:0 13px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink);font-size:.76rem;font-weight:700}
+.platform-case:hover .proof-links a{border-color:rgba(255,255,255,.5);color:#fff}
+.platform-case .proof-links a:hover{background:#fff;color:#171915;border-color:#fff}
+
+@media(max-width:1000px){.demo-rail{grid-template-columns:repeat(2,1fr)}.platform-cases.platform-cases-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.demo-rail{grid-template-columns:1fr}}
+
+/* About page */
+.about-hero{min-height:auto;padding-top:172px;padding-bottom:40px}
+.about-hero-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,5vw,80px);align-items:center}
+.about-photo{margin:0;overflow:hidden;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+.about-photo img{width:100%;height:100%;max-height:580px;object-fit:cover;object-position:center 22%}
+.about-intro h1{margin:0 0 22px;font-size:clamp(3.2rem,6vw,6rem);line-height:.9;letter-spacing:-.07em}
+.about-lead{max-width:640px;margin:0;color:var(--muted);font-size:clamp(1.15rem,1.5vw,1.42rem);line-height:1.55}
+.about-intro .button-row{margin-top:30px;gap:14px}
+.about-story{max-width:1120px;padding-top:20px;padding-bottom:40px}
+.about-block{display:grid;grid-template-columns:3fr 9fr;gap:60px;padding:56px 0;border-top:1px solid var(--line)}
+.about-block .kicker{position:sticky;top:120px;align-self:start;margin:0}
+.about-block h2{max-width:900px;margin:0;font-size:clamp(1.9rem,3.4vw,3.4rem);line-height:1.02;letter-spacing:-.045em;text-wrap:balance}
+.about-block p{max-width:780px;margin:20px 0 0;color:var(--muted);font-size:1.08rem;line-height:1.72}
+.about-block p+p{margin-top:16px}
+@media(max-width:900px){.about-hero-grid{grid-template-columns:1fr;gap:32px}.about-photo img{max-height:460px}.about-block{grid-template-columns:1fr;gap:14px;padding:40px 0}.about-block .kicker{position:static}}
 .detail-page .case-product-shot{display:block;width:100%;height:auto;margin-top:48px;border:1px solid var(--line);background:var(--surface)}

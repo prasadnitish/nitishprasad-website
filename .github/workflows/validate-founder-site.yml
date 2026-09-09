@@ -1,0 +1,17 @@
+name: Validate portfolio
+on:
+  pull_request:
+  push:
+    branches: [main, 'codex/**']
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check founder-system.js && node --check recruiter-assistant.js
+      - run: node --test tests/portfolio-guide.test.cjs
+      - run: python3 tests/check_founder_site.py
+      - run: node tests/validate-graphrag-evidence.mjs
